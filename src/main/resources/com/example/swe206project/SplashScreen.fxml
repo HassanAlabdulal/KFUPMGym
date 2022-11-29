@@ -1,26 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #262B2B" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.swe206project.SplashScreenController">
+<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #262B2B;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.swe206project.SplashScreenController">
    <children>
-      <Label fx:id="loading" layoutX="15.0" layoutY="353.0" style="-fx-text-fill: #F4F9F1; -fx-font-weight: bold;" text="Loading..." AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
+      <ProgressBar cache="true" layoutY="368.0" prefHeight="32.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <effect>
+            <InnerShadow height="20.0" radius="9.5" width="20.0" />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor></ProgressBar>
+      <Label fx:id="loading" layoutY="368.0" opacity="0.85" prefHeight="32.0" prefWidth="600.0" style="-fx-text-fill: #262B2B;" text="  Loading..." AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <font>
-            <Font size="18.0" />
+            <Font name="Roboto Bold" size="18.0" />
          </font>
       </Label>
-      <ProgressBar layoutX="53.0" layoutY="513.0" prefHeight="18.0" prefWidth="623.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-      <Label fx:id="title" contentDisplay="CENTER" layoutX="168.0" layoutY="114.0" style="-fx-text-fill: #F4F9F1" text="KFUPM Gym">
+      <Label fx:id="title" contentDisplay="CENTER" layoutX="184.0" layoutY="130.0" style="-fx-text-fill: #F4F9F1" text="KFUPM Gym">
          <font>
-            <Font name="System Bold" size="64.0" />
+            <Font name="Overlock Bold" size="72.0" />
          </font>
       </Label>
-      <ImageView fx:id="icon" fitHeight="112.0" fitWidth="113.0" layoutX="55.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="icon" fitHeight="120.0" fitWidth="125.0" layoutX="52.0" layoutY="118.0" opacity="0.9" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/images/kfupmLogo.png" />
          </image></ImageView>
