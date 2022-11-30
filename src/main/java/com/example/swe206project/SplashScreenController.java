@@ -50,6 +50,7 @@ public class SplashScreenController implements Initializable {
                             Scene loginFormScene = new Scene(fxmlLoader.load());
                             Stage stage = new Stage();
                             stage.setScene(loginFormScene);
+                            stage.setResizable(false);
                             stage.show();
                         } catch (IOException e) {
                             e.printStackTrace();

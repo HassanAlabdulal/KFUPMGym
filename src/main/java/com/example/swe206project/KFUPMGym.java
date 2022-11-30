@@ -12,7 +12,7 @@ public class KFUPMGym extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         try {
-            Parent root               = FXMLLoader.load(getClass().getResource("SplashScreen.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("SplashScreen.fxml"));
             Scene  splashScreenScene  = new Scene(root);
 
             stage.initStyle(StageStyle.UNDECORATED);

@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.swe206project.LoginFormController">
    <right>
       <AnchorPane prefHeight="600.0" prefWidth="450.0" style="-fx-background-color: #262B2B;" BorderPane.alignment="CENTER">
          <children>
@@ -20,7 +20,7 @@
                   <Font name="Overlock Bold" size="64.0" />
                </font>
             </Label>
-            <TextField layoutX="113.0" layoutY="251.0" prefHeight="30.0" prefWidth="225.0" promptText="Enter your username" style="-fx-border-width: 0px 0px 1px 0px; -fx-border-color: #43896B; -fx-background-color: #3A4141; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #FFFFFF;">
+            <TextField fx:id="username" layoutX="113.0" layoutY="251.0" prefHeight="30.0" prefWidth="225.0" promptText="Enter your username" style="-fx-border-width: 0px 0px 1px 0px; -fx-border-color: #43896B; -fx-background-color: #3A4141; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #FFFFFF;">
                <font>
                   <Font name="Lato Bold" size="14.0" />
                </font>
@@ -38,12 +38,12 @@
                   <Font name="Lato Bold" size="17.0" />
                </font>
             </Label>
-            <Button layoutX="175.0" layoutY="435.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #6D1DDE; -fx-background-radius: 15px;" text="Login" textAlignment="CENTER" textFill="#f4f9f1">
+            <Button layoutX="175.0" layoutY="435.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #43896B; -fx-background-radius: 15px;" text="Login" textAlignment="CENTER" textFill="#f4f9f1">
                <font>
-                  <Font name="Lato Bold" size="18.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Button>
-            <TextField layoutX="113.0" layoutY="348.0" prefHeight="30.0" prefWidth="225.0" promptText="Enter your password" style="-fx-border-width: 0px 0px 1px 0px; -fx-border-color: #43896B; -fx-background-color: #3A4141; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #FFFFFF;">
+            <TextField fx:id="password" layoutX="113.0" layoutY="348.0" prefHeight="30.0" prefWidth="225.0" promptText="Enter your password" style="-fx-border-width: 0px 0px 1px 0px; -fx-border-color: #43896B; -fx-background-color: #3A4141; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #FFFFFF;">
                <font>
                   <Font name="Lato Bold" size="14.0" />
                </font>
@@ -51,28 +51,38 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </TextField>
+            <ImageView blendMode="DARKEN" fitHeight="33.0" fitWidth="32.0" layoutX="307.0" layoutY="251.0" onMouseClicked="#clearUsernameInput" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/images/istockphoto-1162428585-170667a.jpg" />
+               </image>
+            </ImageView>
+            <ImageView blendMode="DARKEN" fitHeight="33.0" fitWidth="32.0" layoutX="307.0" layoutY="348.0" onMouseClicked="#clearPasswordInput" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/images/istockphoto-1162428585-170667a.jpg" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </right>
    <left>
       <AnchorPane prefHeight="600.0" prefWidth="350.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="301.0" fitWidth="350.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="259.0" fitWidth="302.0" layoutX="24.0" layoutY="67.0" pickOnBounds="true">
                <image>
                   <Image url="@assets/images/loginIcon.png" />
                </image>
             </ImageView>
-            <Text fill="#43896b" layoutY="388.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to KFUPM Gym application!" textAlignment="CENTER" wrappingWidth="350.0">
+            <Text fill="#43896b" layoutY="346.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to KFUPM Gym application!" textAlignment="CENTER" wrappingWidth="350.0">
                <font>
-                  <Font name="Roboto Bold" size="18.0" />
+                  <Font name="System Bold" size="17.0" />
                </font>
             </Text>
-            <Text fill="#43896b" layoutY="416.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please enter your credintials to proceed" textAlignment="CENTER" wrappingWidth="350.0">
+            <Text fill="#43896b" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please enter your credintials to proceed" textAlignment="CENTER" wrappingWidth="350.0">
                <font>
-                  <Font name="Roboto Bold" size="16.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
             </Text>
-            <ImageView fitHeight="78.0" fitWidth="90.0" layoutX="133.0" layoutY="452.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="78.0" fitWidth="82.0" layoutX="136.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/images/kfupmLogo.png" />
                </image>

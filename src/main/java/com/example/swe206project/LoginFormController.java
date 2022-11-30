@@ -1,14 +1,31 @@
 package com.example.swe206project;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 public class LoginFormController {
-    @FXML
-    private Label welcomeText;
 
     @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+    private TextField username;
+
+    @FXML
+    private TextField password;
+
+    @FXML
+    public void clearUsernameInput(){
+        username.clear();
     }
+    @FXML
+    public void clearPasswordInput(){
+        password.clear();
+    }
+
+
+    
+    
+
 }
+
+
+
+
