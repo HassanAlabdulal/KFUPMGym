@@ -17,16 +17,13 @@ public class ReadFiles {
         BufferedReader textReader = new BufferedReader(fileReader);
         try (Scanner scan = new Scanner(textReader)) {
             String data = "";
-            String tmp;
-            
-            while((tmp = textReader.readLine()) != null){
-                data += tmp + " ";
-            }
-
-            String[] textData = data.split("\\s");
+            String currentLine;
+            while((currentLine = textReader.readLine()) != null)
+                data += currentLine + " ";
 
             textReader.close();
-            return textData;
+            
+            return data.split("\\s");
         }
             
     }

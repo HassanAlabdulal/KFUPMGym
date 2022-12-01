@@ -58,9 +58,8 @@ public class LoginFormController {
         Boolean autherized = false;
         
         try {
-            String[] tmp2 = credentialsFile.openFile();
-            for (String el : tmp2) {
-                if(credentials.equals(el)){
+            for (String Username_Pass : credentialsFile.openFile()) {
+                if(credentials.equals(Username_Pass)){
                     autherized = true;
                     break;
                 }
