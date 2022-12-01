@@ -62,8 +62,6 @@ public class LoginFormController {
                 if(credentials.equals(el)){
                     autherized = true;
                     break;
-                } else if (el.equals(null) || el.equals("")){
-                    break;
                 }
             }
         } catch (IOException e) {
@@ -132,6 +130,5 @@ public class LoginFormController {
     void setOriginalColor(MouseEvent event) {
         loginButton.setStyle("-fx-background-color: #43896B; -fx-background-radius: 15");
     }
-
 
 }
