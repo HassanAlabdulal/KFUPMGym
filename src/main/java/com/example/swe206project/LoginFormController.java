@@ -53,12 +53,13 @@ public class LoginFormController {
     @FXML
     void checkCredintials(MouseEvent event) {
         String credentials = username.getText() + password.getText();
-        ReadFiles credentialsFile = new ReadFiles("/Users/alisalman/Desktop/221/SWE 206 Project/SWE206-Project/UserAndPass.txt");
+        ReadFiles credentialsFile = new ReadFiles("D:\\KFUPM\\Sophomore\\Term 221\\SWE 206\\project\\Phase 3\\Code\\SWE206-Project-main\\UserAndPass.txt");
         Alert alert = new Alert(AlertType.NONE);
         Boolean autherized = false;
         
         try {
-            for (String el : credentialsFile.openFile()) {
+            String[] tmp2 = credentialsFile.openFile();
+            for (String el : tmp2) {
                 if(credentials.equals(el)){
                     autherized = true;
                     break;
@@ -70,8 +71,12 @@ public class LoginFormController {
         }
         if (autherized){
             alert.setAlertType(AlertType.INFORMATION);
+            alert.setContentText("success");
             alert.show();
         } else{
+            //alert.setAlertType(AlertType.WARNING);
+            //alert.setContentText("failed login");
+            //alert.show();
             failedLoginLabel.setVisible(true);
             failedLoginIcon.setVisible(true);
             username.setStyle("-fx-border-color: #D53A0B; -fx-border-width: 0px 0px 1px 0px; -fx-background-color: #3A4141; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1");

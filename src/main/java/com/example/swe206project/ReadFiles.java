@@ -15,15 +15,15 @@ public class ReadFiles {
     public String[] openFile() throws IOException {
         FileReader fileReader = new FileReader(path);
         BufferedReader textReader = new BufferedReader(fileReader);
-
-        try (Scanner scan = new Scanner(fileReader)) {
+        try (Scanner scan = new Scanner(textReader)) {
             String data = "";
-
-            while(scan.hasNextLine()){
-                data += textReader.readLine();
+            String tmp;
+            
+            while((tmp = textReader.readLine()) != null){
+                data += tmp + " ";
             }
 
-            String[] textData = data.split("\n");
+            String[] textData = data.split("\\s");
 
             textReader.close();
             return textData;
