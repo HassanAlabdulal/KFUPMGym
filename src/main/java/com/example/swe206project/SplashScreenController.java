@@ -40,7 +40,7 @@ public class SplashScreenController implements Initializable {
         @Override
         public void run() {
             try {
-                Thread.sleep(5000);
+                Thread.sleep(2000);
                 Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
@@ -50,7 +50,7 @@ public class SplashScreenController implements Initializable {
                             Scene loginFormScene = new Scene(fxmlLoader.load());
                             Stage stage = new Stage();
                             stage.setScene(loginFormScene);
-                            stage.setResizable(false);
+                            stage.setTitle("KFUPM Gym");
                             stage.show();
                         } catch (IOException e) {
                             e.printStackTrace();

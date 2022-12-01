@@ -15,12 +15,12 @@
    <right>
       <AnchorPane prefHeight="600.0" prefWidth="450.0" style="-fx-background-color: #262B2B;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="151.0" layoutY="81.0" text="Login" textFill="#f4f9f1">
+            <Label fx:id="title" layoutX="151.0" layoutY="81.0" text="Login" textFill="#f4f9f1">
                <font>
                   <Font name="Overlock Bold" size="64.0" />
                </font>
             </Label>
-            <TextField fx:id="username" layoutX="113.0" layoutY="251.0" prefHeight="30.0" prefWidth="225.0" promptText="Enter your username" style="-fx-border-width: 0px 0px 1px 0px; -fx-border-color: #43896B; -fx-background-color: #3A4141; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #FFFFFF;">
+            <TextField fx:id="username" layoutX="113.0" layoutY="251.0" onMouseEntered="#changeUsernameIconOpacity" onMouseExited="#setUsernameIconOpacityToOriginal" prefHeight="30.0" prefWidth="225.0" promptText="Enter your username" style="-fx-border-width: 0px 0px 1px 0px; -fx-border-color: #43896B; -fx-background-color: #3A4141; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1;">
                <font>
                   <Font name="Lato Bold" size="14.0" />
                </font>
@@ -28,22 +28,22 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </TextField>
-            <Label layoutX="113.0" layoutY="211.0" prefHeight="40.0" prefWidth="78.0" text="Username" textFill="#f4f9f1">
+            <Label fx:id="usernameLabel" layoutX="113.0" layoutY="211.0" prefHeight="40.0" prefWidth="78.0" text="Username" textFill="#f4f9f1">
                <font>
                   <Font name="Lato Bold" size="17.0" />
                </font>
             </Label>
-            <Label layoutX="113.0" layoutY="308.0" prefHeight="40.0" prefWidth="78.0" text="Password" textFill="#f4f9f1">
+            <Label fx:id="passwordLabel" layoutX="113.0" layoutY="308.0" prefHeight="40.0" prefWidth="78.0" text="Password" textFill="#f4f9f1">
                <font>
                   <Font name="Lato Bold" size="17.0" />
                </font>
             </Label>
-            <Button layoutX="175.0" layoutY="435.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #43896B; -fx-background-radius: 15px;" text="Login" textAlignment="CENTER" textFill="#f4f9f1">
+            <Button fx:id="loginButton" layoutX="176.0" layoutY="435.0" mnemonicParsing="false" onMouseClicked="#checkCredintials" onMouseEntered="#setColor" onMouseExited="#setOriginalColor" onMousePressed="#setBorder" onMouseReleased="#removeBorder" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #43896B; -fx-background-radius: 15px;" text="Login" textAlignment="CENTER" textFill="#f4f9f1">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="Lato Bold" size="18.0" />
                </font>
             </Button>
-            <TextField fx:id="password" layoutX="113.0" layoutY="348.0" prefHeight="30.0" prefWidth="225.0" promptText="Enter your password" style="-fx-border-width: 0px 0px 1px 0px; -fx-border-color: #43896B; -fx-background-color: #3A4141; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #FFFFFF;">
+            <TextField fx:id="password" layoutX="113.0" layoutY="348.0" onMouseEntered="#changePasswordIconOpacity" onMouseExited="#setPasswordIconOpacityToOriginal" prefHeight="30.0" prefWidth="225.0" promptText="Enter your password" style="-fx-border-width: 0px 0px 1px 0px; -fx-border-color: #43896B; -fx-background-color: #3A4141; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1;">
                <font>
                   <Font name="Lato Bold" size="14.0" />
                </font>
@@ -51,33 +51,38 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </TextField>
-            <ImageView blendMode="DARKEN" fitHeight="33.0" fitWidth="32.0" layoutX="307.0" layoutY="251.0" onMouseClicked="#clearUsernameInput" pickOnBounds="true" preserveRatio="true">
+            <Label fx:id="failedLoginLabel" layoutX="82.0" layoutY="399.0" prefHeight="18.0" prefWidth="325.0" text="Login Failed: Your username or password is incorrect" textAlignment="CENTER" textFill="#d53a0b" visible="false">
+               <font>
+                  <Font name="Roboto Italic" size="14.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="failedLoginIcon" fitHeight="25.0" fitWidth="25.0" layoutX="53.0" layoutY="395.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
-                  <Image url="@assets/images/istockphoto-1162428585-170667a.jpg" />
+                  <Image url="@assets/images/loginFailIcon.png" />
                </image>
             </ImageView>
-            <ImageView blendMode="DARKEN" fitHeight="33.0" fitWidth="32.0" layoutX="307.0" layoutY="348.0" onMouseClicked="#clearPasswordInput" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="clearUsername" fitHeight="25.0" fitWidth="25.0" layoutX="311.0" layoutY="254.0" onMouseClicked="#clearUsernameInput" onMouseEntered="#changeUsernameIconOpacity" onMouseExited="#setUsernameIconOpacityToOriginal" opacity="0.4" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@assets/images/istockphoto-1162428585-170667a.jpg" />
+                  <Image url="@assets/images/closeIcon.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="clearPassword" fitHeight="25.0" fitWidth="25.0" layoutX="310.0" layoutY="351.0" onMouseClicked="#clearPasswordInput" onMouseEntered="#changePasswordIconOpacity" onMouseExited="#setPasswordIconOpacityToOriginal" opacity="0.4" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/images/closeIcon.png" />
                </image>
             </ImageView>
          </children>
       </AnchorPane>
    </right>
    <left>
-      <AnchorPane prefHeight="600.0" prefWidth="350.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="600.0" prefWidth="350.0" style="-fx-background-color: #F4F9F1;" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="259.0" fitWidth="302.0" layoutX="24.0" layoutY="67.0" pickOnBounds="true">
-               <image>
-                  <Image url="@assets/images/loginIcon.png" />
-               </image>
-            </ImageView>
-            <Text fill="#43896b" layoutY="346.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to KFUPM Gym application!" textAlignment="CENTER" wrappingWidth="350.0">
+            <Text fx:id="welcomeLabel" fill="#43896b" layoutY="346.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to KFUPM Gym application!" textAlignment="CENTER" wrappingWidth="350.0">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Text>
-            <Text fill="#43896b" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please enter your credintials to proceed" textAlignment="CENTER" wrappingWidth="350.0">
+            <Text fx:id="promptLabel" fill="#43896b" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please enter your credintials to proceed" textAlignment="CENTER" wrappingWidth="350.0">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -85,6 +90,11 @@
             <ImageView fitHeight="78.0" fitWidth="82.0" layoutX="136.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/images/kfupmLogo.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="273.0" fitWidth="275.0" layoutX="38.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/images/loginIcon.png" />
                </image>
             </ImageView>
          </children>
