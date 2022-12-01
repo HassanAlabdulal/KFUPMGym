@@ -82,7 +82,7 @@
                   <Font name="System Bold" size="17.0" />
                </font>
             </Text>
-            <Text fx:id="promptLabel" fill="#43896b" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please enter your credintials to proceed" textAlignment="CENTER" wrappingWidth="350.0">
+            <Text fx:id="promptLabel" fill="#43896b" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please enter your credentials to proceed" textAlignment="CENTER" wrappingWidth="350.0">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>

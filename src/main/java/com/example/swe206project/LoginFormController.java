@@ -1,9 +1,13 @@
 package com.example.swe206project;
 
+import java.io.IOException;
+
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
@@ -48,10 +52,33 @@ public class LoginFormController {
 
     @FXML
     void checkCredintials(MouseEvent event) {
-        failedLoginLabel.setVisible(true);
-        failedLoginIcon.setVisible(true);
-        username.setStyle("-fx-border-color: #D53A0B; -fx-border-width: 0px 0px 1px 0px; -fx-background-color: #3A4141; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1");
-        password.setStyle("-fx-border-color: #D53A0B; -fx-border-width: 0px 0px 1px 0px; -fx-background-color: #3A4141; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1");
+        String credentials = username.getText() + password.getText();
+        ReadFiles credentialsFile = new ReadFiles("/Users/alisalman/Desktop/221/SWE 206 Project/SWE206-Project/UserAndPass.txt");
+        Alert alert = new Alert(AlertType.NONE);
+        Boolean autherized = false;
+        
+        try {
+            for (String el : credentialsFile.openFile()) {
+                if(credentials.equals(el)){
+                    autherized = true;
+                    break;
+                } else if (el.equals(null) || el.equals("")){
+                    break;
+                }
+            }
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        if (autherized){
+            alert.setAlertType(AlertType.INFORMATION);
+            alert.show();
+        } else{
+            failedLoginLabel.setVisible(true);
+            failedLoginIcon.setVisible(true);
+            username.setStyle("-fx-border-color: #D53A0B; -fx-border-width: 0px 0px 1px 0px; -fx-background-color: #3A4141; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1");
+            password.setStyle("-fx-border-color: #D53A0B; -fx-border-width: 0px 0px 1px 0px; -fx-background-color: #3A4141; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1");
+         }
     }
 
     @FXML

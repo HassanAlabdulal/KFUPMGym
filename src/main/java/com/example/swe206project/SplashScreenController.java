@@ -40,13 +40,13 @@ public class SplashScreenController implements Initializable {
         @Override
         public void run() {
             try {
-                Thread.sleep(2000);
+                Thread.sleep(3500);
                 Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
                         FXMLLoader fxmlLoader;
                         try {
-                            fxmlLoader = new FXMLLoader(KFUPMGym.class.getResource("LoginFormController.fxml"));
+                            fxmlLoader = new FXMLLoader(KFUPMGym.class.getResource("LoginForm.fxml"));
                             Scene loginFormScene = new Scene(fxmlLoader.load());
                             Stage stage = new Stage();
                             stage.setScene(loginFormScene);
