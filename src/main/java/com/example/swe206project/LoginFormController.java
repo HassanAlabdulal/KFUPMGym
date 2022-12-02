@@ -2,7 +2,11 @@ package com.example.swe206project;
 
 import java.io.IOException;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -11,8 +15,12 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class LoginFormController {
+
+    double x,y = 0;
 
     @FXML
     private Button loginButton;
@@ -51,9 +59,9 @@ public class LoginFormController {
     private Text promptLabel;
 
     @FXML
-    void checkCredintials(MouseEvent event) {
+    void checkCredintials(MouseEvent event) throws IOException {
         String credentials = username.getText() + password.getText();
-        ReadFiles credentialsFile = new ReadFiles("D:\\KFUPM\\Sophomore\\Term 221\\SWE 206\\project\\Phase 3\\Code\\SWE206-Project-main\\UserAndPass.txt");
+        ReadFiles credentialsFile = new ReadFiles("UserAndPass.txt");
         Alert alert = new Alert(AlertType.NONE);
         Boolean autherized = false;
         
@@ -69,10 +77,11 @@ public class LoginFormController {
             e.printStackTrace();
         }
         if (autherized){
-            alert.setAlertType(AlertType.INFORMATION);
-            alert.setContentText("success");
-            alert.show();
-        } else{
+            // alert.setAlertType(AlertType.INFORMATION);
+            // alert.setContentText("success");
+            // alert.show();
+            switchToMenuPage();
+    }else{
             //alert.setAlertType(AlertType.WARNING);
             //alert.setContentText("failed login");
             //alert.show();
@@ -135,4 +144,24 @@ public class LoginFormController {
         loginButton.setStyle("-fx-background-color: #43896B; -fx-background-radius: 15");
     }
 
-}
+    public void switchToMenuPage () throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("MenuPage.fxml"));
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.UNDECORATED);
+
+            root.setOnMousePressed(event -> {
+            x = event.getSceneX();
+            y = event.getSceneY();
+        });
+
+            root.setOnMouseDragged(event -> {
+            stage.setX(event.getScreenX() - x);
+            stage.setY(event.getScreenY() - y);
+        });
+            Scene menuPaageScene = new Scene(root);
+            stage.setScene(menuPaageScene);
+            stage.show();
+        }
+        
+    }
+
