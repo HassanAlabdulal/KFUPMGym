@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #262B2B;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.swe206project.SplashScreenController">
+<AnchorPane id="rootPane" fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #262B2B;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.swe206project.SplashScreenController">
    <children>
       <ProgressBar cache="true" layoutY="368.0" prefHeight="32.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <effect>
