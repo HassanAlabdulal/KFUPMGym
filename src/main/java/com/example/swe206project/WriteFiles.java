@@ -21,7 +21,7 @@ public class WriteFiles {
         FileWriter write = new FileWriter(path, append_to_file);
         PrintWriter print_line = new PrintWriter(write);
 
-        print_line.printf("%s" + "%n", textLine);
+        print_line.printf("%s\n", textLine);
         print_line.close();
     }
 

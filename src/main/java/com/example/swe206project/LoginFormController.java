@@ -2,7 +2,6 @@ package com.example.swe206project;
 
 import java.io.IOException;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -33,6 +33,9 @@ public class LoginFormController {
 
     @FXML
     private ImageView failedLoginIcon;
+
+    @FXML
+    private GridPane rootPane;
 
     @FXML
     private TextField username;
@@ -60,7 +63,7 @@ public class LoginFormController {
 
     @FXML
     void checkCredintials(MouseEvent event) throws IOException {
-        String credentials = username.getText() + password.getText();
+        String credentials = username.getText() + " " + password.getText();
         ReadFiles credentialsFile = new ReadFiles("UserAndPass.txt");
         Alert alert = new Alert(AlertType.NONE);
         Boolean autherized = false;
@@ -81,7 +84,7 @@ public class LoginFormController {
             // alert.setContentText("success");
             // alert.show();
             switchToMenuPage();
-    }else{
+        } else{
             //alert.setAlertType(AlertType.WARNING);
             //alert.setContentText("failed login");
             //alert.show();
@@ -144,6 +147,7 @@ public class LoginFormController {
         loginButton.setStyle("-fx-background-color: #43896B; -fx-background-radius: 15");
     }
 
+
     public void switchToMenuPage () throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MenuPage.fxml"));
         Stage stage = new Stage();
@@ -161,7 +165,8 @@ public class LoginFormController {
             Scene menuPaageScene = new Scene(root);
             stage.setScene(menuPaageScene);
             stage.show();
-        }
-        
-    }
 
+            rootPane.getScene().getWindow().hide();
+        }
+
+}
