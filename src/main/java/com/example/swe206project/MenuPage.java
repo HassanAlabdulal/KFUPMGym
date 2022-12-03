@@ -7,8 +7,10 @@ import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
@@ -21,10 +23,72 @@ public class MenuPage implements Initializable {
     private ImageView closePage;
 
     @FXML
+    private Button myPlan;
+
+    @FXML
+    private Button myProfile;
+
+    @FXML
     private ImageView openMenu;
 
     @FXML
     private AnchorPane slider;
+
+    @FXML
+    private Button todaysSession;
+
+    @FXML
+    private Label userName;
+
+    @FXML
+    private ImageView userPicture;
+
+    @FXML
+    void todaysSessionInHover(MouseEvent event) {
+        todaysSession.setStyle("-fx-cursor: hand; -fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: #3A4141; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1");
+    }
+
+    @FXML
+    void todaysSessionOutHover(MouseEvent event) {
+        todaysSession.setStyle("-fx-cursor: hand; -fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color:  #303030; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1");
+    }
+
+    @FXML
+    void myProfileInHover(MouseEvent event) {
+        myProfile.setStyle("-fx-cursor: hand; -fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: #3A4141; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1");
+    }
+
+    @FXML
+    void myProfileOutHover(MouseEvent event) {
+        myProfile.setStyle("-fx-cursor: hand; -fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color:  #303030; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1");
+    }
+
+    @FXML
+    void myPlanInHover(MouseEvent event) {
+        myPlan.setStyle("-fx-cursor: hand; -fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: #3A4141; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1");
+    }
+
+    @FXML
+    void myPlanOutHover(MouseEvent event) {
+        myPlan.setStyle("-fx-cursor: hand; -fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color:  #303030; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1");
+    }
+
+    @FXML
+    void closePageInHover(MouseEvent event) {
+        closePage.setStyle("-fx-cursor: hand;");
+    }
+
+    @FXML
+    void openMenuInHover(MouseEvent event) {
+         openMenu.setStyle("-fx-cursor: hand;");
+    }
+
+    @FXML
+    void closeMenuInHover(MouseEvent event) {
+        closeMenu.setStyle("-fx-cursor: hand;");
+    }
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

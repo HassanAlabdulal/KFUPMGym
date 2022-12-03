@@ -17,12 +17,12 @@
          <top>
             <AnchorPane prefHeight="80.0" prefWidth="800.0" style="-fx-background-color: #303030;" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fx:id="closePage" fitHeight="50.0" fitWidth="50.0" layoutX="958.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="closePage" fitHeight="50.0" fitWidth="50.0" layoutX="958.0" layoutY="15.0" onMouseEntered="#closePageInHover" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@assets/images/exitIcon.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="openMenu" fitHeight="50.0" fitWidth="50.0" layoutX="17.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="openMenu" fitHeight="50.0" fitWidth="50.0" layoutX="17.0" layoutY="14.0" onMouseEntered="#openMenuInHover" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@assets/images/menuIcon.png" />
                      </image>
@@ -40,7 +40,7 @@
                         <Glow />
                      </effect>
                   </Label>
-                  <ImageView fx:id="closeMenu" fitHeight="50.0" fitWidth="50.0" layoutX="17.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                  <ImageView fx:id="closeMenu" fitHeight="50.0" fitWidth="50.0" layoutX="17.0" layoutY="14.0" onMouseExited="#closeMenuInHover" pickOnBounds="true" preserveRatio="true" visible="false">
                      <image>
                         <Image url="@assets/images/closeIcon.png" />
                      </image>
@@ -51,7 +51,7 @@
          <left>
             <AnchorPane fx:id="slider" prefHeight="688.0" prefWidth="225.0" style="-fx-background-color: #303030;" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="todaysSession" alignment="BASELINE_LEFT" layoutY="312.0" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #303030; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #43896B; -fx-border-radius: 0px 0px 0px 0px;" styleClass="sidebarItem" text="Today's Session" textFill="#f4f9f1" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                  <Button fx:id="todaysSession" alignment="BASELINE_LEFT" layoutY="312.0" onMouseEntered="#todaysSessionInHover" onMouseExited="#todaysSessionOutHover" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #303030; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #43896B; -fx-border-radius: 0px 0px 0px 0px;" styleClass="sidebarItem" text="Today's Session" textFill="#f4f9f1" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <font>
                         <Font name="Lato Bold" size="20.0" />
                      </font>
@@ -63,7 +63,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="myPlan" alignment="BASELINE_LEFT" layoutX="-3.0" layoutY="375.0" prefHeight="60.0" prefWidth="160.0" style="-fx-background-color: #303030; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #43896B; -fx-background-radius: 0px 0px 0px 0px;" styleClass="sidebarItem" text="My Plan" textFill="#f4f9f1" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                  <Button fx:id="myPlan" alignment="BASELINE_LEFT" layoutX="-3.0" layoutY="375.0" onMouseEntered="#myPlanInHover" onMouseExited="#myPlanOutHover" prefHeight="60.0" prefWidth="160.0" style="-fx-background-color: #303030; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #43896B; -fx-border-radius: 0px 0px 0px 0px;" styleClass="sidebarItem" text="My Plan" textFill="#f4f9f1" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <font>
                         <Font name="Lato Bold" size="20.0" />
                      </font>
@@ -75,7 +75,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="myProfile" alignment="BASELINE_LEFT" layoutX="-5.0" layoutY="440.0" prefHeight="60.0" prefWidth="160.0" style="-fx-background-color: #303030; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #43896B; -fx-border-radius: 0px 0px 0px 0px;" styleClass="sidebarItem" text="My Profile" textFill="#f4f9f1" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                  <Button fx:id="myProfile" alignment="BASELINE_LEFT" layoutX="-5.0" layoutY="440.0" onMouseEntered="#myProfileInHover" onMouseExited="#myProfileOutHover" prefHeight="60.0" prefWidth="160.0" style="-fx-background-color: #303030; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #43896B; -fx-border-radius: 0px 0px 0px 0px;" styleClass="sidebarItem" text="My Profile" textFill="#f4f9f1" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <font>
                         <Font name="Lato Bold" size="20.0" />
                      </font>
