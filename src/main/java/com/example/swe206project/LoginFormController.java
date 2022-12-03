@@ -52,7 +52,7 @@ public class LoginFormController {
 
     @FXML
     void checkCredintials(MouseEvent event) {
-        String credentials = username.getText() + password.getText();
+        String credentials = username.getText() + " " + password.getText();
         ReadFiles credentialsFile = new ReadFiles("D:\\KFUPM\\Sophomore\\Term 221\\SWE 206\\project\\Phase 3\\Code\\SWE206-Project-main\\UserAndPass.txt");
         Alert alert = new Alert(AlertType.NONE);
         Boolean autherized = false;

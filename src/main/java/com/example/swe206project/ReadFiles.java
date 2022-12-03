@@ -19,11 +19,11 @@ public class ReadFiles {
             String data = "";
             String currentLine;
             while((currentLine = textReader.readLine()) != null)
-                data += currentLine + " ";
+                data += currentLine + "\n";
 
             textReader.close();
             
-            return data.split("\\s");
+            return data.split("\n");
         }
             
     }
