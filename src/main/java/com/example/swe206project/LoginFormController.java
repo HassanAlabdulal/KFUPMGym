@@ -6,11 +6,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
+import javafx.scene.effect.Glow;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
@@ -65,7 +64,6 @@ public class LoginFormController {
     void checkCredintials(MouseEvent event) throws IOException {
         String credentials = username.getText() + " " + password.getText();
         ReadFiles credentialsFile = new ReadFiles("UserAndPass.txt");
-        Alert alert = new Alert(AlertType.NONE);
         Boolean autherized = false;
         
         try {
@@ -80,14 +78,10 @@ public class LoginFormController {
             e.printStackTrace();
         }
         if (autherized){
-            // alert.setAlertType(AlertType.INFORMATION);
-            // alert.setContentText("success");
-            // alert.show();
+            failedLoginLabel.setVisible(false);
+            failedLoginIcon.setVisible(false);
             switchToMenuPage();
         } else{
-            //alert.setAlertType(AlertType.WARNING);
-            //alert.setContentText("failed login");
-            //alert.show();
             failedLoginLabel.setVisible(true);
             failedLoginIcon.setVisible(true);
             username.setStyle("-fx-border-color: #D53A0B; -fx-border-width: 0px 0px 1px 0px; -fx-background-color: #3A4141; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1");
@@ -106,44 +100,48 @@ public class LoginFormController {
     }
 
     @FXML
-    void changeUsernameIconOpacity(MouseEvent event) {
-        clearUsername.setStyle("-fx-opacity: 1");
+    void usernameInHover(MouseEvent event) {
+        clearUsername.setStyle("-fx-opacity: 1; -fx-cursor: hand");
         username.setStyle("-fx-cursor: text; -fx-border-color: #43896B; -fx-border-width: 0px 0px 1px 0px; -fx-background-color: #3A4141; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1");
     }
 
     @FXML
-    void changePasswordIconOpacity(MouseEvent event) {
-        clearPassword.setStyle("-fx-opacity: 1");
+    void passwordInHover(MouseEvent event) {
+        clearPassword.setStyle("-fx-opacity: 1; -fx-cursor: hand");
         password.setStyle("-fx-cursor: text; -fx-border-color: #43896B; -fx-border-width: 0px 0px 1px 0px; -fx-background-color: #3A4141; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1");
     }
 
     @FXML
-    void setUsernameIconOpacityToOriginal(MouseEvent event) {
+    void usernameOutHover(MouseEvent event) {
         clearUsername.setStyle("-fx-opacity: 0.4");
+        username.setStyle("-fx-border-color: #43896B; -fx-border-width: 0px 0px 1px 0px; -fx-background-color: #313131; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1");
     }
 
     @FXML
-    void setPasswordIconOpacityToOriginal(MouseEvent event) {
+    void passwordOutHover(MouseEvent event) {
         clearPassword.setStyle("-fx-opacity: 0.4");
+        password.setStyle("-fx-border-color: #43896B; -fx-border-width: 0px 0px 1px 0px; -fx-background-color: #313131; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1");
     }
 
     @FXML
-    void removeBorder(MouseEvent event) {
-        loginButton.setStyle("-fx-background-color: #43896B; -fx-background-radius: 15");
+    void loginOnReleased(MouseEvent event) {
+        loginButton.setStyle("-fx-background-color: #43896B; -fx-background-radius: 15; -fx-cursor: hand");
+        loginButton.setEffect(new Glow(0.0));
     }
 
     @FXML
-    void setBorder(MouseEvent event) {
-        loginButton.setStyle("-fx-background-color: #262B2B; -fx-background-radius: 15; -fx-border-color: #366D55; -fx-border-radius: 15px; -fx-border-width: 2px");
+    void loginOnPressed(MouseEvent event) {
+        loginButton.setStyle("-fx-background-color: #366D55; -fx-background-radius: 15; -fx-cursor: hand");
+        loginButton.setEffect(new Glow(0.3));
     }
 
     @FXML
-    void setColor(MouseEvent event) {
+    void loginInHover(MouseEvent event) {
         loginButton.setStyle("-fx-background-color: #366D55; -fx-background-radius: 15; -fx-cursor: hand");
     }
 
     @FXML
-    void setOriginalColor(MouseEvent event) {
+    void loginOutHover(MouseEvent event) {
         loginButton.setStyle("-fx-background-color: #43896B; -fx-background-radius: 15");
     }
 
@@ -153,20 +151,21 @@ public class LoginFormController {
         Stage stage = new Stage();
         stage.initStyle(StageStyle.UNDECORATED);
 
-            root.setOnMousePressed(event -> {
+        root.setOnMousePressed(event -> {
             x = event.getSceneX();
             y = event.getSceneY();
         });
 
-            root.setOnMouseDragged(event -> {
+        root.setOnMouseDragged(event -> {
             stage.setX(event.getScreenX() - x);
             stage.setY(event.getScreenY() - y);
         });
-            Scene menuPaageScene = new Scene(root);
-            stage.setScene(menuPaageScene);
-            stage.show();
 
-            rootPane.getScene().getWindow().hide();
+        Scene menuPaageScene = new Scene(root);
+        stage.setScene(menuPaageScene);
+        stage.show();
+
+        rootPane.getScene().getWindow().hide();
         }
 
 }

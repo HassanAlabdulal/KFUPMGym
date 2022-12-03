@@ -14,26 +14,26 @@ import javafx.util.Duration;
 
 public class MenuPage implements Initializable {
 
-  @FXML
-  private ImageView Exit;
+    @FXML
+    private ImageView closeMenu;
 
-  @FXML
-  private Label Menu;
+    @FXML
+    private ImageView closePage;
 
-  @FXML
-  private Label MenuClose;
+    @FXML
+    private ImageView openMenu;
 
-  @FXML
-  private AnchorPane slider;
+    @FXML
+    private AnchorPane slider;
 
-  @Override
-  public void initialize(URL location, ResourceBundle resources) {
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
 
-        Exit.setOnMouseClicked(event -> {
+        closePage.setOnMouseClicked(event -> {
             System.exit(0);
         });
-        slider.setTranslateX(-176);
-        Menu.setOnMouseClicked(event -> {
+        slider.setTranslateX(-225);
+        openMenu.setOnMouseClicked(event -> {
             TranslateTransition slide = new TranslateTransition();
             slide.setDuration(Duration.seconds(0.4));
             slide.setNode(slider);
@@ -41,27 +41,27 @@ public class MenuPage implements Initializable {
             slide.setToX(0);
             slide.play();
 
-            slider.setTranslateX(-176);
+            slider.setTranslateX(-225);
 
             slide.setOnFinished((ActionEvent e)-> {
-                Menu.setVisible(false);
-                MenuClose.setVisible(true);
+                openMenu.setVisible(false);
+                closeMenu.setVisible(true);
             });
         });
 
-        MenuClose.setOnMouseClicked(event -> {
+        closeMenu.setOnMouseClicked(event -> {
             TranslateTransition slide = new TranslateTransition();
             slide.setDuration(Duration.seconds(0.4));
             slide.setNode(slider);
 
-            slide.setToX(-176);
+            slide.setToX(-225);
             slide.play();
 
             slider.setTranslateX(0);
 
             slide.setOnFinished((ActionEvent e)-> {
-                Menu.setVisible(true);
-                MenuClose.setVisible(false);
+                openMenu.setVisible(true);
+                closeMenu.setVisible(false);
             });
         });
     }
