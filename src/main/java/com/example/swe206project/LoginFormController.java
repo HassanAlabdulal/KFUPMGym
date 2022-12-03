@@ -3,6 +3,9 @@ package com.example.swe206project;
 import java.io.IOException;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -10,9 +13,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class LoginFormController {
+
+    double x,y = 0;
 
     @FXML
     private Button loginButton;
@@ -25,6 +33,9 @@ public class LoginFormController {
 
     @FXML
     private ImageView failedLoginIcon;
+
+    @FXML
+    private GridPane rootPane;
 
     @FXML
     private TextField username;
@@ -51,7 +62,7 @@ public class LoginFormController {
     private Text promptLabel;
 
     @FXML
-    void checkCredintials(MouseEvent event) {
+    void checkCredintials(MouseEvent event) throws IOException {
         String credentials = username.getText() + " " + password.getText();
         ReadFiles credentialsFile = new ReadFiles("UserAndPass.txt");
         Alert alert = new Alert(AlertType.NONE);
@@ -69,9 +80,10 @@ public class LoginFormController {
             e.printStackTrace();
         }
         if (autherized){
-            alert.setAlertType(AlertType.INFORMATION);
-            alert.setContentText("success");
-            alert.show();
+            // alert.setAlertType(AlertType.INFORMATION);
+            // alert.setContentText("success");
+            // alert.show();
+            switchToMenuPage();
         } else{
             //alert.setAlertType(AlertType.WARNING);
             //alert.setContentText("failed login");
@@ -134,5 +146,27 @@ public class LoginFormController {
     void setOriginalColor(MouseEvent event) {
         loginButton.setStyle("-fx-background-color: #43896B; -fx-background-radius: 15");
     }
+
+
+    public void switchToMenuPage () throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("MenuPage.fxml"));
+        Stage stage = new Stage();
+        stage.initStyle(StageStyle.UNDECORATED);
+
+            root.setOnMousePressed(event -> {
+            x = event.getSceneX();
+            y = event.getSceneY();
+        });
+
+            root.setOnMouseDragged(event -> {
+            stage.setX(event.getScreenX() - x);
+            stage.setY(event.getScreenY() - y);
+        });
+            Scene menuPaageScene = new Scene(root);
+            stage.setScene(menuPaageScene);
+            stage.show();
+
+            rootPane.getScene().getWindow().hide();
+        }
 
 }
