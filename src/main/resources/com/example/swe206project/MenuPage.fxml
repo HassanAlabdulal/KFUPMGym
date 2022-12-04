@@ -11,28 +11,28 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #212121;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.swe206project.MenuPage">
+<AnchorPane fx:id="rootPane" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #212121;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.swe206project.MenuPage">
    <children>
       <BorderPane layoutX="114.0" layoutY="54.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #212121;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <AnchorPane prefHeight="80.0" prefWidth="800.0" style="-fx-background-color: #303030;" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fx:id="closePage" fitHeight="50.0" fitWidth="50.0" layoutX="958.0" layoutY="15.0" onMouseEntered="#closePageInHover" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="closePage" fitHeight="50.0" fitWidth="50.0" layoutX="958.0" layoutY="15.0" onMouseEntered="#closePageInHover" onMousePressed="#closePageOnPressed" onMouseReleased="#closePageOnReleased" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@assets/images/exitIcon.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="openMenu" fitHeight="50.0" fitWidth="50.0" layoutX="17.0" layoutY="14.0" onMouseEntered="#openMenuInHover" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="openMenu" fitHeight="50.0" fitWidth="50.0" layoutX="17.0" layoutY="14.0" onMouseEntered="#openMenuInHover" onMousePressed="#openMenuOnPressed" onMouseReleased="#openMenuOnReleased" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@assets/images/menuIcon.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="212.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="7.45" AnchorPane.leftAnchor="225.0" AnchorPane.topAnchor="7.45">
+                  <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="212.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="7.45" AnchorPane.leftAnchor="386.0" AnchorPane.topAnchor="7.45">
                      <image>
                         <Image url="@assets/images/kfupmLogo.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="302.0" layoutY="16.0" text="KFUPM Gym" textFill="#f4f9f1">
+                  <Label layoutX="463.0" layoutY="17.0" text="KFUPM Gym" textFill="#f4f9f1" AnchorPane.bottomAnchor="17.0" AnchorPane.topAnchor="17.0">
                      <font>
                         <Font name="Overlock Bold" size="36.0" />
                      </font>
@@ -40,7 +40,7 @@
                         <Glow />
                      </effect>
                   </Label>
-                  <ImageView fx:id="closeMenu" fitHeight="50.0" fitWidth="50.0" layoutX="17.0" layoutY="14.0" onMouseExited="#closeMenuInHover" pickOnBounds="true" preserveRatio="true" visible="false">
+                  <ImageView fx:id="closeMenu" fitHeight="50.0" fitWidth="50.0" layoutX="17.0" layoutY="14.0" onMouseEntered="#closeMenuInHover" onMousePressed="#closeMenuOnPressed" onMouseReleased="#closeMenuOnReleased" pickOnBounds="true" preserveRatio="true" visible="false">
                      <image>
                         <Image url="@assets/images/closeIcon.png" />
                      </image>
@@ -51,7 +51,7 @@
          <left>
             <AnchorPane fx:id="slider" prefHeight="688.0" prefWidth="225.0" style="-fx-background-color: #303030;" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="todaysSession" alignment="BASELINE_LEFT" layoutY="312.0" onMouseEntered="#todaysSessionInHover" onMouseExited="#todaysSessionOutHover" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #303030; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #43896B; -fx-border-radius: 0px 0px 0px 0px;" styleClass="sidebarItem" text="Today's Session" textFill="#f4f9f1" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                  <Button fx:id="todaysSession" alignment="BASELINE_LEFT" layoutY="312.0" onMouseClicked="#todaysSessionOnClicked" onMouseEntered="#todaysSessionInHover" onMouseExited="#todaysSessionOutHover" onMousePressed="#todaysSessionOnPressed" onMouseReleased="#todaysSessionOnReleased" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #303030; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #43896B; -fx-border-radius: 0px 0px 0px 0px;" styleClass="sidebarItem" text="Today's Session" textFill="#f4f9f1" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="310.0">
                      <font>
                         <Font name="Lato Bold" size="20.0" />
                      </font>
@@ -63,7 +63,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="myPlan" alignment="BASELINE_LEFT" layoutX="-3.0" layoutY="375.0" onMouseEntered="#myPlanInHover" onMouseExited="#myPlanOutHover" prefHeight="60.0" prefWidth="160.0" style="-fx-background-color: #303030; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #43896B; -fx-border-radius: 0px 0px 0px 0px;" styleClass="sidebarItem" text="My Plan" textFill="#f4f9f1" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                  <Button fx:id="myPlan" alignment="BASELINE_LEFT" layoutX="1.0" layoutY="375.0" onMouseClicked="#myPlanOnClicked" onMouseEntered="#myPlanInHover" onMouseExited="#myPlanOutHover" onMousePressed="#myPlanOnPressed" onMouseReleased="#myPlanOnReleased" prefHeight="60.0" prefWidth="160.0" style="-fx-background-color: #303030; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #43896B; -fx-border-radius: 0px 0px 0px 0px;" styleClass="sidebarItem" text="My Plan" textFill="#f4f9f1" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="370.0">
                      <font>
                         <Font name="Lato Bold" size="20.0" />
                      </font>
@@ -75,7 +75,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="myProfile" alignment="BASELINE_LEFT" layoutX="-5.0" layoutY="440.0" onMouseEntered="#myProfileInHover" onMouseExited="#myProfileOutHover" prefHeight="60.0" prefWidth="160.0" style="-fx-background-color: #303030; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #43896B; -fx-border-radius: 0px 0px 0px 0px;" styleClass="sidebarItem" text="My Profile" textFill="#f4f9f1" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                  <Button fx:id="myProfile" alignment="BASELINE_LEFT" layoutX="-5.0" layoutY="440.0" onMouseClicked="#myProfileOnClicked" onMouseEntered="#myProfileInHover" onMouseExited="#myProfileOutHover" onMousePressed="#myProfileOnPressed" onMouseReleased="#myProfileOnReleased" prefHeight="60.0" prefWidth="160.0" style="-fx-background-color: #303030; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #43896B; -fx-border-radius: 0px 0px 0px 0px;" styleClass="sidebarItem" text="My Profile" textFill="#f4f9f1" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="430.0">
                      <font>
                         <Font name="Lato Bold" size="20.0" />
                      </font>
@@ -98,6 +98,16 @@
                   <Label fx:id="userName" layoutX="76.0" layoutY="226.0" prefHeight="24.0" prefWidth="54.0" text="Name" textFill="#f4f9f1" AnchorPane.leftAnchor="85.5" AnchorPane.rightAnchor="85.5">
                      <font>
                         <Font name="Roboto Medium" size="20.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="logoutIcon" fitHeight="45.0" fitWidth="45.0" layoutX="3.0" layoutY="645.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0">
+                     <image>
+                        <Image url="@assets/images/loggoutIcon.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="logoutLabel" layoutX="21.0" layoutY="633.0" onMouseClicked="#logoutOnClicked" onMouseEntered="#logoutInHover" prefHeight="45.0" prefWidth="100.0" text="        Logout" textFill="#d53a0b">
+                     <font>
+                        <Font name="Lato Bold" size="20.0" />
                      </font>
                   </Label>
                </children>
