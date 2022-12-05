@@ -2,20 +2,28 @@ package com.example.swe206project;
 import java.io.IOException;
 import java.lang.Math;
 import java.time.Year;
-public class IDGenerator<T> {
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class IDGenerator {
     private int id;
+
+    public IDGenerator(String specifier, boolean check){
+        String path = pathFinder(specifier);
+        id = generate(path);
+    }
     
-    public IDGenerator(String name, char specifier){  // p for plan, s for session, t for trainee, r for trainer, u for user's plans
+    public IDGenerator(String name, String specifier){  // p for plan, s for session, trainee for trainee, trainer for trainer, u for user's plans
         String path = pathFinder(specifier);
         id = generate(path);
         save(id, name, path);
     }
 
-    public IDGenerator(char specifier){
+    public IDGenerator(String specifier){
         this(null, specifier);
     }
 
-    public IDGenerator(String name, char specifier, int id){ // in case of assign instead of generate
+    public IDGenerator(String name, String specifier, int id){ // in case of assign instead of generate
         String path = pathFinder(specifier); 
         if(findID(id, path))
             save(id, name, path);
@@ -23,7 +31,7 @@ public class IDGenerator<T> {
             System.out.println("the ID entered isnt valid or doesnt exist, try again.");
     }
 
-    private void save(int id, String name, String path) {
+    public void save(int id, String name, String path) {
         WriteFiles writer = new WriteFiles(path, true);
         try {
             if(name == null)
@@ -46,17 +54,17 @@ public class IDGenerator<T> {
             return Integer.valueOf(thisYear + tmpID);
     }
 
-    private String pathFinder(char specifier) {
+    private String pathFinder(String specifier) {
         switch (specifier) {
-            case 'p': return "Plans.txt";
+            case "p": return "Plans.txt";
                 
-            case 's': return "Sessions.txt";
+            case "s": return "Sessions.txt";
 
-            case 'u': return "UserPlans.txt";
+            case "u": return "UserPlans.txt";
 
-            case 't': return "trainees.txt";
+            case "trainer": return "UserAndPass.txt";
 
-            case 'r': return "trainers.txt";
+            case "trainee": return "UserAndPass.txt";
             
             default:
                 return null;
@@ -69,15 +77,22 @@ public class IDGenerator<T> {
         ReadFiles fileReader = new ReadFiles(path);
         try {
             for (String element : fileReader.openFile()) {
-                if(id == Integer.valueOf(element.replaceAll("\\p{Alpha}|\\s", "")))
+                //if(id == Integer.valueOf(element.replaceAll("\\p{Alpha}|\\s", "")))
+                //    return true;
+                Pattern pattern = Pattern.compile(id+"");
+                Matcher match = pattern.matcher(element);
+                if(match.find())
                     return true;
-                else
-                    return false;
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
         return false;
+    }
+
+
+    public int getGenId(){
+        return this.id;
     }
 
 

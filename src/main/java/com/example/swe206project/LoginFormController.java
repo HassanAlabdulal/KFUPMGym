@@ -78,8 +78,8 @@ public class LoginFormController {
             e.printStackTrace();
         }
         if (autherized){
-            failedLoginLabel.setVisible(false);
-            failedLoginIcon.setVisible(false);
+            //failedLoginLabel.setVisible(false); no need for these two lines
+            //failedLoginIcon.setVisible(false);
             switchToMenuPage();
         } else{
             failedLoginLabel.setVisible(true);

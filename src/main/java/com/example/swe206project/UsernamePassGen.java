@@ -1,24 +1,33 @@
 package com.example.swe206project;
 
+import java.io.FileReader;
 import java.io.IOException;
 
 
 import java.util.Random;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class UsernamePassGen {
-    private String username;
+    protected String username;
     private String password;
 
-    public UsernamePassGen(String name){
-        username = generateUsername(name);
-        password = generatePassword();
-        save(username, password);
+    public UsernamePassGen(){
+
     }
 
-    private void save(String username, String password) {
+    public UsernamePassGen(String name, String specifier){
+        username = generateUsername(name);
+        password = generatePassword();
+        save(username, password, specifier);
+    }
+
+    private void save(String username, String password, String specifier) {
         WriteFiles writer = new WriteFiles("UserAndPass.txt", true);
+        IDGenerator genId = new IDGenerator(specifier, false);
+        int id = genId.getGenId();
         try {
-                writer.writeToFile(username + " " + password);
+                writer.writeToFile(username + " " + password +  " " + id + " " + specifier);
             }
         catch (IOException e) {
             e.printStackTrace();
@@ -49,20 +58,42 @@ public class UsernamePassGen {
     
 
 
-    public boolean findUser(String username){
+    public static boolean findUser(String username){
 
         ReadFiles fileReader = new ReadFiles("UserAndPass.txt");
         try {
             for (String element : fileReader.openFile()) {
-                if((username).equals(element.replaceAll("\\s\\p{ASCII}", "")))
+                if((username).equals(element.replaceAll("\\s\\p{ASCII}*$", "")))
                     return true;
-                else
-                    return false;
+                //Pattern pattern = Pattern.compile(username);
+                //Matcher match = pattern.matcher(element);
+                //if(match.find())
+                //    return true;
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
         return false;
+    }
+
+    public static int getUserID(String username){
+
+        ReadFiles fileReader = new ReadFiles("UserAndPass.txt");
+        try {
+            for (String element : fileReader.openFile()) {
+                if((username).equals(element.replaceAll("\\s\\p{ASCII}*$", ""))){
+                    Pattern pattern = Pattern.compile("\\d{5,8}");
+                    Matcher match = pattern.matcher(element);
+                    match.find();
+                    return Integer.valueOf(match.group());
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+
+        return 0;
     }
 
 
