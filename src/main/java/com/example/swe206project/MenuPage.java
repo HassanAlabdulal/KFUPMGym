@@ -3,12 +3,16 @@ package com.example.swe206project;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -16,6 +20,7 @@ import javafx.scene.effect.Glow;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -56,6 +61,9 @@ public class MenuPage implements Initializable {
 
     @FXML
     private Label logoutLabel;
+
+    @FXML
+    private VBox contentArea;
 
     private boolean todaysSessionIsClicked = false;
     private boolean myPlanIsClicked = false;
@@ -265,6 +273,7 @@ public class MenuPage implements Initializable {
         logoutLabel.setStyle("-fx-cursor: hand");
     }
 
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -303,5 +312,37 @@ public class MenuPage implements Initializable {
                 closeMenu.setVisible(false);
             });
         });
+
+
+        try{
+            Parent fxml = FXMLLoader.load(getClass().getResource("SessionsPage.fxml"));
+            contentArea.getChildren().removeAll();
+            contentArea.getChildren().setAll(fxml);
+        } 
+        catch(IOException ex){
+            Logger.getLogger(MenuPage.class.getName()).log(Level.SEVERE,null,ex);
+        } 
     }
+
+    @FXML
+    public void SessionsPage(ActionEvent Event) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("SessionsPage.fxml"));
+        contentArea.getChildren().removeAll();
+        contentArea.getChildren().setAll(fxml);    
+    }
+
+    @FXML
+    public void PlanPage(ActionEvent Event) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("PlanPage.fxml"));
+        contentArea.getChildren().removeAll();
+        contentArea.getChildren().setAll(fxml);    
+    }
+
+    @FXML
+    public void ProfilePage(ActionEvent Event) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("ProfilePage.fxml"));
+        contentArea.getChildren().removeAll();
+        contentArea.getChildren().setAll(fxml);    
+    }
+
 }
