@@ -1,7 +1,7 @@
-User Name   | Name  |                info      |   status   | traineesList if trainer            
-trainee#07213 trainee#0 100.0 50.0 defaultPic.txt active
-trainee#15873 trainee#1 101.0 51.0 defaultPic.txt active
-trainee#26840 trainee#2 102.0 52.0 defaultPic.txt active
-trainee#3535 trainee#3 103.0 53.0 defaultPic.txt active
-trainer#19247 trainer#1 170.0 70.0 defaultPic.txt eating active []
-trainer#19247 trainer#1 170.0 170.0 defaultPic.txt eating active [trainee#07213, trainee#15873, trainee#26840, trainee#3535]
+User Name   | Name  |                info      |   status   | traineesList if trainer
+trainee#03882 trainee#0 100.0 50.0 defaultPic.txt active
+trainee#17802 trainee#1 101.0 51.0 defaultPic.txt active
+trainee#24382 trainee#2 102.0 52.0 defaultPic.txt not-active
+trainee#32855 trainee#3 103.0 53.0 defaultPic.txt active
+trainer#17484 trainer#1 170.0 70.0 defaultPic.txt eating active []
+trainer#17484 trainer#1 170.0 170.0 defaultPic.txt eating active [trainee#03882, trainee#17802, trainee#24382, trainee#32855]

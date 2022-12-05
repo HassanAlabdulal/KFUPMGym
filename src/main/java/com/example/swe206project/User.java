@@ -74,11 +74,11 @@ public abstract class User {
                 desiredLine++;
             }
 
-            String data = lines.get(desiredLine);
+            String data = lines.get(desiredLine-1);
                 if(isActive(userName))
-                    data = data.replaceAll("active", status);
+                    data = data.replace("active", status);
                 else
-                    data = data.replaceAll("not-active", status);
+                    data = data.replace("not-active", status);
             lines.set(desiredLine-1, data);
             Files.write(path, lines, StandardCharsets.UTF_8);
             
