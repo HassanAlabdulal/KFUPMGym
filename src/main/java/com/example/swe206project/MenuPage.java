@@ -21,6 +21,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -273,7 +274,6 @@ public class MenuPage implements Initializable {
         logoutLabel.setStyle("-fx-cursor: hand");
     }
 
-    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
