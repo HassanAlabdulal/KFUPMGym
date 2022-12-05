@@ -68,7 +68,8 @@ public class LoginFormController {
         
         try {
             for (String Username_Pass : credentialsFile.openFile()) {
-                if(credentials.equals(Username_Pass)){
+                String tmp = Username_Pass.replaceFirst("\\p{Sc}\\p{ASCII}*$", "");
+                if(credentials.equals(Username_Pass.replaceFirst("\\p{Sc}\\p{ASCII}*$", ""))){
                     autherized = true;
                     break;
                 }

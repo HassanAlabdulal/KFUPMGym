@@ -1,9 +1,9 @@
-Admin 1234 203203 trainer active
-ahm321 123 120110 trainee active
-ahmed1291 qlast2682 20224163 trainee 
-mohammed3837 eilph8700 20224718 trainee 
-trainee#03882 sbzpt1265 20223445 trainee
-trainee#17802 pxbtm5391 2022213 trainee
-trainee#24382 lydiv7492 20225844 trainee
-trainee#32855 dgnqx7351 20228955 trainee
-trainer#17484 cuuxe2672 20228884 trainer
+Admin 1234$ 203203 trainer active
+ahm321 123$ 120110 trainee active
+ahmed1291 qlast2682$ 20224163 trainee 
+mohammed3837 eilph8700$ 20224718 trainee 
+trainee#03882 sbzpt1265$ 20223445 trainee
+trainee#17802 pxbtm5391$ 2022213 trainee
+trainee#24382 lydiv7492$ 20225844 trainee
+trainee#32855 dgnqx7351$ 20228955 trainee
+trainer#17484 cuuxe2672$ 20228884 trainer
