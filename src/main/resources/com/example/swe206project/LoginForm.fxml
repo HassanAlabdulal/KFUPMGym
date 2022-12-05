@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane fx:id="rootPane" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.swe206project.LoginFormController">
+<GridPane fx:id="rootPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.swe206project.LoginFormController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
@@ -24,31 +24,27 @@
       <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <AnchorPane prefHeight="768.0" prefWidth="507.0" style="-fx-background-color: #E9F3E2;">
+      <AnchorPane prefHeight="800.0" prefWidth="540.0" style="-fx-background-color: #E9F3E2;">
          <children>
-            <Text fx:id="welcomeLabel" fill="#43896b" layoutX="32.0" layoutY="420.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to KFUPM Gym application!" textAlignment="CENTER" wrappingWidth="420.0" AnchorPane.leftAnchor="31.5" AnchorPane.rightAnchor="31.5">
+            <Text fx:id="welcomeLabel" fill="#43896b" layoutX="32.0" layoutY="420.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to KFUPM Gym application!" textAlignment="CENTER" wrappingWidth="400.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0">
                <font>
-                  <Font name="Roboto Medium" size="24.0" />
+                  <Font name="Tahoma Bold" size="20.0" />
                </font>
             </Text>
-            <Text fx:id="promptLabel" fill="#43896b" layoutX="32.0" layoutY="462.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please enter your credentials to proceed" textAlignment="CENTER" wrappingWidth="420.0" AnchorPane.leftAnchor="31.5" AnchorPane.rightAnchor="31.5">
+            <Text fx:id="promptLabel" fill="#43896b" layoutX="32.0" layoutY="462.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please enter your credentials to proceed" textAlignment="CENTER" wrappingWidth="420.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0">
                <font>
-                  <Font name="Roboto Medium" size="22.0" />
+                  <Font name="Arvo Bold" size="20.0" />
                </font>
             </Text>
-            <ImageView fitHeight="154.0" fitWidth="155.0" layoutX="205.0" layoutY="617.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="164.0" AnchorPane.rightAnchor="164.0">
+            <ImageView fitHeight="155.0" fitWidth="155.0" layoutX="205.0" layoutY="617.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="192.5" AnchorPane.rightAnchor="192.5">
                <image>
                   <Image url="@assets/images/kfupmLogo.png" />
                </image>
                <effect>
-                  <Glow level="0.1">
-                     <input>
-                        <DropShadow />
-                     </input>
-                  </Glow>
+                  <DropShadow />
                </effect>
             </ImageView>
-            <ImageView fitHeight="332.0" fitWidth="315.0" layoutX="126.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="84.0" AnchorPane.topAnchor="50.0">
+            <ImageView fitHeight="320.0" fitWidth="320.0" layoutX="126.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="110.0" AnchorPane.rightAnchor="110.0" AnchorPane.topAnchor="50.0">
                <image>
                   <Image url="@assets/images/loginIcon.png" />
                </image>
@@ -58,67 +54,85 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane prefHeight="768.0" prefWidth="564.0" style="-fx-background-color: #212121;" GridPane.columnIndex="1">
+      <AnchorPane prefHeight="800.0" prefWidth="660.0" style="-fx-background-color: #212121;" GridPane.columnIndex="1">
          <children>
-            <Label fx:id="title" layoutX="218.0" layoutY="116.0" prefHeight="122.0" prefWidth="228.0" text="Login" textFill="#f4f9f1" AnchorPane.leftAnchor="156.5" AnchorPane.rightAnchor="156.5" AnchorPane.topAnchor="100.0">
+            <Label fx:id="title" layoutX="172.0" layoutY="116.0" prefHeight="122.0" prefWidth="204.0" text="Login" textFill="#f4f9f1" AnchorPane.leftAnchor="228.0" AnchorPane.rightAnchor="228.0" AnchorPane.topAnchor="100.0">
                <font>
-                  <Font name="Overlock Bold" size="96.0" />
+                  <Font name="Georgia" size="80.0" />
                </font>
                <effect>
-                  <Glow />
+                  <Glow level="0.2" />
                </effect>
             </Label>
-            <TextField fx:id="username" layoutX="133.0" layoutY="325.0" onMouseEntered="#usernameInHover" onMouseExited="#usernameOutHover" prefHeight="42.0" prefWidth="275.0" promptText="Enter your username" style="-fx-border-width: 0px 0px 1px 0px; -fx-border-color: #43896B; -fx-background-color: #303030; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1;" AnchorPane.leftAnchor="133.0" AnchorPane.rightAnchor="133.0">
+            <TextField fx:id="username" layoutX="133.0" layoutY="325.0" onMouseEntered="#usernameInHover" onMouseExited="#usernameOutHover" prefHeight="42.0" prefWidth="275.0" promptText="Enter your username" style="-fx-border-width: 0px 0px 1px 0px; -fx-border-color: #43896B; -fx-background-color: #303030; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1;" AnchorPane.leftAnchor="140.0" AnchorPane.rightAnchor="140.0">
                <font>
-                  <Font name="Lato Bold" size="18.0" />
+                  <Font name="Nunito Bold" size="17.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </TextField>
-            <Label fx:id="usernameLabel" layoutX="134.0" layoutY="285.0" prefHeight="40.0" prefWidth="116.0" text="Username" textFill="#f4f9f1" AnchorPane.leftAnchor="134.0">
+            <Label fx:id="usernameLabel" layoutX="134.0" layoutY="285.0" prefHeight="40.0" prefWidth="116.0" text="Username" textFill="#f4f9f1" AnchorPane.leftAnchor="144.0">
                <font>
-                  <Font name="Lato Bold" size="24.0" />
+                  <Font name="Arial" size="24.0" />
                </font>
             </Label>
-            <Label fx:id="passwordLabel" layoutX="133.0" layoutY="415.0" prefHeight="36.0" prefWidth="117.0" text="Password" textFill="#f4f9f1" AnchorPane.leftAnchor="133.0">
+            <Label fx:id="passwordLabel" layoutX="133.0" layoutY="415.0" prefHeight="36.0" prefWidth="117.0" text="Password" textFill="#f4f9f1" AnchorPane.leftAnchor="144.0">
                <font>
-                  <Font name="Lato Bold" size="24.0" />
+                  <Font name="Nunito Regular" size="24.0" />
                </font>
             </Label>
-            <Button fx:id="loginButton" layoutX="264.0" layoutY="538.0" mnemonicParsing="false" onMouseClicked="#checkCredintials" onMouseEntered="#loginInHover" onMouseExited="#loginOutHover" onMousePressed="#loginOnPressed" onMouseReleased="#loginOnReleased" prefHeight="46.0" prefWidth="120.0" style="-fx-background-color: #43896B; -fx-background-radius: 15px;" text="Login" textAlignment="CENTER" textFill="#f4f9f1" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="210.5" AnchorPane.rightAnchor="210.5">
+            <Button fx:id="loginButton" layoutX="264.0" layoutY="538.0" mnemonicParsing="false" onMouseClicked="#checkCredintials" onMouseEntered="#loginInHover" onMouseExited="#loginOutHover" onMousePressed="#loginOnPressed" onMouseReleased="#loginOnReleased" prefHeight="46.0" prefWidth="120.0" style="-fx-background-color: #43896B; -fx-background-radius: 15px;" text="Login" textAlignment="CENTER" textFill="#f4f9f1" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="225.0" AnchorPane.rightAnchor="225.0">
                <font>
-                  <Font name="Lato Bold" size="24.0" />
+                  <Font name="Arial Bold" size="24.0" />
                </font>
             </Button>
-            <TextField fx:id="password" layoutX="221.0" layoutY="451.0" onMouseEntered="#passwordInHover" onMouseExited="#passwordOutHover" prefHeight="42.0" prefWidth="275.0" promptText="Enter your password" style="-fx-border-width: 0px 0px 1px 0px; -fx-border-color: #43896B; -fx-background-color: #303030; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1;" AnchorPane.leftAnchor="133.0" AnchorPane.rightAnchor="133.0">
+            <TextField fx:id="password" layoutX="221.0" layoutY="451.0" onMouseEntered="#passwordInHover" onMouseExited="#passwordOutHover" prefHeight="42.0" prefWidth="275.0" promptText="Enter your password" style="-fx-border-width: 0px 0px 1px 0px; -fx-border-color: #43896B; -fx-background-color: #303030; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1;" AnchorPane.leftAnchor="140.0" AnchorPane.rightAnchor="140.0">
                <font>
-                  <Font name="Lato Bold" size="18.0" />
+                  <Font name="Nunito Bold" size="17.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </TextField>
-            <Label fx:id="failedLoginLabel" layoutX="118.0" layoutY="556.0" prefHeight="20.0" prefWidth="378.0" text="Login Failed: Your username or password is incorrect" textFill="#d53a0b" visible="false" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="64.0">
+            <Label fx:id="failedLoginLabel" layoutX="118.0" layoutY="556.0" prefHeight="20.0" prefWidth="428.0" text="Login Failed: Your username or password is incorrect" textFill="#d53a0b" visible="false" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="133.5" AnchorPane.rightAnchor="98.5">
                <font>
-                  <Font name="Roboto Bold Italic" size="16.0" />
+                  <Font name="Tahoma Bold" size="16.0" />
                </font>
             </Label>
-            <ImageView fx:id="failedLoginIcon" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="441.0" pickOnBounds="true" preserveRatio="true" visible="false" AnchorPane.bottomAnchor="198.0" AnchorPane.leftAnchor="64.0">
+            <ImageView fx:id="failedLoginIcon" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="441.0" pickOnBounds="true" preserveRatio="true" visible="false" AnchorPane.bottomAnchor="198.0" AnchorPane.leftAnchor="98.5">
                <image>
                   <Image url="@assets/images/loginFailIcon.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="clearUsername" fitHeight="36.0" fitWidth="36.0" layoutX="370.0" layoutY="328.0" onMouseClicked="#clearUsernameInput" onMouseEntered="#usernameInHover" onMouseExited="#usernameOutHover" opacity="0.4" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="135.0">
+            <ImageView fx:id="clearUsername" fitHeight="36.0" fitWidth="36.0" layoutX="370.0" layoutY="328.0" onMouseClicked="#clearUsernameInput" onMouseEntered="#usernameInHover" onMouseExited="#usernameOutHover" opacity="0.4" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="142.0">
                <image>
                   <Image url="@assets/images/closeIcon.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="clearPassword" fitHeight="36.0" fitWidth="36.0" layoutX="418.0" layoutY="454.0" onMouseClicked="#clearPasswordInput" onMouseEntered="#passwordInHover" onMouseExited="#passwordOutHover" opacity="0.4" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="135.0">
+            <ImageView fx:id="clearPassword" fitHeight="36.0" fitWidth="36.0" layoutX="418.0" layoutY="454.0" onMouseClicked="#clearPasswordInput" onMouseEntered="#passwordInHover" onMouseExited="#passwordOutHover" opacity="0.4" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="142.0">
                <image>
                   <Image url="@assets/images/closeIcon.png" />
                </image>
             </ImageView>
+            <Label fx:id="forgotPassLabel" layoutX="458.0" layoutY="669.0" onMouseEntered="#showMessage" onMouseExited="#hideMessage" prefHeight="20.0" prefWidth="180.0" text="Forgot your password?" textFill="#424242" AnchorPane.bottomAnchor="285.0" AnchorPane.rightAnchor="140.0">
+               <font>
+                  <Font name="Arial Bold" size="16.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="forgotPassIcon" fitHeight="100.0" fitWidth="180.0" layoutX="335.0" layoutY="517.0" pickOnBounds="true" rotate="180.0" visible="false" AnchorPane.bottomAnchor="180.0" AnchorPane.rightAnchor="140.0">
+               <image>
+                  <Image url="@assets/images/messageIcon.png" />
+               </image>
+               <effect>
+                  <DropShadow height="10.0" radius="4.5" width="10.0" />
+               </effect>
+            </ImageView>
+            <Text fx:id="forgotPassMessage" fill="#f4f9f1" layoutX="367.0" layoutY="573.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please contact the gym manager" textAlignment="CENTER" visible="false" wrappingWidth="126.8837890625">
+               <font>
+                  <Font name="Tahoma" size="14.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
    </children>

@@ -61,6 +61,15 @@ public class LoginFormController {
     private Text promptLabel;
 
     @FXML
+    private ImageView forgotPassIcon;
+
+    @FXML
+    private Label forgotPassLabel;
+
+    @FXML
+    private Text forgotPassMessage;
+
+    @FXML
     void checkCredintials(MouseEvent event) throws IOException {
         String credentials = username.getText() + " " + password.getText();
         ReadFiles credentialsFile = new ReadFiles("UserAndPass.txt");
@@ -146,6 +155,18 @@ public class LoginFormController {
         loginButton.setStyle("-fx-background-color: #43896B; -fx-background-radius: 15");
     }
 
+    @FXML
+    void showMessage(MouseEvent event) {
+        forgotPassIcon.setVisible(true);
+        forgotPassMessage.setVisible(true);
+        forgotPassLabel.setStyle("-fx-cursor: hand");
+    }
+
+    @FXML
+    void hideMessage(MouseEvent event) {
+        forgotPassIcon.setVisible(false);
+        forgotPassMessage.setVisible(false);
+    }
 
     public void switchToMenuPage () throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MenuPage.fxml"));
