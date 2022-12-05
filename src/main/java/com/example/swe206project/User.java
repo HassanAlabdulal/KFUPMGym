@@ -55,7 +55,7 @@ public abstract class User {
         return false;
     }
 
-    public static void setActivationStatus(String userName, boolean active){
+    protected static void setActivationStatus(String userName, boolean active){
         ReadFiles fileReader = new ReadFiles("UserInfo.txt");
         String status;
         if(active)
