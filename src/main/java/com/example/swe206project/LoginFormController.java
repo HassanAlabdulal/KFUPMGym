@@ -67,8 +67,8 @@ public class LoginFormController {
         Boolean autherized = false;
         
         try {
-            for (String Username_Pass : credentialsFile.openFile()) {
-                String tmp = Username_Pass.replaceFirst("\\p{Sc}\\p{ASCII}*$", "");
+            for (String Username_Pass : credentialsFile.openFile()) { 
+                // if username_pass matches gym manager's then authorized + flag2 ...
                 if(credentials.equals(Username_Pass.replaceFirst("\\p{Sc}\\p{ASCII}*$", ""))){
                     autherized = true;
                     break;
