@@ -74,23 +74,31 @@ public class LoginFormController {
         String credentials = username.getText() + " " + password.getText();
         ReadFiles credentialsFile = new ReadFiles("UserAndPass.txt");
         Boolean autherized = false;
-        
         try {
             for (String Username_Pass : credentialsFile.openFile()) { 
-                // if username_pass matches gym manager's then authorized + flag2 ...
                 if(credentials.equals(Username_Pass.replaceFirst("\\p{Sc}\\p{ASCII}*$", ""))){
                     autherized = true;
                     break;
                 }
             }
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
+
         if (autherized){
-            //failedLoginLabel.setVisible(false); no need for these two lines
-            //failedLoginIcon.setVisible(false);
-            switchToMenuPage();
+            switch (User.getType(username.getText())) {
+                case "trainee":
+                    switchToMenuPage();
+                    break;
+                case "trainer":
+                    //switchToTrainerMenuPage();
+                    break;
+                case "GymManager":
+                    //switchToGymManagerMenuPage();
+                    break;
+                default:
+                    break;
+            }      
         } else{
             failedLoginLabel.setVisible(true);
             failedLoginIcon.setVisible(true);

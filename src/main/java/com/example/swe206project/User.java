@@ -31,6 +31,26 @@ public abstract class User {
         this(name, height, weight, "defaultPic.png");
     }
 
+    public static String getType(String userName){
+        ReadFiles credfile = new ReadFiles("UserAndPass.txt");
+        try {
+            Pattern pattern = Pattern.compile("\\!\\p{Alpha}{7,10}");
+            Matcher match = null;
+            for (String user : credfile.openFile()) {
+                if(userName.equals(user.replaceAll("\\s\\p{ASCII}*$", ""))){
+                    match = pattern.matcher(user);
+                    if(match.find())
+                        break;
+                }
+            }
+            return match.group().replaceAll("\\!", "");
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public int getId(String userName){
         if((id = UsernamePassGen.getUserID(userName)) != 0)
             return id;
