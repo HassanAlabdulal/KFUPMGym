@@ -1,7 +1,7 @@
 package com.example.swe206project;
 
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.FileReader;
 
 
 import java.util.Random;

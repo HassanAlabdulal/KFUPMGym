@@ -11,13 +11,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #212121;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.swe206project.MenuPage">
+<AnchorPane fx:id="rootPane" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #212121;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.swe206project.TrainerMenu">
    <children>
       <BorderPane layoutX="114.0" layoutY="54.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #212121;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <AnchorPane prefHeight="80.0" prefWidth="800.0" style="-fx-background-color: #303030;" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fx:id="closePage" fitHeight="50.0" fitWidth="50.0" layoutX="958.0" layoutY="15.0" onMouseEntered="#closePageInHover" onMousePressed="#closePageOnPressed" onMouseReleased="#closePageOnReleased" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="closePage" fitHeight="50.0" fitWidth="50.0" layoutX="1143.0" layoutY="14.0" onMouseEntered="#closePageInHover" onMousePressed="#closePageOnPressed" onMouseReleased="#closePageOnReleased" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@assets/images/exitIcon.png" />
                      </image>
@@ -27,14 +27,14 @@
                         <Image url="@assets/images/menuIcon.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="212.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="7.45" AnchorPane.leftAnchor="386.0" AnchorPane.topAnchor="7.45">
+                  <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="471.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="7.900001525878906" AnchorPane.leftAnchor="471.0" AnchorPane.topAnchor="7.0">
                      <image>
                         <Image url="@assets/images/kfupmLogo.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="463.0" layoutY="17.0" text="KFUPM Gym" textFill="#f4f9f1" AnchorPane.bottomAnchor="17.0" AnchorPane.topAnchor="17.0">
+                  <Label layoutX="548.0" layoutY="17.0" text="KFUPM Gym" textFill="#f4f9f1" AnchorPane.bottomAnchor="17.0" AnchorPane.topAnchor="17.0">
                      <font>
-                        <Font name="Overlock Bold" size="36.0" />
+                        <Font name="Georgia Bold" size="35.0" />
                      </font>
                      <effect>
                         <Glow />
@@ -53,7 +53,7 @@
                <children>
                   <Button fx:id="todaysSession" alignment="BASELINE_LEFT" layoutY="312.0" onAction="#SessionsPage" onMouseClicked="#todaysSessionOnClicked" onMouseEntered="#todaysSessionInHover" onMouseExited="#todaysSessionOutHover" onMousePressed="#todaysSessionOnPressed" onMouseReleased="#todaysSessionOnReleased" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #303030; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #43896B; -fx-border-radius: 0px 0px 0px 0px;" styleClass="sidebarItem" text="Today's Session" textFill="#f4f9f1" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="310.0">
                      <font>
-                        <Font name="Lato Bold" size="20.0" />
+                        <Font name="Arial" size="20.0" />
                      </font>
                      <graphic>
                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
@@ -65,7 +65,7 @@
                   </Button>
                   <Button fx:id="myPlan" alignment="BASELINE_LEFT" layoutX="1.0" layoutY="375.0" onAction="#PlanPage" onMouseClicked="#myPlanOnClicked" onMouseEntered="#myPlanInHover" onMouseExited="#myPlanOutHover" onMousePressed="#myPlanOnPressed" onMouseReleased="#myPlanOnReleased" prefHeight="60.0" prefWidth="160.0" style="-fx-background-color: #303030; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #43896B; -fx-border-radius: 0px 0px 0px 0px;" styleClass="sidebarItem" text="My Plan" textFill="#f4f9f1" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="370.0">
                      <font>
-                        <Font name="Lato Bold" size="20.0" />
+                        <Font name="Arial" size="20.0" />
                      </font>
                      <graphic>
                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
@@ -95,9 +95,9 @@
                         <DropShadow />
                      </effect>
                   </ImageView>
-                  <Label fx:id="userName" layoutX="76.0" layoutY="226.0" prefHeight="24.0" prefWidth="54.0" text="Name" textFill="#f4f9f1" AnchorPane.leftAnchor="85.5" AnchorPane.rightAnchor="85.5">
+                  <Label fx:id="userName" layoutX="79.0" layoutY="225.0" prefHeight="25.0" prefWidth="69.0" text="Name" textFill="#f4f9f1" AnchorPane.leftAnchor="79.0" AnchorPane.rightAnchor="78.0">
                      <font>
-                        <Font name="Roboto Medium" size="20.0" />
+                        <Font name="Tahoma Bold" size="20.0" />
                      </font>
                   </Label>
                   <ImageView fx:id="logoutIcon" fitHeight="45.0" fitWidth="45.0" layoutX="3.0" layoutY="645.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0">
@@ -105,11 +105,23 @@
                         <Image url="@assets/images/loggoutIcon.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="logoutLabel" layoutX="21.0" layoutY="633.0" onMouseClicked="#logoutOnClicked" onMouseEntered="#logoutInHover" prefHeight="45.0" prefWidth="100.0" text="        Logout" textFill="#d53a0b">
+                  <Label fx:id="logoutLabel" layoutX="20.0" layoutY="665.0" onMouseClicked="#logoutOnClicked" onMouseEntered="#logoutInHover" prefHeight="45.0" prefWidth="95.0" text="      Logout" textFill="#d53a0b">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="viewTrainees" alignment="BASELINE_LEFT" layoutX="3.0" layoutY="490.0" onAction="#ViewTrainees" onMouseClicked="#viewTraineesOnClicked" onMouseEntered="#viewTraineesInHover" onMouseExited="#viewTraineesOutHover" onMousePressed="#viewTraineesOnPressed" onMouseReleased="#viewTraineesOnReleased" prefHeight="60.0" prefWidth="220.0" style="-fx-background-color: #303030; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #43896B; -fx-border-radius: 0px 0px 0px 0px;" styleClass="sidebarItem" text="View Traniees" textFill="#f4f9f1">
                      <font>
                         <Font name="Lato Bold" size="20.0" />
                      </font>
-                  </Label>
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@assets/images/myProfileIcon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                </children>
                <effect>
                   <DropShadow />

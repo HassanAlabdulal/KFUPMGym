@@ -88,13 +88,13 @@ public class LoginFormController {
         if (autherized){
             switch (User.getType(username.getText())) {
                 case "trainee":
-                    switchToMenuPage();
+                    switchToTraineeMenu();
                     break;
                 case "trainer":
-                    //switchToTrainerMenuPage();
+                    switchToTrainerMenu();
                     break;
                 case "GymManager":
-                    //switchToGymManagerMenuPage();
+                    //switchToGymManagerMenu();
                     break;
                 default:
                     break;
@@ -176,8 +176,8 @@ public class LoginFormController {
         forgotPassMessage.setVisible(false);
     }
 
-    public void switchToMenuPage () throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("MenuPage.fxml"));
+    public void switchToTraineeMenu () throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("TraineeMenu.fxml"));
         Stage stage = new Stage();
         stage.initStyle(StageStyle.UNDECORATED);
 
@@ -191,11 +191,34 @@ public class LoginFormController {
             stage.setY(event.getScreenY() - y);
         });
 
-        Scene menuPaageScene = new Scene(root);
-        stage.setScene(menuPaageScene);
+        Scene traineeMenuScene = new Scene(root);
+        stage.setScene(traineeMenuScene);
         stage.show();
 
         rootPane.getScene().getWindow().hide();
         }
+
+
+        public void switchToTrainerMenu () throws IOException {
+            Parent root = FXMLLoader.load(getClass().getResource("TrainerMenu.fxml"));
+            Stage stage = new Stage();
+            stage.initStyle(StageStyle.UNDECORATED);
+    
+            root.setOnMousePressed(event -> {
+                x = event.getSceneX();
+                y = event.getSceneY();
+            });
+    
+            root.setOnMouseDragged(event -> {
+                stage.setX(event.getScreenX() - x);
+                stage.setY(event.getScreenY() - y);
+            });
+    
+            Scene trainerMenuScene = new Scene(root);
+            stage.setScene(trainerMenuScene);
+            stage.show();
+    
+            rootPane.getScene().getWindow().hide();
+            }
 
 }

@@ -21,12 +21,12 @@
          </cursor></ProgressBar>
       <Label fx:id="loading" layoutY="368.0" opacity="0.85" prefHeight="32.0" prefWidth="600.0" style="-fx-text-fill: #262B2B;" text="  Loading..." AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <font>
-            <Font name="Roboto Bold" size="18.0" />
+            <Font name="Arial" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="title" contentDisplay="CENTER" layoutX="184.0" layoutY="130.0" style="-fx-text-fill: #F4F9F1" text="KFUPM Gym">
+      <Label fx:id="title" contentDisplay="CENTER" layoutX="177.0" layoutY="137.0" style="-fx-text-fill: #F4F9F1" text="KFUPM Gym">
          <font>
-            <Font name="Overlock Bold" size="72.0" />
+            <Font name="Georgia" size="68.0" />
          </font>
          <effect>
             <Glow />
