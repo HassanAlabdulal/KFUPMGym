@@ -6,7 +6,7 @@ import java.nio.file.Path;
 import com.example.swe206project.IDGenerator;
 import com.example.swe206project.WriteFiles;
 
-public abstract class Workouts {
+public  class Workouts {
     private int id;
     private String workoutName;
     private String targetedMuscles; 
@@ -18,7 +18,7 @@ public abstract class Workouts {
     private int actualSets;
     private int actualRepitions;
 
-    public Workouts(int id,String workoutName, String targetedMucles, String steps,int setsTarget, int repititionTarget){
+    public Workouts(String workoutName, String targetedMucles,int setsTarget, int repititionTarget, String steps){
         this.id=IDGenerator.generate("Workouts.txt");
         this.workoutName = workoutName;
         this.targetedMuscles = targetedMucles;
@@ -65,10 +65,11 @@ public abstract class Workouts {
     public void setActualSets(int actualSets) {
         this.actualSets = actualSets;
     }
-    private void save(int id,String workoutName, String targetedMuscles, String steps,int setsTarget, int repititionTarget) {
+    public void saveworkout(String workoutName, String targetedMuscles,int setsTarget, int repititionTarget, String steps) {
         WriteFiles writer = new WriteFiles("Workouts.txt", true);
+        String meow = this.id + " " + workoutName.replaceAll(" ", "-") +  " " + targetedMuscles  +" "+ setsTarget +" "+ repititionTarget+" "+ steps;
         try {
-                writer.writeToFile(id + " " + workoutName +  "$ " + targetedMuscles + " " + steps + setsTarget + repititionTarget);
+                writer.writeToFile(meow);
             }
         catch (IOException e) {
             e.printStackTrace();

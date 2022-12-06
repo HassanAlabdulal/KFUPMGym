@@ -25,15 +25,15 @@ public class WriteFiles<T> {
     public WriteFiles(String file_path, boolean append_value) {
         path = file_path;
         append_to_file = append_value;
-        try {
-            dataOutput = new ObjectOutputStream(new FileOutputStream(path, append_value));
-        } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        //try {
+        //    dataOutput = new ObjectOutputStream(new FileOutputStream(path, append_value));
+        //} catch (FileNotFoundException e) {
+        //    // TODO Auto-generated catch block
+        //    e.printStackTrace();
+        //} catch (IOException e) {
+        //    // TODO Auto-generated catch block
+        //    e.printStackTrace();
+        //}
     }
 
     public void writeToFile(String textLine) throws IOException {
