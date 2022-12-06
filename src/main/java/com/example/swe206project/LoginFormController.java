@@ -70,6 +70,9 @@ public class LoginFormController {
     private Text forgotPassMessage;
 
     @FXML
+    protected static User user;
+
+    @FXML
     void checkCredintials(MouseEvent event) throws IOException {
         String credentials = username.getText() + " " + password.getText();
         ReadFiles credentialsFile = new ReadFiles("UserAndPass.txt");
@@ -88,9 +91,11 @@ public class LoginFormController {
         if (autherized){
             switch (User.getType(username.getText())) {
                 case "trainee":
+                    user = new Trainee(username.getText());
                     switchToTraineeMenu();
                     break;
                 case "trainer":
+                    user = new Trainer(username.getText());
                     switchToTrainerMenu();
                     break;
                 case "GymManager":
@@ -98,7 +103,7 @@ public class LoginFormController {
                     break;
                 default:
                     break;
-            }
+            }      
         } else{
             failedLoginLabel.setVisible(true);
             failedLoginIcon.setVisible(true);
@@ -177,6 +182,7 @@ public class LoginFormController {
     }
 
     public void switchToTraineeMenu () throws IOException {
+        this.user = user;
         Parent root = FXMLLoader.load(getClass().getResource("TraineeMenu.fxml"));
         Stage stage = new Stage();
         stage.initStyle(StageStyle.UNDECORATED);
@@ -199,7 +205,8 @@ public class LoginFormController {
         }
 
 
-        public void switchToTrainerMenu() throws IOException {
+        public void switchToTrainerMenu () throws IOException {
+            this.user = user;
             Parent root = FXMLLoader.load(getClass().getResource("TrainerMenu.fxml"));
             Stage stage = new Stage();
             stage.initStyle(StageStyle.UNDECORATED);
@@ -219,6 +226,6 @@ public class LoginFormController {
             stage.show();
     
             rootPane.getScene().getWindow().hide();
-        }
+            }
 
 }
