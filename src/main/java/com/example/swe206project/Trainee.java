@@ -1,15 +1,26 @@
 package com.example.swe206project;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Trainee extends User{
+public class Trainee extends User implements Initializable{
     //Plan plan;
-    private String userName;
+    private static String userName;
+    private ArrayList<Trainee> traineesList = new ArrayList<>();
+    protected static ArrayList<String> info = pullInfo(userName);
+    protected Trainee(){
+        traineesList = (ArrayList<Trainee>) initilize("Trainee");
+    }
 
-    //public Trainee(String usr){
-    //    
-    //}
+    protected Trainee(String userName){
+        super(info.get(0), Double.valueOf(info.get(1)), Double.valueOf(info.get(2)), info.get(3));
+    }
+
+    protected Trainee(String name, double height, double weight, String photo, String userName){
+        super(name, height, weight, photo);
+        this.userName = userName;
+    }
 
     public Trainee(String name, double height, double weight, String photo) {
         super(name, height, weight, photo);
@@ -20,13 +31,18 @@ public class Trainee extends User{
 
     public void save(String name, double height, double weight, String photo, String status) {
         WriteFiles writer = new WriteFiles("UserInfo.txt", true);
-        String data = userName + " " + name + " " +  height + " " + weight + " " + photo + " " + status;
+        String data = userName + "$ " + name + " " +  height + " " + weight + " " + photo + " !" + status;
         try {
             writer.writeToFile(data);
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+    }
+
+    public void saveToBinary(String name, double height, double weight, String photo, String status){
+        WriteFiles writer = new WriteFiles("UserInfo.txt", true);
+        String data = userName + "$ " + name + " " +  height + " " + weight + " " + photo + " !" + status;
     }
 
     public Trainee(String name, double height, double weight){
@@ -43,12 +59,20 @@ public class Trainee extends User{
 
     }
 
-    public ArrayList<String> pullInfo(String userName){
+    public static ArrayList<String> pullInfo(String userName){ // returns name, height, weight, photo path in this exact order (0 -> 3)
         ReadFiles infoFile = new ReadFiles("UserInfo.txt");
         ArrayList<String> list = new ArrayList<>();
         try {
+            int i = 0;
             for (String data : infoFile.openFile()) {
-                list.add(data);
+                if(list.size() == 4)
+                    break;
+                if(i != 0 && userName.equals(data.replaceAll("\\s\\p{ASCII}*$|\\p{Sc}", "")))
+                    for (String string : data.replaceAll("\\!\\p{Alpha}*$|\\p{Sc}\\p{Graph}*", "").split(" ")) {
+                        if(!string.equals(""))
+                        list.add(string);
+                    }
+                i++;
             }
         } catch (IOException e) {
             // TODO Auto-generated catch block
@@ -60,6 +84,7 @@ public class Trainee extends User{
     public String toString(){
         return userName;
     }
+
 
     
 }

@@ -19,7 +19,7 @@ public abstract class Workouts {
     private int actualRepitions;
 
     public Workouts(int id,String workoutName, String targetedMucles, String steps,int setsTarget, int repititionTarget){
-        this.id=IDGenerator.generate("u");
+        this.id=IDGenerator.generate("Workouts.txt");
         this.workoutName = workoutName;
         this.targetedMuscles = targetedMucles;
         this.steps = steps;
@@ -29,7 +29,7 @@ public abstract class Workouts {
     }
     
 
-    public int getId(String userName){
+    public int getId(String Workouts){
             return id;
     }
     public String getWorkoutName() {
@@ -65,15 +65,14 @@ public abstract class Workouts {
     public void setActualSets(int actualSets) {
         this.actualSets = actualSets;
     }
-    private void save(String username, String password, String specifier) {
+    private void save(int id,String workoutName, String targetedMuscles, String steps,int setsTarget, int repititionTarget) {
         WriteFiles writer = new WriteFiles("Workouts.txt", true);
-        IDGenerator genId = new IDGenerator(specifier, false);
-        int id = genId.getGenId();
         try {
-                writer.writeToFile(username + " " + password +  "$ " + id + " " + specifier);
+                writer.writeToFile(id + " " + workoutName +  "$ " + targetedMuscles + " " + steps + setsTarget + repititionTarget);
             }
         catch (IOException e) {
             e.printStackTrace();
         }
 
+}
 }

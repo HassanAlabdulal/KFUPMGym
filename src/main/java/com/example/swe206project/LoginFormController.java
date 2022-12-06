@@ -61,27 +61,44 @@ public class LoginFormController {
     private Text promptLabel;
 
     @FXML
+    private ImageView forgotPassIcon;
+
+    @FXML
+    private Label forgotPassLabel;
+
+    @FXML
+    private Text forgotPassMessage;
+
+    @FXML
     void checkCredintials(MouseEvent event) throws IOException {
         String credentials = username.getText() + " " + password.getText();
         ReadFiles credentialsFile = new ReadFiles("UserAndPass.txt");
         Boolean autherized = false;
-        
         try {
-            for (String Username_Pass : credentialsFile.openFile()) {
-              
+            for (String Username_Pass : credentialsFile.openFile()) { 
                 if(credentials.equals(Username_Pass.replaceFirst("\\p{Sc}\\p{ASCII}*$", ""))){
                     autherized = true;
                     break;
                 }
             }
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
+
         if (autherized){
-            //failedLoginLabel.setVisible(false); no need for these two lines
-            //failedLoginIcon.setVisible(false);
-            switchToMenuPage();
+            switch (User.getType(username.getText())) {
+                case "trainee":
+                    switchToTraineeMenu();
+                    break;
+                case "trainer":
+                    switchToTrainerMenu();
+                    break;
+                case "GymManager":
+                    //switchToGymManagerMenu();
+                    break;
+                default:
+                    break;
+            }      
         } else{
             failedLoginLabel.setVisible(true);
             failedLoginIcon.setVisible(true);
@@ -146,9 +163,21 @@ public class LoginFormController {
         loginButton.setStyle("-fx-background-color: #43896B; -fx-background-radius: 15");
     }
 
+    @FXML
+    void showMessage(MouseEvent event) {
+        forgotPassIcon.setVisible(true);
+        forgotPassMessage.setVisible(true);
+        forgotPassLabel.setStyle("-fx-cursor: hand");
+    }
 
-    public void switchToMenuPage () throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("MenuPage.fxml"));
+    @FXML
+    void hideMessage(MouseEvent event) {
+        forgotPassIcon.setVisible(false);
+        forgotPassMessage.setVisible(false);
+    }
+
+    public void switchToTraineeMenu () throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("TraineeMenu.fxml"));
         Stage stage = new Stage();
         stage.initStyle(StageStyle.UNDECORATED);
 
@@ -162,11 +191,34 @@ public class LoginFormController {
             stage.setY(event.getScreenY() - y);
         });
 
-        Scene menuPaageScene = new Scene(root);
-        stage.setScene(menuPaageScene);
+        Scene traineeMenuScene = new Scene(root);
+        stage.setScene(traineeMenuScene);
         stage.show();
 
         rootPane.getScene().getWindow().hide();
         }
+
+
+        public void switchToTrainerMenu () throws IOException {
+            Parent root = FXMLLoader.load(getClass().getResource("TrainerMenu.fxml"));
+            Stage stage = new Stage();
+            stage.initStyle(StageStyle.UNDECORATED);
+    
+            root.setOnMousePressed(event -> {
+                x = event.getSceneX();
+                y = event.getSceneY();
+            });
+    
+            root.setOnMouseDragged(event -> {
+                stage.setX(event.getScreenX() - x);
+                stage.setY(event.getScreenY() - y);
+            });
+    
+            Scene trainerMenuScene = new Scene(root);
+            stage.setScene(trainerMenuScene);
+            stage.show();
+    
+            rootPane.getScene().getWindow().hide();
+            }
 
 }

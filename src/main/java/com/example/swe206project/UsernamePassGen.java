@@ -1,7 +1,7 @@
 package com.example.swe206project;
 
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.FileReader;
 
 
 import java.util.Random;
@@ -27,7 +27,7 @@ public class UsernamePassGen {
         IDGenerator genId = new IDGenerator(specifier, false);
         int id = genId.getGenId();
         try {
-                writer.writeToFile(username + " " + password +  "$ " + id + " " + specifier);
+                writer.writeToFile(username + " " + password +  "$ " + id + " !" + specifier);
             }
         catch (IOException e) {
             e.printStackTrace();

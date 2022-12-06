@@ -14,7 +14,6 @@ public class KFUPMGym extends Application {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("SplashScreen.fxml"));
             Scene  splashScreenScene  = new Scene(root);
-            //splashScreenScene.getStylesheets().add(getClass().getResource("StyleSheet.css").toString());
 
             stage.initStyle(StageStyle.UNDECORATED);
             stage.setScene(splashScreenScene);

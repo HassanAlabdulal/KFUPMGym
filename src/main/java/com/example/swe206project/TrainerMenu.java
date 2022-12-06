@@ -8,7 +8,6 @@ import java.util.logging.Logger;
 
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -24,7 +23,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class MenuPage implements Initializable {
+public class TrainerMenu implements Initializable {
 
     @FXML
     private AnchorPane rootPane;
@@ -40,6 +39,9 @@ public class MenuPage implements Initializable {
 
     @FXML
     private Button myProfile;
+
+    @FXML
+    private Button viewTrainees;
 
     @FXML
     private ImageView openMenu;
@@ -68,6 +70,7 @@ public class MenuPage implements Initializable {
     private boolean todaysSessionIsClicked = false;
     private boolean myPlanIsClicked = false;
     private boolean myProfileIsClicked = false;
+    private boolean viewTraineesIsClicked = false;
 
     @FXML
     void openMenuInHover(MouseEvent event) {
@@ -129,6 +132,7 @@ public class MenuPage implements Initializable {
             todaysSessionIsClicked = true;
             myPlanIsClicked = false;
             myProfileIsClicked = false;
+            viewTraineesIsClicked = false;
         }
     }
 
@@ -173,6 +177,7 @@ public class MenuPage implements Initializable {
             todaysSessionIsClicked = false;
             myPlanIsClicked = true;
             myProfileIsClicked = false;
+            viewTraineesIsClicked = false;
         }
     }
 
@@ -217,6 +222,7 @@ public class MenuPage implements Initializable {
             todaysSessionIsClicked = false;
             myPlanIsClicked = false;
             myProfileIsClicked = true;
+            viewTraineesIsClicked = false;
         }
     }
 
@@ -253,6 +259,54 @@ public class MenuPage implements Initializable {
     }
 
     @FXML
+    void viewTraineesOnClicked(MouseEvent event) {
+        if (!viewTraineesIsClicked){
+            viewTrainees.setStyle("-fx-border-color: #43896B; -fx-border-width: 0px 0px 4px 0px; -fx-background-color: #212121; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
+            myPlan.setStyle("-fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color:  #303030; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
+            myProfile.setStyle("-fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color:  #303030; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
+            todaysSession.setStyle("-fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color:  #303030; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
+            todaysSessionIsClicked = false;
+            myPlanIsClicked = false;
+            myProfileIsClicked = false;
+            viewTraineesIsClicked = true;
+            
+        }
+    }
+
+    @FXML
+    void viewTraineesInHover(MouseEvent event) {
+        if (!viewTraineesIsClicked){
+            viewTrainees.setStyle("-fx-cursor: hand; -fx-border-color: #43896B; -fx-border-width: 0px 0px 4px 0px; -fx-background-color: #3A4141; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
+        }
+    }
+
+    @FXML
+    void viewTraineesOutHover(MouseEvent event) {
+        if (viewTraineesIsClicked){
+            viewTrainees.setStyle("-fx-border-color: #43896B; -fx-border-width: 0px 0px 4px 0px; -fx-background-color:  #212121; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
+        } else {
+            viewTrainees.setStyle("-fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color:  #303030; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
+        }
+    }
+
+    @FXML
+    void viewTraineesOnPressed(MouseEvent event) {
+        if (!viewTraineesIsClicked){
+          viewTrainees.setStyle("-fx-cursor: hand; -fx-border-color: #43896B; -fx-border-width: 0px 0px 4px 0px; -fx-background-color: #3A4141; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
+          viewTrainees.setEffect(new Glow(0.3));
+        }
+    }
+
+    @FXML
+    void viewTraineesOnReleased(MouseEvent event) {
+        if (!viewTraineesIsClicked){
+          viewTrainees.setStyle("-fx-cursor: hand; -fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: #212121; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
+          viewTrainees.setEffect(new Glow(0.0));
+        }
+    }
+
+
+    @FXML
     void logoutOnClicked(MouseEvent event) {
         FXMLLoader fxmlLoader;
         try {
@@ -273,7 +327,6 @@ public class MenuPage implements Initializable {
         logoutLabel.setStyle("-fx-cursor: hand");
     }
 
-    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -320,7 +373,7 @@ public class MenuPage implements Initializable {
             contentArea.getChildren().setAll(fxml);
         } 
         catch(IOException ex){
-            Logger.getLogger(MenuPage.class.getName()).log(Level.SEVERE,null,ex);
+            Logger.getLogger(TraineeMenu.class.getName()).log(Level.SEVERE,null,ex);
         } 
     }
 
@@ -341,6 +394,13 @@ public class MenuPage implements Initializable {
     @FXML
     public void ProfilePage(ActionEvent Event) throws IOException {
         Parent fxml = FXMLLoader.load(getClass().getResource("ProfilePage.fxml"));
+        contentArea.getChildren().removeAll();
+        contentArea.getChildren().setAll(fxml);    
+    }
+
+    @FXML
+    public void ViewTrainees(ActionEvent Event) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("ViewTrainees.fxml"));
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);    
     }

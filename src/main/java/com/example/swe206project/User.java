@@ -1,6 +1,7 @@
 package com.example.swe206project;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -10,14 +11,18 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public abstract class User {
+public abstract class User implements Serializable{
     private int id;
     //private String userName; this cant be determined yet because of the type abstraction
-    private String name;
-    private String password;
-    private double height;
-    private double weight;
-    private String photo;
+    protected static String name;
+    protected static String password;
+    protected static double height;
+    protected static double weight;
+    protected static String photo;
+
+    protected User(){
+
+    }
     
     public User(String name, double height, double weight, String photo){
         this.name = name;
@@ -29,6 +34,26 @@ public abstract class User {
 
     public User(String name, double height, double weight){
         this(name, height, weight, "defaultPic.png");
+    }
+
+    public static String getType(String userName){
+        ReadFiles credfile = new ReadFiles("UserAndPass.txt");
+        try {
+            Pattern pattern = Pattern.compile("\\!\\p{Alpha}{7,10}");
+            Matcher match = null;
+            for (String user : credfile.openFile()) {
+                if(userName.equals(user.replaceAll("\\s\\p{ASCII}*$", ""))){
+                    match = pattern.matcher(user);
+                    if(match.find())
+                        break;
+                }
+            }
+            return match.group().replaceAll("\\!", "");
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public int getId(String userName){
@@ -55,52 +80,19 @@ public abstract class User {
         return false;
     }
 
-    public static void setActivationStatus(String userName, boolean active){
-        ReadFiles fileReader = new ReadFiles("UserInfo.txt");
-        String status;
-        if(active)
-            status = "active";
-        else
-            status = "not-active";
-            
-        try {
-            Path path = Paths.get("UserInfo.txt");
-            List<String> lines = Files.readAllLines(path, StandardCharsets.UTF_8);
-            int desiredLine = 1;          
-
-            for (String element : fileReader.openFile()) {
-                if((userName).equals(element.replaceAll("\\s\\p{ASCII}*$", ""))){
-                    break;}
-                desiredLine++;
-            }
-
-            String data = lines.get(desiredLine-1);
-                if(isActive(userName))
-                    data = data.replace("active", status);
-                else
-                    data = data.replace("not-active", status);
-            lines.set(desiredLine-1, data);
-            Files.write(path, lines, StandardCharsets.UTF_8);
-            
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        
-    }
-
-    public String getName() {
+    public static String getName() {
         return name;
     }
 
-    public double getHeight() {
+    public static double getHeight() {
         return height;
     }
     
-    public double getWeight() {
+    public static double getWeight() {
         return weight;
     }
 
-    public String getPhoto() {
+    public static String getPhoto() {
         return photo;
     }
 
@@ -124,9 +116,10 @@ public abstract class User {
 
     }
 
-
+    public abstract String toString();
     public abstract String getUsername();
-    public abstract ArrayList<String> pullInfo(String userName);
+
+
 
 
 
