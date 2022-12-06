@@ -98,7 +98,7 @@ public class LoginFormController {
                     break;
                 default:
                     break;
-            }      
+            }
         } else{
             failedLoginLabel.setVisible(true);
             failedLoginIcon.setVisible(true);
@@ -199,7 +199,7 @@ public class LoginFormController {
         }
 
 
-        public void switchToTrainerMenu () throws IOException {
+        public void switchToTrainerMenu() throws IOException {
             Parent root = FXMLLoader.load(getClass().getResource("TrainerMenu.fxml"));
             Stage stage = new Stage();
             stage.initStyle(StageStyle.UNDECORATED);
@@ -219,6 +219,6 @@ public class LoginFormController {
             stage.show();
     
             rootPane.getScene().getWindow().hide();
-            }
+        }
 
 }

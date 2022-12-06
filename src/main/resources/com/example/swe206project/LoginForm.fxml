@@ -33,7 +33,7 @@
             </Text>
             <Text fx:id="promptLabel" fill="#43896b" layoutX="32.0" layoutY="462.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please enter your credentials to proceed" textAlignment="CENTER" wrappingWidth="420.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0">
                <font>
-                  <Font name="Tahoma" size="20.0" />
+                  <Font name="Tahoma Bold" size="20.0" />
                </font>
             </Text>
             <ImageView fitHeight="155.0" fitWidth="155.0" layoutX="205.0" layoutY="617.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="192.5" AnchorPane.rightAnchor="192.5">
