@@ -1,14 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800" prefWidth="1000" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.swe206project.ProfilePage">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="975.0" style="-fx-background-color: #212121;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.swe206project.ProfilePageController">
    <children>
-      <Label layoutX="260.0" layoutY="194.0" text="Profile Page">
+      <TextField fx:id="name" editable="false" layoutX="332.0" layoutY="197.0" prefHeight="42.0" prefWidth="215.0" style="-fx-border-width: 1px 0px 0px 0px; -fx-border-color: #43896B; -fx-background-color: #212121; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1;" text="Hassan Alabdulaal" AnchorPane.leftAnchor="380.0" AnchorPane.rightAnchor="380.0" AnchorPane.topAnchor="220.0">
          <font>
-            <Font size="53.0" />
+            <Font name="Nunito Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </TextField>
+      <ImageView fx:id="profilePhoto" fitHeight="225.0" fitWidth="225.0" layoutX="50.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="65.0">
+         <image>
+            <Image url="@assets/images/defaultProfilePicture.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="editPhotoIcon" fitHeight="50.0" fitWidth="50.0" layoutX="138.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true" visible="false" AnchorPane.rightAnchor="787.0">
+         <image>
+            <Image url="@assets/images/editImageIcon.png" />
+         </image>
+      </ImageView>
+      <TextField editable="false" layoutX="56.0" layoutY="563.0" prefHeight="42.0" prefWidth="215.0" style="-fx-border-width: 1px 0px 0px 0px; -fx-border-color: #43896B; -fx-background-color: #212121; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1;" text="Mahdood" AnchorPane.leftAnchor="55.0" AnchorPane.rightAnchor="705.0" AnchorPane.topAnchor="445.0" fx:id="x">
+         <font>
+            <Font name="Nunito Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </TextField>
+      <Label layoutX="340.0" layoutY="165.0" text="Name" textFill="#f4f9f1" AnchorPane.leftAnchor="380.0" AnchorPane.topAnchor="185.0">
+         <font>
+            <Font name="Tahoma Bold" size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="username" editable="false" layoutX="645.0" layoutY="195.0" prefHeight="42.0" prefWidth="215.0" style="-fx-border-width: 1px 0px 0px 0px; -fx-border-color: #43896B; -fx-background-color: #212121; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1;" text="\@hassan999" AnchorPane.leftAnchor="705.0" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="220.0">
+         <font>
+            <Font name="Nunito Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </TextField>
+      <Label layoutX="645.0" layoutY="159.0" text="Username" textFill="#f4f9f1" AnchorPane.leftAnchor="705.0" AnchorPane.topAnchor="185.0">
+         <font>
+            <Font name="Tahoma Bold" size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="weight" editable="false" layoutX="546.0" layoutY="508.0" prefHeight="42.0" prefWidth="215.0" style="-fx-border-width: 1px 0px 0px 0px; -fx-border-color: #43896B; -fx-background-color: #212121; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1;" text="70 kg" AnchorPane.leftAnchor="705.0" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="445.0">
+         <font>
+            <Font name="Nunito Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </TextField>
+      <TextField fx:id="height" editable="false" layoutX="39.0" layoutY="662.0" prefHeight="42.0" prefWidth="215.0" style="-fx-border-width: 1px 0px 0px 0px; -fx-border-color: #43896B; -fx-background-color: #212121; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1;" text="180 cm" AnchorPane.leftAnchor="380.0" AnchorPane.rightAnchor="380.0" AnchorPane.topAnchor="445.0">
+         <font>
+            <Font name="Nunito Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </TextField>
+      <Label fx:id="y" layoutX="55.0" layoutY="417.0" text="Trainee" textFill="#f4f9f1" AnchorPane.leftAnchor="55.0" AnchorPane.topAnchor="410.0">
+         <font>
+            <Font name="Tahoma Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="350.0" layoutY="175.0" text="Height" textFill="#f4f9f1" AnchorPane.leftAnchor="380.0" AnchorPane.topAnchor="410.0">
+         <font>
+            <Font name="Tahoma Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="655.0" layoutY="169.0" text="Weight" textFill="#f4f9f1" AnchorPane.leftAnchor="705.0" AnchorPane.topAnchor="410.0">
+         <font>
+            <Font name="Tahoma Bold" size="22.0" />
          </font>
       </Label>
    </children>
