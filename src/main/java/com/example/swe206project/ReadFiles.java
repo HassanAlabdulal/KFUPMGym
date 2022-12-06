@@ -2,6 +2,7 @@ package com.example.swe206project;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -12,7 +13,8 @@ import java.util.regex.Pattern;
 
 public class ReadFiles<T> {
     private String path;
-
+    private ObjectInputStream dataInput;
+    
     public ReadFiles(String file_path) {
         path = file_path;
     }
@@ -54,16 +56,19 @@ public class ReadFiles<T> {
 
     public ArrayList<T> openBinaryFile(){
         ArrayList<T> listOfObject = new ArrayList<>();
-        try {
-            ObjectInputStream dataInput = new ObjectInputStream(new FileInputStream(path));
+        try { 
+            dataInput = new ObjectInputStream(new FileInputStream(path));
             T object = (T) dataInput.readObject();
             do{
                 listOfObject.add(object);
                 object = (T) dataInput.readObject();
             }while(object != null);
+            //dataInput.close();
+            //dataInput.reset();
         } catch (Exception e) {
             e.printStackTrace();
         }
+        
         return listOfObject;
     }
 

@@ -28,7 +28,7 @@ public class TestIDandUser {
 //
 //      System.out.println(trainees[3].getClass().getName());
 
-
+    WriteFiles w = new WriteFiles<>("UserInfo.dat", true);
       GymManager g = new GymManager();
         //for (User user : g.getUsersList()) {
         //    if(user instanceof Trainee)

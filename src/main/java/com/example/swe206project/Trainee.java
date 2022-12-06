@@ -36,6 +36,11 @@ public class Trainee extends User implements Initializable{
         }
     }
 
+    public void saveToBinary(String name, double height, double weight, String photo, String status){
+        WriteFiles writer = new WriteFiles("UserInfo.txt", true);
+        String data = userName + "$ " + name + " " +  height + " " + weight + " " + photo + " !" + status;
+    }
+
     public Trainee(String name, double height, double weight){
         this(name, height, weight, "defaultPic.txt");
     }

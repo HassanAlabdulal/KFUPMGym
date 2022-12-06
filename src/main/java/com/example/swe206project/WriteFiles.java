@@ -76,8 +76,11 @@ public class WriteFiles<T> {
     }
 
     public void writeToBinaryFile(T object){
-        try { 
-            dataOutput.writeObject(object);
+        try  {
+            //dataOutput = new ObjectOutputStream(new FileOutputStream(path, append_to_file)); 
+            //ReadFiles fileReader = new ReadFiles<>(path);
+            //if(!fileReader.openBinaryFile().contains(object))
+                dataOutput.writeObject(object);
         } catch (Exception e) {
             e.printStackTrace();
         }
