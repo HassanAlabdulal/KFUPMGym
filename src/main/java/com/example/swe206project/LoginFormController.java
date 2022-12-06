@@ -94,7 +94,7 @@ public class LoginFormController {
                     switchToTrainerMenu();
                     break;
                 case "GymManager":
-                    //switchToGymManagerMenu();
+                    switchToGymManagerMenu();
                     break;
                 default:
                     break;
@@ -216,6 +216,28 @@ public class LoginFormController {
     
             Scene trainerMenuScene = new Scene(root);
             stage.setScene(trainerMenuScene);
+            stage.show();
+    
+            rootPane.getScene().getWindow().hide();
+        }
+
+        public void switchToGymManagerMenu() throws IOException {
+            Parent root = FXMLLoader.load(getClass().getResource("GymManagerMenu.fxml"));
+            Stage stage = new Stage();
+            stage.initStyle(StageStyle.UNDECORATED);
+    
+            root.setOnMousePressed(event -> {
+                x = event.getSceneX();
+                y = event.getSceneY();
+            });
+    
+            root.setOnMouseDragged(event -> {
+                stage.setX(event.getScreenX() - x);
+                stage.setY(event.getScreenY() - y);
+            });
+    
+            Scene GymManagerMenuScene = new Scene(root);
+            stage.setScene(GymManagerMenuScene);
             stage.show();
     
             rootPane.getScene().getWindow().hide();
