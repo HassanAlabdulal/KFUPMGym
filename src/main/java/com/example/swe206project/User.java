@@ -77,6 +77,8 @@ public abstract class User {
 
     protected static void setActivationStatus(String userName, boolean active){
         ReadFiles fileReader = new ReadFiles("UserInfo.txt");
+        WriteFiles writer = new WriteFiles("UserInfo.txt");
+        
         String status;
         if(active)
             status = "active";
@@ -84,23 +86,16 @@ public abstract class User {
             status = "not-active";
             
         try {
-            Path path = Paths.get("UserInfo.txt");
-            List<String> lines = Files.readAllLines(path, StandardCharsets.UTF_8);
             int desiredLine = 1;          
-
             for (String element : fileReader.openFile()) {
                 if((userName).equals(element.replaceAll("\\s\\p{ASCII}*$", ""))){
                     break;}
                 desiredLine++;
-            }
-
-            String data = lines.get(desiredLine-1);
+            }           
                 if(isActive(userName))
-                    data = data.replace("active", status);
+                   writer.modifyLine(desiredLine, status, "active");
                 else
-                    data = data.replace("not-active", status);
-            lines.set(desiredLine-1, data);
-            Files.write(path, lines, StandardCharsets.UTF_8);
+                writer.modifyLine(desiredLine, status, "not-active");
             
         } catch (IOException e) {
             e.printStackTrace();
