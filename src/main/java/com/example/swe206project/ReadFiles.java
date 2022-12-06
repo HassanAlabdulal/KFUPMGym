@@ -59,10 +59,10 @@ public class ReadFiles<T> {
         try { 
             dataInput = new ObjectInputStream(new FileInputStream(path));
             T object = (T) dataInput.readObject();
-            do{
+            do{         
                 listOfObject.add(object);
                 object = (T) dataInput.readObject();
-            }while(object != null);
+            }while(object != null || dataInput.available() > 0);
             //dataInput.close();
             //dataInput.reset();
         } catch (Exception e) {

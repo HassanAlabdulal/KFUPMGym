@@ -14,11 +14,11 @@ import java.util.regex.Pattern;
 public abstract class User implements Serializable{
     private int id;
     //private String userName; this cant be determined yet because of the type abstraction
-    private String name;
-    private String password;
-    private double height;
-    private double weight;
-    private String photo;
+    protected static String name;
+    protected static String password;
+    protected static double height;
+    protected static double weight;
+    protected static String photo;
 
     protected User(){
 
@@ -80,19 +80,19 @@ public abstract class User implements Serializable{
         return false;
     }
 
-    public String getName() {
+    public static String getName() {
         return name;
     }
 
-    public double getHeight() {
+    public static double getHeight() {
         return height;
     }
     
-    public double getWeight() {
+    public static double getWeight() {
         return weight;
     }
 
-    public String getPhoto() {
+    public static String getPhoto() {
         return photo;
     }
 

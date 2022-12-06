@@ -6,20 +6,29 @@ import java.util.ArrayList;
 
 public class Trainer extends User implements Initializable{
     //Plan plan;
-    private String userName;
+    protected static String userName;
     private String speciality;
-    private ArrayList<Trainee> trainersList = new ArrayList<>();
-    private ArrayList<Trainee> traineesList = new ArrayList<>();
+    protected ArrayList<Trainer> trainersList = new ArrayList<>();
+    protected ArrayList<Trainee> traineesList = new ArrayList<>();
+    protected static ArrayList<String> info = pullInfo(userName);
 
     protected Trainer(){
-        trainersList = (ArrayList<Trainee>) initilize("Trainer");
+        trainersList = (ArrayList<Trainer>) initilize("Trainer");
+    }
+
+    protected Trainer(String userName){
+        super(info.get(0), Double.valueOf(info.get(1)), Double.valueOf(info.get(2)), info.get(3));
+        this.speciality = info.get(4);
     }
 
     protected Trainer(String name, double height, double weight, String photo, String speciality, String userName, ArrayList<Trainee> traineesList){
         super(name, height, weight, photo);
         this.speciality = speciality;
         this.userName = userName;
-        this.traineesList = traineesList;
+        for (Trainer trainer : trainersList) {
+            if(trainer.getUsername().equals(this.userName))
+                this.traineesList = trainer.traineesList;
+        }
     }
 
     public Trainer(String name, double height, double weight, String photo, String speciality) {
@@ -27,6 +36,10 @@ public class Trainer extends User implements Initializable{
         UsernamePassGen user = new UsernamePassGen(name, "trainer");
         userName = user.username;
         this.speciality = speciality;
+        for (Trainer trainer : trainersList) {
+            if(trainer.getUsername().equals(this.userName))
+                this.traineesList = trainer.traineesList;
+        }
         save(name, height, weight, photo, "active");
     }
 

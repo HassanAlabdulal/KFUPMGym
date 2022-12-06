@@ -6,11 +6,15 @@ import java.util.ArrayList;
 
 public class Trainee extends User implements Initializable{
     //Plan plan;
-    private String userName;
+    private static String userName;
     private ArrayList<Trainee> traineesList = new ArrayList<>();
-
+    protected static ArrayList<String> info = pullInfo(userName);
     protected Trainee(){
         traineesList = (ArrayList<Trainee>) initilize("Trainee");
+    }
+
+    protected Trainee(String userName){
+        super(info.get(0), Double.valueOf(info.get(1)), Double.valueOf(info.get(2)), info.get(3));
     }
 
     protected Trainee(String name, double height, double weight, String photo, String userName){
@@ -55,7 +59,7 @@ public class Trainee extends User implements Initializable{
 
     }
 
-    public static ArrayList<String> pullInfo(String userName){
+    public static ArrayList<String> pullInfo(String userName){ // returns name, height, weight, photo path in this exact order (0 -> 3)
         ReadFiles infoFile = new ReadFiles("UserInfo.txt");
         ArrayList<String> list = new ArrayList<>();
         try {
