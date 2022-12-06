@@ -79,7 +79,7 @@ public class LoginFormController {
         Boolean autherized = false;
         try {
             for (String Username_Pass : credentialsFile.openFile()) { 
-                if(credentials.equals(Username_Pass.replaceFirst("\\p{Sc}\\p{ASCII}*$", ""))){
+                if(credentials.equals(Username_Pass.replaceAll("\\p{Sc}\\p{ASCII}*$", ""))){
                     autherized = true;
                     break;
                 }
@@ -99,7 +99,8 @@ public class LoginFormController {
                     switchToTrainerMenu();
                     break;
                 case "GymManager":
-                    //switchToGymManagerMenu();
+                    // user = new GymManager(username.getText());
+                    // switchToGymManagerMenu();
                     break;
                 default:
                     break;
@@ -226,6 +227,29 @@ public class LoginFormController {
             stage.show();
     
             rootPane.getScene().getWindow().hide();
+            }
+
+            public void switchToGymManagerMenu() throws IOException {
+                this.user = user;
+                Parent root = FXMLLoader.load(getClass().getResource("GymManagerMenu.fxml"));
+                Stage stage = new Stage();
+                stage.initStyle(StageStyle.UNDECORATED);
+        
+                root.setOnMousePressed(event -> {
+                    x = event.getSceneX();
+                    y = event.getSceneY();
+                });
+        
+                root.setOnMouseDragged(event -> {
+                    stage.setX(event.getScreenX() - x);
+                    stage.setY(event.getScreenY() - y);
+                });
+        
+                Scene GymManagerMenuScene = new Scene(root);
+                stage.setScene(GymManagerMenuScene);
+                stage.show();
+        
+                rootPane.getScene().getWindow().hide();
             }
 
 }
