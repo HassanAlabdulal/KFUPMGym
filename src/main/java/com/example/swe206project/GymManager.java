@@ -3,28 +3,18 @@ package com.example.swe206project;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class GymManeger {
+public class GymManager implements init{
     private String userName = "admin";
     private String password = "admin";
 
     private ArrayList<String> usersList = new ArrayList<>();
 
-    public GymManeger(){
-        usersList = initilizeList();
+    public GymManager(){
+        usersList = (ArrayList<String>) initilize("GymManager");
+        System.out.println("the users are: " + usersList);
     }
 
-    private ArrayList<String> initilizeList() {
-        ReadFiles credfile = new ReadFiles("UserAndPass.txt");
-        try {
-            for (String user : credfile.openFile()) {
-                usersList.add(user.replaceAll("\\s\\p{ASCII}*$", ""));
-            }
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        return null;
-    }
+ 
 
     protected void createProfile(String name, double height, double weight){
         usersList.add(new Trainee(name, height, weight).getUsername());
@@ -33,9 +23,5 @@ public class GymManeger {
     protected void createProfile(String name, double height, double weight, String speciality){
         usersList.add(new Trainer(name, height, weight, speciality).getUsername());
     }
-
-
-
-
 
 }

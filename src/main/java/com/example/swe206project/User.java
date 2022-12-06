@@ -146,7 +146,7 @@ public abstract class User {
 
 
     public abstract String getUsername();
-    public abstract ArrayList<String> pullInfo(String userName);
+    //public abstract ArrayList<String> pullInfo(String userName);
 
 
 

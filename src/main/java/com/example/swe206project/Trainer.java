@@ -9,6 +9,11 @@ public class Trainer extends User{
     private String speciality;
     private ArrayList<Trainee> traineesList = new ArrayList<>();
 
+    public Trainer(String name, double height, double weight, String photo, String speciality, boolean init_value){
+        super(name, height, weight, photo);
+        this.speciality = speciality;
+    }
+
     public Trainer(String name, double height, double weight, String photo, String speciality) {
         super(name, height, weight, photo);
         UsernamePassGen user = new UsernamePassGen(name, "trainer");
@@ -23,7 +28,7 @@ public class Trainer extends User{
 
     public void save(String name, double height, double weight, String photo, String status) {
         WriteFiles writer = new WriteFiles("UserInfo.txt", true);
-        String data = userName + " " + name + " " +  height + " " + weight + " " + photo + " " + speciality + " " + status + " " + traineesList;
+        String data = userName + "$ " + name + " " +  height + " " + weight + " " + photo + " " + speciality + " !" + status + " " + traineesList;
         try {
             writer.writeToFile(data);
         } catch (IOException e) {
@@ -42,13 +47,19 @@ public class Trainer extends User{
         return userName;
     }
 
-    @Override
-    public ArrayList<String> pullInfo(String userName){
+    //@Override
+    public static ArrayList<String> pullInfo(String userName){
         ReadFiles infoFile = new ReadFiles("UserInfo.txt");
         ArrayList<String> list = new ArrayList<>();
         try {
+            int i = 0;
             for (String data : infoFile.openFile()) {
-                list.add(data);
+                if(i != 0 && userName.equals(data.replaceAll("\\s\\p{ASCII}*$", "")))
+                for (String string : data.replaceAll("\\!\\p{Alpha}*$|\\p{Sc}\\p{Graph}*", "").split(" ")) {
+                    if(string != null)
+                    list.add(string);
+                }
+                i++;
             }
         } catch (IOException e) {
             // TODO Auto-generated catch block

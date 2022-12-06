@@ -25,6 +25,8 @@ public class TestIDandUser {
 
       System.out.println("after adding, he has: "+ trainer.getTraineesList());
       trainer.save();
+
+      System.out.println(trainees[3].getClass().getName());
         
     }
 }
