@@ -24,15 +24,15 @@
             <Font name="Arial" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="title" contentDisplay="CENTER" layoutX="177.0" layoutY="137.0" style="-fx-text-fill: #F4F9F1" text="KFUPM Gym">
+      <Label fx:id="title" contentDisplay="CENTER" layoutX="177.0" layoutY="137.0" style="-fx-text-fill: #F4F9F1" text="KFUPM Gym" AnchorPane.leftAnchor="166.0" AnchorPane.rightAnchor="31.0">
          <font>
             <Font name="Georgia" size="68.0" />
          </font>
          <effect>
-            <Glow />
+            <Glow level="0.2" />
          </effect>
       </Label>
-      <ImageView fx:id="icon" fitHeight="120.0" fitWidth="125.0" layoutX="52.0" layoutY="118.0" opacity="0.9" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="icon" fitHeight="120.0" fitWidth="125.0" layoutX="52.0" layoutY="118.0" opacity="0.9" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="31.0">
          <image>
             <Image url="@assets/images/kfupmLogo.png" />
          </image></ImageView>

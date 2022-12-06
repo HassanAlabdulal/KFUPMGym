@@ -37,7 +37,7 @@
                         <Font name="Georgia Bold" size="35.0" />
                      </font>
                      <effect>
-                        <Glow />
+                        <Glow level="0.2" />
                      </effect>
                   </Label>
                   <ImageView fx:id="closeMenu" fitHeight="50.0" fitWidth="50.0" layoutX="17.0" layoutY="14.0" onMouseEntered="#closeMenuInHover" onMousePressed="#closeMenuOnPressed" onMouseReleased="#closeMenuOnReleased" pickOnBounds="true" preserveRatio="true" visible="false">
@@ -105,9 +105,9 @@
                         <Image url="@assets/images/loggoutIcon.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="logoutLabel" layoutX="50.0" layoutY="665.0" onMouseClicked="#logoutOnClicked" onMouseEntered="#logoutInHover" prefHeight="45.0" prefWidth="65.0" text="Logout" textFill="#d53a0b">
+                  <Label fx:id="logoutLabel" layoutX="14.0" layoutY="665.0" onMouseClicked="#logoutOnClicked" onMouseEntered="#logoutInHover" prefHeight="45.0" prefWidth="110.0" text="        Logout" textFill="#d53a0b" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="14.0">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Arial" size="18.0" />
                      </font>
                   </Label>
                </children>
