@@ -1,7 +1,10 @@
 package com.example.swe206project;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -10,9 +13,10 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.regex.Pattern;
 
-public class WriteFiles {
+public class WriteFiles<T> {
     private String path;
     private boolean append_to_file = false;
+    private ObjectOutputStream dataOutput;
 
     public WriteFiles(String file_path) {
         path = file_path;
@@ -21,6 +25,15 @@ public class WriteFiles {
     public WriteFiles(String file_path, boolean append_value) {
         path = file_path;
         append_to_file = append_value;
+        try {
+            dataOutput = new ObjectOutputStream(new FileOutputStream(path, append_value));
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     public void writeToFile(String textLine) throws IOException {
@@ -58,6 +71,14 @@ public class WriteFiles {
             lines.set(desiredLine-1, oldData.replace(pattern, data));
             Files.write(path, lines, StandardCharsets.UTF_8);
         } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void writeToBinaryFile(T object){
+        try { 
+            dataOutput.writeObject(object);
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

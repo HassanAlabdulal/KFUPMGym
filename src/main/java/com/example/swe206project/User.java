@@ -1,6 +1,7 @@
 package com.example.swe206project;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -10,7 +11,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public abstract class User {
+public abstract class User implements Serializable{
     private int id;
     //private String userName; this cant be determined yet because of the type abstraction
     private String name;

@@ -31,7 +31,7 @@ public class IDGenerator {
             System.out.println("the ID entered isnt valid or doesnt exist, try again.");
     }
 
-    public void save(int id, String name, String path) {
+    public static void save(int id, String name, String path) {
         WriteFiles writer = new WriteFiles(path, true);
         try {
             if(name == null)
@@ -44,7 +44,11 @@ public class IDGenerator {
         }
     }
 
-    private int generate(String path){
+    public static void save(int id, String path){
+        save(id, "", path);
+    }
+
+    public static int generate(String path){
         String tmpID = Integer.toString((int) (Math.random() * 10000) + 1); 
         Year thisYear = Year.now();
 
@@ -72,7 +76,7 @@ public class IDGenerator {
        
     }
 
-    public boolean findID(int id, String path){
+    public static boolean findID(int id, String path){
 
         ReadFiles fileReader = new ReadFiles(path);
         try {

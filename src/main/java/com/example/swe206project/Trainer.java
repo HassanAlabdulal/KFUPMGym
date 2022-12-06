@@ -1,6 +1,7 @@
 package com.example.swe206project;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Trainer extends User implements Initializable{
