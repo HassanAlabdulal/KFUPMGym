@@ -14,13 +14,18 @@ public class GymManager implements Initializable, Serializable{
     protected ArrayList<User> usersList = new ArrayList<>();
 
     public GymManager(){
-        WriteFiles writer = new WriteFiles<>("UserInfo.dat", true);
+        //WriteFiles writer = new WriteFiles<>("UserInfo.dat", true);
         usersList = (ArrayList<User>) initilize("GymManager");
-        for (User user : usersList) {
-            writer.writeToBinaryFile(user);
-        }
-        writer.writeToBinaryFile(null);
-        System.out.println(fr.openBinaryFile());
+        //System.out.println(usersList);
+        //for (User user : usersList) {
+        //    writer.writeToBinaryFile(user);
+        //}
+        //writer.writeToBinaryFile(null);
+        //System.out.println(fr.openBinaryFile());
+    }
+
+    public GymManager(String userName){
+        this();
     }
 
     

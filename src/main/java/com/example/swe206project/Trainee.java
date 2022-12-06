@@ -8,13 +8,13 @@ public class Trainee extends User implements Initializable{
     //Plan plan;
     private static String userName;
     private ArrayList<Trainee> traineesList = new ArrayList<>();
-    protected static ArrayList<String> info = pullInfo(userName);
-    protected Trainee(){
-        traineesList = (ArrayList<Trainee>) initilize("Trainee");
-    }
+    //protected static ArrayList<String> info = pullInfo(userName);
+    //protected Trainee(){
+    //    traineesList = (ArrayList<Trainee>) initilize("Trainee");
+    //}
 
     protected Trainee(String userName){
-        super(info.get(0), Double.valueOf(info.get(1)), Double.valueOf(info.get(2)), info.get(3));
+        super(userName);
     }
 
     protected Trainee(String name, double height, double weight, String photo, String userName){
@@ -42,7 +42,7 @@ public class Trainee extends User implements Initializable{
 
     public void saveToBinary(String name, double height, double weight, String photo, String status){
         WriteFiles writer = new WriteFiles("UserInfo.txt", true);
-        String data = userName + "$ " + name + " " +  height + " " + weight + " " + photo + " !" + status;
+        String data = userName + "! " + name + " " +  height + " " + weight + " " + photo + " !" + status;
     }
 
     public Trainee(String name, double height, double weight){
@@ -65,12 +65,13 @@ public class Trainee extends User implements Initializable{
         try {
             int i = 0;
             for (String data : infoFile.openFile()) {
-                if(list.size() == 4)
+                if(list.size() == 5)
                     break;
-                if(i != 0 && userName.equals(data.replaceAll("\\s\\p{ASCII}*$|\\p{Sc}", "")))
-                    for (String string : data.replaceAll("\\!\\p{Alpha}*$|\\p{Sc}\\p{Graph}*", "").split(" ")) {
+                if(i != 0 && userName.equals(data.replaceAll("\\s\\p{ASCII}*$|\\!", "")))  
+                    for (String string : data.replaceAll("\\!\\p{Graph}*$|\\p{Graph}*\\!", "").split(" ")) {
+                        String[] tmp = data.replaceAll("\\!\\p{Graph}*$|\\p{Graph}*\\!", "").split(" ");
                         if(!string.equals(""))
-                        list.add(string);
+                            list.add(string);
                     }
                 i++;
             }

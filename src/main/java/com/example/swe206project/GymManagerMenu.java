@@ -26,6 +26,9 @@ import javafx.util.Duration;
 public class GymManagerMenu implements Initializable {
 
     @FXML
+    private GymManager manager = LoginFormController.manager;
+
+    @FXML
     private AnchorPane rootPane;
 
     @FXML

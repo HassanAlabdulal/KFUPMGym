@@ -10,14 +10,16 @@ public class Trainer extends User implements Initializable{
     private String speciality;
     protected ArrayList<Trainer> trainersList = new ArrayList<>();
     protected ArrayList<Trainee> traineesList = new ArrayList<>();
-    protected static ArrayList<String> info = pullInfo(userName);
+    //protected static ArrayList<String> info = pullInfo(userName);
 
-    protected Trainer(){
-        trainersList = (ArrayList<Trainer>) initilize("Trainer");
-    }
+    //protected Trainer(){
+    //    trainersList = (ArrayList<Trainer>) initilize("Trainer");
+    //}
 
     protected Trainer(String userName){
-        super(info.get(0), Double.valueOf(info.get(1)), Double.valueOf(info.get(2)), info.get(3));
+        super(userName);
+        ArrayList<String> info = new ArrayList<>();
+        info = pullInfo(userName);
         this.speciality = info.get(4);
     }
 
@@ -49,7 +51,7 @@ public class Trainer extends User implements Initializable{
 
     public void save(String name, double height, double weight, String photo, String status) {
         WriteFiles writer = new WriteFiles("UserInfo.txt", true);
-        String data = userName + "$ " + name + " " +  height + " " + weight + " " + photo + " " + speciality + " " + traineesList + " !" + status;
+        String data = userName + "! " + name + " " +  height + " " + weight + " " + photo + " " + speciality + " " + traineesList + " !" + status;
         try {
             writer.writeToFile(data);
         } catch (IOException e) {
@@ -69,7 +71,7 @@ public class Trainer extends User implements Initializable{
     }
 
     //@Override
-    public static ArrayList<String> pullInfo(String userName){
+    public static ArrayList<String> pullInfo(String userName){ // returns name, height, weight, photo path, speciality in this exact order (0 -> 4)
         ReadFiles infoFile = new ReadFiles("UserInfo.txt");
         ArrayList<String> list = new ArrayList<>();
         try {
@@ -77,10 +79,10 @@ public class Trainer extends User implements Initializable{
             for (String data : infoFile.openFile()) {
                 if(list.size() == 5)
                     break;
-                if(i != 0 && userName.equals(data.replaceAll("\\s\\p{ASCII}*$|\\p{Sc}", "")))
-                    for (String string : data.replaceAll("\\!\\p{Alpha}*$|\\p{Sc}\\p{Graph}*", "").split(" ")) {
+                if(i != 0 && userName.equals(data.replaceAll("\\s\\p{ASCII}*$|\\!", "")))  
+                    for (String string : data.replaceAll("\\!\\p{Graph}*$|\\p{Graph}*\\!", "").split(" ")) {
                         if(!string.equals(""))
-                        list.add(string);
+                            list.add(string);
                     }
                 i++;
             }

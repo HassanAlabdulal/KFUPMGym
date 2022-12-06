@@ -20,8 +20,21 @@ public abstract class User implements Serializable{
     protected static double weight;
     protected static String photo;
 
-    protected User(){
+    //protected User(){
+//
+    //}
 
+    protected User(String userName){
+        String type = getType(userName);
+        ArrayList<String> info;
+        if(type.equals("trainee"))
+        info = new ArrayList<>(Trainee.pullInfo(userName));
+        else
+        info = new ArrayList<>(Trainer.pullInfo(userName));
+        this.name = info.get(0);
+        this.height = Double.valueOf(info.get(1));
+        this.weight = Double.valueOf(info.get(2));
+        this.photo = info.get(3);
     }
     
     public User(String name, double height, double weight, String photo){

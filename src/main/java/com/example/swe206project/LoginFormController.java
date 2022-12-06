@@ -73,6 +73,9 @@ public class LoginFormController {
     protected static User user;
 
     @FXML
+    protected static GymManager manager;
+
+    @FXML
     void checkCredintials(MouseEvent event) throws IOException {
         String credentials = username.getText() + " " + password.getText();
         ReadFiles credentialsFile = new ReadFiles("UserAndPass.txt");
@@ -91,21 +94,21 @@ public class LoginFormController {
         if (autherized){
             switch (User.getType(username.getText())) {
                 case "trainee":
-                    user = new Trainee(username.getText());
+                    user = (Trainee) new Trainee(username.getText());
                     switchToTraineeMenu();
                     break;
                 case "trainer":
-                    user = new Trainer(username.getText());
+                    user = (Trainer) new Trainer(username.getText());
                     switchToTrainerMenu();
                     break;
                 case "GymManager":
-                    // user = new GymManager(username.getText());
-                    // switchToGymManagerMenu();
+                    manager = new GymManager(username.getText());
+                    switchToGymManagerMenu();
                     break;
                 default:
                     break;
             }      
-        } else{
+        }else{
             failedLoginLabel.setVisible(true);
             failedLoginIcon.setVisible(true);
             username.setStyle("-fx-border-color: #D53A0B; -fx-border-width: 0px 0px 1px 0px; -fx-background-color: #3A4141; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1");

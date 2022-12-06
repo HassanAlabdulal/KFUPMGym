@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 
 public class ReadFiles<T> {
     private String path;
-    private ObjectInputStream dataInput;
+    //private ObjectInputStream dataInput;
     
     public ReadFiles(String file_path) {
         path = file_path;
@@ -55,6 +55,7 @@ public class ReadFiles<T> {
     }
 
     public ArrayList<T> openBinaryFile(){
+        ObjectInputStream dataInput;
         ArrayList<T> listOfObject = new ArrayList<>();
         try { 
             dataInput = new ObjectInputStream(new FileInputStream(path));

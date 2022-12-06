@@ -1,10 +1,7 @@
-package com;
+package com.example.swe206project;
 
 import java.io.IOException;
 import java.nio.file.Path;
-
-import com.example.swe206project.IDGenerator;
-import com.example.swe206project.WriteFiles;
 
 public  class Workouts {
     private int id;
