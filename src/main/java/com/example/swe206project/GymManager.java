@@ -65,8 +65,4 @@ public class GymManager implements Initializable, Serializable{
         setActivationStatus(trainer.toString(), active);
     }
 
-    protected void name() {
-        
-    }
-
 }
