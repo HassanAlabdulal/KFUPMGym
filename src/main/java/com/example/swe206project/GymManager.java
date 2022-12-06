@@ -11,7 +11,7 @@ public class GymManager implements Initializable, Serializable{
     private String password = "admin";
     private ReadFiles fr = new ReadFiles<>("UserInfo.dat");
 
-    private ArrayList<User> usersList = new ArrayList<>();
+    protected ArrayList<User> usersList = new ArrayList<>();
 
     public GymManager(){
         WriteFiles writer = new WriteFiles<>("UserInfo.dat", true);
@@ -65,5 +65,8 @@ public class GymManager implements Initializable, Serializable{
         setActivationStatus(trainer.toString(), active);
     }
 
+    protected void name() {
+        
+    }
 
 }
