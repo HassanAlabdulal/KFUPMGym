@@ -79,7 +79,7 @@ public class LoginFormController {
         Boolean autherized = false;
         try {
             for (String Username_Pass : credentialsFile.openFile()) { 
-                if(credentials.equals(Username_Pass.replaceFirst("\\p{Sc}\\p{ASCII}*$", ""))){
+                if(credentials.equals(Username_Pass.replaceAll("\\p{Sc}\\p{ASCII}*$", ""))){
                     autherized = true;
                     break;
                 }
