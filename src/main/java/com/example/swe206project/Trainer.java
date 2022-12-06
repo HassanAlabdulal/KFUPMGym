@@ -3,15 +3,22 @@ package com.example.swe206project;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class Trainer extends User{
+public class Trainer extends User implements Initializable{
     //Plan plan;
     private String userName;
     private String speciality;
+    private ArrayList<Trainee> trainersList = new ArrayList<>();
     private ArrayList<Trainee> traineesList = new ArrayList<>();
 
-    public Trainer(String name, double height, double weight, String photo, String speciality, boolean init_value){
+    protected Trainer(){
+        trainersList = (ArrayList<Trainee>) initilize("Trainer");
+    }
+
+    protected Trainer(String name, double height, double weight, String photo, String speciality, String userName, ArrayList<Trainee> traineesList){
         super(name, height, weight, photo);
         this.speciality = speciality;
+        this.userName = userName;
+        this.traineesList = traineesList;
     }
 
     public Trainer(String name, double height, double weight, String photo, String speciality) {
@@ -28,7 +35,7 @@ public class Trainer extends User{
 
     public void save(String name, double height, double weight, String photo, String status) {
         WriteFiles writer = new WriteFiles("UserInfo.txt", true);
-        String data = userName + "$ " + name + " " +  height + " " + weight + " " + photo + " " + speciality + " !" + status + " " + traineesList;
+        String data = userName + "$ " + name + " " +  height + " " + weight + " " + photo + " " + speciality + " " + traineesList + " !" + status;
         try {
             writer.writeToFile(data);
         } catch (IOException e) {
@@ -54,11 +61,13 @@ public class Trainer extends User{
         try {
             int i = 0;
             for (String data : infoFile.openFile()) {
-                if(i != 0 && userName.equals(data.replaceAll("\\s\\p{ASCII}*$", "")))
-                for (String string : data.replaceAll("\\!\\p{Alpha}*$|\\p{Sc}\\p{Graph}*", "").split(" ")) {
-                    if(string != null)
-                    list.add(string);
-                }
+                if(list.size() == 5)
+                    break;
+                if(i != 0 && userName.equals(data.replaceAll("\\s\\p{ASCII}*$|\\p{Sc}", "")))
+                    for (String string : data.replaceAll("\\!\\p{Alpha}*$|\\p{Sc}\\p{Graph}*", "").split(" ")) {
+                        if(!string.equals(""))
+                        list.add(string);
+                    }
                 i++;
             }
         } catch (IOException e) {
@@ -82,6 +91,10 @@ public class Trainer extends User{
 
     public void addTrainee(Trainee trainee){
         traineesList.add(trainee);
+    }
+
+    public String toString(){
+        return userName;
     }
 
 

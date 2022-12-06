@@ -18,6 +18,10 @@ public abstract class User {
     private double height;
     private double weight;
     private String photo;
+
+    protected User(){
+
+    }
     
     public User(String name, double height, double weight, String photo){
         this.name = name;
@@ -75,34 +79,6 @@ public abstract class User {
         return false;
     }
 
-    protected static void setActivationStatus(String userName, boolean active){
-        ReadFiles fileReader = new ReadFiles("UserInfo.txt");
-        WriteFiles writer = new WriteFiles("UserInfo.txt");
-        
-        String status;
-        if(active)
-            status = "active";
-        else
-            status = "not-active";
-            
-        try {
-            int desiredLine = 1;          
-            for (String element : fileReader.openFile()) {
-                if((userName).equals(element.replaceAll("\\s\\p{ASCII}*$", ""))){
-                    break;}
-                desiredLine++;
-            }           
-                if(isActive(userName))
-                   writer.modifyLine(desiredLine, status, "active");
-                else
-                writer.modifyLine(desiredLine, status, "not-active");
-            
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        
-    }
-
     public String getName() {
         return name;
     }
@@ -139,9 +115,10 @@ public abstract class User {
 
     }
 
-
+    public abstract String toString();
     public abstract String getUsername();
-    //public abstract ArrayList<String> pullInfo(String userName);
+
+
 
 
 

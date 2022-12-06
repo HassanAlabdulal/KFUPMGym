@@ -3,12 +3,18 @@ package com.example.swe206project;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class Trainee extends User{
+public class Trainee extends User implements Initializable{
     //Plan plan;
     private String userName;
+    private ArrayList<Trainee> traineesList = new ArrayList<>();
 
-    public Trainee(String name, double height, double weight, String photo, boolean init_value){
+    protected Trainee(){
+        traineesList = (ArrayList<Trainee>) initilize("Trainee");
+    }
+
+    protected Trainee(String name, double height, double weight, String photo, String userName){
         super(name, height, weight, photo);
+        this.userName = userName;
     }
 
     public Trainee(String name, double height, double weight, String photo) {
@@ -49,11 +55,13 @@ public class Trainee extends User{
         try {
             int i = 0;
             for (String data : infoFile.openFile()) {
-                if(i != 0 && userName.equals(data.replaceAll("\\s\\p{ASCII}*$", "")))
-                for (String string : data.replaceAll("\\!\\p{Alpha}*$|\\p{Sc}\\p{Graph}*", "").split(" ")) {
-                    if(string != null)
-                    list.add(string);
-                }
+                if(list.size() == 4)
+                    break;
+                if(i != 0 && userName.equals(data.replaceAll("\\s\\p{ASCII}*$|\\p{Sc}", "")))
+                    for (String string : data.replaceAll("\\!\\p{Alpha}*$|\\p{Sc}\\p{Graph}*", "").split(" ")) {
+                        if(!string.equals(""))
+                        list.add(string);
+                    }
                 i++;
             }
         } catch (IOException e) {
@@ -66,6 +74,7 @@ public class Trainee extends User{
     public String toString(){
         return userName;
     }
+
 
     
 }
