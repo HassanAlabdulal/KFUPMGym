@@ -3,10 +3,14 @@ package com.example.swe206project;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 public class Trainee extends User implements Initializable{
     //Plan plan;
-    private static String userName;
+    protected String userName;
+    protected String trainer;
     private ArrayList<Trainee> traineesList = new ArrayList<>();
     //protected static ArrayList<String> info = pullInfo(userName);
     //protected Trainee(){
@@ -17,21 +21,27 @@ public class Trainee extends User implements Initializable{
         super(userName);
     }
 
-    protected Trainee(String name, double height, double weight, String photo, String userName){
+    protected Trainee(String name, double height, double weight, String photo, String trainer, String userName){
         super(name, height, weight, photo);
         this.userName = userName;
+        this.trainer = trainer;
     }
 
-    public Trainee(String name, double height, double weight, String photo) {
+    public Trainee(String name, double height, double weight, String photo, String trainer) {
         super(name, height, weight, photo);
         UsernamePassGen user = new UsernamePassGen(name, "trainee");
         userName = user.username;
-        save(name, height, weight, photo, "active");
+        this.trainer = trainer;
+        save(name, height, weight, photo, trainer,"active");
     }
 
-    public void save(String name, double height, double weight, String photo, String status) {
+    public Trainee(String name, double height, double weight, String photo){
+        this(name, height, weight, photo, "");
+    }
+
+    public void save(String name, double height, double weight, String photo, String trainer, String status) {
         WriteFiles writer = new WriteFiles("UserInfo.txt", true);
-        String data = userName + "$ " + name + " " +  height + " " + weight + " " + photo + " !" + status;
+        String data = "@" + userName + " " + name + " " +  height + " " + weight + " " + photo + " $" + trainer + " !" + status;
         try {
             writer.writeToFile(data);
         } catch (IOException e) {
@@ -59,6 +69,28 @@ public class Trainee extends User implements Initializable{
 
     }
 
+    public String getTrainer(){
+        return trainer;
+    }
+
+    public static String getTrainer(String userName){
+        ReadFiles fileReader = new ReadFiles("UserInfo.txt");
+        try {
+            for (String element : fileReader.openFile()) {
+                if((userName).equals(element.replaceAll("\\s\\p{ASCII}*$", ""))){
+                    Pattern pattern = Pattern.compile("\\$\\p{Graph}*");
+                    Matcher match = pattern.matcher(element);
+                    if(match.find())
+                        return match.group();
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        return null;
+    }
+
     public static ArrayList<String> pullInfo(String userName){ // returns name, height, weight, photo path in this exact order (0 -> 3)
         ReadFiles infoFile = new ReadFiles("UserInfo.txt");
         ArrayList<String> list = new ArrayList<>();
@@ -67,9 +99,8 @@ public class Trainee extends User implements Initializable{
             for (String data : infoFile.openFile()) {
                 if(list.size() == 5)
                     break;
-                if(i != 0 && userName.equals(data.replaceAll("\\s\\p{ASCII}*$|\\!", "")))  
-                    for (String string : data.replaceAll("\\!\\p{Graph}*$|\\p{Graph}*\\!", "").split(" ")) {
-                        String[] tmp = data.replaceAll("\\!\\p{Graph}*$|\\p{Graph}*\\!", "").split(" ");
+                if(i != 0 && userName.equals(data.replaceAll("\\s\\p{ASCII}*$|\\@", "")))  
+                    for (String string : data.replaceAll("\\!\\p{Graph}*$|\\@\\p{Graph}*|\\p{Sc}", "").split(" ")) {
                         if(!string.equals(""))
                             list.add(string);
                     }

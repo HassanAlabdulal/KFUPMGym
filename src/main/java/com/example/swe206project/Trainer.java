@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Trainer extends User implements Initializable{
     //Plan plan;
-    protected static String userName;
+    protected String userName;
     private String speciality;
     protected ArrayList<Trainer> trainersList = new ArrayList<>();
     protected ArrayList<Trainee> traineesList = new ArrayList<>();
@@ -27,10 +27,11 @@ public class Trainer extends User implements Initializable{
         super(name, height, weight, photo);
         this.speciality = speciality;
         this.userName = userName;
-        for (Trainer trainer : trainersList) {
-            if(trainer.getUsername().equals(this.userName))
-                this.traineesList = trainer.traineesList;
-        }
+        this.traineesList = traineesList;
+        //for (Trainer trainer : trainersList) {
+        //    if(trainer.getUsername().equals(this.userName))
+        //        this.traineesList = trainer.traineesList;
+        //}
     }
 
     public Trainer(String name, double height, double weight, String photo, String speciality) {
@@ -51,7 +52,7 @@ public class Trainer extends User implements Initializable{
 
     public void save(String name, double height, double weight, String photo, String status) {
         WriteFiles writer = new WriteFiles("UserInfo.txt", true);
-        String data = userName + "! " + name + " " +  height + " " + weight + " " + photo + " " + speciality + " " + traineesList + " !" + status;
+        String data = "@" + userName + " " + name + " " +  height + " " + weight + " " + photo + " " + speciality + " " + traineesList.toString().replaceAll(" ", "") + " !" + status;
         try {
             writer.writeToFile(data);
         } catch (IOException e) {
@@ -79,8 +80,8 @@ public class Trainer extends User implements Initializable{
             for (String data : infoFile.openFile()) {
                 if(list.size() == 5)
                     break;
-                if(i != 0 && userName.equals(data.replaceAll("\\s\\p{ASCII}*$|\\!", "")))  
-                    for (String string : data.replaceAll("\\!\\p{Graph}*$|\\p{Graph}*\\!", "").split(" ")) {
+                if(i != 0 && userName.equals(data.replaceAll("\\s\\p{ASCII}*$|\\@", "")))  
+                    for (String string : data.replaceAll("\\!\\p{Graph}*$|\\@\\p{Graph}*", "").split(" ")) {
                         if(!string.equals(""))
                             list.add(string);
                     }

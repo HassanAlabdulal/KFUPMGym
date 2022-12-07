@@ -1,6 +1,13 @@
 package com.example.swe206project;
 
 import java.io.IOException;
+//import com.fasterxml.jackson.databind.ObjectMapper;
+//import org.json.JSONArray;
+//import org.json.simple.JSONObject;
+//import org.json.simple.parser.JSONParser;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Scanner;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -80,7 +87,34 @@ public class LoginFormController {
         String credentials = username.getText() + " " + password.getText();
         ReadFiles credentialsFile = new ReadFiles("UserAndPass.txt");
         Boolean autherized = false;
+        StringBuilder type = new StringBuilder();
+
         try {
+            /* 
+            URL url = new URL("https://us-central1-swe206-221.cloudfunctions.net/app/SignIn");
+
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+            conn.connect();
+
+            //Check if connect is made
+            int responseCode = conn.getResponseCode();
+
+            // 200 OK
+            if (responseCode != 200)
+                throw new RuntimeException("HttpResponseCode: " + responseCode);
+            else{
+                autherized = true;
+                Scanner scanner = new Scanner(url.openStream());
+
+                while (scanner.hasNext()) {
+                    type.append(scanner.nextLine());
+                }
+                //Close the scanner
+                scanner.close();
+            }
+            */
+
             for (String Username_Pass : credentialsFile.openFile()) { 
                 if(credentials.equals(Username_Pass.replaceAll("\\p{Sc}\\p{ASCII}*$", ""))){
                     autherized = true;

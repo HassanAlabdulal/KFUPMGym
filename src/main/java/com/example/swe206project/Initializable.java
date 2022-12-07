@@ -15,11 +15,18 @@ public interface Initializable<T> {
                 ArrayList<String> info = new ArrayList<>();
                 String userName = user.replaceAll("\\s\\p{ASCII}*$", "");
                     switch (User.getType(userName)) {
+
                         case "trainee": 
                             info = Trainee.pullInfo(userName);
-                            if(info.size() != 0){
-                                if(!traineesList.toString().contains(userName)){
-                                    Trainee trainee = new Trainee(info.get(0), Double.valueOf(info.get(1)), Double.valueOf(info.get(2)), info.get(3), userName);
+                            if(info.size() != 0 && !traineesList.toString().contains(userName)){
+                                
+                                if(info.size() == 4){
+                                    Trainee trainee = new Trainee(info.get(0), Double.valueOf(info.get(1)), Double.valueOf(info.get(2)), info.get(3), "", userName);
+                                    usersList.add(trainee);
+                                    traineesList.add(trainee);
+                                }
+                                else{
+                                    Trainee trainee = new Trainee(info.get(0), Double.valueOf(info.get(1)), Double.valueOf(info.get(2)), info.get(3), info.get(4), userName);
                                     usersList.add(trainee);
                                     traineesList.add(trainee);
                                 }
@@ -31,11 +38,11 @@ public interface Initializable<T> {
                             if(info.size() != 0){
                             String list = info.get(5);
                             ArrayList<Trainee> assignedTrainees = new ArrayList<>();
-                            if(list.equals("[]")){
-                                for (String trainee : list.split(", ")) {
+                            if(!list.equals("[]")){
+                                for (String trainee : list.replaceAll("\\[|\\]", "").split(",")) {
                                     if(traineesList.toString().contains(trainee)){
                                         for (Trainee traineeObject : traineesList) {
-                                            if(traineeObject.toString().equals(trainee))
+                                            if(traineeObject.getUsername().equals(trainee))
                                                 assignedTrainees.add(traineeObject);
                                         }
                                     }
@@ -43,10 +50,20 @@ public interface Initializable<T> {
                                         ArrayList<String> traineeInfo = Trainee.pullInfo(userName);
                                         if(info.size() != 0){
                                             if(!traineesList.toString().contains(userName)){
-                                                Trainee traineeObject = new Trainee(info.get(0), Double.valueOf(info.get(1)), Double.valueOf(info.get(2)), info.get(3), trainee);
-                                                usersList.add(traineeObject);
-                                                traineesList.add(traineeObject);
-                                                assignedTrainees.add(traineeObject);
+                                                if(traineeInfo.size() == 4){
+                                                    Trainee traineeObject = new Trainee(traineeInfo.get(0), Double.valueOf(traineeInfo.get(1)), Double.valueOf(traineeInfo.get(2)), traineeInfo.get(3), "", trainee);
+                                                    usersList.add(traineeObject);
+                                                    traineesList.add(traineeObject);
+                                                    assignedTrainees.add(traineeObject);
+                                                }
+                                                else{
+                                                    Trainee traineeObject = new Trainee(traineeInfo.get(0), Double.valueOf(traineeInfo.get(1)), Double.valueOf(traineeInfo.get(2)), traineeInfo.get(3), info.get(4), trainee);
+                                                    usersList.add(traineeObject);
+                                                    traineesList.add(traineeObject);
+                                                    assignedTrainees.add(traineeObject);
+                                                }
+                                                
+                                                
                                             }
                                         }
                                     }

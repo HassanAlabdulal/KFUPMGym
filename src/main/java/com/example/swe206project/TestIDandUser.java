@@ -30,6 +30,12 @@ public class TestIDandUser {
 
    // WriteFiles w = new WriteFiles<>("UserInfo.dat", true);
       GymManager g = new GymManager();
+      User u = g.usersList.get(4);
+      System.out.println(g.usersList);
+      if(u instanceof Trainer){
+        Trainer x = (Trainer) u;
+        System.out.println(x.getTraineesList());
+        }
         //for (User user : g.getUsersList()) {
         //    if(user instanceof Trainee)
         //        System.out.println(Trainee.pullInfo(user.toString()));
