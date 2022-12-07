@@ -1,5 +1,12 @@
 package com.example.swe206project;
 
+import java.io.BufferedWriter;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Scanner;
+
 public class TestIDandUser {
     public static void main(String[] args) {
 //        String User_getName = "mohammed3837"; // when we make the user we use getName() for this one
@@ -36,6 +43,8 @@ public class TestIDandUser {
         Trainer x = (Trainer) u;
         System.out.println(x.getTraineesList());
         }
+    
+    
         //for (User user : g.getUsersList()) {
         //    if(user instanceof Trainee)
         //        System.out.println(Trainee.pullInfo(user.toString()));

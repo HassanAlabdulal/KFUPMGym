@@ -15,7 +15,7 @@ public abstract class User implements Serializable{
     private int id;
     //private String userName; this cant be determined yet because of the type abstraction
     protected static String name;
-    private static String password;
+    protected static String password;
     protected static double height;
     protected static double weight;
     protected static String photo;
