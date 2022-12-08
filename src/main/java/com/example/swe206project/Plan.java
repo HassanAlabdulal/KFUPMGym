@@ -47,7 +47,7 @@ public class Plan implements Initializable, Serializable{
 
     public static String getPlanName(int id){
         ReadFiles read = new ReadFiles<>("Plans.txt");
-        return read.fetch(String.valueOf(id), "\\p{Alpha}*\\$").replaceAll("\\$", "");
+        return read.fetch(String.valueOf(id), "\\p{Graph}*\\$").replaceAll("\\$", "");
     }
 
     public ArrayList<String> getSessionsList(){
@@ -56,6 +56,10 @@ public class Plan implements Initializable, Serializable{
 
     public String getPlanName(){
         return planName;
+    }
+
+    public String toString(){
+        return id+"";
     }
 
 }
