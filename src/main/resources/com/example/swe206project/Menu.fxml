@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #212121;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.swe206project.TraineeMenu">
+<AnchorPane fx:id="rootPane" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #212121;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.swe206project.MenuController">
    <children>
       <BorderPane layoutX="114.0" layoutY="54.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #212121;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -51,7 +51,7 @@
          <left>
             <AnchorPane fx:id="slider" prefHeight="688.0" prefWidth="225.0" style="-fx-background-color: #303030;" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="todaysSession" alignment="BASELINE_LEFT" layoutY="312.0" onAction="#SessionsPage" onMouseClicked="#todaysSessionOnClicked" onMouseEntered="#todaysSessionInHover" onMouseExited="#todaysSessionOutHover" onMousePressed="#todaysSessionOnPressed" onMouseReleased="#todaysSessionOnReleased" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #303030; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #43896B; -fx-border-radius: 0px 0px 0px 0px;" styleClass="sidebarItem" text="Today's Session" textFill="#f4f9f1" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="310.0">
+                  <Button fx:id="todaysSession" alignment="BASELINE_LEFT" layoutY="312.0" onAction="#sessionsPage" onMouseClicked="#todaysSessionOnClicked" onMouseEntered="#todaysSessionInHover" onMouseExited="#todaysSessionOutHover" onMousePressed="#todaysSessionOnPressed" onMouseReleased="#todaysSessionOnReleased" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #303030; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #43896B; -fx-border-radius: 0px 0px 0px 0px;" styleClass="sidebarItem" text="Today's Session" textFill="#f4f9f1" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="370.0">
                      <font>
                         <Font name="Arial" size="20.0" />
                      </font>
@@ -63,7 +63,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="myPlan" alignment="BASELINE_LEFT" layoutX="1.0" layoutY="375.0" onAction="#PlanPage" onMouseClicked="#myPlanOnClicked" onMouseEntered="#myPlanInHover" onMouseExited="#myPlanOutHover" onMousePressed="#myPlanOnPressed" onMouseReleased="#myPlanOnReleased" prefHeight="60.0" prefWidth="160.0" style="-fx-background-color: #303030; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #43896B; -fx-border-radius: 0px 0px 0px 0px;" styleClass="sidebarItem" text="My Plan" textFill="#f4f9f1" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="370.0">
+                  <Button fx:id="myPlan" alignment="BASELINE_LEFT" layoutX="1.0" layoutY="375.0" onAction="#planPage" onMouseClicked="#myPlanOnClicked" onMouseEntered="#myPlanInHover" onMouseExited="#myPlanOutHover" onMousePressed="#myPlanOnPressed" onMouseReleased="#myPlanOnReleased" prefHeight="60.0" prefWidth="160.0" style="-fx-background-color: #303030; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #43896B; -fx-border-radius: 0px 0px 0px 0px;" styleClass="sidebarItem" text="My Plan" textFill="#f4f9f1" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="430.0">
                      <font>
                         <Font name="Arial" size="20.0" />
                      </font>
@@ -75,7 +75,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="myProfile" alignment="BASELINE_LEFT" layoutX="-5.0" layoutY="440.0" onAction="#ProfilePage" onMouseClicked="#myProfileOnClicked" onMouseEntered="#myProfileInHover" onMouseExited="#myProfileOutHover" onMousePressed="#myProfileOnPressed" onMouseReleased="#myProfileOnReleased" prefHeight="60.0" prefWidth="160.0" style="-fx-background-color: #303030; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #43896B; -fx-border-radius: 0px 0px 0px 0px;" styleClass="sidebarItem" text="My Profile" textFill="#f4f9f1" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="430.0">
+                  <Button fx:id="myProfile" alignment="BASELINE_LEFT" layoutX="-5.0" layoutY="440.0" onAction="#profilePage" onMouseClicked="#myProfileOnClicked" onMouseEntered="#myProfileInHover" onMouseExited="#myProfileOutHover" onMousePressed="#myProfileOnPressed" onMouseReleased="#myProfileOnReleased" prefHeight="60.0" prefWidth="160.0" style="-fx-background-color: #303030; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #43896B; -fx-border-radius: 0px 0px 0px 0px;" styleClass="sidebarItem" text="My Profile" textFill="#f4f9f1" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="310.0">
                      <font>
                         <Font name="Lato Bold" size="20.0" />
                      </font>
@@ -110,6 +110,18 @@
                         <Font name="Arial" size="18.0" />
                      </font>
                   </Label>
+                  <Button fx:id="viewTrainees" alignment="BASELINE_LEFT" layoutX="14.0" layoutY="530.0" onAction="#viewTraineesPage" prefHeight="60.0" prefWidth="160.0" style="-fx-background-color: #303030; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #43896B; -fx-border-radius: 0px 0px 0px 0px;" styleClass="sidebarItem" text="ViewTrainees" textFill="#f4f9f1" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="490.0">
+                     <font>
+                        <Font name="Arial" size="20.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@assets/images/viewTraineesIcon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                </children>
                <effect>
                   <DropShadow />

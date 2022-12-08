@@ -129,11 +129,11 @@ public class LoginFormController {
             switch (User.getType(username.getText())) {
                 case "trainee":
                     user = (Trainee) new Trainee(username.getText());
-                    switchToTraineeMenu();
+                    switchToMenu();
                     break;
                 case "trainer":
                     user = (Trainer) new Trainer(username.getText());
-                    switchToTrainerMenu();
+                    switchToMenu();
                     break;
                 case "GymManager":
                     manager = new GymManager(username.getText());
@@ -219,9 +219,9 @@ public class LoginFormController {
         forgotPassMessage.setVisible(false);
     }
 
-    public void switchToTraineeMenu () throws IOException {
+    public void switchToMenu () throws IOException {
         this.user = user;
-        Parent root = FXMLLoader.load(getClass().getResource("TraineeMenu.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
         Stage stage = new Stage();
         stage.initStyle(StageStyle.UNDECORATED);
 
@@ -235,17 +235,16 @@ public class LoginFormController {
             stage.setY(event.getScreenY() - y);
         });
 
-        Scene traineeMenuScene = new Scene(root);
-        stage.setScene(traineeMenuScene);
+        Scene menuScene = new Scene(root);
+        stage.setScene(menuScene);
         stage.show();
 
         rootPane.getScene().getWindow().hide();
         }
 
-
-        public void switchToTrainerMenu () throws IOException {
+        public void switchToGymManagerMenu() throws IOException {
             this.user = user;
-            Parent root = FXMLLoader.load(getClass().getResource("TrainerMenu.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("GymManagerMenu.fxml"));
             Stage stage = new Stage();
             stage.initStyle(StageStyle.UNDECORATED);
     
@@ -253,40 +252,17 @@ public class LoginFormController {
                 x = event.getSceneX();
                 y = event.getSceneY();
             });
-    
+        
             root.setOnMouseDragged(event -> {
                 stage.setX(event.getScreenX() - x);
                 stage.setY(event.getScreenY() - y);
             });
-    
-            Scene trainerMenuScene = new Scene(root);
-            stage.setScene(trainerMenuScene);
+        
+            Scene GymManagerMenuScene = new Scene(root);
+            stage.setScene(GymManagerMenuScene);
             stage.show();
-    
+        
             rootPane.getScene().getWindow().hide();
-            }
-
-            public void switchToGymManagerMenu() throws IOException {
-                this.user = user;
-                Parent root = FXMLLoader.load(getClass().getResource("GymManagerMenu.fxml"));
-                Stage stage = new Stage();
-                stage.initStyle(StageStyle.UNDECORATED);
-        
-                root.setOnMousePressed(event -> {
-                    x = event.getSceneX();
-                    y = event.getSceneY();
-                });
-        
-                root.setOnMouseDragged(event -> {
-                    stage.setX(event.getScreenX() - x);
-                    stage.setY(event.getScreenY() - y);
-                });
-        
-                Scene GymManagerMenuScene = new Scene(root);
-                stage.setScene(GymManagerMenuScene);
-                stage.show();
-        
-                rootPane.getScene().getWindow().hide();
-            }
+        }
 
 }

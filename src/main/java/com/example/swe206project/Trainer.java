@@ -81,7 +81,7 @@ public class Trainer extends User implements Initializable{
                 if(list.size() == 5)
                     break;
                 if(i != 0 && userName.equals(data.replaceAll("\\s\\p{ASCII}*$|\\@", "")))  
-                    for (String string : data.replaceAll("\\!\\p{Graph}*$|\\@\\p{Graph}*", "").split(" ")) {
+                    for (String string : data.replaceAll("\\!\\p{Graph}*$|\\@\\p{Graph}", "").split(" ")) {
                         if(!string.equals(""))
                             list.add(string);
                     }
@@ -113,8 +113,5 @@ public class Trainer extends User implements Initializable{
     public String toString(){
         return userName;
     }
-
-
-
     
 }

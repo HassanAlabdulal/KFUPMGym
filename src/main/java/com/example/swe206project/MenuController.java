@@ -15,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.effect.Glow;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -23,40 +24,47 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class TrainerMenu implements Initializable {
+public class MenuController implements Initializable {
+
+    private User user = LoginFormController.user;
 
     @FXML
     private AnchorPane rootPane;
 
     @FXML
+    private VBox contentArea;
+
+    // Header variables
+    @FXML
     private ImageView closeMenu;
-
-    @FXML
-    private ImageView closePage;
-
-    @FXML
-    private Button myPlan;
-
-    @FXML
-    private Button myProfile;
-
-    @FXML
-    private Button viewTrainees;
 
     @FXML
     private ImageView openMenu;
 
     @FXML
+    private ImageView closePage;
+
+    // Slider variables
+    @FXML
     private AnchorPane slider;
 
     @FXML
-    private Button todaysSession;
+    private ImageView userPicture;
 
     @FXML
     private Label userName;
 
     @FXML
-    private ImageView userPicture;
+    private Button myProfile;
+
+    @FXML
+    private Button todaysSession;
+
+    @FXML
+    private Button myPlan;
+
+    @FXML
+    private Button viewTrainees;
 
     @FXML
     private ImageView logoutIcon;
@@ -64,14 +72,64 @@ public class TrainerMenu implements Initializable {
     @FXML
     private Label logoutLabel;
 
+    // Profile page variables
     @FXML
-    private VBox contentArea;
+    private Button cancel;
+
+    @FXML
+    private ImageView editPhotoIcon;
+
+    @FXML
+    private Button editProfile;
+
+    @FXML
+    private TextField height;
+
+    @FXML
+    private TextField name;
+
+    @FXML
+    private ImageView profilePhoto;
+
+    @FXML
+    private Button save;
+
+    @FXML
+    private TextField statusOrCount;
+
+    @FXML
+    private Label statusOrCountLabel;
+
+    @FXML
+    private ImageView subscriptionButton;
+
+    @FXML
+    private TextField trainerOrSpeciality;
+
+    @FXML
+    private Label trainerOrSpecialityLabel;
+
+    @FXML
+    private TextField username;
+
+    @FXML
+    private TextField weight;
+
+    // Session page variables
+
+
+    // Plan page variables
+
+
+    // View Trainees page variables
+
 
     private boolean todaysSessionIsClicked = false;
     private boolean myPlanIsClicked = false;
     private boolean myProfileIsClicked = false;
     private boolean viewTraineesIsClicked = false;
 
+    // Header design
     @FXML
     void openMenuInHover(MouseEvent event) {
         openMenu.setStyle("-fx-cursor: hand");
@@ -123,105 +181,33 @@ public class TrainerMenu implements Initializable {
         closePage.setEffect(new Glow(0.0));
     }
 
+    // Profile page design
     @FXML
-    void todaysSessionOnClicked(MouseEvent event) {
-        if (!todaysSessionIsClicked){
-            todaysSession.setStyle("-fx-border-color: #43896B; -fx-border-width: 0px 0px 4px 0px; -fx-background-color: #212121; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
-            myPlan.setStyle("-fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color:  #303030; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
-            myProfile.setStyle("-fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color:  #303030; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
-            todaysSessionIsClicked = true;
-            myPlanIsClicked = false;
-            myProfileIsClicked = false;
-            viewTraineesIsClicked = false;
-        }
-    }
-
-    @FXML
-    void todaysSessionInHover(MouseEvent event) {
-        if (!todaysSessionIsClicked){
-            todaysSession.setStyle("-fx-cursor: hand; -fx-border-color: #43896B; -fx-border-width: 0px 0px 4px 0px; -fx-background-color: #3A4141; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
-        }
-    }
-
-    @FXML
-    void todaysSessionOutHover(MouseEvent event) {
-        if (todaysSessionIsClicked){
-            todaysSession.setStyle("-fx-border-color: #43896B; -fx-border-width: 0px 0px 4px 0px; -fx-background-color:  #212121; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
-        } else {
-            todaysSession.setStyle("-fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color:  #303030; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
-        }
-    }
-
-    @FXML
-    void todaysSessionOnPressed(MouseEvent event) {
-        if (!todaysSessionIsClicked){
-            todaysSession.setStyle("-fx-cursor: hand; -fx-border-color: #43896B; -fx-border-width: 0px 0px 4px 0px; -fx-background-color: #3A4141; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
-            todaysSession.setEffect(new Glow(0.3));
-        }
-    }
-
-    @FXML
-    void todaysSessionOnReleased(MouseEvent event) {
-        if (!todaysSessionIsClicked){
-            todaysSession.setStyle("-fx-cursor: hand; -fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: #212121; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
-            todaysSession.setEffect(new Glow(0.0));
-        }
-    }
-
-    @FXML
-    void myPlanOnClicked(MouseEvent event) {
-        if (!myPlanIsClicked){
-            todaysSession.setStyle("-fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: #303030; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
-            myPlan.setStyle("-fx-border-color: #43896B; -fx-border-width: 0px 0px 4px 0px; -fx-background-color:  #212121; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
-            myProfile.setStyle("-fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color:  #303030; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
-            todaysSessionIsClicked = false;
-            myPlanIsClicked = true;
-            myProfileIsClicked = false;
-            viewTraineesIsClicked = false;
-        }
-    }
-
-    @FXML
-    void myPlanInHover(MouseEvent event) {
-        if (!myPlanIsClicked){
-            myPlan.setStyle("-fx-cursor: hand; -fx-border-color: #43896B; -fx-border-width: 0px 0px 4px 0px; -fx-background-color: #3A4141; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
-        }
-    }
-
-    @FXML
-    void myPlanOutHover(MouseEvent event) {
-        if (myPlanIsClicked){
-            myPlan.setStyle("-fx-border-color: #43896B; -fx-border-width: 0px 0px 4px 0px; -fx-background-color:  #212121; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
-        } else {
-            myPlan.setStyle("-fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color:  #303030; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
-        }
-    }
-
-    @FXML
-    void myPlanOnPressed(MouseEvent event) {
-        if (!myPlanIsClicked){
-            myPlan.setStyle("-fx-cursor: hand; -fx-border-color: #43896B; -fx-border-width: 0px 0px 4px 0px; -fx-background-color: #3A4141; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
-            myPlan.setEffect(new Glow(0.3));
-        }
-    }
-
-    @FXML
-    void myPlanOnReleased(MouseEvent event) {
-        if (!myPlanIsClicked){
-            myPlan.setStyle("-fx-cursor: hand; -fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: #212121; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
-            myPlan.setEffect(new Glow(0.0));
-        }
+    public void profilePage(ActionEvent Event) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("ProfilePage.fxml"));
+        contentArea.getChildren().removeAll();
+        contentArea.getChildren().setAll(fxml);    
     }
 
     @FXML
     void myProfileOnClicked(MouseEvent event) {
         if (!myProfileIsClicked){
-            todaysSession.setStyle("-fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: #303030; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
-            myPlan.setStyle("-fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color:  #303030; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
-            myProfile.setStyle("-fx-border-color: #43896B; -fx-border-width: 0px 0px 4px 0px; -fx-background-color:  #212121; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
+            myProfile.setStyle(
+                "-fx-border-color: #43896B; -fx-border-width: 0px 0px 4px 0px; -fx-background-color:  #212121; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1"
+            );
+            todaysSession.setStyle(
+                "-fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: #303030; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1"
+            );
+            myPlan.setStyle(
+                "-fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color:  #303030; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1"
+            );
+            viewTrainees.setStyle(
+                "-fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color:  #303030; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1"
+            );
+
+            myProfileIsClicked = true;
             todaysSessionIsClicked = false;
             myPlanIsClicked = false;
-            myProfileIsClicked = true;
             viewTraineesIsClicked = false;
         }
     }
@@ -258,18 +244,160 @@ public class TrainerMenu implements Initializable {
         }
     }
 
+    // Session page design
+    @FXML
+    public void sessionsPage(ActionEvent Event) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("SessionsPage.fxml"));
+        contentArea.getChildren().removeAll();
+        contentArea.getChildren().setAll(fxml);    
+    }
+
+    @FXML
+    void todaysSessionOnClicked(MouseEvent event) {
+        if (!todaysSessionIsClicked){
+            myProfile.setStyle(
+                "-fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color:  #303030; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1"
+            );
+            todaysSession.setStyle(
+                "-fx-border-color: #43896B; -fx-border-width: 0px 0px 4px 0px; -fx-background-color: #212121; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1"
+            );
+            myPlan.setStyle(
+                "-fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color:  #303030; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1"
+            );
+            viewTrainees.setStyle(
+                "-fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color:  #303030; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1"
+            );
+
+            myProfileIsClicked = false;
+            todaysSessionIsClicked = true;
+            myPlanIsClicked = false;
+            viewTraineesIsClicked = false;
+        }
+    }
+
+    @FXML
+    void todaysSessionInHover(MouseEvent event) {
+        if (!todaysSessionIsClicked){
+            todaysSession.setStyle("-fx-cursor: hand; -fx-border-color: #43896B; -fx-border-width: 0px 0px 4px 0px; -fx-background-color: #3A4141; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
+        }
+    }
+
+    @FXML
+    void todaysSessionOutHover(MouseEvent event) {
+        if (todaysSessionIsClicked){
+            todaysSession.setStyle("-fx-border-color: #43896B; -fx-border-width: 0px 0px 4px 0px; -fx-background-color:  #212121; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
+        } else {
+            todaysSession.setStyle("-fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color:  #303030; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
+        }
+    }
+
+    @FXML
+    void todaysSessionOnPressed(MouseEvent event) {
+        if (!todaysSessionIsClicked){
+            todaysSession.setStyle("-fx-cursor: hand; -fx-border-color: #43896B; -fx-border-width: 0px 0px 4px 0px; -fx-background-color: #3A4141; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
+            todaysSession.setEffect(new Glow(0.3));
+        }
+    }
+
+    @FXML
+    void todaysSessionOnReleased(MouseEvent event) {
+        if (!todaysSessionIsClicked){
+            todaysSession.setStyle("-fx-cursor: hand; -fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: #212121; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
+            todaysSession.setEffect(new Glow(0.0));
+        }
+    }
+
+    // Plan page design
+    @FXML
+    public void planPage(ActionEvent Event) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("PlanPage.fxml"));
+        contentArea.getChildren().removeAll();
+        contentArea.getChildren().setAll(fxml);    
+    }
+
+    @FXML
+    void myPlanOnClicked(MouseEvent event) {
+        if (!myPlanIsClicked){
+            myProfile.setStyle(
+                "-fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color:  #303030; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1"
+            );
+            todaysSession.setStyle(
+                "-fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: #303030; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1"
+            );
+            myPlan.setStyle(
+                "-fx-border-color: #43896B; -fx-border-width: 0px 0px 4px 0px; -fx-background-color:  #212121; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1"
+            );
+            viewTrainees.setStyle(
+                "-fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color:  #303030; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1"
+            );
+
+            myProfileIsClicked = false;
+            todaysSessionIsClicked = false;
+            myPlanIsClicked = true;
+            viewTraineesIsClicked = false;
+        }
+    }
+
+    @FXML
+    void myPlanInHover(MouseEvent event) {
+        if (!myPlanIsClicked){
+            myPlan.setStyle("-fx-cursor: hand; -fx-border-color: #43896B; -fx-border-width: 0px 0px 4px 0px; -fx-background-color: #3A4141; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
+        }
+    }
+
+    @FXML
+    void myPlanOutHover(MouseEvent event) {
+        if (myPlanIsClicked){
+            myPlan.setStyle("-fx-border-color: #43896B; -fx-border-width: 0px 0px 4px 0px; -fx-background-color:  #212121; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
+        } else {
+            myPlan.setStyle("-fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color:  #303030; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
+        }
+    }
+
+    @FXML
+    void myPlanOnPressed(MouseEvent event) {
+        if (!myPlanIsClicked){
+            myPlan.setStyle("-fx-cursor: hand; -fx-border-color: #43896B; -fx-border-width: 0px 0px 4px 0px; -fx-background-color: #3A4141; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
+            myPlan.setEffect(new Glow(0.3));
+        }
+    }
+
+    @FXML
+    void myPlanOnReleased(MouseEvent event) {
+        if (!myPlanIsClicked){
+            myPlan.setStyle("-fx-cursor: hand; -fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: #212121; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
+            myPlan.setEffect(new Glow(0.0));
+        }
+    }
+
+    // View Trainees page
+    @FXML
+    public void viewTraineesPage(ActionEvent Event) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("ViewTraineesPage.fxml"));
+        contentArea.getChildren().removeAll();
+        contentArea.getChildren().setAll(fxml);    
+    }
+
     @FXML
     void viewTraineesOnClicked(MouseEvent event) {
-        if (!viewTraineesIsClicked){
-            viewTrainees.setStyle("-fx-border-color: #43896B; -fx-border-width: 0px 0px 4px 0px; -fx-background-color: #212121; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
-            myPlan.setStyle("-fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color:  #303030; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
-            myProfile.setStyle("-fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color:  #303030; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
-            todaysSession.setStyle("-fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color:  #303030; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
+        if (!myPlanIsClicked){
+            myProfile.setStyle(
+                "-fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color:  #303030; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1"
+            );
+            todaysSession.setStyle(
+                "-fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: #303030; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1"
+            );
+            myPlan.setStyle(
+                "-fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color:  #303030; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1"
+            );
+            viewTrainees.setStyle(
+                "-fx-border-color: #43896B; -fx-border-width: 0px 0px 4px 0px; -fx-background-color:  #212121; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1"
+            );
+
+            myProfileIsClicked = false;
             todaysSessionIsClicked = false;
             myPlanIsClicked = false;
-            myProfileIsClicked = false;
             viewTraineesIsClicked = true;
-            
         }
     }
 
@@ -292,20 +420,20 @@ public class TrainerMenu implements Initializable {
     @FXML
     void viewTraineesOnPressed(MouseEvent event) {
         if (!viewTraineesIsClicked){
-          viewTrainees.setStyle("-fx-cursor: hand; -fx-border-color: #43896B; -fx-border-width: 0px 0px 4px 0px; -fx-background-color: #3A4141; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
-          viewTrainees.setEffect(new Glow(0.3));
+            viewTrainees.setStyle("-fx-cursor: hand; -fx-border-color: #43896B; -fx-border-width: 0px 0px 4px 0px; -fx-background-color: #3A4141; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
+            viewTrainees.setEffect(new Glow(0.3));
         }
     }
 
     @FXML
     void viewTraineesOnReleased(MouseEvent event) {
         if (!viewTraineesIsClicked){
-          viewTrainees.setStyle("-fx-cursor: hand; -fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: #212121; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
-          viewTrainees.setEffect(new Glow(0.0));
+            viewTrainees.setStyle("-fx-cursor: hand; -fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: #212121; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
+            viewTrainees.setEffect(new Glow(0.0));
         }
     }
 
-
+    // Logout design
     @FXML
     void logoutOnClicked(MouseEvent event) {
         FXMLLoader fxmlLoader;
@@ -329,6 +457,12 @@ public class TrainerMenu implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        myProfile.fire();
+
+        if (user instanceof Trainer) {
+            viewTrainees.setVisible(true);
+            viewTrainees.setDisable(true);
+        }
 
         closePage.setOnMouseClicked(event -> {
             System.exit(0);
@@ -373,36 +507,8 @@ public class TrainerMenu implements Initializable {
             contentArea.getChildren().setAll(fxml);
         } 
         catch(IOException ex){
-            Logger.getLogger(TraineeMenu.class.getName()).log(Level.SEVERE,null,ex);
+            Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE,null,ex);
         } 
-    }
-
-    @FXML
-    public void SessionsPage(ActionEvent Event) throws IOException {
-        Parent fxml = FXMLLoader.load(getClass().getResource("SessionsPage.fxml"));
-        contentArea.getChildren().removeAll();
-        contentArea.getChildren().setAll(fxml);    
-    }
-
-    @FXML
-    public void PlanPage(ActionEvent Event) throws IOException {
-        Parent fxml = FXMLLoader.load(getClass().getResource("PlanPage.fxml"));
-        contentArea.getChildren().removeAll();
-        contentArea.getChildren().setAll(fxml);    
-    }
-
-    @FXML
-    public void ProfilePage(ActionEvent Event) throws IOException {
-        Parent fxml = FXMLLoader.load(getClass().getResource("ProfilePage.fxml"));
-        contentArea.getChildren().removeAll();
-        contentArea.getChildren().setAll(fxml);    
-    }
-
-    @FXML
-    public void ViewTrainees(ActionEvent Event) throws IOException {
-        Parent fxml = FXMLLoader.load(getClass().getResource("ViewTrainees.fxml"));
-        contentArea.getChildren().removeAll();
-        contentArea.getChildren().setAll(fxml);    
     }
 
 }
