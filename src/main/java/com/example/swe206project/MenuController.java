@@ -457,11 +457,11 @@ public class MenuController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        myProfile.fire();
+        //myProfile.fire();
 
         if (user instanceof Trainer) {
             viewTrainees.setVisible(true);
-            viewTrainees.setDisable(true);
+            viewTrainees.setDisable(false);
         }
 
         closePage.setOnMouseClicked(event -> {
