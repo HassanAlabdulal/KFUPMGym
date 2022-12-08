@@ -21,7 +21,7 @@ public class API {
         try {
             
             HashMap<String, Object> aysh = new HashMap<>();
-            aysh.put("username", username.replaceAll("\\#", "%23"));
+            aysh.put("username", username);
             aysh.put("password", password);
             aysh.put("type", type);
 
@@ -47,6 +47,7 @@ public class API {
             conn.getOutputStream().write(postdatabytes);
 
             Reader in = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
+            System.out.println(in);
 
             int responseCode = conn.getResponseCode();
             System.out.println(responseCode);
@@ -62,6 +63,7 @@ public class API {
 
     public static String get(String username, String password){
          String url = "https://us-central1-swe206-221.cloudfunctions.net/app/SignIn?teamKey=41885202&username=" + username.replaceAll("\\#", "%23") + "&password=" + password;
+         //String url = "https://us-central1-swe206-221.cloudfunctions.net/app/SignIn?teamKey=41885202&username=trainee%2317802&password=pxbtm5391";
          try{
          URL obj = new URL(url);
          HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -85,14 +87,18 @@ public class API {
         catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-            return null;
+            return "gg";
         }
 
 
     }
 
     public static void main(String[] args) {
-        get("trainee#03882", "sbzpt1265");
+        //post("admin", "admin", "GymManager");
+        //get("admin", "admin");
+        //get("trainer#17484", "cuuxe2672");
+        //get("trainee#24382", "lydiv7492");
+        //get();
     }
 
 

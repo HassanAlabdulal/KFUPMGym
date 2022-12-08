@@ -26,7 +26,7 @@ public  class Workouts {
     }
     
 
-    public int getId(String Workouts){
+    public int getId(){
             return id;
     }
     public String getWorkoutName() {

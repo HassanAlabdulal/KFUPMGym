@@ -37,12 +37,25 @@ public class TestIDandUser {
 
    // WriteFiles w = new WriteFiles<>("UserInfo.dat", true);
       GymManager g = new GymManager();
-      User u = g.usersList.get(4);
       System.out.println(g.usersList);
-      if(u instanceof Trainer){
-        Trainer x = (Trainer) u;
-        System.out.println(x.getTraineesList());
+
+      ReadFiles read = new ReadFiles<>("UserAndPass.txt");
+      for (User user : g.usersList) {
+        if(user instanceof Trainer){
+            Trainer x = (Trainer) user;
+            System.out.println(x.pullInfo(x.userName));
+            //System.out.println("posting the user: " + user.getUsername() + " with the password: " + read.fetch(x.userName, "\\p{Graph}*\\$").replaceAll("\\$", ""));
+            //API.post(x.userName, read.fetch(x.userName, "\\p{Graph}*\\$").replaceAll("\\$", ""), "trainer");    
         }
+        else if(user instanceof Trainee){
+            Trainee x = (Trainee) user;
+            System.out.println(x.pullInfo(x.userName));
+            //System.out.println("posting the user: " + user.getUsername() + " with the password: " + read.fetch(x.userName, "\\p{Graph}*\\$").replaceAll("\\$", ""));
+            //API.post(x.userName, read.fetch(x.userName, "\\p{Graph}\\$").replaceAll("\\$", ""), "trainee");
+        }
+
+      } 
+      
     
     
         //for (User user : g.getUsersList()) {
