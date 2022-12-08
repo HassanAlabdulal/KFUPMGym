@@ -4,12 +4,12 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Trainer extends User implements Initializable{
+public class Trainer<T> extends User implements Initializable{
     //Plan plan;
     protected String userName;
     private String speciality;
     protected ArrayList<Trainer> trainersList = new ArrayList<>();
-    protected ArrayList<Trainee> traineesList = new ArrayList<>();
+    protected ArrayList<T> traineesList = new ArrayList<>();
     //protected static ArrayList<String> info = pullInfo(userName);
 
     //protected Trainer(){
@@ -21,13 +21,14 @@ public class Trainer extends User implements Initializable{
         ArrayList<String> info = new ArrayList<>();
         info = pullInfo(userName);
         this.speciality = info.get(4);
+        this.traineesList = (ArrayList<T>) getTraineeList(userName);
     }
 
     protected Trainer(String name, double height, double weight, String photo, String speciality, String userName, ArrayList<Trainee> traineesList){
         super(name, height, weight, photo);
         this.speciality = speciality;
         this.userName = userName;
-        this.traineesList = traineesList;
+        this.traineesList = (ArrayList<T>) traineesList;
         //for (Trainer trainer : trainersList) {
         //    if(trainer.getUsername().equals(this.userName))
         //        this.traineesList = trainer.traineesList;
@@ -103,19 +104,32 @@ public class Trainer extends User implements Initializable{
     }
 
     public ArrayList<Trainee> getTraineesList() {
-        return traineesList;
+        return (ArrayList<Trainee>) traineesList;
     }
 
-    //public ArrayList<String> 
+    public ArrayList<String> getTraineeList(String userName){
+        ReadFiles read = new ReadFiles<>("Plans.txt");
+        ArrayList<String> list = new ArrayList<>();
+        for(String workout : read.fetch(userName, "\\[\\p{ASCII}*\\]").replaceAll("\\s|\\[|\\]", "").split(","))
+            list.add(workout);
+        return list;
+    }
 
     public void addTrainee(Trainee trainee){
-        traineesList.add(trainee);
+        traineesList.add((T) trainee);
     }
 
     public String toString(){
         return userName;
     }
 
+    public void assignPlan(Trainee trainee, Plan plan){
+        trainee.setPlan(plan);
+    }
+
+    public void assignPlan(String userName, String plan){
+        
+    }
 
 
     

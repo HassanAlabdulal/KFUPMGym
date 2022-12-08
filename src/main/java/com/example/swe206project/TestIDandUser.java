@@ -43,13 +43,15 @@ public class TestIDandUser {
       for (User user : g.usersList) {
         if(user instanceof Trainer){
             Trainer x = (Trainer) user;
-            System.out.println("posting the user: " + user.getUsername().replaceAll("\\#", "%23") + " with the password: " + read.fetch(x.userName, "\\p{Graph}*\\$").replaceAll("\\$", ""));
-            API.post(x.userName, read.fetch(x.userName, "\\p{Graph}*\\$").replaceAll("\\$", ""), "trainer");    
+            System.out.println(x.pullInfo(x.userName));
+            //System.out.println("posting the user: " + user.getUsername() + " with the password: " + read.fetch(x.userName, "\\p{Graph}*\\$").replaceAll("\\$", ""));
+            //API.post(x.userName, read.fetch(x.userName, "\\p{Graph}*\\$").replaceAll("\\$", ""), "trainer");    
         }
         else if(user instanceof Trainee){
             Trainee x = (Trainee) user;
-            System.out.println("posting the user: " + user.getUsername().replaceAll("\\#", "%23") + " with the password: " + read.fetch(x.userName, "\\p{Graph}*\\$").replaceAll("\\$", ""));
-            API.post(x.userName, read.fetch(x.userName, "\\p{Graph}\\$").replaceAll("\\$", ""), "trainee");
+            System.out.println(x.pullInfo(x.userName));
+            //System.out.println("posting the user: " + user.getUsername() + " with the password: " + read.fetch(x.userName, "\\p{Graph}*\\$").replaceAll("\\$", ""));
+            //API.post(x.userName, read.fetch(x.userName, "\\p{Graph}\\$").replaceAll("\\$", ""), "trainee");
         }
 
       } 

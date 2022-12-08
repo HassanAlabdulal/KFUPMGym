@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 public class Plan implements Initializable, Serializable{
     protected int id;
-    private String planName;
-    private ArrayList<String> sessionsList = new ArrayList<>();
+    protected String planName;
+    protected ArrayList<String> sessionsList = new ArrayList<>();
 
     public Plan(){
         //sessionsList = (ArrayList<Plan>) initilize("Plan"); // to be worked in init

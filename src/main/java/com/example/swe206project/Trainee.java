@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 
 
 public class Trainee extends User implements Initializable{
-    //Plan plan;
+    protected Plan plan;
     protected String userName;
     protected String trainer;
     private ArrayList<Trainee> traineesList = new ArrayList<>();
@@ -19,29 +19,33 @@ public class Trainee extends User implements Initializable{
 
     protected Trainee(String userName){
         super(userName);
+        plan = new Plan(Integer.valueOf(getPlan(userName)));
+        trainer = getTrainer(userName);
     }
 
-    protected Trainee(String name, double height, double weight, String photo, String trainer, String userName){
+    protected Trainee(String name, double height, double weight, String photo, int planId, String trainer, String userName){
         super(name, height, weight, photo);
+        plan = new Plan(planId);
         this.userName = userName;
         this.trainer = trainer;
     }
 
-    public Trainee(String name, double height, double weight, String photo, String trainer) {
+    public Trainee(String name, double height, double weight, String photo, int planId, String trainer) {
         super(name, height, weight, photo);
         UsernamePassGen user = new UsernamePassGen(name, "trainee");
         userName = user.username;
         this.trainer = trainer;
-        save(name, height, weight, photo, trainer,"active");
+        plan = new Plan(planId);
+        save(name, height, weight, photo, plan, trainer,"active");
     }
 
     public Trainee(String name, double height, double weight, String photo){
-        this(name, height, weight, photo, "");
+        this(name, height, weight, photo, 00000000, "");
     }
 
-    public void save(String name, double height, double weight, String photo, String trainer, String status) {
+    public void save(String name, double height, double weight, String photo, Plan plan, String trainer, String status) {
         WriteFiles writer = new WriteFiles("UserInfo.txt", true);
-        String data = "@" + userName + " " + name + " " +  height + " " + weight + " " + photo + " $" + trainer + " !" + status;
+        String data = "@" + userName + " " + name + " " +  height + " " + weight + " " + photo + " " + plan + " $" + trainer + " !" + status;
         try {
             writer.writeToFile(data);
         } catch (IOException e) {
@@ -65,8 +69,26 @@ public class Trainee extends User implements Initializable{
         return userName;
     }
 
-    public void setPlan(){
+    public Plan getPlan(){
+        return plan;
+    }
 
+    public static String getPlan(String userName){
+        ReadFiles read = new ReadFiles<>("UserAndPass.txt");
+        return read.fetch(userName, "\\d{5,8}");
+    }
+
+    public void setPlan(Plan plan){
+        this.plan = plan;
+    }
+
+    public void setPlan(int planId){
+        plan = new Plan(planId);
+    }
+
+    public void setPlan(String userName, int planId){
+        Trainee t = new Trainee(userName);
+        t.setPlan(planId);
     }
 
     public String getTrainer(){
@@ -88,7 +110,7 @@ public class Trainee extends User implements Initializable{
             e.printStackTrace();
         }
         
-        return null;
+        return "";
     }
 
     public static ArrayList<String> pullInfo(String userName){ // returns name, height, weight, photo path in this exact order (0 -> 3)
@@ -97,7 +119,7 @@ public class Trainee extends User implements Initializable{
         try {
             int i = 0;
             for (String data : infoFile.openFile()) {
-                if(list.size() == 5)
+                if(list.size() == 6)
                     break;
                 if(i != 0 && userName.equals(data.replaceAll("\\s\\p{ASCII}*$|\\@", "")))  
                     for (String string : data.replaceAll("\\!\\p{Graph}*$|\\@\\p{Graph}*|\\p{Sc}", "").split(" ")) {
