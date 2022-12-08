@@ -108,7 +108,7 @@ public class Trainer<T> extends User implements Initializable{
     }
 
     public ArrayList<String> getTraineeList(String userName){
-        ReadFiles read = new ReadFiles<>("Plans.txt");
+        ReadFiles read = new ReadFiles<>("UserInfo.txt");
         ArrayList<String> list = new ArrayList<>();
         for(String workout : read.fetch(userName, "\\[\\p{ASCII}*\\]").replaceAll("\\s|\\[|\\]", "").split(","))
             list.add(workout);
@@ -128,7 +128,7 @@ public class Trainer<T> extends User implements Initializable{
     }
 
     public void assignPlan(String userName, String plan){
-        
+
     }
 
 

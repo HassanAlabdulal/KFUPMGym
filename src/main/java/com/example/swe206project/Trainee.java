@@ -74,8 +74,8 @@ public class Trainee extends User implements Initializable{
     }
 
     public static String getPlan(String userName){
-        ReadFiles read = new ReadFiles<>("UserAndPass.txt");
-        return read.fetch(userName, "\\d{5,8}");
+        ReadFiles read = new ReadFiles<>("UserInfo.txt");
+        return read.fetch(userName, "\\d{7,8}");
     }
 
     public void setPlan(Plan plan){
