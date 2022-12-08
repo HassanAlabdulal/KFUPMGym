@@ -38,6 +38,7 @@ public abstract class User implements Serializable{
     }
     
     public User(String name, double height, double weight, String photo){
+        if(name.contains("!#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"))
         this.name = name;
         this.height = height;
         this.weight = weight;
