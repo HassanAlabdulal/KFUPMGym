@@ -54,6 +54,33 @@ public class ReadFiles<T> {
         return 0;
     }
 
+    public String fetch(String identifier, String patternToFetch){
+
+        ReadFiles reader = new ReadFiles(path);
+        Pattern pattern = Pattern.compile(patternToFetch);
+        Matcher match = null;
+        
+        try {
+            for(String line : reader.openFile()){
+                if(line.contains(identifier)){
+                    match = pattern.matcher(line);
+                    if(match.find()){
+                        return match.group();
+                    }
+                }
+            
+            }
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        return null;
+        
+        
+        
+    }
+
     public ArrayList<T> openBinaryFile(){
         ObjectInputStream dataInput;
         ArrayList<T> listOfObject = new ArrayList<>();
