@@ -82,7 +82,7 @@ public class UsernamePassGen {
         try {
             for (String element : fileReader.openFile()) {
                 if((username).equals(element.replaceAll("\\s\\p{ASCII}*$", ""))){
-                    Pattern pattern = Pattern.compile("\\d{5,8}");
+                    Pattern pattern = Pattern.compile("\\d{6,8}");
                     Matcher match = pattern.matcher(element);
                     match.find();
                     return Integer.valueOf(match.group());
