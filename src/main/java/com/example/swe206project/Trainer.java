@@ -127,8 +127,9 @@ public class Trainer<T> extends User implements Initializable{
         trainee.setPlan(plan);
     }
 
-    public void assignPlan(String userName, String plan){
-
+    public void assignPlan(String userName, String planId){
+        Trainee t = new Trainee(userName);
+        t.setPlan(Integer.valueOf(planId));
     }
     
 }
