@@ -158,15 +158,22 @@ public class ProfilePageController implements Initializable {
     @FXML
     void saveOnClicked(MouseEvent event) {
         try {
-            double newWeight = Double.valueOf(weight.getText());
-            double newHeight = Double.valueOf(height.getText());
+            double newWeight = Double.valueOf(weight.getText().replaceAll("\\p{Alpha}*", ""));
+            double newHeight = Double.valueOf(height.getText().replaceAll("\\p{Alpha}*", ""));
 
             if (newWeight < 0 || newHeight < 0) {
                 throw new Exception();
             }
+            ReadFiles r = new ReadFiles<>("UserInfo.txt");
+            int line = r.getLine(user.getUsername());
+            WriteFiles w = new WriteFiles<>("UserInfo.txt");
 
-            //user.setWeight(newWeight);
-            //user.setHeight(newHeight);
+            
+            w.modifyLine(line, newWeight+"", user.weight+"");
+            user.setWeight(newWeight);
+
+            w.modifyLine(line, newHeight+"", user.height+"");
+            user.setHeight(newHeight);
 
             editProfileIsClicked = false;
 
