@@ -131,7 +131,5 @@ public class Trainer<T> extends User implements Initializable{
         Trainee t = new Trainee(userName);
         t.setPlan(Integer.valueOf(planId));
     }
-
-
     
 }

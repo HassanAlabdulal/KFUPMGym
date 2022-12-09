@@ -23,7 +23,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class GymManagerMenu implements Initializable {
+public class GymManagerMenuController implements Initializable {
 
     @FXML
     private GymManager manager = LoginFormController.manager;
@@ -272,7 +272,7 @@ public class GymManagerMenu implements Initializable {
             contentArea.getChildren().setAll(fxml);
         } 
         catch(IOException ex){
-            Logger.getLogger(TraineeMenu.class.getName()).log(Level.SEVERE,null,ex);
+            Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE,null,ex);
         } 
     }
 
