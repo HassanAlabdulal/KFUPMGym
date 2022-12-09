@@ -66,7 +66,7 @@
             </Label>
             <TextField fx:id="username" layoutX="133.0" layoutY="325.0" onMouseEntered="#usernameInHover" onMouseExited="#usernameOutHover" prefHeight="42.0" prefWidth="275.0" promptText="Enter your username" style="-fx-border-width: 0px 0px 1px 0px; -fx-border-color: #43896B; -fx-background-color: #303030; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1;" AnchorPane.leftAnchor="140.0" AnchorPane.rightAnchor="140.0">
                <font>
-                  <Font name="Nunito Bold" size="17.0" />
+                  <Font name="Tahoma" size="18.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
@@ -79,7 +79,7 @@
             </Label>
             <Label fx:id="passwordLabel" layoutX="133.0" layoutY="415.0" prefHeight="36.0" prefWidth="117.0" text="Password" textFill="#f4f9f1" AnchorPane.leftAnchor="144.0">
                <font>
-                  <Font name="Nunito Regular" size="24.0" />
+                  <Font name="Arial" size="24.0" />
                </font>
             </Label>
             <Button fx:id="loginButton" layoutX="264.0" layoutY="538.0" mnemonicParsing="false" onMouseClicked="#checkCredintials" onMouseEntered="#loginInHover" onMouseExited="#loginOutHover" onMousePressed="#loginOnPressed" onMouseReleased="#loginOnReleased" prefHeight="46.0" prefWidth="120.0" style="-fx-background-color: #43896B; -fx-background-radius: 15px;" text="Login" textAlignment="CENTER" textFill="#f4f9f1" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="225.0" AnchorPane.rightAnchor="225.0">
@@ -89,7 +89,7 @@
             </Button>
             <TextField fx:id="password" layoutX="221.0" layoutY="451.0" onMouseEntered="#passwordInHover" onMouseExited="#passwordOutHover" prefHeight="42.0" prefWidth="275.0" promptText="Enter your password" style="-fx-border-width: 0px 0px 1px 0px; -fx-border-color: #43896B; -fx-background-color: #303030; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1;" AnchorPane.leftAnchor="140.0" AnchorPane.rightAnchor="140.0">
                <font>
-                  <Font name="Nunito Bold" size="17.0" />
+                  <Font name="Tahoma" size="18.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="DEFAULT" />

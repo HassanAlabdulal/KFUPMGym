@@ -41,7 +41,7 @@ public class ReadFiles<T> {
             Pattern p = Pattern.compile(pattern);
             Matcher match = null;
             for (String data : openFile()) {
-                match = p.matcher(pattern);
+                match = p.matcher(data);
                 if(match.find())
                     break;
                 else
