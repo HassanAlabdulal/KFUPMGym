@@ -9,51 +9,77 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
-public class ProfilePageController {
+public class ProfilePageController implements Initializable {
 
     private User user = LoginFormController.user;
 
     @FXML
-    protected static Button cancel;
+    private Button cancel;
 
     @FXML
-    protected static ImageView editPhotoIcon;
+    private ImageView editPhotoIcon;
 
     @FXML
-    protected static Button editProfile;
+    private Button editProfile;
 
     @FXML
-    protected static TextField height;
+    private TextField height;
 
     @FXML
-    protected static TextField name;
+    private TextField name;
 
     @FXML
-    protected static ImageView profilePhoto;
+    private ImageView profilePhoto;
 
     @FXML
-    protected static Button save;
+    private Button save;
 
     @FXML
-    protected static TextField statusOrCount;
+    private TextField statusOrCount;
 
     @FXML
-    protected static Label statusOrCountLabel;
+    private Label statusOrCountLabel;
 
     @FXML
-    protected static ImageView subscriptionButton;
+    private ImageView subscriptionButton;
 
     @FXML
-    protected static TextField trainerOrSpeciality;
+    private TextField trainerOrSpeciality;
 
     @FXML
-    protected static Label trainerOrSpecialityLabel;
+    private Label trainerOrSpecialityLabel;
 
     @FXML
-    protected static TextField username;
+    private TextField username;
 
     @FXML
-    protected static TextField weight;
+    private TextField weight;
 
-    
+    @FXML
+    public void initialize() {
+        name.setText(user.getName());
+        height.setText(user.getHeight() + " cm");
+        weight.setText(user.getWeight() + " kg");
+
+        if (user instanceof Trainee) {
+            Trainee trainee = (Trainee) user;
+
+            if (trainee.isActive(trainee.getUsername())) {
+                statusOrCount.setText("Active");
+            } else {
+                statusOrCount.setText("not Active");
+            }
+            username.setText(trainee.getUsername());
+            trainerOrSpeciality.setText(trainee.trainer);
+        } else {
+            Trainer trainer = (Trainer) user;
+
+            username.setText(trainer.getUsername());
+            trainerOrSpecialityLabel.setText("Speciality");
+            trainerOrSpeciality.setText(trainer.getSpeciality());
+            statusOrCountLabel.setText("Trainees count");
+            statusOrCount.setText(trainer.getTraineesList().size() + " trainees");
+        }
+    }
+
 }
