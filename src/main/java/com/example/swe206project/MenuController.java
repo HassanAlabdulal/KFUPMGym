@@ -399,6 +399,7 @@ public class MenuController implements Initializable {
         }
     }
 
+
     // Logout design
     @FXML
     void logoutOnClicked(MouseEvent event) {
@@ -465,7 +466,7 @@ public class MenuController implements Initializable {
 
 
         try{
-            Parent fxml = FXMLLoader.load(getClass().getResource("SessionsPage.fxml"));
+            Parent fxml = FXMLLoader.load(getClass().getResource("ProfilePage.fxml"));
             contentArea.getChildren().removeAll();
             contentArea.getChildren().setAll(fxml);
         } 
