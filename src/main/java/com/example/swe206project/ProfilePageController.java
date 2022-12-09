@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -13,41 +14,46 @@ public class ProfilePageController {
     private User user = LoginFormController.user;
 
     @FXML
-    private ImageView editPhotoIcon;
+    protected static Button cancel;
 
     @FXML
-    private TextField height;
+    protected static ImageView editPhotoIcon;
 
     @FXML
-    private TextField name;
+    protected static Button editProfile;
 
     @FXML
-    private ImageView profilePhoto;
+    protected static TextField height;
 
     @FXML
-    private TextField username;
+    protected static TextField name;
 
     @FXML
-    private TextField weight;
+    protected static ImageView profilePhoto;
 
     @FXML
-    private TextField x;
+    protected static Button save;
 
     @FXML
-    private Label y;
+    protected static TextField statusOrCount;
 
-    public ProfilePageController() {
-        username.setText(user.getUsername());
-        name.setText(user.getName());
-        height.setText(user.getHeight() + "");
-        weight.setText(user.getWeight() + "");
-        if (user instanceof Trainee) {
-            user = (Trainee) user;
-            x.setText("user.getTrainer()");
-        } else {
-            user = (Trainer) user;
-            y.setText("Speciality");
-            x.setText("user.getSpeciality()");
-        }
-    }
+    @FXML
+    protected static Label statusOrCountLabel;
+
+    @FXML
+    protected static ImageView subscriptionButton;
+
+    @FXML
+    protected static TextField trainerOrSpeciality;
+
+    @FXML
+    protected static Label trainerOrSpecialityLabel;
+
+    @FXML
+    protected static TextField username;
+
+    @FXML
+    protected static TextField weight;
+
+    
 }

@@ -73,47 +73,7 @@ public class MenuController implements Initializable {
     private Label logoutLabel;
 
     // Profile page variables
-    @FXML
-    private Button cancel;
-
-    @FXML
-    private ImageView editPhotoIcon;
-
-    @FXML
-    private Button editProfile;
-
-    @FXML
-    private TextField height;
-
-    @FXML
-    private TextField name;
-
-    @FXML
-    private ImageView profilePhoto;
-
-    @FXML
-    private Button save;
-
-    @FXML
-    private TextField statusOrCount;
-
-    @FXML
-    private Label statusOrCountLabel;
-
-    @FXML
-    private ImageView subscriptionButton;
-
-    @FXML
-    private TextField trainerOrSpeciality;
-
-    @FXML
-    private Label trainerOrSpecialityLabel;
-
-    @FXML
-    private TextField username;
-
-    @FXML
-    private TextField weight;
+    
 
     // Session page variables
 
@@ -145,6 +105,11 @@ public class MenuController implements Initializable {
     void openMenuOnReleased(MouseEvent event) {
         openMenu.setStyle("-fx-cursor: hand");
         openMenu.setEffect(new Glow(0.0));
+    }
+
+    @FXML
+    void closePageOnClicked(MouseEvent event) {
+        System.exit(0);
     }
 
     @FXML
@@ -186,7 +151,8 @@ public class MenuController implements Initializable {
     public void profilePage(ActionEvent Event) throws IOException {
         Parent fxml = FXMLLoader.load(getClass().getResource("ProfilePage.fxml"));
         contentArea.getChildren().removeAll();
-        contentArea.getChildren().setAll(fxml);    
+        contentArea.getChildren().setAll(fxml);
+
     }
 
     @FXML
@@ -459,14 +425,11 @@ public class MenuController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         //myProfile.fire();
 
-        if (user instanceof Trainer) {
-            viewTrainees.setVisible(true);
-            viewTrainees.setDisable(false);
-        }
+        // if (user instanceof Trainer) {
+        //     viewTrainees.setVisible(true);
+        //     viewTrainees.setDisable(false);
+        // }
 
-        closePage.setOnMouseClicked(event -> {
-            System.exit(0);
-        });
         slider.setTranslateX(-225);
         openMenu.setOnMouseClicked(event -> {
             TranslateTransition slide = new TranslateTransition();

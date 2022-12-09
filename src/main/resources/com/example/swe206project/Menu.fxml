@@ -17,7 +17,7 @@
          <top>
             <AnchorPane prefHeight="80.0" prefWidth="800.0" style="-fx-background-color: #303030;" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fx:id="closePage" fitHeight="50.0" fitWidth="50.0" layoutX="1136.0" layoutY="15.0" onMouseEntered="#closePageInHover" onMousePressed="#closePageOnPressed" onMouseReleased="#closePageOnReleased" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="closePage" fitHeight="50.0" fitWidth="50.0" layoutX="1136.0" layoutY="15.0" onMouseClicked="#closePageOnClicked" onMouseEntered="#closePageInHover" onMousePressed="#closePageOnPressed" onMouseReleased="#closePageOnReleased" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@assets/images/exitIcon.png" />
                      </image>
@@ -110,7 +110,7 @@
                         <Font name="Arial" size="18.0" />
                      </font>
                   </Label>
-                  <Button fx:id="viewTrainees" alignment="BASELINE_LEFT" disable="true" layoutX="14.0" layoutY="530.0" onAction="#viewTraineesPage" prefHeight="60.0" prefWidth="160.0" style="-fx-background-color: #303030; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #43896B; -fx-border-radius: 0px 0px 0px 0px;" styleClass="sidebarItem" text="ViewTrainees" textFill="#f4f9f1" visible="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="490.0">
+                  <Button fx:id="viewTrainees" alignment="BASELINE_LEFT" disable="true" layoutX="14.0" layoutY="530.0" onAction="#viewTraineesPage" onMouseClicked="#viewTraineesOnClicked" onMouseEntered="#viewTraineesInHover" onMouseExited="#viewTraineesOutHover" onMousePressed="#viewTraineesOnPressed" onMouseReleased="#viewTraineesOnReleased" prefHeight="60.0" prefWidth="160.0" style="-fx-background-color: #303030; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #43896B; -fx-border-radius: 0px 0px 0px 0px;" styleClass="sidebarItem" text="ViewTrainees" textFill="#f4f9f1" visible="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="490.0">
                      <font>
                         <Font name="Arial" size="20.0" />
                      </font>
