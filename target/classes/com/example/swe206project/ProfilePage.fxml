@@ -41,7 +41,7 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </TextField>
-      <Label layoutX="232.0" layoutY="120.0" text="Name" textFill="#f4f9f1" AnchorPane.leftAnchor="232.0" AnchorPane.topAnchor="150.0">
+      <Label alignment="CENTER" layoutX="156.0" layoutY="150.0" prefHeight="26.0" prefWidth="215.0" text="Name" textFill="#f4f9f1" AnchorPane.leftAnchor="156.0" AnchorPane.topAnchor="150.0">
          <font>
             <Font name="Tahoma Bold" size="21.0" />
          </font>
@@ -54,7 +54,7 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </TextField>
-      <Label layoutX="660.0" layoutY="120.0" text="Username" textFill="#f4f9f1" AnchorPane.rightAnchor="208.0" AnchorPane.topAnchor="150.0">
+      <Label alignment="CENTER" layoutX="606.0" layoutY="150.0" prefHeight="26.0" prefWidth="215.0" text="Username" textFill="#f4f9f1" AnchorPane.rightAnchor="154.0" AnchorPane.topAnchor="150.0">
          <font>
             <Font name="Tahoma Bold" size="21.0" />
          </font>
@@ -75,17 +75,17 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </TextField>
-      <Label fx:id="trainerOrSpecialityLabel" layoutX="225.0" layoutY="370.0" text="Trainer" textFill="#f4f9f1" AnchorPane.leftAnchor="225.0" AnchorPane.topAnchor="395.0">
+      <Label fx:id="trainerOrSpecialityLabel" alignment="CENTER" layoutX="156.0" layoutY="395.0" prefHeight="26.0" prefWidth="215.0" text="Trainer" textFill="#f4f9f1" AnchorPane.leftAnchor="156.0" AnchorPane.topAnchor="395.0">
          <font>
             <Font name="Tahoma Bold" size="21.0" />
          </font>
       </Label>
-      <Label layoutX="727.0" layoutY="250.0" text="Height" textFill="#f4f9f1" AnchorPane.rightAnchor="177.0" AnchorPane.topAnchor="285.0">
+      <Label alignment="CENTER" layoutX="660.0" layoutY="285.0" prefHeight="26.0" prefWidth="215.0" text="Height" textFill="#f4f9f1" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="285.0">
          <font>
             <Font name="Tahoma Bold" size="21.0" />
          </font>
       </Label>
-      <Label layoutX="175.0" layoutY="250.0" text="Weight" textFill="#f4f9f1" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="285.0">
+      <Label alignment="CENTER" layoutX="105.0" layoutY="285.0" prefHeight="26.0" prefWidth="215.0" text="Weight" textFill="#f4f9f1" AnchorPane.leftAnchor="105.0" AnchorPane.topAnchor="285.0">
          <font>
             <Font name="Tahoma Bold" size="21.0" />
          </font>
@@ -95,9 +95,9 @@
             <Font name="Arial Bold" size="22.0" />
          </font>
       </Button>
-      <Label fx:id="statusOrCountLabel" layoutX="615.0" layoutY="371.0" text="Subscription Status" textFill="#f4f9f1" AnchorPane.rightAnchor="164.0" AnchorPane.topAnchor="395.0">
+      <Label fx:id="statusOrCountLabel" alignment="CENTER" layoutX="606.0" layoutY="396.0" prefHeight="25.0" prefWidth="215.0" text="Subscription Status" textFill="#f4f9f1" AnchorPane.rightAnchor="154.0" AnchorPane.topAnchor="395.0">
          <font>
-            <Font name="Tahoma Bold" size="20.0" />
+            <Font name="Tahoma Bold" size="21.0" />
          </font>
       </Label>
       <TextField fx:id="statusOrCount" alignment="CENTER" editable="false" layoutX="660.0" layoutY="577.0" prefHeight="42.0" prefWidth="215.0" style="-fx-border-width: 1px 0px 0px 0px; -fx-border-color: #43896B; -fx-background-color: #212121; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1;" text="Active" AnchorPane.rightAnchor="155.0" AnchorPane.topAnchor="430.0">
