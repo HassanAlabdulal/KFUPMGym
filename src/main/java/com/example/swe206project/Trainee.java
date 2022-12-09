@@ -21,6 +21,7 @@ public class Trainee extends User implements Initializable{
         super(userName);
         plan = new Plan(Integer.valueOf(getPlan(userName)));
         trainer = getTrainer(userName);
+        this.userName = userName;
     }
 
     protected Trainee(String name, double height, double weight, String photo, int planId, String trainer, String userName){

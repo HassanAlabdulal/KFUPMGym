@@ -152,7 +152,6 @@ public class MenuController implements Initializable {
         Parent fxml = FXMLLoader.load(getClass().getResource("ProfilePage.fxml"));
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);
-
     }
 
     @FXML
