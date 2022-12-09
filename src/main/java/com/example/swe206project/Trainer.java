@@ -22,6 +22,7 @@ public class Trainer<T> extends User implements Initializable{
         info = pullInfo(userName);
         this.speciality = info.get(4);
         this.traineesList = (ArrayList<T>) getTraineeList(userName);
+        this.userName = userName;
     }
 
     protected Trainer(String name, double height, double weight, String photo, String speciality, String userName, ArrayList<Trainee> traineesList){
