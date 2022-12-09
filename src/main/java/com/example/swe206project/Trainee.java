@@ -81,15 +81,27 @@ public class Trainee extends User implements Initializable{
 
     public void setPlan(Plan plan){
         this.plan = plan;
+        ReadFiles r = new ReadFiles<>("Plans.txt");
+        int line = r.getLine(plan.id+"");
+        WriteFiles w = new WriteFiles<>("UserInfo.txt");
+        w.modifyLine(line, plan.id+"", "\\d{7,8}");
     }
 
     public void setPlan(int planId){
         plan = new Plan(planId);
+        ReadFiles r = new ReadFiles<>("Plans.txt");
+        int line = r.getLine(plan.id+"");
+        WriteFiles w = new WriteFiles<>("UserInfo.txt");
+        w.modifyLine(line, plan.id+"", "\\d{7,8}");
     }
 
     public void setPlan(String userName, int planId){
         Trainee t = new Trainee(userName);
         t.setPlan(planId);
+        ReadFiles r = new ReadFiles<>("Plans.txt");
+        int line = r.getLine(plan.id+"");
+        WriteFiles w = new WriteFiles<>("UserInfo.txt");
+        w.modifyLine(line, plan.id+"", "\\d{7,8}");
     }
 
     public String getTrainer(){
