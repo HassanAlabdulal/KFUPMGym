@@ -19,7 +19,13 @@ public class ProfilePageController implements Initializable {
     private Button cancel;
 
     @FXML
+    private Label warningMessage;
+
+    @FXML
     private ImageView editPhotoIcon;
+
+    @FXML
+    private ImageView notActiveButton;
 
     @FXML
     private Button editProfile;
@@ -43,7 +49,7 @@ public class ProfilePageController implements Initializable {
     private Label statusOrCountLabel;
 
     @FXML
-    private ImageView subscriptionButton;
+    private ImageView subscriptionActiveButton;
 
     @FXML
     private TextField trainerOrSpeciality;
@@ -63,8 +69,15 @@ public class ProfilePageController implements Initializable {
     @FXML
     private Label wrongInputMessage;
 
+    @FXML
+    private Button noButton;
+
+    @FXML
+    private Button yesButton;
+
 
     private boolean editProfileIsClicked = false;
+
 
     @FXML
     public void initialize() {
@@ -98,7 +111,8 @@ public class ProfilePageController implements Initializable {
     void editProfileOnClicked(MouseEvent event) {
         editProfileIsClicked = true;
 
-        subscriptionButton.setVisible(false);
+        subscriptionActiveButton.setVisible(false);
+        notActiveButton.setVisible(false);
 
         editProfile.setVisible(false);
         editProfile.setDisable(true);
@@ -177,7 +191,8 @@ public class ProfilePageController implements Initializable {
 
             editProfileIsClicked = false;
 
-            subscriptionButton.setVisible(true);
+            subscriptionActiveButton.setVisible(true);
+            notActiveButton.setVisible(false);
 
             editProfile.setVisible(true);
             editProfile.setDisable(false);
@@ -249,7 +264,8 @@ public class ProfilePageController implements Initializable {
     void cancelOnClicked(MouseEvent event) {
         editProfileIsClicked = false;
 
-        subscriptionButton.setVisible(true);
+        subscriptionActiveButton.setVisible(true);
+        notActiveButton.setVisible(false);
 
         editProfile.setVisible(true);
         editProfile.setDisable(false);
@@ -374,22 +390,59 @@ public class ProfilePageController implements Initializable {
     }
 
     // Cancel Subscription design
+
+    
+
     @FXML
     void cancelSubOnClicked(MouseEvent event) {
         
+        boolean answer = SubscriptionConfirmBox.display("Confirm Message", "Are you sure you want to cancel?");
+        if (answer) {
+            notActiveButton.setVisible(true);
+            subscriptionActiveButton.setVisible(false);
+            editProfile.setVisible(false);
+            warningMessage.setVisible(true);
+            
+        }
     }
 
     @FXML
     void cancelSubInHover(MouseEvent event) {
-        subscriptionButton.setStyle(
+        subscriptionActiveButton.setStyle(
             "-fx-cursor: hand"
         );
-        subscriptionButton.setEffect(new Glow(0.3));
+        subscriptionActiveButton.setEffect(new Glow(0.3));
     }
 
     @FXML
     void cancelSubOutHover(MouseEvent event) {
-        subscriptionButton.setStyle(
+        subscriptionActiveButton.setStyle(
+            "-fx-cursor: default"
+        );
+    }
+
+
+    @FXML
+    void notActiveOnClicked(MouseEvent event) {
+        
+        boolean answer = NotActiveMessage.display("Warning Message", "Your subscription is already not active!");
+        if (answer) {
+            notActiveButton.setVisible(true);
+            subscriptionActiveButton.setVisible(false);
+        }
+    }
+
+    @FXML
+    void notActiveInHover(MouseEvent event) {
+        notActiveButton.setStyle(
+            "-fx-cursor: hand"
+        );
+        notActiveButton.setEffect(new Glow(0.3));
+    }
+
+    @FXML
+    void notActiveOutHover(MouseEvent event) {
+        notActiveButton.setStyle(
             "-fx-cursor: default"
         );
     }

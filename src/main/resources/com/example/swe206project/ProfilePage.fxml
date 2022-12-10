@@ -108,7 +108,7 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </TextField>
-      <ImageView fx:id="subscriptionButton" fitHeight="75.0" fitWidth="75.0" layoutX="451.0" layoutY="384.0" onMouseClicked="#cancelSubOnClicked" onMouseEntered="#cancelSubInHover" onMouseExited="#cancelSubOutHover" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="75.0">
+      <ImageView fx:id="subscriptionActiveButton" fitHeight="75.0" fitWidth="75.0" layoutX="451.0" layoutY="384.0" onMouseClicked="#cancelSubOnClicked" onMouseEntered="#cancelSubInHover" onMouseExited="#cancelSubOutHover" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="75.0">
          <image>
             <Image url="@assets/images/membershipIcon.png" />
          </image>
@@ -133,5 +133,15 @@
             <Image url="@assets/images/loginFailIcon.png" />
          </image>
       </ImageView>
+      <ImageView fx:id="notActiveButton" fitHeight="75.0" fitWidth="75.0" layoutX="451.0" layoutY="75.0" onMouseClicked="#notActiveOnClicked" onMouseEntered="#notActiveInHover" onMouseExited="#cancelSubOutHover" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@assets/images/notActiveIcon.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="warningMessage" layoutX="169.0" layoutY="544.0" prefHeight="20.0" prefWidth="672.0" text="Warning: You are not allowed to edit your profile since your subscription is inactive" textFill="#d53a0b" visible="false">
+         <font>
+            <Font name="Tahoma Bold" size="16.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
