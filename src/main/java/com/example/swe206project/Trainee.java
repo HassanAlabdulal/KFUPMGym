@@ -20,7 +20,7 @@ public class Trainee extends User implements Initializable{
     protected Trainee(String userName){
         super(userName);
         plan = new Plan(Integer.valueOf(getPlan(userName)));
-        trainer = getTrainer(userName);
+        this.trainer = getTrainer(userName);
         this.userName = userName;
     }
 
@@ -112,11 +112,11 @@ public class Trainee extends User implements Initializable{
         ReadFiles fileReader = new ReadFiles("UserInfo.txt");
         try {
             for (String element : fileReader.openFile()) {
-                if((userName).equals(element.replaceAll("\\s\\p{ASCII}*$", ""))){
+                if(element.contains(userName)){
                     Pattern pattern = Pattern.compile("\\$\\p{Graph}*");
                     Matcher match = pattern.matcher(element);
                     if(match.find())
-                        return match.group();
+                        return match.group().replaceAll("\\$", "");
                 }
             }
         } catch (IOException e) {
