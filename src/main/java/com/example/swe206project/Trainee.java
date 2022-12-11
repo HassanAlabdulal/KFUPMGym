@@ -20,7 +20,7 @@ public class Trainee extends User implements Initializable{
     protected Trainee(String userName){
         super(userName);
         plan = new Plan(Integer.valueOf(getPlan(userName)));
-        trainer = getTrainer(userName);
+        this.trainer = getTrainer(userName);
         this.userName = userName;
     }
 
@@ -80,15 +80,27 @@ public class Trainee extends User implements Initializable{
     }
 
     public void setPlan(Plan plan){
+        ReadFiles r = new ReadFiles<>("Plans.txt");
+        int line = r.getLine(this.plan.id+"");
+        WriteFiles w = new WriteFiles<>("UserInfo.txt");
+        w.modifyLine(line, plan.id+"", "\\d{7,8}");
         this.plan = plan;
     }
 
     public void setPlan(int planId){
+        ReadFiles r = new ReadFiles<>("Plans.txt");
+        int line = r.getLine(plan.id+"");
+        WriteFiles w = new WriteFiles<>("UserInfo.txt");
+        w.modifyLine(line, plan.id+"", "\\d{7,8}");
         plan = new Plan(planId);
     }
 
     public void setPlan(String userName, int planId){
         Trainee t = new Trainee(userName);
+        ReadFiles r = new ReadFiles<>("Plans.txt");
+        int line = r.getLine(t.plan.id+"");
+        WriteFiles w = new WriteFiles<>("UserInfo.txt");
+        w.modifyLine(line, plan.id+"", "\\d{7,8}");
         t.setPlan(planId);
     }
 
@@ -100,11 +112,11 @@ public class Trainee extends User implements Initializable{
         ReadFiles fileReader = new ReadFiles("UserInfo.txt");
         try {
             for (String element : fileReader.openFile()) {
-                if((userName).equals(element.replaceAll("\\s\\p{ASCII}*$", ""))){
+                if(element.contains(userName)){
                     Pattern pattern = Pattern.compile("\\$\\p{Graph}*");
                     Matcher match = pattern.matcher(element);
                     if(match.find())
-                        return match.group();
+                        return match.group().replaceAll("\\$", "");
                 }
             }
         } catch (IOException e) {
