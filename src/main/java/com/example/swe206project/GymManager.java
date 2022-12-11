@@ -54,7 +54,7 @@ public class GymManager implements Initializable, Serializable{
         else
             status = "not-active";
             
-        int desiredLine = fileReader.getLine(userName);           
+        int desiredLine = fileReader.getLine(userName);
         if(User.isActive(userName))
             writer.modifyLine(desiredLine, status, "active");
         else

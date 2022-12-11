@@ -54,6 +54,22 @@ public class ReadFiles<T> {
         return 0;
     }
 
+    public String fetchLine(String identifier){
+        ReadFiles reader = new ReadFiles(path);
+        try {
+            for(String line : reader.openFile()){
+                if(line.contains(identifier)){
+                    return line;
+                }
+            }
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
     public String fetch(String identifier, String patternToFetch){
 
         ReadFiles reader = new ReadFiles(path);
