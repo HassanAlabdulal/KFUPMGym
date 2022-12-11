@@ -1,16 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="975.0" style="-fx-background-color: #212121;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.swe206project.SetStatusPageController">
    <children>
-      <Label layoutX="401.0" layoutY="287.0" text="Set status">
-         <font>
-            <Font size="65.0" />
-         </font>
-      </Label>
+      <AnchorPane layoutY="38.0" prefHeight="645.0" prefWidth="940.0" style="-fx-background-color: #212121;" AnchorPane.bottomAnchor="37.5" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="37.5">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <TextField fx:id="username" layoutX="301.0" layoutY="218.0" onMouseEntered="#usernameInHover" onMouseExited="#usernameOutHover" prefHeight="45.0" prefWidth="400.0" promptText="Enter user's username" style="-fx-border-width: 0px 0px 1px 0px; -fx-border-color: #43896B; -fx-background-color: #303030; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1;" AnchorPane.leftAnchor="270.0" AnchorPane.rightAnchor="270.0" AnchorPane.topAnchor="180.0">
+               <font>
+                  <Font name="Tahoma" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </TextField>
+            <Label fx:id="usernameLabel" layoutX="331.0" layoutY="164.0" prefHeight="40.0" prefWidth="116.0" text="User's Username" textFill="#f4f9f1" AnchorPane.leftAnchor="273.0" AnchorPane.rightAnchor="270.0" AnchorPane.topAnchor="140.0">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="status" layoutX="362.0" layoutY="323.0" prefHeight="30.0" prefWidth="400.0" promptText="Select an action on the user's profile status" style="-fx-background-color: #F4F9F1;" visibleRowCount="2" AnchorPane.leftAnchor="270.0" AnchorPane.rightAnchor="270.0" AnchorPane.topAnchor="275.0">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ComboBox>
+            <Button fx:id="confirm" layoutX="411.0" layoutY="480.0" mnemonicParsing="false" onMouseClicked="#confirmOnClicked" onMouseEntered="#confirmInHover" onMouseExited="#confirmOutHover" onMousePressed="#confirmOnPressed" onMouseReleased="#confirmOnReleased" prefHeight="46.0" prefWidth="120.0" style="-fx-background-color: #43896B; -fx-background-radius: 15px;" text="Confirm" textAlignment="CENTER" textFill="#f4f9f1" AnchorPane.bottomAnchor="160.0" AnchorPane.leftAnchor="370.0" AnchorPane.rightAnchor="370.0">
+               <font>
+                  <Font name="Arial Bold" size="24.0" />
+               </font>
+            </Button>
+            <Label fx:id="errorMessage" alignment="CENTER" layoutX="455.0" layoutY="388.0" textFill="#d53a0b" visible="false" AnchorPane.leftAnchor="270.0" AnchorPane.rightAnchor="270.0" AnchorPane.topAnchor="390.0">
+               <font>
+                  <Font name="Tahoma Bold" size="14.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="errorIcon" fitHeight="35.0" fitWidth="35.0" layoutX="454.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true" visible="false" AnchorPane.topAnchor="350.0">
+               <image>
+                  <Image url="@assets/images/loginFailIcon.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
