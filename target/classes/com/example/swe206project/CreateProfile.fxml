@@ -65,7 +65,7 @@
             <Font name="Georgia Bold" size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="speciality" alignment="CENTER" editable="false" layoutX="405.0" layoutY="453.0" onMouseEntered="#specialityInHover" onMouseExited="#specialityOutHover" prefHeight="42.0" prefWidth="350.0" promptText="Enter speciality" style="-fx-border-width: 0px 1px 1px 0px; -fx-border-color: #43896B; -fx-background-color: #313131; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1; -fx-border-radius: 5px 5px 5px 0px;" visible="false" AnchorPane.bottomAnchor="225.0">
+      <TextField fx:id="speciality" alignment="CENTER" editable="false" layoutX="405.0" layoutY="453.0" onMouseEntered="#specialityInHover" onMouseExited="#specialityOutHover" prefHeight="42.0" prefWidth="350.0" promptText="Enter speciality" style="-fx-border-width: 0px 1px 1px 0px; -fx-border-color: #43896B; -fx-background-color: #313131; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1; -fx-border-radius: 5px;" visible="false" AnchorPane.bottomAnchor="225.0">
          <font>
             <Font name="Tahoma" size="16.0" />
          </font>
@@ -73,7 +73,7 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <Button fx:id="createProfile" layoutX="429.0" layoutY="574.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="290.0" style="-fx-background-color: #43896B; -fx-background-radius: 15px;" text="Create Profile" textAlignment="CENTER" textFill="#f4f9f1" visible="false">
+      <Button fx:id="createProfileButton" layoutX="429.0" layoutY="574.0" mnemonicParsing="false" onMouseClicked="#createProfileButtonOnClicked" onMouseEntered="#createProfileButtonInHover" onMouseExited="#createProfileButtonOutHover" onMousePressed="#createProfileButtonOnPressed" onMouseReleased="#createProfileButtonOnReleased" prefHeight="46.0" prefWidth="290.0" style="-fx-background-color: #43896B; -fx-background-radius: 15px;" text="Create Profile" textAlignment="CENTER" textFill="#f4f9f1" visible="false">
          <font>
             <Font name="Arial Bold" size="22.0" />
          </font>
@@ -119,6 +119,16 @@
       <ImageView fx:id="clearSpecialityInput" fitHeight="36.0" fitWidth="36.0" layoutX="712.0" layoutY="457.0" onMouseClicked="#clearSpecialityInputOnClicked" onMouseEntered="#specialityInHover" onMouseExited="#specialityOutHover" opacity="0.4" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@assets/images/closeIcon.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="errorMessage" layoutX="411.0" layoutY="521.0" prefHeight="24.0" prefWidth="413.0" text="Please enter all required credentials!" textFill="#43896b" visible="false">
+         <font>
+            <Font name="Tahoma Bold" size="19.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="failIcon" fitHeight="46.0" fitWidth="36.0" layoutX="371.0" layoutY="515.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@assets/images/loginFailIcon.png" />
          </image>
       </ImageView>
    </children>

@@ -1,5 +1,7 @@
 package com.example.swe206project;
 
+import java.util.HexFormat;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -11,7 +13,10 @@ import javafx.scene.input.MouseEvent;
 public class CreateProfileController {
 
     @FXML
-    private Button createProfile;
+    private Button createProfileButton;
+
+    @FXML
+    private ImageView failIcon;
 
     @FXML
     private ImageView clearHeightInput;
@@ -67,6 +72,12 @@ public class CreateProfileController {
     @FXML
     private Label weightLable;
 
+    @FXML
+    private Label errorMessage;
+
+    boolean trainerCreateProfileIsClicked = false;
+    boolean traineeCreateProfileIsClicked = false;
+
 
 
     @FXML
@@ -77,7 +88,7 @@ public class CreateProfileController {
       trainerIcon.setVisible(false);
       traineeIcon.setVisible(false);
 
-      createProfile.setVisible(true);
+      createProfileButton.setVisible(true);
       name.setVisible(true);
       nameLabel.setVisible(true);
       height.setVisible(true);
@@ -95,6 +106,8 @@ public class CreateProfileController {
       height.setEditable(true);
       weight.setEditable(true);
       speciality.setEditable(true);
+      trainerCreateProfileIsClicked = true;
+      traineeCreateProfileIsClicked = false;
       
     }
 
@@ -141,7 +154,7 @@ public class CreateProfileController {
       specialityLabel.setVisible(false);
 
 
-      createProfile.setVisible(true);
+      createProfileButton.setVisible(true);
       name.setVisible(true);
       nameLabel.setVisible(true);
       height.setVisible(true);
@@ -155,7 +168,11 @@ public class CreateProfileController {
       name.setEditable(true);
       height.setEditable(true);
       weight.setEditable(true);
-    }
+      traineeCreateProfileIsClicked = true;
+      trainerCreateProfileIsClicked = false;
+
+      }
+    
 
     @FXML
     void traineeButtonOnPressed(MouseEvent event) {
@@ -280,7 +297,7 @@ public class CreateProfileController {
         trainerIcon.setVisible(true);
         traineeIcon.setVisible(true);
 
-        createProfile.setVisible(false);
+        createProfileButton.setVisible(false);
         name.setVisible(false);
         nameLabel.setVisible(false);
         height.setVisible(false);
@@ -290,15 +307,39 @@ public class CreateProfileController {
         speciality.setVisible(false);
         specialityLabel.setVisible(false);
         clearNameInput.setVisible(false);
-      clearWeightInput.setVisible(false);
-      clearHeightInput.setVisible(false);
-      clearSpecialityInput.setVisible(false);
+        clearWeightInput.setVisible(false);
+        clearHeightInput.setVisible(false);
+        clearSpecialityInput.setVisible(false);
         backArrow.setVisible(false);
+        errorMessage.setVisible(false);
+        failIcon.setVisible(false);
+        traineeCreateProfileIsClicked = false;
+        trainerCreateProfileIsClicked = false;
 
         name.clear();
         height.clear();
         weight.clear();
         speciality.clear();
+
+        name.setStyle(
+                "-fx-border-color: #43896B; -fx-border-width:  1px 0px 0px 1px; -fx-background-color: #313131; -fx-background-radius: 5px 5px 0px 5px; -fx-text-fill: #F4F9F1; fx-border-radius: 5px 5px 0px 5px;"
+        );
+        clearNameInput.setStyle("-fx-opacity: 0.4");
+
+        height.setStyle(
+             "-fx-border-color: #43896B; -fx-border-width:   0px 1px 0px 0px; -fx-background-color: #313131; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1; fx-border-radius: 5px 5px 0px 0px;"
+        );
+        clearHeightInput.setStyle("-fx-opacity: 0.4");
+
+        weight.setStyle(
+             "-fx-border-color: #43896B; -fx-border-width: 0px 0px 0px 1px; -fx-background-color: #313131; -fx-background-radius: 5px 5px 0px 5px; -fx-text-fill: #F4F9F1; fx-border-radius: 5px 5px 0px 5px;"
+        );
+        clearWeightInput.setStyle("-fx-opacity: 0.4");
+
+        speciality.setStyle(
+             "-fx-border-color: #43896B; -fx-border-width: 0px 1px 1px 0px; -fx-background-color: #313131; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1; -fx-border-radius:  5px 5px 5px 0px;"
+        );
+        clearSpecialityInput.setStyle("-fx-opacity: 0.4");
     }
 
     @FXML
@@ -312,4 +353,121 @@ public class CreateProfileController {
         backArrow.setStyle("-fx-cursor: hand");
         backArrow.setEffect(new Glow(0.0));
     }
+
+
+    @FXML
+    void createProfileButtonOnClicked(MouseEvent event) {
+        if(traineeCreateProfileIsClicked){
+            if(name.getText().isEmpty() || height.getText().isEmpty() || weight.getText().isEmpty()){
+                if(name.getText().isEmpty()){
+                    name.setStyle("-fx-border-color: #D53A0B; -fx-border-width: 1px 1px 1px 1px; -fx-background-color: #3A4141; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1");
+                    errorMessage.setText("Please enter all required credentials!");
+                    errorMessage.setStyle("-fx-text-fill: #D53A0B");
+                    errorMessage.setVisible(true);
+                    failIcon.setVisible(true);
+
+                }
+
+                if(height.getText().isEmpty()){
+                    height.setStyle("-fx-border-color: #D53A0B; -fx-border-width: 1px 1px 1px 1px; -fx-background-color: #3A4141; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1");
+                    errorMessage.setText("Please enter all required credentials!");
+                    errorMessage.setStyle("-fx-text-fill: #D53A0B");
+                    errorMessage.setVisible(true);
+                    failIcon.setVisible(true);
+
+                }
+
+                if(weight.getText().isEmpty()){
+                    weight.setStyle("-fx-border-color: #D53A0B; -fx-border-width: 1px 1px 1px 1px; -fx-background-color: #3A4141; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1");
+                    errorMessage.setText("Please enter all required credentials!");
+                    errorMessage.setStyle("-fx-text-fill: #D53A0B");
+                    errorMessage.setVisible(true);
+                    failIcon.setVisible(true);
+
+                }
+            }else{
+                GymManager.createProfile(name.getText(), Double.parseDouble(height.getText()),Double.parseDouble(weight.getText()));
+                errorMessage.setText("A trainee profile has been created!");
+                errorMessage.setStyle("-fx-text-fill: #43896B");
+                errorMessage.setVisible(true);
+                name.clear();
+                height.clear();
+                weight.clear();
+                
+            }
+
+            }
+
+        if(trainerCreateProfileIsClicked){
+            if(name.getText().isEmpty() || height.getText().isEmpty() || weight.getText().isEmpty() || speciality.getText().isEmpty()){
+                if(name.getText().isEmpty()){
+                    name.setStyle("-fx-border-color: #D53A0B; -fx-border-width: 1px 1px 1px 1px; -fx-background-color: #3A4141; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1");
+                    errorMessage.setText("Please enter all required credentials!");
+                    errorMessage.setStyle("-fx-text-fill: #D53A0B");
+                    errorMessage.setVisible(true);
+                    failIcon.setVisible(true);
+
+                }
+
+                if(height.getText().isEmpty()){
+                    height.setStyle("-fx-border-color: #D53A0B; -fx-border-width: 1px 1px 1px 1px; -fx-background-color: #3A4141; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1");
+                    errorMessage.setText("Please enter all required credentials!");
+                    errorMessage.setStyle("-fx-text-fill: #D53A0B");
+                    errorMessage.setVisible(true);
+                    failIcon.setVisible(true);
+
+                }
+
+                if(weight.getText().isEmpty()){
+                    weight.setStyle("-fx-border-color: #D53A0B; -fx-border-width: 1px 1px 1px 1px; -fx-background-color: #3A4141; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1");
+                    errorMessage.setText("Please enter all required credentials!");
+                    errorMessage.setStyle("-fx-text-fill: #D53A0B");
+                    errorMessage.setVisible(true);
+                    failIcon.setVisible(true);
+
+                }
+
+                if(speciality.getText().isEmpty()){
+                    speciality.setStyle("-fx-border-color: #D53A0B; -fx-border-width: 1px 1px 1px 1px; -fx-background-color: #3A4141; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1");
+                    errorMessage.setText("Please enter all required credentials!");
+                    errorMessage.setStyle("-fx-text-fill: #D53A0B");
+                    errorMessage.setVisible(true);
+                    failIcon.setVisible(true);
+                }
+            }else{
+                GymManager.createProfile(name.getText(),  Double.parseDouble(height.getText()),Double.parseDouble(weight.getText()), speciality.getText());
+                errorMessage.setText("A trainer profile has been created!");
+                errorMessage.setStyle("-fx-text-fill: #43896B");
+                errorMessage.setVisible(true);
+                name.clear();
+                height.clear();
+                weight.clear();
+                speciality.clear();
+            }
+        }
+    }
+
+    @FXML
+    void createProfileButtonOnPressed(MouseEvent event) {
+        createProfileButton.setStyle("-fx-background-color: #366D55; -fx-background-radius: 15; -fx-cursor: hand");
+        createProfileButton.setEffect(new Glow(0.3));
+    }
+
+    @FXML
+    void createProfileButtonOnReleased(MouseEvent event) {
+        createProfileButton.setStyle("-fx-background-color: #43896B; -fx-background-radius: 15; -fx-cursor: hand");
+        createProfileButton.setEffect(new Glow(0.0));
+    }
+
+    @FXML
+    void createProfileButtonInHover(MouseEvent event) {
+        createProfileButton.setStyle("-fx-background-color: #366D55; -fx-background-radius: 15; -fx-cursor: hand");
+    }
+
+    @FXML
+    void createProfileButtonOutHover(MouseEvent event) {
+        createProfileButton.setStyle("-fx-background-color: #43896B; -fx-background-radius: 15");
+    }
 }
+
+
