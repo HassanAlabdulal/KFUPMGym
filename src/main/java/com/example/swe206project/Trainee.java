@@ -61,7 +61,7 @@ public class Trainee extends User implements Initializable{
     }
 
     public Trainee(String name, double height, double weight){
-        this(name, height, weight, "defaultPic.txt");
+        this(name, height, weight, "defaultPic.png");
     }
 
 
