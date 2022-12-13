@@ -425,10 +425,10 @@ public class MenuController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         //myProfile.fire();
 
-        // if (user instanceof Trainer) {
-        //     viewTrainees.setVisible(true);
-        //     viewTrainees.setDisable(false);
-        // }
+        if (user instanceof Trainer) {
+            viewTrainees.setVisible(true);
+            viewTrainees.setDisable(false);
+        }
 
         slider.setTranslateX(-225);
         openMenu.setOnMouseClicked(event -> {
