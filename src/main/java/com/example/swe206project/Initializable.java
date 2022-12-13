@@ -21,12 +21,12 @@ public interface Initializable<T> {
                             if(info.size() != 0 && !traineesList.toString().contains(userName)){
                                 
                                 if(info.size() == 5){
-                                    Trainee trainee = new Trainee(info.get(0), Double.valueOf(info.get(1)), Double.valueOf(info.get(2)), info.get(3), Integer.valueOf(info.get(4)), "", userName);
+                                    Trainee trainee = new Trainee(info.get(0), Double.valueOf(info.get(1)), Double.valueOf(info.get(2)), info.get(3), Integer.valueOf(info.get(4).replaceAll("\\*", "")), "", userName);
                                     usersList.add(trainee);
                                     traineesList.add(trainee);
                                 }
                                 else{
-                                    Trainee trainee = new Trainee(info.get(0), Double.valueOf(info.get(1)), Double.valueOf(info.get(2)), info.get(3), Integer.valueOf(info.get(4)), info.get(5), userName);
+                                    Trainee trainee = new Trainee(info.get(0), Double.valueOf(info.get(1)), Double.valueOf(info.get(2)), info.get(3), Integer.valueOf(info.get(4).replaceAll("\\*", "")), info.get(5), userName);
                                     usersList.add(trainee);
                                     traineesList.add(trainee);
                                 }
@@ -51,13 +51,13 @@ public interface Initializable<T> {
                                         if(info.size() != 0){
                                             if(!traineesList.toString().contains(userName)){
                                                 if(traineeInfo.size() == 5){
-                                                    Trainee traineeObject = new Trainee(traineeInfo.get(0), Double.valueOf(traineeInfo.get(1)), Double.valueOf(traineeInfo.get(2)), traineeInfo.get(3), Integer.valueOf(info.get(4)), "", trainee);
+                                                    Trainee traineeObject = new Trainee(traineeInfo.get(0), Double.valueOf(traineeInfo.get(1)), Double.valueOf(traineeInfo.get(2)), traineeInfo.get(3), Integer.valueOf(info.get(4).replaceAll("\\*", "")), "", trainee);
                                                     usersList.add(traineeObject);
                                                     traineesList.add(traineeObject);
                                                     assignedTrainees.add(traineeObject);
                                                 }
                                                 else{
-                                                    Trainee traineeObject = new Trainee(traineeInfo.get(0), Double.valueOf(traineeInfo.get(1)), Double.valueOf(traineeInfo.get(2)), traineeInfo.get(3), Integer.valueOf(info.get(4)), info.get(5), trainee);
+                                                    Trainee traineeObject = new Trainee(traineeInfo.get(0), Double.valueOf(traineeInfo.get(1)), Double.valueOf(traineeInfo.get(2)), traineeInfo.get(3), Integer.valueOf(info.get(4).replaceAll("\\*", "")), info.get(5), trainee);
                                                     usersList.add(traineeObject);
                                                     traineesList.add(traineeObject);
                                                     assignedTrainees.add(traineeObject);

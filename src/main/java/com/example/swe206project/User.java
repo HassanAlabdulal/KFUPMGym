@@ -2,6 +2,7 @@ package com.example.swe206project;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.net.ProtocolException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -11,15 +12,19 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javafx.beans.property.Property;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public abstract class User implements Serializable{
     private int id;
     //private String userName; this cant be determined yet because of the type abstraction
-    protected static String name;
-    protected static String password;
-    protected static double height;
-    protected static double weight;
-    protected static String photo;
-
+    protected String name;
+    protected String password;
+    protected double height;
+    protected double weight;
+    protected String photo;
+    protected String status = "";
     //protected User(){
 //
     //}
@@ -35,6 +40,11 @@ public abstract class User implements Serializable{
         this.height = Double.valueOf(info.get(1));
         this.weight = Double.valueOf(info.get(2));
         this.photo = info.get(3);
+        if(isActive(userName))
+            status = "active";
+        else
+            status = "not-active";
+       
     }
     
     public User(String name, double height, double weight, String photo){
@@ -43,7 +53,6 @@ public abstract class User implements Serializable{
         this.height = height;
         this.weight = weight;
         this.photo = photo;
-        
     }
 
     public User(String name, double height, double weight){
@@ -94,19 +103,19 @@ public abstract class User implements Serializable{
         return false;
     }
 
-    public static String getName() {
+    public String getName() {
         return name;
     }
 
-    public static double getHeight() {
+    public double getHeight() {
         return height;
     }
     
-    public static double getWeight() {
+    public double getWeight() {
         return weight;
     }
 
-    public static String getPhoto() {
+    public String getPhoto() {
         return photo;
     }
 
@@ -128,6 +137,10 @@ public abstract class User implements Serializable{
 
     public void editProfile(){
 
+    }
+
+    public String getStatus() {
+        return status;
     }
 
     public abstract String toString();

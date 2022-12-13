@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
 public class Trainee extends User implements Initializable{
     protected Plan plan;
     protected String userName;
@@ -26,7 +25,7 @@ public class Trainee extends User implements Initializable{
 
     protected Trainee(String name, double height, double weight, String photo, int planId, String trainer, String userName){
         super(name, height, weight, photo);
-        plan = new Plan(planId);
+        plan = new Plan(Integer.valueOf(planId));
         this.userName = userName;
         this.trainer = trainer;
     }
@@ -36,17 +35,17 @@ public class Trainee extends User implements Initializable{
         UsernamePassGen user = new UsernamePassGen(name, "trainee");
         userName = user.username;
         this.trainer = trainer;
-        plan = new Plan(planId);
+        plan = new Plan(Integer.valueOf(planId));
         save(name, height, weight, photo, plan, trainer,"active");
     }
 
     public Trainee(String name, double height, double weight, String photo){
-        this(name, height, weight, photo, 00000000, "");
+        this(name, height, weight, photo, 0, "");
     }
 
     public void save(String name, double height, double weight, String photo, Plan plan, String trainer, String status) {
         WriteFiles writer = new WriteFiles("UserInfo.txt", true);
-        String data = "@" + userName + " " + name + " " +  height + " " + weight + " " + photo + " " + plan + " $" + trainer + " !" + status;
+        String data = "@" + userName + " " + name + " " +  height + " " + weight + " " + photo + " *" + plan + " $" + trainer + " !" + status;
         try {
             writer.writeToFile(data);
         } catch (IOException e) {
@@ -76,7 +75,7 @@ public class Trainee extends User implements Initializable{
 
     public static String getPlan(String userName){
         ReadFiles read = new ReadFiles<>("UserInfo.txt");
-        return read.fetch(userName, "\\d{7,8}");
+        return read.fetch(userName, "\\*\\d{1,8}").replaceAll("\\*", "");
     }
 
     public void setPlan(Plan plan){
@@ -151,6 +150,8 @@ public class Trainee extends User implements Initializable{
     public String toString(){
         return userName;
     }
+
+   
 
 
     
