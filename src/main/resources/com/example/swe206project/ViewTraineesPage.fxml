@@ -1,15 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="975.0" style="-fx-background-color: #212121;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.swe206project.ViewTraineesPageController">
    <children>
-      <Label layoutX="339.0" layoutY="247.0" text="ViewTrainees">
+      <TableView fx:id="viewTraineesTable" layoutX="100.0" layoutY="156.0" prefHeight="425.0" prefWidth="725.0" style="-fx-background-color: #F4F9F1; -fx-border-color: #43896B; -fx-border-width: 3px;" AnchorPane.bottomAnchor="175.0" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="125.0" AnchorPane.topAnchor="125.0">
+        <columns>
+          <TableColumn fx:id="name" minWidth="145.0" prefWidth="145.0" resizable="false" style="-fx-background-color: #43896B;" text="Name" />
+          <TableColumn fx:id="height" minWidth="145.0" prefWidth="145.0" resizable="false" style="-fx-background-color: #43896B;" text="Height" />
+            <TableColumn fx:id="weight" minWidth="145.0" prefWidth="145.0" resizable="false" style="-fx-background-color: #43896B;" text="Weight" />
+            <TableColumn fx:id="plan" minWidth="145.0" prefWidth="145.0" resizable="false" style="-fx-background-color: #43896B;" text="Assigned Plan" />
+            <TableColumn fx:id="status" minWidth="145.0" prefWidth="145.0" resizable="false" style="-fx-background-color: #43896B;" text="Profile Status" />
+        </columns>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </TableView>
+      <Button fx:id="addNewTrainee" layoutX="125.0" layoutY="625.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="250.0" style="-fx-background-color: #43896B; -fx-background-radius: 15px;" text="Add New Trainee" textAlignment="CENTER" textFill="#f4f9f1" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="125.0">
          <font>
-            <Font size="56.0" />
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="progress" layoutX="701.0" layoutY="635.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="175.0" style="-fx-background-color: #43896B; -fx-background-radius: 15px;" text="Progress" textAlignment="CENTER" textFill="#f4f9f1" AnchorPane.bottomAnchor="75.0" AnchorPane.rightAnchor="125.0">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="assignPlan" layoutX="512.0" layoutY="635.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="200.0" style="-fx-background-color: #43896B; -fx-background-radius: 15px;" text="Assign Plan" textAlignment="CENTER" textFill="#f4f9f1" AnchorPane.bottomAnchor="75.0" AnchorPane.rightAnchor="350.0">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Button>
+      <Label fx:id="message" alignment="CENTER" layoutX="175.0" layoutY="66.0" prefHeight="20.0" prefWidth="625.0" textFill="#f4f9f1" visible="false" AnchorPane.leftAnchor="175.0" AnchorPane.rightAnchor="175.0" AnchorPane.topAnchor="75.0">
+         <font>
+            <Font name="Tahoma Bold" size="16.0" />
          </font>
       </Label>
+      <ImageView fx:id="messageIcon" fitHeight="35.0" fitWidth="35.0" layoutX="470.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="470.0" AnchorPane.rightAnchor="470.0" AnchorPane.topAnchor="35.0" />
    </children>
 </AnchorPane>
