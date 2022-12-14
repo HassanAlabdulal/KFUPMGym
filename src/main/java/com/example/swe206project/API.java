@@ -21,19 +21,19 @@ public class API {
 
         try {
             
-            HashMap<String, Object> aysh = new HashMap<>();
-            aysh.put("username", username);
-            aysh.put("password", password);
-            aysh.put("type", type);
+            HashMap<String, Object> params = new HashMap<>();
+            params.put("username", username);
+            params.put("password", password);
+            params.put("type", type);
 
-            StringBuilder string = new StringBuilder();
-            for(Map.Entry<String, Object> asm : aysh.entrySet()){
-                if (string.length() != 0 ) string.append( '&') ;
-                string.append((URLEncoder.encode(asm.getKey(), "UTF-8")));
-                string.append('=');
-                string.append(URLEncoder.encode(String.valueOf(asm.getValue()), "UTF-8"));
+            StringBuilder postData = new StringBuilder();
+            for(Map.Entry<String, Object> param : params.entrySet()){
+                if (postData.length() != 0 ) postData.append( '&') ;
+                postData.append((URLEncoder.encode(param.getKey(), "UTF-8")));
+                postData.append('=');
+                postData.append(URLEncoder.encode(String.valueOf(param.getValue()), "UTF-8"));
             }
-            byte[] postdatabytes = string.toString().getBytes("UTF-8");
+            byte[] postdatabytes = postData.toString().getBytes("UTF-8");
             
             URL url = new URL(endpoint);
 
