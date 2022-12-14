@@ -55,6 +55,9 @@ public class TestIDandUser {
         }
 
       } 
+
+      Trainee t = new Trainee("ahmed abdulaal", 12, 342);
+      System.out.println(t.pullInfo(t.userName));
       
     
     
