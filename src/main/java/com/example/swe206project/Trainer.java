@@ -4,12 +4,17 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableArray;
+import javafx.collections.ObservableList;
+
 public class Trainer<T> extends User implements Initializable{
     //Plan plan;
     protected String userName;
     private String speciality;
     protected ArrayList<Trainer> trainersList = new ArrayList<>();
-    protected ArrayList<T> traineesList = new ArrayList<>();
+    protected ArrayList<Trainee> traineesList = new ArrayList<>();
+    public ObservableList<Trainee> test = FXCollections.observableArrayList();
     //protected static ArrayList<String> info = pullInfo(userName);
 
     //protected Trainer(){
@@ -21,7 +26,10 @@ public class Trainer<T> extends User implements Initializable{
         ArrayList<String> info = new ArrayList<>();
         info = pullInfo(userName);
         this.speciality = info.get(4);
-        this.traineesList = (ArrayList<T>) getTraineeList(userName);
+        for (String string : getTraineesList(userName)) {
+            traineesList.add(new Trainee(string));
+        }
+        //this.traineesList = (ArrayList<T>) getTraineesList(userName);
         this.userName = userName;
     }
 
@@ -29,7 +37,7 @@ public class Trainer<T> extends User implements Initializable{
         super(name, height, weight, photo);
         this.speciality = speciality;
         this.userName = userName;
-        this.traineesList = (ArrayList<T>) traineesList;
+        //this.traineesList = (ArrayList<T>) traineesList;
         //for (Trainer trainer : trainersList) {
         //    if(trainer.getUsername().equals(this.userName))
         //        this.traineesList = trainer.traineesList;
@@ -108,16 +116,21 @@ public class Trainer<T> extends User implements Initializable{
         return (ArrayList<Trainee>) traineesList;
     }
 
-    public ArrayList<String> getTraineeList(String userName){
+    public ObservableList<Trainee> getTraineesListTest(){
+        return (ObservableList<Trainee>) FXCollections.observableArrayList(this.traineesList);
+    }
+
+    public ArrayList<String> getTraineesList(String userName){
         ReadFiles read = new ReadFiles<>("UserInfo.txt");
         ArrayList<String> list = new ArrayList<>();
         for(String workout : read.fetch(userName, "\\[\\p{ASCII}*\\]").replaceAll("\\s|\\[|\\]", "").split(","))
             list.add(workout);
         return list;
     }
+    
 
     public void addTrainee(Trainee trainee){
-        traineesList.add((T) trainee);
+        //traineesList.add((T) trainee);
     }
 
     public String toString(){
@@ -131,6 +144,13 @@ public class Trainer<T> extends User implements Initializable{
     public void assignPlan(String userName, String planId){
         Trainee t = new Trainee(userName);
         t.setPlan(Integer.valueOf(planId));
+    }
+
+    public ObservableList getTest() {
+        for (Trainee object : traineesList) {
+            test.add(object);
+        }
+        return test;
     }
     
 }
