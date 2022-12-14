@@ -6,4 +6,4 @@ UserName   | Name  |                info       |     assigned trainer if exists 
 @trainer#17484 trainer#1 170.0 60.0 defaultPic.png eating [trainee#17802,trainee#24382,trainee#32855] !active
 @Hassan8645 Hassan 160.0 80.0 defaultPic.txt 0 $ !not-active
 @Ali4583 Ali 170.0 75.0 defaultPic.txt 0 $ !active
-@Ahmed8286 Ahmed 179.0 87.0 defaultPic.txt eating [] !active
+@Ahmed8286 Ahmed 180.0 87.0 defaultPic.txt eating [] !active
