@@ -1,6 +1,7 @@
 package com.example.swe206project;
 
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -30,7 +31,7 @@ public class ViewTraineesPageController implements Initializable {
     private TableView<Trainee> viewTraineesTable;
 
     @FXML
-    private TableColumn<Trainee, String> name;
+    private TableColumn<User, String> name;
 
     @FXML
     private TableColumn<User, Double> height;
@@ -45,16 +46,21 @@ public class ViewTraineesPageController implements Initializable {
     private TableColumn<User, String> status;
 
     @FXML
-    public void initialize() {
-        Trainer trainer = (Trainer) LoginFormController.user;
+    private Trainer trainer = (Trainer) LoginFormController.user;
 
-        name.setCellValueFactory(new PropertyValueFactory<Trainee, String>("name"));
+    @FXML
+    private ObservableList<Trainee> traineesList = FXCollections.observableArrayList(trainer.getTraineeList(trainer.userName));
+
+    @FXML
+    public void initialize() {
+
+        name.setCellValueFactory(new PropertyValueFactory<User, String>("name"));
         //height.setCellValueFactory(new PropertyValueFactory<User, Double>("height"));
         //weight.setCellValueFactory(new PropertyValueFactory<User, Double>("weight"));
         //plan.setCellValueFactory(new PropertyValueFactory<Plan, String>("planName"));
         //status.setCellValueFactory(new PropertyValueFactory<User, String>("status"));
 
-        viewTraineesTable.setItems(FXCollections.observableArrayList(trainer.getTraineeList(trainer.userName)));
+        viewTraineesTable.setItems(traineesList);
     }
 
 }
