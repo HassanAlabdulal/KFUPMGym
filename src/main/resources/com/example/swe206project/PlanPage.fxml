@@ -12,9 +12,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="975.0" style="-fx-background-color: #212121;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.swe206project.PlanPageController">
    <children>
-      <AnchorPane fx:id="mondayCard" layoutX="362.0" layoutY="36.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="296.0" prefWidth="180.0" style="-fx-background-color: #f4f9f1; -fx-background-radius: 10px;">
+      <AnchorPane fx:id="mondayCard" layoutX="362.0" layoutY="36.0" maxHeight="-Infinity" maxWidth="-Infinity" onMouseEntered="#mondayCardInHover" onMouseExited="#mondayCardOutHover" prefHeight="296.0" prefWidth="180.0" style="-fx-background-color: #f4f9f1; -fx-background-radius: 10px;">
          <children>
-            <HBox prefHeight="57.0" prefWidth="240.0" style="-fx-background-color: #43896b; -fx-background-radius: 10px 10px 0 0;">
+            <HBox fx:id="mondayCardHeader" prefHeight="57.0" prefWidth="240.0" style="-fx-background-color: #43896b; -fx-background-radius: 10px 10px 0 0;">
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" text="Monday">
                      <HBox.margin>
@@ -26,22 +26,12 @@
                   </Label>
                </children>
             </HBox>
-            <Label layoutX="61.0" layoutY="94.0" text="Session One:" AnchorPane.leftAnchor="55.0">
+            <Label layoutX="61.0" layoutY="94.0" text="Session " AnchorPane.leftAnchor="55.0">
                <font>
-                  <Font name="Arial Bold" size="19.0" />
+                  <Font name="Arial Bold" size="24.0" />
                </font>
             </Label>
             <ImageView fitHeight="40.0" fitWidth="35.0" layoutX="14.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0">
-               <image>
-                  <Image url="@assets/images/muscle.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="59.0" layoutY="203.0" text="Session Two:" AnchorPane.leftAnchor="59.0">
-               <font>
-                  <Font name="Arial Bold" size="19.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="40.0" fitWidth="35.0" layoutX="24.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="24.0">
                <image>
                   <Image url="@assets/images/muscle.png" />
                </image>
@@ -66,14 +56,19 @@
                   <Image url="@assets/images/Mark.png" />
                </image>
             </ImageView>
-            <Label layoutX="88.0" layoutY="242.0" text="Rest and recovery">
+            <Label layoutX="88.0" layoutY="209.0" text="Rest and recovery">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
-            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="55.0" layoutY="236.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="55.0" layoutY="203.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/images/Mark.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="mondayDetailsIcon" fitHeight="71.0" fitWidth="74.0" layoutX="85.0" layoutY="133.0" onMouseEntered="#mondayDetailsIconInHover" onMouseExited="#mondayDetailsIconOutHover" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/images/detalisIcon.gif" />
                </image>
             </ImageView>
          </children>
@@ -81,9 +76,9 @@
             <DropShadow />
          </effect>
       </AnchorPane>
-      <AnchorPane fx:id="sundayCard" layoutX="70.0" layoutY="36.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="296.0" prefWidth="165.0" style="-fx-background-color: #f4f9f1; -fx-background-radius: 10px; ">
+      <AnchorPane fx:id="sundayCard" layoutX="70.0" layoutY="36.0" maxHeight="-Infinity" maxWidth="-Infinity" onMouseEntered="#sundayCardInHover" onMouseExited="#sundayCardOutHover" prefHeight="296.0" prefWidth="165.0" style="-fx-background-color: #f4f9f1; -fx-background-radius: 10px; ">
          <children>
-            <HBox fx:id="sundayCardHeader" prefHeight="57.0" prefWidth="232.0" style="-fx-background-color: #43896b; -fx-background-radius: 10px 10px 0 0;">
+            <HBox fx:id="sundayCardHeader" onMouseEntered="#sundayCardInHover" onMouseExited="#sundayCardOutHover" prefHeight="57.0" prefWidth="232.0" style="-fx-background-color: #43896b; -fx-background-radius: 10px 10px 0 0;">
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" text="Sunday">
                      <HBox.margin>
@@ -95,22 +90,12 @@
                   </Label>
                </children>
             </HBox>
-            <Label layoutX="61.0" layoutY="94.0" text="Session One:" AnchorPane.leftAnchor="55.0">
+            <Label layoutX="61.0" layoutY="95.0" text="Session" AnchorPane.leftAnchor="61.0">
                <font>
-                  <Font name="Arial Bold" size="19.0" />
+                  <Font name="Arial Bold" size="24.0" />
                </font>
             </Label>
-            <ImageView fitHeight="40.0" fitWidth="35.0" layoutX="14.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0">
-               <image>
-                  <Image url="@assets/images/muscle.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="59.0" layoutY="203.0" text="Session Two:" AnchorPane.leftAnchor="59.0">
-               <font>
-                  <Font name="Arial Bold" size="19.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="40.0" fitWidth="35.0" layoutX="24.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="24.0">
+            <ImageView fitHeight="35.0" fitWidth="37.0" layoutX="26.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="26.0">
                <image>
                   <Image url="@assets/images/muscle.png" />
                </image>
@@ -138,14 +123,19 @@
                   <Image url="@assets/images/Mark.png" />
                </image>
             </ImageView>
-            <Label layoutX="88.0" layoutY="242.0" text="Cardio">
+            <Label layoutX="90.0" layoutY="210.0" text="Cardio">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
-            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="55.0" layoutY="236.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="57.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/images/Mark.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="sundayDetailsIcon" fitHeight="71.0" fitWidth="74.0" layoutX="77.0" layoutY="133.0" onMouseEntered="#sundayDetailsIconInHover" onMouseExited="#sundayDetailsIconOutHover" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/images/detalisIcon.gif" />
                </image>
             </ImageView>
          </children>
@@ -153,9 +143,9 @@
             <DropShadow />
          </effect>
       </AnchorPane>
-      <AnchorPane fx:id="tuesdayCard" layoutX="665.0" layoutY="36.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="296.0" prefWidth="238.0" style="-fx-background-color: #f4f9f1; -fx-background-radius: 10px;">
+      <AnchorPane fx:id="tuesdayCard" layoutX="665.0" layoutY="36.0" maxHeight="-Infinity" maxWidth="-Infinity" onMouseEntered="#tuesdayCardInHover" onMouseExited="#tuesdayCardOutHover" prefHeight="296.0" prefWidth="238.0" style="-fx-background-color: #f4f9f1; -fx-background-radius: 10px;">
          <children>
-            <HBox prefHeight="57.0" prefWidth="240.0" style="-fx-background-color: #43896b; -fx-background-radius: 10px 10px 0 0;">
+            <HBox fx:id="tuesdayCardHeader" prefHeight="57.0" prefWidth="240.0" style="-fx-background-color: #43896b; -fx-background-radius: 10px 10px 0 0;">
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" text="Tuesday">
                      <HBox.margin>
@@ -167,22 +157,12 @@
                   </Label>
                </children>
             </HBox>
-            <Label layoutX="61.0" layoutY="94.0" text="Session One:" AnchorPane.leftAnchor="55.0">
+            <Label layoutX="61.0" layoutY="94.0" text="Session" AnchorPane.leftAnchor="55.0">
                <font>
-                  <Font name="Arial Bold" size="19.0" />
+                  <Font name="Arial Bold" size="24.0" />
                </font>
             </Label>
             <ImageView fitHeight="40.0" fitWidth="35.0" layoutX="14.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0">
-               <image>
-                  <Image url="@assets/images/muscle.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="59.0" layoutY="203.0" text="Session Two:" AnchorPane.leftAnchor="59.0">
-               <font>
-                  <Font name="Arial Bold" size="19.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="40.0" fitWidth="35.0" layoutX="24.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="24.0">
                <image>
                   <Image url="@assets/images/muscle.png" />
                </image>
@@ -207,14 +187,19 @@
                   <Image url="@assets/images/Mark.png" />
                </image>
             </ImageView>
-            <Label layoutX="88.0" layoutY="242.0" text="legs">
+            <Label layoutX="90.0" layoutY="210.0" text="legs">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
-            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="55.0" layoutY="236.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="57.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/images/Mark.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="tuesdayDetailsIcon" fitHeight="71.0" fitWidth="74.0" layoutX="85.0" layoutY="133.0" onMouseEntered="#tuesdayDetailsIconInHover" onMouseExited="#tuesdayDetailsIconOutHover" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/images/detalisIcon.gif" />
                </image>
             </ImageView>
          </children>
@@ -222,9 +207,9 @@
             <DropShadow />
          </effect>
       </AnchorPane>
-      <AnchorPane fx:id="wednesdayCard" layoutX="70.0" layoutY="389.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="296.0" prefWidth="165.0" style="-fx-background-color: #f4f9f1; -fx-background-radius: 10px;">
+      <AnchorPane fx:id="wednesdayCard" layoutX="70.0" layoutY="389.0" maxHeight="-Infinity" maxWidth="-Infinity" onMouseEntered="#wednesdayCardInHover" onMouseExited="#wednesdayCardOutHover" prefHeight="296.0" prefWidth="165.0" style="-fx-background-color: #f4f9f1; -fx-background-radius: 10px;">
          <children>
-            <HBox prefHeight="57.0" prefWidth="232.0" style="-fx-background-color: #43896b; -fx-background-radius: 10px 10px 0 0;">
+            <HBox fx:id="wednesdayCardHeader" prefHeight="57.0" prefWidth="232.0" style="-fx-background-color: #43896b; -fx-background-radius: 10px 10px 0 0;">
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" text="Wednesday">
                      <HBox.margin>
@@ -236,22 +221,12 @@
                   </Label>
                </children>
             </HBox>
-            <Label layoutX="61.0" layoutY="94.0" text="Session One:" AnchorPane.leftAnchor="55.0">
+            <Label layoutX="61.0" layoutY="94.0" text="Session" AnchorPane.leftAnchor="55.0">
                <font>
-                  <Font name="Arial Bold" size="19.0" />
+                  <Font name="Arial Bold" size="24.0" />
                </font>
             </Label>
             <ImageView fitHeight="40.0" fitWidth="35.0" layoutX="14.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0">
-               <image>
-                  <Image url="@assets/images/muscle.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="59.0" layoutY="203.0" text="Session Two:" AnchorPane.leftAnchor="59.0">
-               <font>
-                  <Font name="Arial Bold" size="19.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="40.0" fitWidth="35.0" layoutX="24.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="24.0">
                <image>
                   <Image url="@assets/images/muscle.png" />
                </image>
@@ -276,14 +251,19 @@
                   <Image url="@assets/images/Mark.png" />
                </image>
             </ImageView>
-            <Label layoutX="88.0" layoutY="242.0" text="Rest and recovery">
+            <Label layoutX="88.0" layoutY="211.0" text="Rest and recovery">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
-            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="55.0" layoutY="236.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="55.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/images/Mark.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="wednesdayDetailsIcon" fitHeight="71.0" fitWidth="74.0" layoutX="81.0" layoutY="133.0" onMouseEntered="#wednesdayDetailsIconInHover" onMouseExited="#wednesdayDetailsIconOutHover" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/images/detalisIcon.gif" />
                </image>
             </ImageView>
          </children>
@@ -291,9 +271,9 @@
             <DropShadow />
          </effect>
       </AnchorPane>
-      <AnchorPane fx:id="thursdayCard" layoutX="362.0" layoutY="389.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="296.0" prefWidth="238.0" style="-fx-background-color: #f4f9f1; -fx-background-radius: 10px;">
+      <AnchorPane fx:id="thursdayCard" layoutX="362.0" layoutY="389.0" maxHeight="-Infinity" maxWidth="-Infinity" onMouseEntered="#thursdayCardInHover" onMouseExited="#thursdayCardOutHover" prefHeight="296.0" prefWidth="238.0" style="-fx-background-color: #f4f9f1; -fx-background-radius: 10px;">
          <children>
-            <HBox prefHeight="57.0" prefWidth="240.0" style="-fx-background-color: #43896b; -fx-background-radius: 10px 10px 0 0;">
+            <HBox fx:id="thursdayCardHeader" prefHeight="57.0" prefWidth="240.0" style="-fx-background-color: #43896b; -fx-background-radius: 10px 10px 0 0;">
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" text="Thursday">
                      <HBox.margin>
@@ -305,22 +285,12 @@
                   </Label>
                </children>
             </HBox>
-            <Label layoutX="61.0" layoutY="94.0" text="Session One:" AnchorPane.leftAnchor="55.0">
+            <Label layoutX="61.0" layoutY="94.0" text="Session" AnchorPane.leftAnchor="55.0">
                <font>
-                  <Font name="Arial Bold" size="19.0" />
+                  <Font name="Arial Bold" size="24.0" />
                </font>
             </Label>
             <ImageView fitHeight="40.0" fitWidth="35.0" layoutX="14.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0">
-               <image>
-                  <Image url="@assets/images/muscle.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="59.0" layoutY="203.0" text="Session Two:" AnchorPane.leftAnchor="59.0">
-               <font>
-                  <Font name="Arial Bold" size="19.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="40.0" fitWidth="35.0" layoutX="24.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="24.0">
                <image>
                   <Image url="@assets/images/muscle.png" />
                </image>
@@ -345,14 +315,19 @@
                   <Image url="@assets/images/Mark.png" />
                </image>
             </ImageView>
-            <Label layoutX="88.0" layoutY="242.0" text="Cardio">
+            <Label layoutX="84.0" layoutY="208.0" text="Cardio">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
-            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="55.0" layoutY="236.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="51.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/images/Mark.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="thursdayDetailsIcon" fitHeight="71.0" fitWidth="74.0" layoutX="85.0" layoutY="133.0" onMouseEntered="#thursdayDetailsIconInHover" onMouseExited="#thursdayDetailsIconOutHover" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/images/detalisIcon.gif" />
                </image>
             </ImageView>
          </children>
@@ -360,9 +335,9 @@
             <DropShadow />
          </effect>
       </AnchorPane>
-      <AnchorPane fx:id="saturdayCard" layoutX="665.0" layoutY="389.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="296.0" prefWidth="238.0" style="-fx-background-color: #f4f9f1; -fx-background-radius: 10px;">
+      <AnchorPane fx:id="saturdayCard" layoutX="665.0" layoutY="389.0" maxHeight="-Infinity" maxWidth="-Infinity" onMouseEntered="#saturdayCardInHover" onMouseExited="#saturdayCardOutHover" prefHeight="296.0" prefWidth="238.0" style="-fx-background-color: #f4f9f1; -fx-background-radius: 10px;">
          <children>
-            <HBox prefHeight="57.0" prefWidth="240.0" style="-fx-background-color: #43896b; -fx-background-radius: 10px 10px 0 0;">
+            <HBox fx:id="saturdayCardHeader" prefHeight="57.0" prefWidth="240.0" style="-fx-background-color: #43896b; -fx-background-radius: 10px 10px 0 0;">
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" text="Saturday">
                      <HBox.margin>
@@ -374,22 +349,12 @@
                   </Label>
                </children>
             </HBox>
-            <Label layoutX="61.0" layoutY="94.0" text="Session One:" AnchorPane.leftAnchor="55.0">
+            <Label layoutX="61.0" layoutY="94.0" text="Session" AnchorPane.leftAnchor="55.0">
                <font>
-                  <Font name="Arial Bold" size="19.0" />
+                  <Font name="Arial Bold" size="24.0" />
                </font>
             </Label>
             <ImageView fitHeight="40.0" fitWidth="35.0" layoutX="14.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0">
-               <image>
-                  <Image url="@assets/images/muscle.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="59.0" layoutY="203.0" text="Session Two:" AnchorPane.leftAnchor="59.0">
-               <font>
-                  <Font name="Arial Bold" size="19.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="40.0" fitWidth="35.0" layoutX="24.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="24.0">
                <image>
                   <Image url="@assets/images/muscle.png" />
                </image>
@@ -414,14 +379,19 @@
                   <Image url="@assets/images/Mark.png" />
                </image>
             </ImageView>
-            <Label layoutX="88.0" layoutY="242.0" text="Rest and recovery">
+            <Label layoutX="88.0" layoutY="210.0" text="Rest and recovery">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
-            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="55.0" layoutY="236.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="55.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/images/Mark.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="saturdayDetailsIcon" fitHeight="71.0" fitWidth="74.0" layoutX="85.0" layoutY="133.0" onMouseEntered="#saturdayDetailsIconInHover" onMouseExited="#saturdayDetailsIconOutHover" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@assets/images/detalisIcon.gif" />
                </image>
             </ImageView>
          </children>
