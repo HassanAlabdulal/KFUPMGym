@@ -1,6 +1,7 @@
 package com.example.swe206project;
 
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -28,33 +29,43 @@ public class ViewTraineesPageController implements Initializable {
 
     @FXML
     private TableView<Trainee> viewTraineesTable;
+    @FXML
+    public TableColumn<Trainee, String> name;
 
     @FXML
-    private TableColumn<Trainee, String> name;
+    private TableColumn<Trainee, Double> height;
 
     @FXML
-    private TableColumn<User, Double> height;
+    private TableColumn<Trainee, Double> weight;
 
     @FXML
-    private TableColumn<User, Double> weight;
+    private TableColumn<Trainee, Plan> plan;
 
     @FXML
-    private TableColumn<Plan, String> plan;
+    private TableColumn<Trainee, String> status;
 
     @FXML
-    private TableColumn<User, String> status;
+    Trainer trainer = (Trainer) LoginFormController.user;
+
+    @FXML
+   ObservableList<Trainee> list = FXCollections.observableArrayList();
+
+
+   //ObservableList<Trainee> list = FXCollections.observableArrayList();
 
     @FXML
     public void initialize() {
-        Trainer trainer = (Trainer) LoginFormController.user;
-
+        //Trainer trainer = (Trainer) LoginFormController.user;
+        //ObservableList<Trainee> list = FXCollections.observableArrayList(trainer.getTraineesList());
+        
         name.setCellValueFactory(new PropertyValueFactory<Trainee, String>("name"));
-        //height.setCellValueFactory(new PropertyValueFactory<User, Double>("height"));
-        //weight.setCellValueFactory(new PropertyValueFactory<User, Double>("weight"));
-        //plan.setCellValueFactory(new PropertyValueFactory<Plan, String>("planName"));
-        //status.setCellValueFactory(new PropertyValueFactory<User, String>("status"));
-
-        viewTraineesTable.setItems(FXCollections.observableArrayList(trainer.getTraineeList(trainer.userName)));
+        height.setCellValueFactory(new PropertyValueFactory<Trainee, Double>("height"));
+        weight.setCellValueFactory(new PropertyValueFactory<Trainee, Double>("weight"));
+        plan.setCellValueFactory(new PropertyValueFactory<Trainee, Plan>("plan"));
+        status.setCellValueFactory(new PropertyValueFactory<Trainee, String>("status"));
+       
+        //viewTraineesTable.setItems(FXCollections.observableArrayList(trainer.getTraineesListTest()));
+        viewTraineesTable.setItems(trainer.getTest());
     }
 
 }
