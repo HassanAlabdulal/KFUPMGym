@@ -45,18 +45,15 @@ public class ViewTraineesPageController implements Initializable {
     private TableColumn<Trainee, String> status;
 
     @FXML
-    Trainer trainer = (Trainer) LoginFormController.user;
+    private Trainer trainer = (Trainer) LoginFormController.user;
 
-    @FXML
-   ObservableList<Trainee> list = FXCollections.observableArrayList();
+    
 
 
-   //ObservableList<Trainee> list = FXCollections.observableArrayList();
 
     @FXML
     public void initialize() {
-        //Trainer trainer = (Trainer) LoginFormController.user;
-        //ObservableList<Trainee> list = FXCollections.observableArrayList(trainer.getTraineesList());
+        
         
         name.setCellValueFactory(new PropertyValueFactory<Trainee, String>("name"));
         height.setCellValueFactory(new PropertyValueFactory<Trainee, Double>("height"));
@@ -64,7 +61,6 @@ public class ViewTraineesPageController implements Initializable {
         plan.setCellValueFactory(new PropertyValueFactory<Trainee, Plan>("plan"));
         status.setCellValueFactory(new PropertyValueFactory<Trainee, String>("status"));
        
-        //viewTraineesTable.setItems(FXCollections.observableArrayList(trainer.getTraineesListTest()));
         viewTraineesTable.setItems(trainer.getTest());
     }
 
