@@ -65,7 +65,7 @@ public class ViewTraineesPageController implements Initializable {
         status.setCellValueFactory(new PropertyValueFactory<Trainee, String>("status"));
        
         //viewTraineesTable.setItems(FXCollections.observableArrayList(trainer.getTraineesListTest()));
-        viewTraineesTable.setItems(trainer.getTest());
+        viewTraineesTable.setItems(trainer.getObservableTraineesList());
     }
 
 }

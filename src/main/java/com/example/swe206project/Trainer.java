@@ -14,7 +14,7 @@ public class Trainer<T> extends User implements Initializable{
     private String speciality;
     protected ArrayList<Trainer> trainersList = new ArrayList<>();
     protected ArrayList<Trainee> traineesList = new ArrayList<>();
-    public ObservableList<Trainee> test = FXCollections.observableArrayList();
+    public ObservableList<Trainee> observableTraineesList = FXCollections.observableArrayList();
     //protected static ArrayList<String> info = pullInfo(userName);
 
     //protected Trainer(){
@@ -26,9 +26,9 @@ public class Trainer<T> extends User implements Initializable{
         ArrayList<String> info = new ArrayList<>();
         info = pullInfo(userName);
         this.speciality = info.get(4);
-        for (String string : getTraineesList(userName)) {
-            traineesList.add(new Trainee(string));
-        }
+
+        if(!getTraineesList(userName).isEmpty())
+            traineesList = getTraineesList(userName);
         //this.traineesList = (ArrayList<T>) getTraineesList(userName);
         this.userName = userName;
     }
@@ -116,15 +116,17 @@ public class Trainer<T> extends User implements Initializable{
         return (ArrayList<Trainee>) traineesList;
     }
 
-    public ObservableList<Trainee> getTraineesListTest(){
+    public ObservableList<Trainee> getTraineesObservableList(){
         return (ObservableList<Trainee>) FXCollections.observableArrayList(this.traineesList);
     }
 
-    public ArrayList<String> getTraineesList(String userName){
+    public ArrayList<Trainee> getTraineesList(String userName){
         ReadFiles read = new ReadFiles<>("UserInfo.txt");
-        ArrayList<String> list = new ArrayList<>();
-        for(String workout : read.fetch(userName, "\\[\\p{ASCII}*\\]").replaceAll("\\s|\\[|\\]", "").split(","))
-            list.add(workout);
+        ArrayList<Trainee> list = new ArrayList<>();
+        for(String trainee : read.fetch(userName, "\\[\\p{ASCII}*\\]").replaceAll("\\s|\\[|\\]", "").split(",")){
+            if(!trainee.equals(""))
+                list.add(new Trainee(trainee));
+        }
         return list;
     }
     
@@ -146,11 +148,12 @@ public class Trainer<T> extends User implements Initializable{
         t.setPlan(Integer.valueOf(planId));
     }
 
-    public ObservableList getTest() {
+    public ObservableList getObservableTraineesList() {
         for (Trainee object : traineesList) {
-            test.add(object);
+            if(!observableTraineesList.contains(object))
+            observableTraineesList.add(object);
         }
-        return test;
+        return observableTraineesList;
     }
     
 }
