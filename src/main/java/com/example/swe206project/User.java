@@ -36,7 +36,7 @@ public abstract class User implements Serializable{
         info = new ArrayList<>(Trainee.pullInfo(userName));
         else
         info = new ArrayList<>(Trainer.pullInfo(userName));
-        this.name = info.get(0);
+        this.name = info.get(0).replaceAll("-", " ");
         this.height = Double.valueOf(info.get(1));
         this.weight = Double.valueOf(info.get(2));
         this.photo = info.get(3);
