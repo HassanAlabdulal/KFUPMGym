@@ -6,15 +6,15 @@ import java.util.ArrayList;
 
 public class Session implements Initializable, Serializable{
     protected int id;
-    private String day;
-    private ArrayList<String> workoutList = new ArrayList<>();
+    protected String day;
+    protected ArrayList<Workouts> workoutList = new ArrayList<>();
     private ArrayList<Session> sessionsList = new ArrayList<>();
 
     public Session(){
         sessionsList = (ArrayList<Session>) initilize("Session"); // to be worked in init
     }
 
-    public Session(String day, ArrayList<String> workoutsList){
+    public Session(String day, ArrayList<Workouts> workoutsList){
         this.day = day;
         this.workoutList = workoutsList;
         id = IDGenerator.generate("Sessions.txt");
@@ -27,7 +27,7 @@ public class Session implements Initializable, Serializable{
         this.workoutList = getWorkoutList(id);
     }
 
-    public void save(int id, String day, ArrayList<String> workoutsList){
+    public void save(int id, String day, ArrayList<Workouts> workoutsList){
         WriteFiles writer = new WriteFiles("Sessions.txt", true);
         String data = id + " " + day + "$ " + workoutsList;
         try {
@@ -38,11 +38,13 @@ public class Session implements Initializable, Serializable{
         }
     }
 
-    public static ArrayList<String> getWorkoutList(int id){
+    public static ArrayList<Workouts> getWorkoutList(int id){
         ReadFiles read = new ReadFiles<>("Sessions.txt");
-        ArrayList<String> list = new ArrayList<>();
-        for(String workout : read.fetch(String.valueOf(id), "\\[\\p{ASCII}*\\]").replaceAll("\\s|\\[|\\]", "").split(","))
-            list.add(workout);
+        ArrayList<Workouts> list = new ArrayList<>();
+        for(String workout : read.fetch(String.valueOf(id), "\\[\\p{ASCII}*\\]").replaceAll("\\s|\\[|\\]", "").split(",")){
+            Workouts work = new Workouts(Integer.valueOf(workout));
+            list.add(work);
+        }
         return list;
     }
 
@@ -51,12 +53,16 @@ public class Session implements Initializable, Serializable{
         return read.fetch(String.valueOf(id), "\\p{Alpha}*\\$").replaceAll("\\$", "");
     }
 
-    public ArrayList<String> getWorkoutList(){
+    public ArrayList<Workouts> getWorkoutList(){
         return workoutList;
     }
 
     public String getDay(){
         return day;
+    }
+
+    public String toString(){
+        return day +" "+ id;
     }
 
 }
