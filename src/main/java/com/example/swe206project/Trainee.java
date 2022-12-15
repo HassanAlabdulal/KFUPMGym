@@ -15,6 +15,7 @@ public class Trainee extends User implements Initializable{
     protected String trainer;
     // protected static ArrayList<Trainee> traineesList = new ArrayList<>();
     protected static ObservableList<Trainee> observableTraineesList = FXCollections.observableArrayList();
+    protected ObservableList<Workouts> observableWorkoutsList = FXCollections.observableArrayList();
 
     //protected static ArrayList<String> info = pullInfo(userName);
     //protected Trainee(){
@@ -175,6 +176,18 @@ public class Trainee extends User implements Initializable{
         }
         return observableTraineesList;
     }
+
+    public ObservableList<Workouts> getObservableWorkoutsList() {
+        for (Session session : plan.sessionsList) {
+            for (Workouts workout : session.workoutList) {
+                if(!observableWorkoutsList.contains(workout))
+                    observableWorkoutsList.add(workout);  
+            }
+        }
+        return observableWorkoutsList;
+    }
+
+
 
 
    
