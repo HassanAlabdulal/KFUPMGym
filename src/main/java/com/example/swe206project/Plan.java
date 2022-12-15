@@ -7,13 +7,13 @@ import java.util.ArrayList;
 public class Plan implements Initializable, Serializable{
     protected int id;
     protected String planName;
-    protected ArrayList<String> sessionsList = new ArrayList<>();
+    protected ArrayList<Session> sessionsList = new ArrayList<>();
 
     public Plan(){
         //sessionsList = (ArrayList<Plan>) initilize("Plan"); // to be worked in init
     }
 
-    public Plan(String planName, ArrayList<String> sessionsList){
+    public Plan(String planName, ArrayList<Session> sessionsList){
         this.planName = planName;
         this.sessionsList = sessionsList;
         id = IDGenerator.generate("Plans.txt");
@@ -26,7 +26,7 @@ public class Plan implements Initializable, Serializable{
         this.sessionsList = getSessionsList(id);
     }
 
-    public void save(int id, String planName, ArrayList<String> sessionsList){
+    public void save(int id, String planName, ArrayList<Session> sessionsList){
         WriteFiles writer = new WriteFiles("Plans.txt", true);
         String data = id + " " + planName + "$ " + sessionsList;
         try {
@@ -37,11 +37,13 @@ public class Plan implements Initializable, Serializable{
         }
     }
 
-    public static ArrayList<String> getSessionsList(int id){
+    public static ArrayList<Session> getSessionsList(int id){
         ReadFiles read = new ReadFiles<>("Plans.txt");
-        ArrayList<String> list = new ArrayList<>();
-        for(String workout : read.fetch(String.valueOf(id), "\\[\\p{ASCII}*\\]").replaceAll("\\s|\\[|\\]", "").split(","))
-            list.add(workout);
+        ArrayList<Session> list = new ArrayList<>();
+        for(String session : read.fetch(String.valueOf(id), "\\[\\p{ASCII}*\\]").replaceAll("\\s|\\[|\\]", "").split(",")){
+            Session ses = new Session(Integer.valueOf(session));
+            list.add(ses);
+        }
         return list;
     }
 
@@ -50,7 +52,7 @@ public class Plan implements Initializable, Serializable{
         return read.fetch(String.valueOf(id), "\\p{Graph}*\\$").replaceAll("\\$", "");
     }
 
-    public ArrayList<String> getSessionsList(){
+    public ArrayList<Session> getSessionsList(){
         return sessionsList;
     }
 

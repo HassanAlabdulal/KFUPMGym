@@ -2,6 +2,11 @@ package com.example.swe206project;
 
 import java.io.IOException;
 import java.nio.file.Path;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public  class Workouts {
     private int id;
@@ -15,6 +20,8 @@ public  class Workouts {
     private int actualSets;
     private int actualRepitions;
 
+    protected static ObservableList<Workouts> observableWorkoutList = FXCollections.observableArrayList();
+
     public Workouts(String workoutName, String targetedMucles,int setsTarget, int repititionTarget, String steps){
         this.id=IDGenerator.generate("Workouts.txt");
         this.workoutName = workoutName;
@@ -23,6 +30,16 @@ public  class Workouts {
         this.setsTarget =setsTarget;
         this.repititionTarget = repititionTarget;
 
+    }
+
+    public Workouts(int workoutId){
+        ReadFiles reader = new ReadFiles<>("Workouts.txt");
+        id = workoutId;
+        workoutName = reader.fetch(workoutId+"", "\\$\\p{Graph}*").replaceAll("\\$", "");
+        targetedMuscles = reader.fetch(workoutId+"", "\\!\\p{Alpha}*").replaceAll("!", "");
+        setsTarget = Integer.valueOf(reader.fetch(workoutId+"", "\\#\\p{Digit}*").replaceAll("#", ""));
+        repititionTarget = Integer.valueOf(reader.fetch(workoutId+"", "\\*\\p{Digit}*").replaceAll("\\*", ""));
+        steps = reader.fetch(workoutId+"", "\\1\\p{ASCII}*$");
     }
     
 
@@ -64,7 +81,7 @@ public  class Workouts {
     }
     public void saveworkout(String workoutName, String targetedMuscles,int setsTarget, int repititionTarget, String steps) {
         WriteFiles writer = new WriteFiles("Workouts.txt", true);
-        String meow = this.id + " " + workoutName.replaceAll(" ", "-") +  " " + targetedMuscles  +" "+ setsTarget +" "+ repititionTarget+" "+ steps;
+        String meow = this.id + " $" + workoutName.replaceAll(" ", "-") +  " !" + targetedMuscles  +" #"+ setsTarget +" *"+ repititionTarget+" "+ steps;
         try {
                 writer.writeToFile(meow);
             }
@@ -72,5 +89,34 @@ public  class Workouts {
             e.printStackTrace();
         }
 
-}
+    }
+
+    public String toString(){
+        return workoutName + " " + id;
+    }
+
+
+    public static ObservableList<Workouts> getWorkoutsList() {
+        ReadFiles reader = new ReadFiles<>("Workouts.txt");
+        try {
+            for (String workoutInfo : reader.openFile()) {
+                if(!workoutInfo.contains("|")){
+                    Workouts workout = new Workouts(Integer.valueOf(workoutInfo.replaceAll("\\s\\p{ASCII}*$", "")));
+                    if(!observableWorkoutList.contains(workout))
+                        observableWorkoutList.add(workout);     
+                }
+            }
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return observableWorkoutList;
+    };
+    
+
+
+
+
+
+
 }
