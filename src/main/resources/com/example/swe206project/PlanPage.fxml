@@ -430,7 +430,7 @@
             <DropShadow />
          </effect>
       </AnchorPane>
-      <Button fx:id="progress" layoutX="362.0" layoutY="629.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="249.0" style="-fx-background-color: #43896B; -fx-background-radius: 15px;" text="Progress" textAlignment="CENTER" textFill="#f4f9f1">
+      <Button fx:id="progressButton" layoutX="362.0" layoutY="629.0" mnemonicParsing="false" onMouseClicked="#progressButtonOnClicked" onMouseEntered="#progressButtonInHover" onMouseExited="#progressButtonOutHover" onMousePressed="#progressButtonOnPressed" onMouseReleased="#progressButtonOnReleased" prefHeight="57.0" prefWidth="249.0" style="-fx-background-color: #43896B; -fx-background-radius: 15px;" text="Progress" textAlignment="CENTER" textFill="#f4f9f1">
          <font>
             <Font name="Arial Bold" size="28.0" />
          </font>

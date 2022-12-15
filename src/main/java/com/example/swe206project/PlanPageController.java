@@ -5,6 +5,8 @@ import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
+import javafx.scene.effect.Glow;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -15,6 +17,9 @@ public class PlanPageController implements Initializable {
 
     @FXML
     private AnchorPane mondayCard;
+
+    @FXML
+    private Button progressButton;
 
     @FXML
     private AnchorPane contentArea;
@@ -332,6 +337,38 @@ public class PlanPageController implements Initializable {
         saturdayCardHeader.setStyle("-fx-background-color: #43896b; -fx-background-radius:  10px 10px 0px 0px");
 
     }
+
+    @FXML
+    void progressButtonOnPressed(MouseEvent event) {
+        progressButton.setStyle("-fx-background-color: #366D55; -fx-background-radius: 15; -fx-cursor: hand");
+        progressButton.setEffect(new Glow(0.3));
+    }
+
+    @FXML
+    void progressButtonOnReleased(MouseEvent event) {
+        progressButton.setStyle("-fx-background-color: #43896B; -fx-background-radius: 15; -fx-cursor: hand");
+        progressButton.setEffect(new Glow(0.0));
+    }
+
+    @FXML
+    void progressButtonInHover(MouseEvent event) {
+        progressButton.setStyle("-fx-background-color: #366D55; -fx-background-radius: 15; -fx-cursor: hand");
+    }
+
+    @FXML
+    void progressButtonOutHover(MouseEvent event) {
+        progressButton.setStyle("-fx-background-color: #43896B; -fx-background-radius: 15");
+    }
+
+    @FXML
+    void progressButtonOnClicked(MouseEvent event) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("ProgressPage.fxml"));
+        contentArea.getChildren().removeAll();
+        contentArea.getChildren().setAll(fxml);  
+    }
+    
+
+
 
     @FXML
     void switchToSessionPage(MouseEvent event) throws IOException {
