@@ -5,35 +5,36 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="975.0" style="-fx-background-color: #212121;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.swe206project.ViewTraineesPageController">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="975.0" style="-fx-background-color: #212121;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.swe206project.ViewTraineesPageController">
    <children>
-      <TableView fx:id="viewTraineesTable" layoutX="100.0" layoutY="156.0" prefHeight="425.0" prefWidth="725.0" style="-fx-background-color: #F4F9F1; -fx-border-color: #43896B; -fx-border-width: 3px;" AnchorPane.bottomAnchor="175.0" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="125.0" AnchorPane.topAnchor="125.0">
+      <TableView fx:id="viewTraineesTable" layoutX="100.0" layoutY="156.0" prefHeight="425.0" prefWidth="725.0" style="-fx-background-color: #43896B; -fx-border-color: #43896B; -fx-border-width: 3px; -fx-selection-bar: #366D55;" AnchorPane.bottomAnchor="195.0" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="125.0" AnchorPane.topAnchor="100.0">
         <columns>
-          <TableColumn fx:id="name" minWidth="145.0" prefWidth="145.0" resizable="false" style="-fx-background-color: #43896B;" text="Name" />
-          <TableColumn fx:id="height" minWidth="145.0" prefWidth="145.0" resizable="false" style="-fx-background-color: #43896B;" text="Height" />
-            <TableColumn fx:id="weight" minWidth="145.0" prefWidth="145.0" resizable="false" style="-fx-background-color: #43896B;" text="Weight" />
-            <TableColumn fx:id="plan" minWidth="145.0" prefWidth="145.0" resizable="false" style="-fx-background-color: #43896B;" text="Assigned Plan" />
-            <TableColumn fx:id="status" minWidth="145.0" prefWidth="145.0" resizable="false" style="-fx-background-color: #43896B;" text="Profile Status" />
+          <TableColumn fx:id="name" minWidth="145.0" prefWidth="145.0" resizable="false" text="Name" />
+          <TableColumn fx:id="height" minWidth="145.0" prefWidth="145.0" resizable="false" text="Height" />
+            <TableColumn fx:id="weight" minWidth="145.0" prefWidth="145.0" resizable="false" text="Weight" />
+            <TableColumn fx:id="plan" minWidth="145.0" prefWidth="145.0" resizable="false" text="Assigned Plan" />
+            <TableColumn fx:id="status" minWidth="145.0" prefWidth="145.0" resizable="false" text="Profile Status" />
         </columns>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </TableView>
-      <Button fx:id="addNewTrainee" layoutX="125.0" layoutY="625.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="250.0" style="-fx-background-color: #43896B; -fx-background-radius: 15px;" text="Add New Trainee" textAlignment="CENTER" textFill="#f4f9f1" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="125.0">
+      <Button fx:id="addNewTrainee" layoutX="125.0" layoutY="625.0" mnemonicParsing="false" onAction="#addNewTraineePage" onMouseEntered="#addNewTraineeInHover" onMouseExited="#addNewTraineeOutHover" onMousePressed="#addNewTraineeOnPressed" onMouseReleased="#addNewTraineeOnReleased" prefHeight="45.0" prefWidth="250.0" style="-fx-background-color: #43896B; -fx-background-radius: 15px;" text="Add New Trainee" textAlignment="CENTER" textFill="#f4f9f1" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="125.0">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="progress" layoutX="701.0" layoutY="635.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="175.0" style="-fx-background-color: #43896B; -fx-background-radius: 15px;" text="Progress" textAlignment="CENTER" textFill="#f4f9f1" AnchorPane.bottomAnchor="75.0" AnchorPane.rightAnchor="125.0">
+      <Button fx:id="progress" layoutX="701.0" layoutY="635.0" mnemonicParsing="false" onAction="#progressPage" onMouseEntered="#progressInHover" onMouseExited="#progressOutHover" onMousePressed="#progressOnPressed" onMouseReleased="#progressOnReleased" prefHeight="45.0" prefWidth="175.0" style="-fx-background-color: #43896B; -fx-background-radius: 15px;" text="Progress" textAlignment="CENTER" textFill="#f4f9f1" AnchorPane.bottomAnchor="100.0" AnchorPane.rightAnchor="125.0">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="assignPlan" layoutX="512.0" layoutY="635.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="200.0" style="-fx-background-color: #43896B; -fx-background-radius: 15px;" text="Assign Plan" textAlignment="CENTER" textFill="#f4f9f1" AnchorPane.bottomAnchor="75.0" AnchorPane.rightAnchor="350.0">
+      <Button fx:id="assignPlan" layoutX="512.0" layoutY="635.0" mnemonicParsing="false" onAction="#assignPlanPage" onMouseEntered="#assignPlanInHover" onMouseExited="#assignPlanOutHover" onMousePressed="#assignPlanOnPressed" onMouseReleased="#assignPlanOnReleased" prefHeight="45.0" prefWidth="200.0" style="-fx-background-color: #43896B; -fx-background-radius: 15px;" text="Assign Plan" textAlignment="CENTER" textFill="#f4f9f1" AnchorPane.bottomAnchor="100.0" AnchorPane.rightAnchor="350.0">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font>
@@ -43,6 +44,9 @@
             <Font name="Tahoma Bold" size="16.0" />
          </font>
       </Label>
-      <ImageView fx:id="messageIcon" fitHeight="35.0" fitWidth="35.0" layoutX="470.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="470.0" AnchorPane.rightAnchor="470.0" AnchorPane.topAnchor="35.0" />
+      <ImageView fx:id="messageIcon" fitHeight="35.0" fitWidth="35.0" layoutX="470.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true" visible="false" AnchorPane.leftAnchor="470.0" AnchorPane.rightAnchor="470.0" AnchorPane.topAnchor="35.0">
+         <image>
+            <Image url="@assets/images/loginFailIcon.png" />
+         </image></ImageView>
    </children>
 </AnchorPane>
