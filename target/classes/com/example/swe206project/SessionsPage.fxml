@@ -12,7 +12,7 @@
 
 <AnchorPane fx:id="contentArea" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="975.0" style="-fx-background-color: #212121;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.swe206project.SessionPage">
    <children>
-      <ImageView fx:id="backArrow" fitHeight="48.0" fitWidth="51.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#backArrowOnClicked" onMousePressed="#backArrowOnPressed" onMouseReleased="#backArrowOnReleased" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="backArrow" fitHeight="45.0" fitWidth="49.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#backArrowOnClicked" onMousePressed="#backArrowOnPressed" onMouseReleased="#backArrowOnReleased" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assets/images/backArrow.png" />
          </image>

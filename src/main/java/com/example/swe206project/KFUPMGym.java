@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+
 import java.io.IOException;
 
 public class KFUPMGym extends Application {
@@ -17,6 +18,7 @@ public class KFUPMGym extends Application {
             stage.initStyle(StageStyle.UNDECORATED);
             stage.setScene(splashScreenScene);
             stage.show();
+            
         } catch(Exception e) {
             e.printStackTrace();
         }
