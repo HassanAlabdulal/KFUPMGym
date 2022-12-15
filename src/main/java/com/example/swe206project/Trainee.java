@@ -6,11 +6,16 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 public class Trainee extends User implements Initializable{
     protected Plan plan;
     protected String userName;
     protected String trainer;
-    private ArrayList<Trainee> traineesList = new ArrayList<>();
+    // protected static ArrayList<Trainee> traineesList = new ArrayList<>();
+    protected static ObservableList<Trainee> observableTraineesList = FXCollections.observableArrayList();
+
     //protected static ArrayList<String> info = pullInfo(userName);
     //protected Trainee(){
     //    traineesList = (ArrayList<Trainee>) initilize("Trainee");
@@ -150,6 +155,27 @@ public class Trainee extends User implements Initializable{
     public String toString(){
         return userName;
     }
+
+
+    public static ObservableList<Trainee> getTraineesNoTrainerList() {
+        ReadFiles reader = new ReadFiles<>("UserInfo.txt");
+        try {
+            for (String userInfo : reader.openFile()) {
+                Pattern pattern = Pattern.compile("\\$\\p{Graph}*");
+                Matcher match = pattern.matcher(userInfo);
+                if(match.find() && match.group().equals("$")){
+                    Trainee trainee = new Trainee(userInfo.replaceAll("\\s\\p{ASCII}*$|\\@", ""));
+                    if(!observableTraineesList.contains(trainee))
+                        observableTraineesList.add(trainee);
+                }
+            }
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return observableTraineesList;
+    }
+
 
    
 

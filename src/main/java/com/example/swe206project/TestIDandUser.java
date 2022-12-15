@@ -56,9 +56,10 @@ public class TestIDandUser {
 
       } 
 
-      Trainee t = new Trainee("ahmed abdulaal", 12, 342);
-      System.out.println(t.pullInfo(t.userName));
-      
+      //Trainee t = new Trainee("ahmed abdulaal", 12, 342);
+    //   System.out.println(t.pullInfo(t.userName));
+    System.out.println(Trainee.getTraineesNoTrainerList());
+    System.out.println(Workouts.getWorkoutsList());
     
     
         //for (User user : g.getUsersList()) {

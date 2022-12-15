@@ -14,7 +14,7 @@ public class Trainer<T> extends User implements Initializable{
     private String speciality;
     protected ArrayList<Trainer> trainersList = new ArrayList<>();
     protected ArrayList<Trainee> traineesList = new ArrayList<>();
-    public ObservableList<Trainee> observableTraineesList = FXCollections.observableArrayList();
+    protected ObservableList<Trainee> observableTraineesList = FXCollections.observableArrayList();
     //protected static ArrayList<String> info = pullInfo(userName);
 
     //protected Trainer(){
@@ -116,9 +116,9 @@ public class Trainer<T> extends User implements Initializable{
         return (ArrayList<Trainee>) traineesList;
     }
 
-    public ObservableList<Trainee> getTraineesObservableList(){
-        return (ObservableList<Trainee>) FXCollections.observableArrayList(this.traineesList);
-    }
+    //public ObservableList<Trainee> getTraineesObservableList(){
+    //    return (ObservableList<Trainee>) FXCollections.observableArrayList(this.traineesList);
+    //}
 
     public ArrayList<Trainee> getTraineesList(String userName){
         ReadFiles read = new ReadFiles<>("UserInfo.txt");
