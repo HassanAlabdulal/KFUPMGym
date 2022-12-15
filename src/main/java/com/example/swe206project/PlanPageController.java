@@ -1,6 +1,10 @@
 package com.example.swe206project;
 
+import java.io.IOException;
+
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -11,6 +15,9 @@ public class PlanPageController implements Initializable {
 
     @FXML
     private AnchorPane mondayCard;
+
+    @FXML
+    private AnchorPane contentArea;
 
     @FXML
     private HBox mondayCardHeader;
@@ -325,6 +332,16 @@ public class PlanPageController implements Initializable {
         saturdayCardHeader.setStyle("-fx-background-color: #43896b; -fx-background-radius:  10px 10px 0px 0px");
 
     }
+
+    @FXML
+    void switchToSessionPage(MouseEvent event) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("SessionsPage.fxml"));
+        contentArea.getChildren().removeAll();
+        contentArea.getChildren().setAll(fxml);  
+    }
+
+    
+
 
   }
 

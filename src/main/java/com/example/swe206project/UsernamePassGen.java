@@ -17,7 +17,7 @@ public class UsernamePassGen {
     }
 
     public UsernamePassGen(String name, String specifier){
-        username = generateUsername(name);
+        username = generateUsername(name.replaceAll("\\s", ""));
         password = generatePassword();
         save(username, password, specifier);
     }

@@ -36,14 +36,14 @@ public class Trainee extends User implements Initializable{
         userName = user.username;
         this.trainer = trainer;
         plan = new Plan(Integer.valueOf(planId));
-        save(name, height, weight, photo, plan, trainer,"active");
+        save(name.replaceAll("\\s", "-"), height, weight, photo, plan.id, trainer,"active");
     }
 
     public Trainee(String name, double height, double weight, String photo){
         this(name, height, weight, photo, 0, "");
     }
 
-    public void save(String name, double height, double weight, String photo, Plan plan, String trainer, String status) {
+    public void save(String name, double height, double weight, String photo, int plan, String trainer, String status) {
         WriteFiles writer = new WriteFiles("UserInfo.txt", true);
         String data = "@" + userName + " " + name + " " +  height + " " + weight + " " + photo + " *" + plan + " $" + trainer + " !" + status;
         try {

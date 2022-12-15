@@ -59,7 +59,10 @@ public class Plan implements Initializable, Serializable{
     }
 
     public String toString(){
-        return id+"";
+        if(id != 0)
+            return planName+" "+id+"";
+        else
+            return "No plan";
     }
 
 }
