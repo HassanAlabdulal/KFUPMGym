@@ -14,7 +14,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 
 public class PlanPageController implements Initializable {
-  
 
     @FXML
     private AnchorPane mondayCard;
