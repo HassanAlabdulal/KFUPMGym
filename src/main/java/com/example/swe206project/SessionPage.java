@@ -52,6 +52,8 @@ public class SessionPage implements Initializable{
     @FXML
     private Workouts workouts = new Workouts();
 
+    protected static Workouts workout;
+
     
 
     @FXML
@@ -70,10 +72,10 @@ public class SessionPage implements Initializable{
 
     @FXML
     public void startWorkoutButtonOnClicked(MouseEvent Event) throws IOException, NullPointerException {
-        workouts = sessionsTable.getSelectionModel().getSelectedItem();
+        workout = sessionsTable.getSelectionModel().getSelectedItem();
 
         try {
-            if(!(workouts == null)) {
+            if(!(workout == null)) {
                 AnchorPane startWorkout = FXMLLoader.load(getClass().getResource("WorkoutPage.fxml"));
                 contentArea.getChildren().removeAll();
                 contentArea.getChildren().setAll(startWorkout);

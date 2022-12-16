@@ -16,6 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class WorkoutPage implements Initializable{
@@ -70,13 +71,20 @@ public class WorkoutPage implements Initializable{
     @FXML
     private TextField weightUsed;
 
-    private Workouts workouts;
+    @FXML
+    private Label workoutDescription;
+
+    @FXML
+    private Workouts workout = SessionPage.workout;
 
     @FXML
     public void initialize() {
-        //targetedSets.setText(workouts.getSetsTarget() + " cm");
-        //targetedRepetitions.setText(workouts.getRepititionTarget() + " cm");
-        //targetedMuscles.setText(workouts.getTargetedMuscles());
+
+            targetedSets.setText(workout.getSetsTarget() + "");
+            targetedRepetitions.setText(workout.getRepititionTarget() + "");
+            targetedMuscles.setText(workout.getTargetedMuscles());
+            workoutDescription.setText(workout.getSteps());
+            workoutDescription.setStyle("-fx--fx-background-color: orange");
     }
 
     

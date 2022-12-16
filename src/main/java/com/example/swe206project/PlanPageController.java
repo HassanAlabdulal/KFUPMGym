@@ -77,15 +77,16 @@ public class PlanPageController implements Initializable {
     private ImageView wednesdayDetailsIcon;
 
     @FXML
-    private Label sundayTitle;
+    private Label planTitle;
 
+    @FXML
     private Plan plan ;
 
 
     
     // @FXML
     // public void initialize() {
-    //     sundayTitle.setText(plan.getPlanName());
+    //     planTitle.setText(plan.getPlanName());
     // }
 
 
