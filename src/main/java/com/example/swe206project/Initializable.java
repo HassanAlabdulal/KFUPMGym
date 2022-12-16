@@ -47,7 +47,7 @@ public interface Initializable<T> {
                                         }
                                     }
                                     else{
-                                        ArrayList<String> traineeInfo = Trainee.pullInfo(userName);
+                                        ArrayList<String> traineeInfo = Trainee.pullInfo(trainee);
                                         if(info.size() != 0){
                                             if(!traineesList.toString().contains(userName)){
                                                 if(traineeInfo.size() == 5){
@@ -57,7 +57,8 @@ public interface Initializable<T> {
                                                     assignedTrainees.add(traineeObject);
                                                 }
                                                 else{
-                                                    Trainee traineeObject = new Trainee(traineeInfo.get(0), Double.valueOf(traineeInfo.get(1)), Double.valueOf(traineeInfo.get(2)), traineeInfo.get(3), Integer.valueOf(info.get(4).replaceAll("\\*", "")), info.get(5), trainee);
+                                                    // Trainee traineeObject = new Trainee(traineeInfo.get(0), Double.valueOf(traineeInfo.get(1)), Double.valueOf(traineeInfo.get(2)), traineeInfo.get(3), Integer.valueOf(info.get(4).replaceAll("\\*", "")), info.get(5), trainee);
+                                                    Trainee traineeObject = new Trainee(trainee);
                                                     usersList.add(traineeObject);
                                                     traineesList.add(traineeObject);
                                                     assignedTrainees.add(traineeObject);

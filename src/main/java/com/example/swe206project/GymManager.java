@@ -15,7 +15,7 @@ public class GymManager implements Initializable, Serializable{
 
     public GymManager(){
         //WriteFiles writer = new WriteFiles<>("UserInfo.dat", true);
-        usersList = (ArrayList<User>) initilize("GymManager");
+        //usersList = (ArrayList<User>) initilize("GymManager");
         //System.out.println(usersList);
         //for (User user : usersList) {
         //    writer.writeToBinaryFile(user);
@@ -25,7 +25,7 @@ public class GymManager implements Initializable, Serializable{
     }
 
     public GymManager(String userName){
-        this();
+        usersList = (ArrayList<User>) initilize("GymManager");
     }
 
     
