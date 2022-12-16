@@ -74,6 +74,15 @@ public  class Workouts {
     public int getActualSets() {
         return actualSets;
     }
+
+    public String getSetsProgress(){
+        return actualSets + "/" + setsTarget;
+    }
+
+    public String getRepitionsProgress(){
+        return actualRepitions + "/" + repititionTarget;
+    }
+
     public int getActualRepitions() {
         return actualRepitions;
     }
