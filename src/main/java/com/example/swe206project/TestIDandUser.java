@@ -58,8 +58,8 @@ public class TestIDandUser {
 
       //Trainee t = new Trainee("ahmed abdulaal", 12, 342);
     //   System.out.println(t.pullInfo(t.userName));
-    System.out.println(Trainee.getTraineesNoTrainerList()); // testing observable lists
-    System.out.println(Workouts.getWorkoutsList());
+   // System.out.println(Trainee.getTraineesNoTrainerList()); // testing observable lists
+    //System.out.println(Workouts.getWorkoutsList());
     Trainee t = (Trainee) g.usersList.get(0);
     System.out.println(t.getObservableWorkoutsList());
     

@@ -55,7 +55,7 @@ public class AddTraineePageController implements Initializable {
     @FXML
     private Trainer trainer = (Trainer) LoginFormController.user;
 
-    private Trainee trainee;
+    private Trainee trainee = new Trainee();
 
     @FXML
     public void initialize() {
@@ -65,7 +65,7 @@ public class AddTraineePageController implements Initializable {
         plan.setCellValueFactory(new PropertyValueFactory<Trainee, Plan>("plan"));
         status.setCellValueFactory(new PropertyValueFactory<Trainee, String>("status"));
         
-        traineesTable.setItems(Trainee.getTraineesNoTrainerList());
+        traineesTable.setItems(trainee.getTraineesNoTrainerList());
     }
 
     // Add trainee button design

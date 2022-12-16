@@ -2,43 +2,89 @@ package com.example.swe206project;
 
 import java.io.IOException;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.effect.Glow;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
-public class SessionPage {
+public class SessionPage implements Initializable{
   
 
     @FXML
     private ImageView backArrow;
 
     @FXML
+    private Label message;
+
+    @FXML
+    private ImageView messageIcon;
+
+    @FXML
     private AnchorPane contentArea;
-
-    @FXML
-    private TableColumn<?, ?> height;
-
-    @FXML
-    private TableColumn<?, ?> name;
-
-    @FXML
-    private TableColumn<?, ?> plan;
-
-    @FXML
-    private TableView<?> sessionsTable;
 
     @FXML
     private Button startWorkoutButton;
 
     @FXML
-    private TableColumn<?, ?> weight;
+    private TableView<Workouts> sessionsTable;
+
+    @FXML
+    private TableColumn<Workouts, String> workoutName;
+
+    @FXML
+    private TableColumn<Workouts, String> targetedMuscles;
+
+    @FXML
+    private TableColumn<Workouts, Integer> repititionTarget;
+
+    @FXML
+    private TableColumn<Workouts, Integer> setsTarget;
+
+    @FXML
+    private Workouts workouts = new Workouts();
+
+    
+
+    @FXML
+    public void initialize() {
+        
+        workoutName.setCellValueFactory(new PropertyValueFactory<Workouts, String>("workoutName"));
+        targetedMuscles.setCellValueFactory(new PropertyValueFactory<Workouts, String>("targetedMuscles"));
+        repititionTarget.setCellValueFactory(new PropertyValueFactory<Workouts, Integer>("repititionTarget"));
+        setsTarget.setCellValueFactory(new PropertyValueFactory<Workouts, Integer>("setsTarget"));
+       
+        sessionsTable.setItems(workouts.getWorkoutsList());
+
+        messageIcon.setVisible(false);
+        message.setVisible(false);
+    }
+
+    @FXML
+    public void startWorkoutButtonOnClicked(MouseEvent Event) throws IOException, NullPointerException {
+        workouts = sessionsTable.getSelectionModel().getSelectedItem();
+
+        try {
+            if(!(workouts == null)) {
+                AnchorPane startWorkout = FXMLLoader.load(getClass().getResource("WorkoutPage.fxml"));
+                contentArea.getChildren().removeAll();
+                contentArea.getChildren().setAll(startWorkout);
+            } else {
+                throw new NullPointerException();
+            }
+        } catch (NullPointerException e) {
+                messageIcon.setVisible(true);
+                message.setVisible(true);
+        }
+    }
 
     @FXML
     void backArrowOnClicked(MouseEvent event) throws IOException {
@@ -59,12 +105,12 @@ public class SessionPage {
         backArrow.setEffect(new Glow(0.0));
     }
 
-    @FXML
-    void startWorkoutButtonOnClicked(MouseEvent event) throws IOException {
-        Parent fxml = FXMLLoader.load(getClass().getResource("WorkoutPage.fxml"));
-        contentArea.getChildren().removeAll();
-        contentArea.getChildren().setAll(fxml);  
-    }
+    // @FXML
+    // void startWorkoutButtonOnClicked(MouseEvent event) throws IOException {
+    //     Parent fxml = FXMLLoader.load(getClass().getResource("WorkoutPage.fxml"));
+    //     contentArea.getChildren().removeAll();
+    //     contentArea.getChildren().setAll(fxml);  
+    // }
  
     @FXML
     void startWorkoutButtonOnPressed(MouseEvent event) {
