@@ -70,10 +70,14 @@ public class WorkoutPage implements Initializable{
     @FXML
     private TextField weightUsed;
 
-    // @Override
-    // public void initialize(URL url, ResourceBundle resourceBundle) {
-    //   videoButtonOnClicked();
-    // }
+    private Workouts workouts;
+
+    @FXML
+    public void initialize() {
+        //targetedSets.setText(workouts.getSetsTarget() + " cm");
+        //targetedRepetitions.setText(workouts.getRepititionTarget() + " cm");
+        targetedMuscles.setText(workouts.getTargetedMuscles());
+    }
 
     
 

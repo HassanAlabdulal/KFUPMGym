@@ -20,26 +20,36 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <Label layoutX="382.0" layoutY="88.0" text="Session Page" textFill="#f4f9f1">
+      <Label layoutX="383.0" layoutY="73.0" text="Session Page" textFill="#f4f9f1">
          <font>
             <Font name="Tahoma Bold" size="32.0" />
          </font>
       </Label>
-      <Button fx:id="startWorkoutButton" layoutX="363.0" layoutY="610.0" mnemonicParsing="false" onMouseClicked="#startWorkoutButtonOnClicked" onMouseEntered="#startWorkoutButtonInHover" onMouseExited="#startWorkoutButtonOutHover" onMousePressed="#startWorkoutButtonOnPressed" onMouseReleased="#startWorkoutButtonOnReleased" prefHeight="45.0" prefWidth="250.0" style="-fx-background-color: #43896B; -fx-background-radius: 15px;" text="Start Workout" textAlignment="CENTER" textFill="#f4f9f1">
+      <Button fx:id="startWorkoutButton" layoutX="363.0" layoutY="635.0" mnemonicParsing="false" onMouseClicked="#startWorkoutButtonOnClicked" onMouseEntered="#startWorkoutButtonInHover" onMouseExited="#startWorkoutButtonOutHover" onMousePressed="#startWorkoutButtonOnPressed" onMouseReleased="#startWorkoutButtonOnReleased" prefHeight="45.0" prefWidth="250.0" style="-fx-background-color: #43896B; -fx-background-radius: 15px;" text="Start Workout" textAlignment="CENTER" textFill="#f4f9f1">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font>
       </Button>
-      <TableView fx:id="sessionsTable" layoutX="137.0" layoutY="162.0" prefHeight="423.0" prefWidth="701.0" style="-fx-background-color: #43896B; -fx-border-color: #43896B; -fx-border-width: 3px; -fx-selection-bar: #366D55;">
+      <TableView fx:id="sessionsTable" layoutX="137.0" layoutY="140.0" prefHeight="396.0" prefWidth="701.0" style="-fx-background-color: #43896B; -fx-border-color: #43896B; -fx-border-width: 3px; -fx-selection-bar: #366D55;">
          <columns>
-            <TableColumn fx:id="name" minWidth="145.0" prefWidth="152.0" resizable="false" text="Name" />
-            <TableColumn fx:id="height" minWidth="145.0" prefWidth="169.0" resizable="false" text="Targeted Muscles" />
-            <TableColumn fx:id="weight" minWidth="145.0" prefWidth="180.0" resizable="false" text="Targeted Sets" />
-            <TableColumn fx:id="plan" minWidth="145.0" prefWidth="196.0" resizable="false" text="Targeted Repetitions" />
+            <TableColumn fx:id="workoutName" minWidth="145.0" prefWidth="161.0" resizable="false" text="Name" />
+            <TableColumn fx:id="targetedMuscles" minWidth="145.0" prefWidth="168.0" resizable="false" text="Targeted Muscles" />
+            <TableColumn fx:id="setsTarget" minWidth="145.0" prefWidth="178.0" resizable="false" text="Targeted Sets" />
+            <TableColumn fx:id="repititionTarget" minWidth="145.0" prefWidth="190.0" resizable="false" text="Targeted Repetitions" />
          </columns>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </TableView>
+      <Label fx:id="message" layoutX="258.0" layoutY="578.0" text="Please select a workout from the table to proceed." textFill="#d53a0b" visible="false">
+         <font>
+            <Font name="Tahoma Bold" size="20.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="messageIcon" fitHeight="45.0" fitWidth="57.0" layoutX="213.0" layoutY="568.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@assets/images/loginFailIcon.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

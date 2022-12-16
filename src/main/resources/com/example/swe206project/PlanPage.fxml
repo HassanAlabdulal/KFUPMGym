@@ -86,7 +86,7 @@
          <children>
             <HBox fx:id="sundayCardHeader" onMouseEntered="#sundayCardInHover" onMouseExited="#sundayCardOutHover" prefHeight="57.0" prefWidth="240.0" style="-fx-background-color: #43896b; -fx-background-radius: 10px 10px 0 0;" AnchorPane.rightAnchor="0.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" text="Title">
+                  <Label fx:id="sundayTitle" alignment="CENTER" contentDisplay="CENTER" text="Title">
                      <HBox.margin>
                         <Insets left="90.0" top="15.0" />
                      </HBox.margin>
