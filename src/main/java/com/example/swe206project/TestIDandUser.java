@@ -36,7 +36,7 @@ public class TestIDandUser {
 //      System.out.println(trainees[3].getClass().getName());
 
    // WriteFiles w = new WriteFiles<>("UserInfo.dat", true);
-      GymManager g = new GymManager();
+      GymManager g = new GymManager("admin");
       System.out.println(g.usersList);
 
       ReadFiles read = new ReadFiles<>("UserAndPass.txt");
@@ -62,7 +62,7 @@ public class TestIDandUser {
     //System.out.println(Workouts.getWorkoutsList());
     Trainee t = (Trainee) g.usersList.get(0);
     System.out.println(t.getObservableWorkoutsList());
-    
+    System.out.println(t.getObservableSessionsList());
     
         //for (User user : g.getUsersList()) {
         //    if(user instanceof Trainee)
