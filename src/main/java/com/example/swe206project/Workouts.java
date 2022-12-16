@@ -92,6 +92,9 @@ public  class Workouts {
     public void setActualSets(int actualSets) {
         this.actualSets = actualSets;
     }
+    public void setweightUsed(int weightUsed) {
+        this.weightUsed = weightUsed;
+    }
     public void saveworkout(String workoutName, String targetedMuscles,int setsTarget, int repititionTarget, String steps) {
         WriteFiles writer = new WriteFiles("Workouts.txt", true);
         String meow = this.id + " $" + workoutName.replaceAll(" ", "-") +  " !" + targetedMuscles  +" #"+ setsTarget +" *"+ repititionTarget+" "+ steps;

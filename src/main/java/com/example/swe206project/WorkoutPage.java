@@ -24,8 +24,6 @@ public class WorkoutPage implements Initializable{
     @FXML
     private TextField actualRepetitions;
 
-    
-
     @FXML
     private Label errorMessage;
 
@@ -85,6 +83,8 @@ public class WorkoutPage implements Initializable{
             targetedMuscles.setText(workout.getTargetedMuscles());
             workoutDescription.setText(workout.getSteps());
             workoutDescription.setStyle("-fx--fx-background-color: orange");
+
+            
     }
 
     
@@ -116,6 +116,7 @@ public class WorkoutPage implements Initializable{
             errorMessage.setVisible(true);
             failIcon.setVisible(true);
             successfullMessage.setVisible(false);
+            
 
 
         }
@@ -144,6 +145,8 @@ public class WorkoutPage implements Initializable{
         actualRepetitions.clear();
         actualSets.clear();
         weightUsed.clear();
+        String tmp = workout.getSteps();
+        System.out.println(tmp);
         
     }
   }
