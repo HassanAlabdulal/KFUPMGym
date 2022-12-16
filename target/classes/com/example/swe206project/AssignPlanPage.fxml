@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -10,23 +11,26 @@
 
 <AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="975.0" style="-fx-background-color: #212121;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.swe206project.AssignPlanPageController">
    <children>
-      <Button fx:id="assignPlan" layoutX="375.0" layoutY="574.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="225.0" style="-fx-background-color: #43896B; -fx-background-radius: 15px;" text="Assign Plan" textAlignment="CENTER" textFill="#f4f9f1" AnchorPane.bottomAnchor="175.0" AnchorPane.leftAnchor="225.0" AnchorPane.rightAnchor="525.0">
+      <Button fx:id="assignPlan" layoutX="375.0" layoutY="574.0" mnemonicParsing="false" onMouseClicked="#assignPlanOnClicked" onMouseEntered="#assignPlanInHover" onMouseExited="#assignPlanOutHover" onMousePressed="#assignPlanOnPressed" onMouseReleased="#assignPlanOnReleased" prefHeight="45.0" prefWidth="225.0" style="-fx-background-color: #43896B; -fx-background-radius: 15px;" text="Assign Plan" textAlignment="CENTER" textFill="#f4f9f1" AnchorPane.bottomAnchor="175.0" AnchorPane.leftAnchor="225.0" AnchorPane.rightAnchor="525.0">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font>
       </Button>
-      <ComboBox fx:id="predefinedPlans" layoutX="325.0" layoutY="300.0" prefWidth="325.0" promptText="Predefined plans" AnchorPane.leftAnchor="325.0" AnchorPane.rightAnchor="325.0" AnchorPane.topAnchor="300.0" />
+      <ComboBox fx:id="predefinedPlans" layoutX="325.0" layoutY="300.0" prefWidth="325.0" promptText="Predefined plans" style="-fx-selection-bar: #366D55;" AnchorPane.leftAnchor="325.0" AnchorPane.rightAnchor="325.0" AnchorPane.topAnchor="300.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ComboBox>
       <Label alignment="CENTER" layoutX="125.0" layoutY="148.0" prefHeight="30.0" prefWidth="725.0" text="Select a predefined plan to assign or customize a new plan" textFill="#f4f9f1" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="125.0" AnchorPane.topAnchor="175.0">
          <font>
             <Font name="Tahoma Bold" size="24.0" />
          </font>
       </Label>
-      <ImageView fx:id="back" fitHeight="50.0" fitWidth="50.0" layoutX="40.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+      <ImageView fx:id="back" fitHeight="50.0" fitWidth="50.0" layoutX="40.0" layoutY="30.0" onMouseClicked="#backToViewTraineesPage" onMouseEntered="#backInHover" onMousePressed="#backOnPressed" onMouseReleased="#assignPlanOnReleased" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
          <image>
             <Image url="@assets/images/backArrow.png" />
          </image>
       </ImageView>
-      <Button fx:id="customizePlan" layoutX="525.0" layoutY="584.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="225.0" style="-fx-background-color: #43896B; -fx-background-radius: 15px;" text="Customize Plan" textAlignment="CENTER" textFill="#f4f9f1" AnchorPane.bottomAnchor="175.0" AnchorPane.leftAnchor="525.0" AnchorPane.rightAnchor="225.0">
+      <Button fx:id="customizePlan" layoutX="525.0" layoutY="584.0" mnemonicParsing="false" onMouseEntered="#customizePlanInHover" onMouseExited="#customizePlanOutHover" onMousePressed="#customizePlanOnPressed" onMouseReleased="#customizePlanOnReleased" prefHeight="45.0" prefWidth="225.0" style="-fx-background-color: #43896B; -fx-background-radius: 15px;" text="Customize Plan" textAlignment="CENTER" textFill="#f4f9f1" AnchorPane.bottomAnchor="175.0" AnchorPane.leftAnchor="525.0" AnchorPane.rightAnchor="225.0">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font>
