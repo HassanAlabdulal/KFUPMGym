@@ -22,7 +22,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </TableView>
-      <ComboBox fx:id="sessionDays" layoutX="350.0" layoutY="103.0" prefWidth="275.0" promptText="Select a session day" style="-fx-selection-bar: #366D55;" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="100.0">
+      <ComboBox fx:id="sessionDays" layoutX="350.0" layoutY="103.0" onAction="#setSessionWorkouts" prefWidth="275.0" promptText="Select a session day" style="-fx-selection-bar: #366D55;" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="100.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></ComboBox>
