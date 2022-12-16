@@ -16,6 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class WorkoutPage implements Initializable{
@@ -70,13 +71,29 @@ public class WorkoutPage implements Initializable{
     @FXML
     private TextField weightUsed;
 
-    private Workouts workouts;
+    @FXML
+    private Text workoutDescription;
+
+    // @FXML
+    // private Workouts workouts = new Workouts();
+
+    protected static Workouts workouts;
 
     @FXML
     public void initialize() {
-        //targetedSets.setText(workouts.getSetsTarget() + " cm");
-        //targetedRepetitions.setText(workouts.getRepititionTarget() + " cm");
-        //targetedMuscles.setText(workouts.getTargetedMuscles());
+
+        //workouts = SessionPage.sessionsTable.getSelectionModel().getSelectedItem();
+        
+
+        if(!(workouts == null)) {
+            targetedSets.setText(workouts.getSetsTarget() + "");
+            targetedRepetitions.setText(workouts.getRepititionTarget() + "");
+            targetedMuscles.setText(workouts.getTargetedMuscles());
+            workoutDescription.setText(workouts.getSteps());
+        } else {
+            throw new NullPointerException();
+        }
+        
     }
 
     
