@@ -50,7 +50,7 @@ public class SessionPage implements Initializable{
     private TableColumn<Workouts, Integer> setsTarget;
 
     @FXML
-    private Workouts workouts;
+    private Workouts workouts = new Workouts();
 
     
 

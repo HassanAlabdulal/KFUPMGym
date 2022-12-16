@@ -76,7 +76,7 @@ public class WorkoutPage implements Initializable{
     public void initialize() {
         //targetedSets.setText(workouts.getSetsTarget() + " cm");
         //targetedRepetitions.setText(workouts.getRepititionTarget() + " cm");
-        targetedMuscles.setText(workouts.getTargetedMuscles());
+        //targetedMuscles.setText(workouts.getTargetedMuscles());
     }
 
     
