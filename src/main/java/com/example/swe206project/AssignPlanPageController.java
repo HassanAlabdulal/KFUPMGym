@@ -1,9 +1,9 @@
 package com.example.swe206project;
 
-import javax.security.auth.callback.Callback;
+//import javax.security.auth.callback.Callback;
 
-import javafx.collections.FXCollections;
-import javafx.css.converter.StringConverter;
+//import javafx.collections.FXCollections;
+//import javafx.css.converter.StringConverter;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -11,6 +11,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
+import javafx.util.Callback;
+import javafx.util.StringConverter;
+//import java.util.List;
 
 public class AssignPlanPageController implements Initializable {
 
@@ -36,9 +39,11 @@ public class AssignPlanPageController implements Initializable {
     private ComboBox<Plan> predefinedPlans;
 
     @FXML
-    public void initialize() {
-        predefinedPlans.setItems(FXCollections.observableArrayList());
+    private Plan plan = new Plan();
 
+    @FXML
+    public void initialize() {
+        predefinedPlans.setItems(plan.getPlansList());
         predefinedPlans.setCellFactory(new Callback<ListView<Plan>, ListCell<Plan>>() {
             @Override
             public ListCell<Plan> call(ListView<Plan> param) {
@@ -65,6 +70,12 @@ public class AssignPlanPageController implements Initializable {
               } else {
                 return plan.getPlanName();
               }
+            }
+
+            @Override
+            public Plan fromString(String arg0) {
+                // TODO Auto-generated method stub
+                return new Plan(Integer.valueOf(arg0));
             }
       });
     }
