@@ -76,23 +76,10 @@ public class ViewTraineesPageController implements Initializable {
 
     // Add new trainee button design
     @FXML
-    public void addNewTraineePage(ActionEvent Event) throws IOException, NullPointerException {
-        trainee = viewTraineesTable.getSelectionModel().getSelectedItem();
-
-        try {
-            if(!(trainee == null)) {
-                AnchorPane addNewTrainee = FXMLLoader.load(getClass().getResource("AddTraineePage.fxml"));
-                rootPane.getChildren().removeAll();
-                rootPane.getChildren().setAll(addNewTrainee);
-            } else {
-                throw new NullPointerException();
-            }
-        } catch (NullPointerException e) {
-                messageIcon.setVisible(true);
-                message.setText("Please select a trainee from the table to proceed.");
-                message.setStyle("-fx-text-fill: #D53A0B");
-                message.setVisible(true);
-        }
+    public void addNewTraineePage(ActionEvent Event) throws IOException {
+        AnchorPane addNewTrainee = FXMLLoader.load(getClass().getResource("AddTraineePage.fxml"));
+        rootPane.getChildren().removeAll();
+        rootPane.getChildren().setAll(addNewTrainee);
     }
 
     @FXML
@@ -119,7 +106,7 @@ public class ViewTraineesPageController implements Initializable {
 
     // Assign plan button design
     @FXML
-    public void assignPlanPage(ActionEvent Event) throws IOException {
+    public void assignPlanPage(ActionEvent Event) throws IOException, NullPointerException {
         trainee = viewTraineesTable.getSelectionModel().getSelectedItem();
 
         try {
@@ -162,7 +149,7 @@ public class ViewTraineesPageController implements Initializable {
 
     // Progress button style
     @FXML
-    public void progressPage(ActionEvent Event) throws IOException {
+    public void progressPage(ActionEvent Event) throws IOException, NullPointerException {
         trainee = viewTraineesTable.getSelectionModel().getSelectedItem();
 
         try {

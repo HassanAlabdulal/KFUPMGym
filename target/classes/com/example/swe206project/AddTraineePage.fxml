@@ -10,21 +10,21 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="975.0" style="-fx-background-color: #212121;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.swe206project.AddTraineePageController">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="975.0" style="-fx-background-color: #212121;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.swe206project.AddTraineePageController">
    <children>
-      <TableView layoutX="100.0" layoutY="156.0" prefHeight="375.0" prefWidth="725.0" style="-fx-background-color: #43896B; -fx-border-color: #43896B; -fx-border-width: 3px; -fx-selection-bar: #366D55;" AnchorPane.bottomAnchor="220.0" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="125.0" AnchorPane.topAnchor="125.0">
+      <TableView fx:id="traineesTable" layoutX="100.0" layoutY="156.0" prefHeight="375.0" prefWidth="725.0" style="-fx-background-color: #43896B; -fx-border-color: #43896B; -fx-border-width: 3px; -fx-selection-bar: #366D55;" AnchorPane.bottomAnchor="245.0" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="125.0" AnchorPane.topAnchor="125.0">
          <columns>
-            <TableColumn minWidth="145.0" prefWidth="145.0" resizable="false" text="Name" />
-            <TableColumn minWidth="145.0" prefWidth="145.0" resizable="false" text="Height" />
-            <TableColumn minWidth="145.0" prefWidth="145.0" resizable="false" text="Weight" />
-            <TableColumn minWidth="145.0" prefWidth="145.0" resizable="false" text="Assigned Plan" />
-            <TableColumn minWidth="145.0" prefWidth="145.0" resizable="false" text="Profile Status" />
+            <TableColumn fx:id="name" minWidth="145.0" prefWidth="145.0" resizable="false" text="Name" />
+            <TableColumn fx:id="height" minWidth="145.0" prefWidth="145.0" resizable="false" text="Height" />
+            <TableColumn fx:id="weight" minWidth="145.0" prefWidth="145.0" resizable="false" text="Weight" />
+            <TableColumn fx:id="plan" minWidth="145.0" prefWidth="145.0" resizable="false" text="Assigned Plan" />
+            <TableColumn fx:id="status" minWidth="145.0" prefWidth="145.0" resizable="false" text="Profile Status" />
          </columns>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </TableView>
-      <Button fx:id="addTrainee" layoutX="363.0" layoutY="597.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="250.0" style="-fx-background-color: #43896B; -fx-background-radius: 15px;" text="Add New Trainee" textAlignment="CENTER" textFill="#f4f9f1" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="363.0">
+      <Button fx:id="addTrainee" layoutX="363.0" layoutY="597.0" mnemonicParsing="false" onMouseClicked="#addTraineeOnClicked" onMouseEntered="#addTraineeInHover" onMouseExited="#addTraineeOutHover" onMousePressed="#addTraineeOnPressed" onScroll="#addTraineeOnReleased" prefHeight="45.0" prefWidth="250.0" style="-fx-background-color: #43896B; -fx-background-radius: 15px;" text="Add Trainee" textAlignment="CENTER" textFill="#f4f9f1" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="363.0">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font>
@@ -34,9 +34,24 @@
             <Font name="Tahoma Bold" size="24.0" />
          </font>
       </Label>
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="-9.0" layoutY="-25.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+      <ImageView fx:id="back" fitHeight="50.0" fitWidth="50.0" layoutX="-9.0" layoutY="-25.0" onMouseClicked="#backToViewTraineesPage" onMouseEntered="#backInHover" onMousePressed="#backOnPressed" onMouseReleased="#backOnReleased" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
          <image>
             <Image url="@assets/images/backArrow.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="message" alignment="CENTER" layoutX="185.0" layoutY="76.0" prefHeight="20.0" prefWidth="625.0" textFill="#f4f9f1" visible="false" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="175.0" AnchorPane.rightAnchor="175.0">
+         <font>
+            <Font name="Tahoma Bold" size="16.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="confirmIcon" fitHeight="35.0" fitWidth="35.0" layoutX="480.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" visible="false" AnchorPane.bottomAnchor="180.0" AnchorPane.leftAnchor="470.0" AnchorPane.rightAnchor="470.0">
+         <image>
+            <Image url="@assets/images/cnfirmedIcon.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="errorIcon" fitHeight="35.0" fitWidth="35.0" layoutX="480.0" layoutY="515.0" pickOnBounds="true" preserveRatio="true" visible="false" AnchorPane.bottomAnchor="180.0" AnchorPane.leftAnchor="470.0" AnchorPane.rightAnchor="470.0">
+         <image>
+            <Image url="@assets/images/loginFailIcon.png" />
          </image>
       </ImageView>
    </children>

@@ -132,7 +132,7 @@ public class Trainer<T> extends User implements Initializable{
     
 
     public void addTrainee(Trainee trainee){
-        //traineesList.add((T) trainee);
+        traineesList.add(trainee);
     }
 
     public String toString(){
