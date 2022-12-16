@@ -68,7 +68,8 @@ public class WriteFiles<T> {
         try {
             List<String> lines = Files.readAllLines(path, StandardCharsets.UTF_8);
             String oldData = lines.get(desiredLine-1);
-            lines.set(desiredLine-1, oldData.replace(pattern, data));
+            String tmp = oldData.replaceAll(pattern, data);
+            lines.set(desiredLine-1, oldData.replaceAll(pattern, data));
             Files.write(path, lines, StandardCharsets.UTF_8);
         } catch (IOException e) {
             e.printStackTrace();

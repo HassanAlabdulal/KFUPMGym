@@ -25,9 +25,10 @@ public abstract class User implements Serializable{
     protected double weight;
     protected String photo;
     protected String status = "";
-    //protected User(){
+    
+    protected User(){
 //
-    //}
+    }
 
     protected User(String userName){
         String type = getType(userName);

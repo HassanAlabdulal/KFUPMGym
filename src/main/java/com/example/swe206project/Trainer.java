@@ -3,6 +3,8 @@ package com.example.swe206project;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableArray;
@@ -15,6 +17,7 @@ public class Trainer<T> extends User implements Initializable{
     protected ArrayList<Trainer> trainersList = new ArrayList<>();
     protected ArrayList<Trainee> traineesList = new ArrayList<>();
     protected ObservableList<Trainee> observableTraineesList = FXCollections.observableArrayList();
+    protected ObservableList<Trainee> observableTraineesNoTrainerList = FXCollections.observableArrayList();
     //protected static ArrayList<String> info = pullInfo(userName);
 
     //protected Trainer(){
@@ -132,7 +135,13 @@ public class Trainer<T> extends User implements Initializable{
     
 
     public void addTrainee(Trainee trainee){
-        //traineesList.add((T) trainee);
+        traineesList.add(trainee);
+        trainee.setTrainer(userName);
+        ReadFiles r = new ReadFiles<>("UserInfo.txt");
+        WriteFiles w = new WriteFiles<>("UserInfo.txt");
+        int line = r.getLine("@"+userName);
+        String list = "[" + r.fetch(userName, "\\[\\p{ASCII}*\\]").replaceAll("\\s|\\[|\\]", "") + "," + trainee + "]";
+        w.modifyLine(line, list, "\\[\\p{ASCII}*\\]");
     }
 
     public String toString(){
@@ -151,7 +160,7 @@ public class Trainer<T> extends User implements Initializable{
     public ObservableList getObservableTraineesList() {
         for (Trainee object : traineesList) {
             if(!observableTraineesList.contains(object))
-            observableTraineesList.add(object);
+                observableTraineesList.add(object);
         }
         return observableTraineesList;
     }
