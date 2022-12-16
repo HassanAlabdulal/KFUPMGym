@@ -38,7 +38,7 @@ public class ReadFiles<T> {
     public int getLine(String pattern){
         try {
             int line = 1;
-            Pattern p = Pattern.compile(pattern);
+            Pattern p = Pattern.compile(pattern, Pattern.LITERAL);
             Matcher match = null;
             for (String data : openFile()) {
                 match = p.matcher(data);
@@ -68,6 +68,24 @@ public class ReadFiles<T> {
         }
 
         return null;
+    }
+
+    public int fetchLineNum(String identifier){
+        ReadFiles reader = new ReadFiles(path);
+        int num = 1;
+        try {
+            for(String line : reader.openFile()){
+                if(line.contains(identifier)){
+                    return num;
+                }
+                num++;
+            }
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        return num;
     }
 
     public String fetch(String identifier, String patternToFetch){

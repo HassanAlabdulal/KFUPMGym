@@ -14,13 +14,14 @@ public class Trainee extends User implements Initializable{
     protected String userName;
     protected String trainer;
     // protected static ArrayList<Trainee> traineesList = new ArrayList<>();
-    protected static ObservableList<Trainee> observableTraineesList = FXCollections.observableArrayList();
+    protected ObservableList<Trainee> observableTraineesList = FXCollections.observableArrayList();
     protected ObservableList<Workouts> observableWorkoutsList = FXCollections.observableArrayList();
 
     //protected static ArrayList<String> info = pullInfo(userName);
-    //protected Trainee(){
+    protected Trainee(){
+        super();
     //    traineesList = (ArrayList<Trainee>) initilize("Trainee");
-    //}
+    }
 
     protected Trainee(String userName){
         super(userName);
@@ -51,7 +52,7 @@ public class Trainee extends User implements Initializable{
 
     public void save(String name, double height, double weight, String photo, int plan, String trainer, String status) {
         WriteFiles writer = new WriteFiles("UserInfo.txt", true);
-        String data = "@" + userName + " " + name + " " +  height + " " + weight + " " + photo + " *" + plan + " $" + trainer + " !" + status;
+        String data = "@" + userName + " " + name + " " +  height + " " + weight + " " + photo + " *" + plan + " ?" + trainer + " !" + status;
         try {
             writer.writeToFile(data);
         } catch (IOException e) {
@@ -113,15 +114,23 @@ public class Trainee extends User implements Initializable{
         return trainer;
     }
 
+    public void setTrainer(String trainer){
+        this.trainer = trainer;
+        ReadFiles r = new ReadFiles<>("UserInfo.txt");
+        WriteFiles w = new WriteFiles<>("UserInfo.txt");
+        int line = r.getLine(userName);
+        w.modifyLine(line, "?"+trainer, "\\?\\p{Graph}*|\\?\\s");
+    }
+
     public static String getTrainer(String userName){
         ReadFiles fileReader = new ReadFiles("UserInfo.txt");
         try {
             for (String element : fileReader.openFile()) {
                 if(element.contains(userName)){
-                    Pattern pattern = Pattern.compile("\\$\\p{Graph}*");
+                    Pattern pattern = Pattern.compile("\\?\\p{Graph}*");
                     Matcher match = pattern.matcher(element);
                     if(match.find())
-                        return match.group().replaceAll("\\$", "");
+                        return match.group().replaceAll("\\?", "");
                 }
             }
         } catch (IOException e) {
@@ -156,15 +165,15 @@ public class Trainee extends User implements Initializable{
     public String toString(){
         return userName;
     }
+    
 
-
-    public static ObservableList<Trainee> getTraineesNoTrainerList() {
+    public  ObservableList<Trainee> getTraineesNoTrainerList() {
         ReadFiles reader = new ReadFiles<>("UserInfo.txt");
         try {
             for (String userInfo : reader.openFile()) {
-                Pattern pattern = Pattern.compile("\\$\\p{Graph}*");
+                Pattern pattern = Pattern.compile("\\?\\p{Graph}*");
                 Matcher match = pattern.matcher(userInfo);
-                if(match.find() && match.group().equals("$")){
+                if(match.find() && match.group().equals("?")){
                     Trainee trainee = new Trainee(userInfo.replaceAll("\\s\\p{ASCII}*$|\\@", ""));
                     if(!observableTraineesList.contains(trainee))
                         observableTraineesList.add(trainee);
