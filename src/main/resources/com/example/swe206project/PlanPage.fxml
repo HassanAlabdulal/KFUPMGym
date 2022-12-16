@@ -13,13 +13,13 @@
 
 <AnchorPane fx:id="contentArea" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="975.0" style="-fx-background-color: #212121;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.swe206project.PlanPageController">
    <children>
-      <AnchorPane fx:id="mondayCard" layoutX="366.0" layoutY="51.0" maxHeight="-Infinity" maxWidth="-Infinity" onMouseEntered="#mondayCardInHover" onMouseExited="#mondayCardOutHover" prefHeight="234.0" prefWidth="240.0" style="-fx-background-color: #f4f9f1; -fx-background-radius: 10px;">
+      <AnchorPane fx:id="mondayCard" layoutX="368.0" layoutY="108.0" maxHeight="-Infinity" maxWidth="-Infinity" onMouseEntered="#mondayCardInHover" onMouseExited="#mondayCardOutHover" prefHeight="230.0" prefWidth="240.0" style="-fx-background-color: #f4f9f1; -fx-background-radius: 10px;" AnchorPane.leftAnchor="367.5" AnchorPane.rightAnchor="367.5" AnchorPane.topAnchor="105.0">
          <children>
             <HBox fx:id="mondayCardHeader" prefHeight="57.0" prefWidth="240.0" style="-fx-background-color: #43896b; -fx-background-radius: 10px 10px 0 0;">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" text="Title">
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Monday">
                      <HBox.margin>
-                        <Insets left="90.0" top="15.0" />
+                        <Insets left="70.0" top="15.0" />
                      </HBox.margin>
                      <font>
                         <Font name="Tahoma Bold" size="27.0" />
@@ -27,42 +27,42 @@
                   </Label>
                </children>
             </HBox>
-            <Label layoutX="56.0" layoutY="123.0" text="Session " AnchorPane.leftAnchor="56.0">
+            <Label layoutX="56.0" layoutY="89.0" text="Session " AnchorPane.leftAnchor="56.0">
                <font>
                   <Font name="Arial Bold" size="24.0" />
                </font>
             </Label>
-            <ImageView fitHeight="40.0" fitWidth="35.0" layoutX="21.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="21.0">
+            <ImageView fitHeight="40.0" fitWidth="35.0" layoutX="21.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="21.0">
                <image>
                   <Image url="@assets/images/muscle.png" />
                </image>
             </ImageView>
-            <Label layoutX="89.0" layoutY="161.0" text="pull-up" AnchorPane.leftAnchor="89.0">
+            <Label layoutX="82.0" layoutY="129.0" text="pull-up" AnchorPane.leftAnchor="82.0">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
-            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="56.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="49.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/images/Mark.png" />
                </image>
             </ImageView>
-            <Label layoutX="89.0" layoutY="187.0" text="back" AnchorPane.leftAnchor="89.0">
+            <Label layoutX="78.0" layoutY="164.0" text="back" AnchorPane.leftAnchor="78.0">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
-            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="56.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="45.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/images/Mark.png" />
                </image>
             </ImageView>
-            <Label layoutX="88.0" layoutY="209.0" text="Rest and recovery">
+            <Label layoutX="76.0" layoutY="198.0" text="Rest and recovery">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
-            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="55.0" layoutY="203.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="43.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/images/Mark.png" />
                </image>
@@ -72,23 +72,18 @@
                   <Image url="@assets/images/detalisIcon.gif" />
                </image>
             </ImageView>
-            <Label layoutX="80.0" layoutY="73.0" text="Monday" AnchorPane.bottomAnchor="139.0">
-               <font>
-                  <Font name="Tahoma Bold" size="20.0" />
-               </font>
-            </Label>
          </children>
          <effect>
             <DropShadow />
          </effect>
       </AnchorPane>
-      <AnchorPane fx:id="sundayCard" layoutX="65.0" layoutY="51.0" maxHeight="-Infinity" maxWidth="-Infinity" onMouseEntered="#sundayCardInHover" onMouseExited="#sundayCardOutHover" prefHeight="230.0" prefWidth="240.0" style="-fx-background-color: #f4f9f1; -fx-background-radius: 10px; ">
+      <AnchorPane fx:id="sundayCard" layoutX="87.0" layoutY="110.0" maxHeight="-Infinity" maxWidth="-Infinity" onMouseEntered="#sundayCardInHover" onMouseExited="#sundayCardOutHover" prefHeight="230.0" prefWidth="240.0" style="-fx-background-color: #f4f9f1; -fx-background-radius: 10px; " AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="105.0">
          <children>
             <HBox fx:id="sundayCardHeader" onMouseEntered="#sundayCardInHover" onMouseExited="#sundayCardOutHover" prefHeight="57.0" prefWidth="240.0" style="-fx-background-color: #43896b; -fx-background-radius: 10px 10px 0 0;" AnchorPane.rightAnchor="0.0">
                <children>
-                  <Label fx:id="sundayTitle" alignment="CENTER" contentDisplay="CENTER" text="Title">
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Sunday">
                      <HBox.margin>
-                        <Insets left="90.0" top="15.0" />
+                        <Insets left="70.0" top="15.0" />
                      </HBox.margin>
                      <font>
                         <Font name="Tahoma Bold" size="27.0" />
@@ -96,17 +91,17 @@
                   </Label>
                </children>
             </HBox>
-            <Label layoutX="58.0" layoutY="123.0" text="Session" AnchorPane.leftAnchor="58.0">
+            <Label layoutX="57.0" layoutY="88.0" text="Session" AnchorPane.leftAnchor="57.0">
                <font>
                   <Font name="Arial Bold" size="24.0" />
                </font>
             </Label>
-            <ImageView fitHeight="35.0" fitWidth="37.0" layoutX="23.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="23.0">
+            <ImageView fitHeight="35.0" fitWidth="37.0" layoutX="22.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="22.0">
                <image>
                   <Image url="@assets/images/muscle.png" />
                </image>
             </ImageView>
-            <Label layoutX="92.0" layoutY="161.0" text="push-up" AnchorPane.leftAnchor="92.0">
+            <Label layoutX="75.0" layoutY="126.0" text="push-up" AnchorPane.leftAnchor="75.0">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
@@ -114,27 +109,27 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="59.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="42.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/images/Mark.png" />
                </image>
             </ImageView>
-            <Label layoutX="91.0" layoutY="189.0" text="chest" AnchorPane.leftAnchor="91.0">
+            <Label layoutX="73.0" layoutY="161.0" text="chest" AnchorPane.leftAnchor="73.0">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
-            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="58.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="40.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/images/Mark.png" />
                </image>
             </ImageView>
-            <Label layoutX="93.0" layoutY="212.0" text="cardio">
+            <Label layoutX="70.0" layoutY="198.0" text="cardio">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
-            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="60.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="37.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/images/Mark.png" />
                </image>
@@ -144,23 +139,18 @@
                   <Image url="@assets/images/detalisIcon.gif" />
                </image>
             </ImageView>
-            <Label layoutX="83.0" layoutY="70.0" text="Sunday" AnchorPane.bottomAnchor="139.0">
-               <font>
-                  <Font name="Tahoma Bold" size="20.0" />
-               </font>
-            </Label>
          </children>
          <effect>
             <DropShadow />
          </effect>
       </AnchorPane>
-      <AnchorPane fx:id="tuesdayCard" layoutX="670.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" onMouseEntered="#tuesdayCardInHover" onMouseExited="#tuesdayCardOutHover" prefHeight="234.0" prefWidth="240.0" style="-fx-background-color: #f4f9f1; -fx-background-radius: 10px;">
+      <AnchorPane fx:id="tuesdayCard" layoutX="645.0" layoutY="110.0" maxHeight="-Infinity" maxWidth="-Infinity" onMouseEntered="#tuesdayCardInHover" onMouseExited="#tuesdayCardOutHover" prefHeight="230.0" prefWidth="240.0" style="-fx-background-color: #f4f9f1; -fx-background-radius: 10px;" AnchorPane.rightAnchor="85.0" AnchorPane.topAnchor="105.0">
          <children>
             <HBox fx:id="tuesdayCardHeader" prefHeight="57.0" prefWidth="240.0" style="-fx-background-color: #43896b; -fx-background-radius: 10px 10px 0 0;">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" text="Title">
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Tuesday">
                      <HBox.margin>
-                        <Insets left="90.0" top="15.0" />
+                        <Insets left="65.0" top="15.0" />
                      </HBox.margin>
                      <font>
                         <Font name="Tahoma Bold" size="27.0" />
@@ -168,42 +158,42 @@
                   </Label>
                </children>
             </HBox>
-            <Label layoutX="56.0" layoutY="123.0" text="Session" AnchorPane.leftAnchor="56.0">
+            <Label layoutX="54.0" layoutY="88.0" text="Session" AnchorPane.leftAnchor="54.0">
                <font>
                   <Font name="Arial Bold" size="24.0" />
                </font>
             </Label>
-            <ImageView fitHeight="40.0" fitWidth="35.0" layoutX="21.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="21.0">
+            <ImageView fitHeight="40.0" fitWidth="35.0" layoutX="19.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="19.0">
                <image>
                   <Image url="@assets/images/muscle.png" />
                </image>
             </ImageView>
-            <Label layoutX="88.0" layoutY="161.0" text="bench-press" AnchorPane.leftAnchor="88.0">
+            <Label layoutX="81.0" layoutY="132.0" text="bench-press" AnchorPane.leftAnchor="81.0">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
-            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="55.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="48.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/images/Mark.png" />
                </image>
             </ImageView>
-            <Label layoutX="88.0" layoutY="189.0" text="chest" AnchorPane.leftAnchor="88.0">
+            <Label layoutX="82.0" layoutY="169.0" text="chest" AnchorPane.leftAnchor="82.0">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
-            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="55.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="49.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/images/Mark.png" />
                </image>
             </ImageView>
-            <Label layoutX="90.0" layoutY="210.0" text="legs">
+            <Label layoutX="83.0" layoutY="204.0" text="legs">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
-            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="57.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="50.0" layoutY="198.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/images/Mark.png" />
                </image>
@@ -213,23 +203,18 @@
                   <Image url="@assets/images/detalisIcon.gif" />
                </image>
             </ImageView>
-            <Label layoutX="77.0" layoutY="74.0" text="Tuesday" AnchorPane.bottomAnchor="139.0">
-               <font>
-                  <Font name="Tahoma Bold" size="20.0" />
-               </font>
-            </Label>
          </children>
          <effect>
             <DropShadow />
          </effect>
       </AnchorPane>
-      <AnchorPane fx:id="wednesdayCard" layoutX="68.0" layoutY="348.0" maxHeight="-Infinity" maxWidth="-Infinity" onMouseEntered="#wednesdayCardInHover" onMouseExited="#wednesdayCardOutHover" prefHeight="231.0" prefWidth="232.0" style="-fx-background-color: #f4f9f1; -fx-background-radius: 10px;">
+      <AnchorPane fx:id="wednesdayCard" layoutX="91.0" layoutY="373.0" maxHeight="-Infinity" maxWidth="-Infinity" onMouseEntered="#wednesdayCardInHover" onMouseExited="#wednesdayCardOutHover" prefHeight="230.0" prefWidth="240.0" style="-fx-background-color: #f4f9f1; -fx-background-radius: 10px;" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="375.0">
          <children>
-            <HBox fx:id="wednesdayCardHeader" prefHeight="57.0" prefWidth="232.0" style="-fx-background-color: #43896b; -fx-background-radius: 10px 10px 0 0;">
+            <HBox fx:id="wednesdayCardHeader" prefHeight="57.0" prefWidth="240.0" style="-fx-background-color: #43896b; -fx-background-radius: 10px 10px 0 0;">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" text="Title">
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Wednesday">
                      <HBox.margin>
-                        <Insets left="90.0" top="15.0" />
+                        <Insets left="40.0" top="15.0" />
                      </HBox.margin>
                      <font>
                         <Font name="Tahoma Bold" size="27.0" />
@@ -237,42 +222,42 @@
                   </Label>
                </children>
             </HBox>
-            <Label layoutX="55.0" layoutY="124.0" text="Session" AnchorPane.leftAnchor="55.0">
+            <Label layoutX="59.0" layoutY="82.0" text="Session" AnchorPane.leftAnchor="59.0">
                <font>
                   <Font name="Arial Bold" size="24.0" />
                </font>
             </Label>
-            <ImageView fitHeight="40.0" fitWidth="35.0" layoutX="20.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0">
+            <ImageView fitHeight="40.0" fitWidth="35.0" layoutX="24.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="24.0">
                <image>
                   <Image url="@assets/images/muscle.png" />
                </image>
             </ImageView>
-            <Label layoutX="90.0" layoutY="161.0" text="push-up" AnchorPane.leftAnchor="90.0">
+            <Label layoutX="94.0" layoutY="130.0" text="push-up" AnchorPane.leftAnchor="94.0">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
-            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="57.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="61.0" layoutY="124.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/images/Mark.png" />
                </image>
             </ImageView>
-            <Label layoutX="89.0" layoutY="189.0" text="back" AnchorPane.leftAnchor="89.0">
+            <Label layoutX="89.0" layoutY="165.0" text="back" AnchorPane.leftAnchor="89.0">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
-            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="56.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="56.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/images/Mark.png" />
                </image>
             </ImageView>
-            <Label layoutX="88.0" layoutY="211.0" text="Rest and recovery">
+            <Label layoutX="88.0" layoutY="193.0" text="Rest and recovery">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
-            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="55.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="55.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/images/Mark.png" />
                </image>
@@ -282,23 +267,18 @@
                   <Image url="@assets/images/detalisIcon.gif" />
                </image>
             </ImageView>
-            <Label layoutX="58.0" layoutY="70.0" text="Wednesday">
-               <font>
-                  <Font name="Tahoma Bold" size="20.0" />
-               </font>
-            </Label>
          </children>
          <effect>
             <DropShadow />
          </effect>
       </AnchorPane>
-      <AnchorPane fx:id="thursdayCard" layoutX="366.0" layoutY="348.0" maxHeight="-Infinity" maxWidth="-Infinity" onMouseEntered="#thursdayCardInHover" onMouseExited="#thursdayCardOutHover" prefHeight="231.0" prefWidth="232.0" style="-fx-background-color: #f4f9f1; -fx-background-radius: 10px;">
+      <AnchorPane fx:id="thursdayCard" layoutX="366.0" layoutY="373.0" maxHeight="-Infinity" maxWidth="-Infinity" onMouseEntered="#thursdayCardInHover" onMouseExited="#thursdayCardOutHover" prefHeight="230.0" prefWidth="240.0" style="-fx-background-color: #f4f9f1; -fx-background-radius: 10px;" AnchorPane.leftAnchor="367.5" AnchorPane.rightAnchor="367.5" AnchorPane.topAnchor="375.0">
          <children>
             <HBox fx:id="thursdayCardHeader" prefHeight="57.0" prefWidth="240.0" style="-fx-background-color: #43896b; -fx-background-radius: 10px 10px 0 0;">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" text="Title">
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Thursday">
                      <HBox.margin>
-                        <Insets left="90.0" top="15.0" />
+                        <Insets left="60.0" top="15.0" />
                      </HBox.margin>
                      <font>
                         <Font name="Tahoma Bold" size="27.0" />
@@ -306,42 +286,42 @@
                   </Label>
                </children>
             </HBox>
-            <Label layoutX="55.0" layoutY="123.0" text="Session" AnchorPane.leftAnchor="55.0">
+            <Label layoutX="56.0" layoutY="81.0" text="Session" AnchorPane.leftAnchor="56.0">
                <font>
                   <Font name="Arial Bold" size="24.0" />
                </font>
             </Label>
-            <ImageView fitHeight="40.0" fitWidth="35.0" layoutX="20.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0">
+            <ImageView fitHeight="40.0" fitWidth="35.0" layoutX="21.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="21.0">
                <image>
                   <Image url="@assets/images/muscle.png" />
                </image>
             </ImageView>
-            <Label layoutX="85.0" layoutY="156.0" text="bench-press" AnchorPane.leftAnchor="85.0">
+            <Label layoutX="78.0" layoutY="129.0" text="bench-press" AnchorPane.leftAnchor="78.0">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
-            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="57.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="57.0">
+            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="50.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="50.0">
                <image>
                   <Image url="@assets/images/Mark.png" />
                </image>
             </ImageView>
-            <Label layoutX="84.0" layoutY="184.0" text="legs" AnchorPane.leftAnchor="84.0">
+            <Label layoutX="78.0" layoutY="164.0" text="legs" AnchorPane.leftAnchor="78.0">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
-            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="55.0" layoutY="178.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="55.0" AnchorPane.rightAnchor="157.0">
+            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="49.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="163.0">
                <image>
                   <Image url="@assets/images/Mark.png" />
                </image>
             </ImageView>
-            <Label layoutX="84.0" layoutY="208.0" text="cardio">
+            <Label layoutX="76.0" layoutY="195.0" text="cardio">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
-            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="51.0" layoutY="202.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="57.0" AnchorPane.rightAnchor="155.0">
+            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="49.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="49.0" AnchorPane.rightAnchor="163.0">
                <image>
                   <Image url="@assets/images/Mark.png" />
                </image>
@@ -351,23 +331,18 @@
                   <Image url="@assets/images/detalisIcon.gif" />
                </image>
             </ImageView>
-            <Label layoutX="73.0" layoutY="72.0" text="Thursday">
-               <font>
-                  <Font name="Tahoma Bold" size="20.0" />
-               </font>
-            </Label>
          </children>
          <effect>
             <DropShadow />
          </effect>
       </AnchorPane>
-      <AnchorPane fx:id="saturdayCard" layoutX="670.0" layoutY="348.0" maxHeight="-Infinity" maxWidth="-Infinity" onMouseEntered="#saturdayCardInHover" onMouseExited="#saturdayCardOutHover" prefHeight="231.0" prefWidth="232.0" style="-fx-background-color: #f4f9f1; -fx-background-radius: 10px;">
+      <AnchorPane fx:id="saturdayCard" layoutX="646.0" layoutY="374.0" maxHeight="-Infinity" maxWidth="-Infinity" onMouseEntered="#saturdayCardInHover" onMouseExited="#saturdayCardOutHover" prefHeight="230.0" prefWidth="240.0" style="-fx-background-color: #f4f9f1; -fx-background-radius: 10px;" AnchorPane.rightAnchor="85.0">
          <children>
             <HBox fx:id="saturdayCardHeader" prefHeight="57.0" prefWidth="240.0" style="-fx-background-color: #43896b; -fx-background-radius: 10px 10px 0 0;">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" text="Title">
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="Saturday">
                      <HBox.margin>
-                        <Insets left="90.0" top="15.0" />
+                        <Insets left="65.0" top="15.0" />
                      </HBox.margin>
                      <font>
                         <Font name="Tahoma Bold" size="27.0" />
@@ -375,42 +350,42 @@
                   </Label>
                </children>
             </HBox>
-            <Label layoutX="56.0" layoutY="123.0" text="Session" AnchorPane.leftAnchor="56.0">
+            <Label layoutX="52.0" layoutY="81.0" text="Session" AnchorPane.leftAnchor="52.0">
                <font>
                   <Font name="Arial Bold" size="24.0" />
                </font>
             </Label>
-            <ImageView fitHeight="40.0" fitWidth="35.0" layoutX="21.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="21.0">
+            <ImageView fitHeight="40.0" fitWidth="35.0" layoutX="17.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="17.0">
                <image>
                   <Image url="@assets/images/muscle.png" />
                </image>
             </ImageView>
-            <Label layoutX="88.0" layoutY="154.0" text="pull-up" AnchorPane.leftAnchor="88.0">
+            <Label layoutX="92.0" layoutY="129.0" text="pull-up" AnchorPane.leftAnchor="92.0">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
-            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="55.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="59.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/images/Mark.png" />
                </image>
             </ImageView>
-            <Label layoutX="86.0" layoutY="182.0" text="back" AnchorPane.leftAnchor="86.0">
+            <Label layoutX="93.0" layoutY="164.0" text="back" AnchorPane.leftAnchor="93.0">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
-            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="53.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="60.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/images/Mark.png" />
                </image>
             </ImageView>
-            <Label layoutX="88.0" layoutY="210.0" text="Rest and recovery">
+            <Label layoutX="95.0" layoutY="196.0" text="Rest and recovery">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
-            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="55.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="28.0" fitWidth="29.0" layoutX="62.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/images/Mark.png" />
                </image>
@@ -420,20 +395,20 @@
                   <Image url="@assets/images/detalisIcon.gif" />
                </image>
             </ImageView>
-            <Label layoutX="74.0" layoutY="73.0" text="Saturday">
-               <font>
-                  <Font name="Tahoma Bold" size="20.0" />
-               </font>
-            </Label>
          </children>
          <effect>
             <DropShadow />
          </effect>
       </AnchorPane>
-      <Button fx:id="progressButton" layoutX="362.0" layoutY="629.0" mnemonicParsing="false" onMouseClicked="#progressButtonOnClicked" onMouseEntered="#progressButtonInHover" onMouseExited="#progressButtonOutHover" onMousePressed="#progressButtonOnPressed" onMouseReleased="#progressButtonOnReleased" prefHeight="57.0" prefWidth="249.0" style="-fx-background-color: #43896B; -fx-background-radius: 15px;" text="Progress" textAlignment="CENTER" textFill="#f4f9f1">
+      <Button fx:id="progressButton" layoutX="368.0" layoutY="644.0" mnemonicParsing="false" onMouseClicked="#progressButtonOnClicked" onMouseEntered="#progressButtonInHover" onMouseExited="#progressButtonOutHover" onMousePressed="#progressButtonOnPressed" onMouseReleased="#progressButtonOnReleased" prefHeight="50.0" prefWidth="240.0" style="-fx-background-color: #43896B; -fx-background-radius: 15px;" text="Progress" textAlignment="CENTER" textFill="#f4f9f1" AnchorPane.bottomAnchor="30.0">
          <font>
             <Font name="Arial Bold" size="28.0" />
          </font>
       </Button>
+      <Label fx:id="planTitle" layoutX="437.0" layoutY="30.0" text="Title" textFill="#f4f9f1">
+         <font>
+            <Font name="Georgia Bold" size="43.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
