@@ -8,7 +8,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="contentArea" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="975.0" style="-fx-background-color: #212121;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.swe206project.WorkoutPage">
    <children>
@@ -44,11 +43,6 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <Text fx:id="workoutDescription" fill="WHITE" layoutX="66.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="sfhdfghswradfhtedaetdhujaedtghjaedgfhadfghegsfma;oadtfhszdfghszdghijgfh;aoieruhjgAILWKIJIGLAIOllwseejggOWkkjagiajsogiuasdflighkajsfglasifgua" wrappingWidth="856.0">
-         <font>
-            <Font name="Tahoma Bold" size="19.0" />
-         </font>
-      </Text>
       <Button fx:id="videoButton" layoutX="404.0" layoutY="275.0" mnemonicParsing="false" onMouseClicked="#videoButtonOnClicked" onMouseEntered="#videoButtonInHover" onMouseExited="#videoButtonOutHover" onMousePressed="#videoButtonOnPressed" onMouseReleased="#videoButtonOnReleased" prefHeight="52.0" prefWidth="181.0" style="-fx-background-color: #43896B; -fx-background-radius: 15px;" text="Watch Video!" textAlignment="CENTER" textFill="#f4f9f1">
          <font>
             <Font name="Arial Bold" size="20.0" />
@@ -111,6 +105,11 @@
       <Label fx:id="successfullMessage" layoutX="257.0" layoutY="579.0" text="The information has been sent successfully!" textFill="#43896b" visible="false">
          <font>
             <Font name="Tahoma Bold" size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="workoutDescription" layoutX="426.0" layoutY="70.0" text="sfHSFH" textFill="#e81313">
+         <font>
+            <Font size="30.0" />
          </font>
       </Label>
    </children>

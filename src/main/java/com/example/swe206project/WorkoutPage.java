@@ -72,28 +72,19 @@ public class WorkoutPage implements Initializable{
     private TextField weightUsed;
 
     @FXML
-    private Text workoutDescription;
+    private Label workoutDescription;
 
-    // @FXML
-    // private Workouts workouts = new Workouts();
-
-    protected static Workouts workouts;
+    @FXML
+    private Workouts workout = SessionPage.workout;
 
     @FXML
     public void initialize() {
 
-        //workouts = SessionPage.sessionsTable.getSelectionModel().getSelectedItem();
-        
-
-        if(!(workouts == null)) {
-            targetedSets.setText(workouts.getSetsTarget() + "");
-            targetedRepetitions.setText(workouts.getRepititionTarget() + "");
-            targetedMuscles.setText(workouts.getTargetedMuscles());
-            workoutDescription.setText(workouts.getSteps());
-        } else {
-            throw new NullPointerException();
-        }
-        
+            targetedSets.setText(workout.getSetsTarget() + "");
+            targetedRepetitions.setText(workout.getRepititionTarget() + "");
+            targetedMuscles.setText(workout.getTargetedMuscles());
+            workoutDescription.setText(workout.getSteps());
+            workoutDescription.setStyle("-fx--fx-background-color: orange");
     }
 
     
