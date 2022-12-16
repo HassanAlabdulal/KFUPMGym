@@ -4,10 +4,14 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 public class Plan implements Initializable, Serializable{
     protected int id;
     protected String planName;
     protected ArrayList<Session> sessionsList = new ArrayList<>();
+    protected ObservableList<Plan> observablePlansList = FXCollections.observableArrayList();
 
     public Plan(){
         //sessionsList = (ArrayList<Plan>) initilize("Plan"); // to be worked in init
@@ -66,5 +70,22 @@ public class Plan implements Initializable, Serializable{
         else
             return "No plan";
     }
+
+    public ObservableList<Plan> getPlansList() {
+        ReadFiles reader = new ReadFiles<>("Plans.txt");
+        try {
+            for (String planInfo : reader.openFile()) {
+                if(!planInfo.contains("|")){
+                    Plan plan = new Plan(Integer.valueOf(planInfo.replaceAll("\\s\\p{ASCII}*$", "")));
+                    if(!observablePlansList.contains(plan))
+                        observablePlansList.add(plan);     
+                }
+            }
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return observablePlansList;
+    };
 
 }
