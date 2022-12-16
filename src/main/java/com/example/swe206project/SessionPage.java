@@ -50,9 +50,6 @@ public class SessionPage implements Initializable{
     private TableColumn<Workouts, Integer> setsTarget;
 
     @FXML
-    private Workouts workouts = new Workouts();
-
-    @FXML
     private Trainee trainee = (Trainee) LoginFormController.user;
 
     protected static Workouts workout;

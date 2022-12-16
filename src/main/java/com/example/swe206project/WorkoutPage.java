@@ -70,7 +70,7 @@ public class WorkoutPage implements Initializable{
     private TextField weightUsed;
 
     @FXML
-    private Label workoutDescription;
+    private Text workoutDescription = new Text();
 
     @FXML
     private Workouts workout = SessionPage.workout;
