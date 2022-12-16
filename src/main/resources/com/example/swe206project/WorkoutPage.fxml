@@ -44,7 +44,7 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <Text fill="WHITE" layoutX="66.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="sfhdfghswradfhtedaetdhujaedtghjaedgfhadfghegsfma;oadtfhszdfghszdghijgfh;aoieruhjgAILWKIJIGLAIOllwseejggOWkkjagiajsogiuasdflighkajsfglasifgua" wrappingWidth="856.0">
+      <Text fx:id="workoutDescription" fill="WHITE" layoutX="66.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="sfhdfghswradfhtedaetdhujaedtghjaedgfhadfghegsfma;oadtfhszdfghszdghijgfh;aoieruhjgAILWKIJIGLAIOllwseejggOWkkjagiajsogiuasdflighkajsfglasifgua" wrappingWidth="856.0">
          <font>
             <Font name="Tahoma Bold" size="19.0" />
          </font>

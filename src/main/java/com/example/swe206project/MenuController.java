@@ -58,9 +58,6 @@ public class MenuController implements Initializable {
     private Button myProfile;
 
     @FXML
-    private Button todaysSession;
-
-    @FXML
     private Button myPlan;
 
     @FXML
@@ -83,8 +80,6 @@ public class MenuController implements Initializable {
 
     // View Trainees page variables
 
-
-    private boolean todaysSessionIsClicked = false;
     private boolean myPlanIsClicked = false;
     private boolean myProfileIsClicked = false;
     private boolean viewTraineesIsClicked = false;
@@ -160,9 +155,7 @@ public class MenuController implements Initializable {
             myProfile.setStyle(
                 "-fx-border-color: #43896B; -fx-border-width: 0px 0px 4px 0px; -fx-background-color:  #212121; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1"
             );
-            todaysSession.setStyle(
-                "-fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: #303030; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1"
-            );
+            
             myPlan.setStyle(
                 "-fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color:  #303030; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1"
             );
@@ -171,7 +164,6 @@ public class MenuController implements Initializable {
             );
 
             myProfileIsClicked = true;
-            todaysSessionIsClicked = false;
             myPlanIsClicked = false;
             viewTraineesIsClicked = false;
         }
@@ -206,71 +198,9 @@ public class MenuController implements Initializable {
         if (!myProfileIsClicked){
             myProfile.setStyle("-fx-cursor: hand; -fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: #212121; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
             myProfile.setEffect(new Glow(0.0));
-        }
+      }
     }
 
-    // Session page design
-    @FXML
-    public void sessionsPage(ActionEvent Event) throws IOException {
-        Parent fxml = FXMLLoader.load(getClass().getResource("SessionsPage.fxml"));
-        contentArea.getChildren().removeAll();
-        contentArea.getChildren().setAll(fxml);    
-    }
-
-    @FXML
-    void todaysSessionOnClicked(MouseEvent event) {
-        if (!todaysSessionIsClicked){
-            myProfile.setStyle(
-                "-fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color:  #303030; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1"
-            );
-            todaysSession.setStyle(
-                "-fx-border-color: #43896B; -fx-border-width: 0px 0px 4px 0px; -fx-background-color: #212121; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1"
-            );
-            myPlan.setStyle(
-                "-fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color:  #303030; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1"
-            );
-            viewTrainees.setStyle(
-                "-fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color:  #303030; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1"
-            );
-
-            myProfileIsClicked = false;
-            todaysSessionIsClicked = true;
-            myPlanIsClicked = false;
-            viewTraineesIsClicked = false;
-        }
-    }
-
-    @FXML
-    void todaysSessionInHover(MouseEvent event) {
-        if (!todaysSessionIsClicked){
-            todaysSession.setStyle("-fx-cursor: hand; -fx-border-color: #43896B; -fx-border-width: 0px 0px 4px 0px; -fx-background-color: #3A4141; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
-        }
-    }
-
-    @FXML
-    void todaysSessionOutHover(MouseEvent event) {
-        if (todaysSessionIsClicked){
-            todaysSession.setStyle("-fx-border-color: #43896B; -fx-border-width: 0px 0px 4px 0px; -fx-background-color:  #212121; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
-        } else {
-            todaysSession.setStyle("-fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color:  #303030; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
-        }
-    }
-
-    @FXML
-    void todaysSessionOnPressed(MouseEvent event) {
-        if (!todaysSessionIsClicked){
-            todaysSession.setStyle("-fx-cursor: hand; -fx-border-color: #43896B; -fx-border-width: 0px 0px 4px 0px; -fx-background-color: #3A4141; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
-            todaysSession.setEffect(new Glow(0.3));
-        }
-    }
-
-    @FXML
-    void todaysSessionOnReleased(MouseEvent event) {
-        if (!todaysSessionIsClicked){
-            todaysSession.setStyle("-fx-cursor: hand; -fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: #212121; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1");
-            todaysSession.setEffect(new Glow(0.0));
-        }
-    }
 
     // Plan page design
     @FXML
@@ -286,9 +216,7 @@ public class MenuController implements Initializable {
             myProfile.setStyle(
                 "-fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color:  #303030; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1"
             );
-            todaysSession.setStyle(
-                "-fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: #303030; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1"
-            );
+            
             myPlan.setStyle(
                 "-fx-border-color: #43896B; -fx-border-width: 0px 0px 4px 0px; -fx-background-color:  #212121; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1"
             );
@@ -297,7 +225,6 @@ public class MenuController implements Initializable {
             );
 
             myProfileIsClicked = false;
-            todaysSessionIsClicked = false;
             myPlanIsClicked = true;
             viewTraineesIsClicked = false;
         }
@@ -349,9 +276,7 @@ public class MenuController implements Initializable {
             myProfile.setStyle(
                 "-fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color:  #303030; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1"
             );
-            todaysSession.setStyle(
-                "-fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color: #303030; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1"
-            );
+            
             myPlan.setStyle(
                 "-fx-border-color: #43896B; -fx-border-width: 0px 0px 2px 0px; -fx-background-color:  #303030; -fx-background-radius: 0px 0px 0px 0px; -fx-text-fill: #F4F9F1"
             );
@@ -360,7 +285,6 @@ public class MenuController implements Initializable {
             );
 
             myProfileIsClicked = false;
-            todaysSessionIsClicked = false;
             myPlanIsClicked = false;
             viewTraineesIsClicked = true;
         }

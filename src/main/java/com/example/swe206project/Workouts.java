@@ -20,7 +20,11 @@ public  class Workouts {
     private int actualSets;
     private int actualRepitions;
 
-    protected static ObservableList<Workouts> observableWorkoutList = FXCollections.observableArrayList();
+    protected ObservableList<Workouts> observableWorkoutList = FXCollections.observableArrayList();
+
+    public Workouts(){
+
+    }
 
     public Workouts(String workoutName, String targetedMucles,int setsTarget, int repititionTarget, String steps){
         this.id=IDGenerator.generate("Workouts.txt");
@@ -96,7 +100,7 @@ public  class Workouts {
     }
 
 
-    public static ObservableList<Workouts> getWorkoutsList() {
+    public ObservableList<Workouts> getWorkoutsList() {
         ReadFiles reader = new ReadFiles<>("Workouts.txt");
         try {
             for (String workoutInfo : reader.openFile()) {
@@ -112,6 +116,7 @@ public  class Workouts {
         }
         return observableWorkoutList;
     };
+    
     
 
 
