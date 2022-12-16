@@ -82,7 +82,9 @@ public class WorkoutPage implements Initializable{
             targetedRepetitions.setText(workout.getRepititionTarget() + "");
             targetedMuscles.setText(workout.getTargetedMuscles());
             workoutDescription.setText(workout.getSteps());
-            workoutDescription.setStyle("-fx--fx-background-color: orange");
+            //workoutDescription.setStyle("-fx--fx-background-color: orange");
+            String tmp = workout.getSteps();
+            System.out.println(tmp);
 
             
     }
@@ -145,8 +147,7 @@ public class WorkoutPage implements Initializable{
         actualRepetitions.clear();
         actualSets.clear();
         weightUsed.clear();
-        String tmp = workout.getSteps();
-        System.out.println(tmp);
+        
         
     }
   }
