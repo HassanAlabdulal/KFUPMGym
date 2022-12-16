@@ -10,6 +10,7 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.effect.Glow;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -93,7 +94,15 @@ public class ProgressPageController implements Initializable {
 
     @FXML
     void setSessionWorkouts(ActionEvent event) {
-        
+        session = sessionDays.getValue();
+
+        workoutName.setCellValueFactory(new PropertyValueFactory<Workouts, String>("workoutName"));
+        //weightProgress.setCellValueFactory(new PropertyValueFactory<Workouts, String>("?"));
+        setsProgress.setCellValueFactory(new PropertyValueFactory<Workouts, String>("setsProgress"));
+        weightProgress.setCellValueFactory(new PropertyValueFactory<Workouts, String>("repitionsProgress"));
+        //volumeProgress.setCellValueFactory(new PropertyValueFactory<Workouts, Integer>("?"));
+
+        progressTable.setItems(session.getObservableWorkoutsList());
     }
 
     // Back icon design

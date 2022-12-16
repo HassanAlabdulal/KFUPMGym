@@ -26,7 +26,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></ComboBox>
-      <ImageView fx:id="back" fitHeight="50.0" fitWidth="50.0" layoutX="14.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+      <ImageView fx:id="back" fitHeight="50.0" fitWidth="50.0" layoutX="14.0" layoutY="25.0" onMouseClicked="#backToViewTraineesPage" onMouseEntered="#backInHover" onMousePressed="#backOnPressed" onMouseReleased="#backOnReleased" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
          <image>
             <Image url="@assets/images/backArrow.png" />
          </image>
