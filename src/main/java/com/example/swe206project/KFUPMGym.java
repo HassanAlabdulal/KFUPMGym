@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+
 import java.io.IOException;
 
 public class KFUPMGym extends Application {
@@ -14,10 +15,10 @@ public class KFUPMGym extends Application {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("SplashScreen.fxml"));
             Scene  splashScreenScene  = new Scene(root);
-
             stage.initStyle(StageStyle.UNDECORATED);
             stage.setScene(splashScreenScene);
             stage.show();
+            
         } catch(Exception e) {
             e.printStackTrace();
         }

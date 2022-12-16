@@ -5,6 +5,16 @@
   "version": "0.2.0",
   "configurations": [
     
+    
+
+
+    {
+      "type": "java",
+      "name": "Launch TestIDandUser",
+      "request": "launch",
+      "mainClass": "com.example.swe206project/com.example.swe206project.TestIDandUser",
+      "projectName": "SWE206-Project"
+    },
     {
       "type": "java",
       "name": "Launch Current File",

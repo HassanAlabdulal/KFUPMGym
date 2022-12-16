@@ -59,11 +59,13 @@ public class ViewTraineesPageController implements Initializable {
 
     @FXML
     private Trainer trainer = (Trainer) LoginFormController.user;
+   
 
     protected static Trainee trainee;
 
     @FXML
     public void initialize() {
+
         
         name.setCellValueFactory(new PropertyValueFactory<Trainee, String>("name"));
         height.setCellValueFactory(new PropertyValueFactory<Trainee, Double>("height"));
