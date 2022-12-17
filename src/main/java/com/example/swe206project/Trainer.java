@@ -164,5 +164,15 @@ public class Trainer<T> extends User implements Initializable{
         }
         return observableTraineesList;
     }
+
+    @Override
+    public void setPhoto(String photo) {
+        ReadFiles r = new ReadFiles<>("UserInfo.txt");
+        WriteFiles w = new WriteFiles<>("UserInfo.txt");
+        int line = r.getLine("@"+userName);
+        w.modifyLine(line, photo, this.photo);
+        this.photo = photo;
+        
+    }
     
 }

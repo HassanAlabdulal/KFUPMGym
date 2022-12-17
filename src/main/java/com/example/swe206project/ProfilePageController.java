@@ -120,6 +120,14 @@ public class ProfilePageController implements Initializable {
         name.setText(user.getName());
         height.setText(user.getHeight() + " cm");
         weight.setText(user.getWeight() + " kg");
+        System.out.println("LOADING PHOTO: " + user.photo + "\n\n\n");
+        String currentDirectory = System.getProperty("user.dir");
+        if(user.photo.equals("defaultPic.png"))
+            image = new Image(currentDirectory + "\\" + user.photo);
+        else
+            image = new Image(user.photo);
+        profilePhoto.setImage(image);
+        profilePhoto.setStyle("-fx-border-radius: 50%");
 
         if (user instanceof Trainee) {
             Trainee trainee = (Trainee) user;

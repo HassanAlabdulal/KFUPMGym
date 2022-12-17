@@ -40,7 +40,9 @@ public abstract class User implements Serializable{
         this.name = info.get(0).replaceAll("-", " ");
         this.height = Double.valueOf(info.get(1));
         this.weight = Double.valueOf(info.get(2));
-        this.photo = info.get(3);
+        ReadFiles r = new ReadFiles<>("UserInfo.txt");
+        this.photo = r.fetch(userName, "\\(\\p{ASCII}*\\)").replaceAll("\\(|\\)", "");
+    
         if(isActive(userName))
             status = "active";
         else
@@ -132,9 +134,9 @@ public abstract class User implements Serializable{
         this.weight = weight;
     }
 
-    public void setPhoto(String photo) {
-        this.photo = photo;
-    }
+    public abstract void setPhoto(String photo);
+        
+    
 
     public void editProfile(){
 

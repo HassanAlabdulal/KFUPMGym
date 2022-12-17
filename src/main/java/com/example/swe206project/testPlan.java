@@ -17,8 +17,9 @@ public class testPlan {
         //System.out.println(s2.id +" "+s2.getPlanName() + " " + s2.getSessionsList());
         //System.out.println("----------------------");
         //System.out.println(Plan.getPlanName(20229745)+ " "+ Plan.getSessionsList(20229745));
-        Plan g = new Plan();
+        // Plan g = new Plan();
 
-        System.out.println(g.getPlansList());
+        // System.out.println(g.getPlansList());
+        System.out.println("Working on the following dir: "+System.getProperty("user.dir"));
     }
 }
