@@ -93,12 +93,12 @@
             <Font name="Arial Bold" size="20.0" />
          </font>
       </Button>
-      <Label fx:id="errorMessage" layoutX="316.0" layoutY="579.0" text="Please enter all required credentials!" textFill="#d53a0b" visible="false">
+      <Label fx:id="errorMessageOne" alignment="CENTER" contentDisplay="CENTER" layoutX="257.0" layoutY="579.0" prefHeight="26.0" prefWidth="563.0" text="Please enter all required credentials!" textFill="#d53a0b" visible="false">
          <font>
             <Font name="Tahoma Bold" size="21.0" />
          </font>
       </Label>
-      <ImageView fx:id="failIcon" fitHeight="45.0" fitWidth="44.0" layoutX="272.0" layoutY="570.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="failIconOne" fitHeight="45.0" fitWidth="44.0" layoutX="294.0" layoutY="570.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@assets/images/loginFailIcon.png" />
          </image>
@@ -113,5 +113,15 @@
             <Font name="Tahoma Bold" size="12.0" />
          </font>
       </Text>
+      <Label fx:id="errorMessageTwo" layoutX="372.0" layoutY="580.0" text="Please enter only numbers!" textFill="#d53a0b" visible="false">
+         <font>
+            <Font name="Tahoma Bold" size="20.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="failIconTwo" fitHeight="45.0" fitWidth="44.0" layoutX="328.0" layoutY="571.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@assets/images/loginFailIcon.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
