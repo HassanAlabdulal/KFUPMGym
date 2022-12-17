@@ -152,12 +152,10 @@ public class WorkoutPage implements Initializable{
 
         }
     }else{
+            errorMessageOne.setVisible(false);
+            failIconOne.setVisible(false);
             try{ 
-                // int test1, test2, test3;
-                // test1 = Integer.parseInt(actualRepetitions.getText());
-                // test2 = Integer.parseInt(actualSets.getText());
-                // test3 = Integer.parseInt(weightUsed.getText());
-                saveProgress(Integer.parseInt(actualSets.getText()), Integer.parseInt(weightUsed.getText()), Integer.parseInt(weightUsed.getText()));
+                //saveProgress(Integer.parseInt(actualSets.getText()), Integer.parseInt(weightUsed.getText()), Integer.parseInt(weightUsed.getText()));
                 workout.setActualRepitions(Integer.parseInt(actualRepetitions.getText()));
                 workout.setActualSets(Integer.parseInt(actualSets.getText()));
                 workout.setweightUsed(Integer.parseInt(weightUsed.getText()));
@@ -179,6 +177,7 @@ public class WorkoutPage implements Initializable{
                 successfullMessage.setVisible(false);
                 
             }
+
         }
 
         
@@ -259,7 +258,6 @@ public class WorkoutPage implements Initializable{
 
     @FXML
     void videoButtonOnClicked(MouseEvent event) throws IOException {
-      
     }
 
 
