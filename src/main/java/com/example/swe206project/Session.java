@@ -4,11 +4,15 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 public class Session implements Initializable, Serializable{
     protected int id;
     protected String day;
     protected ArrayList<Workouts> workoutList = new ArrayList<>();
     private ArrayList<Session> sessionsList = new ArrayList<>();
+    protected ObservableList<Workouts> observableWorkForSessionList = FXCollections.observableArrayList();
 
     public Session(){
         sessionsList = (ArrayList<Session>) initilize("Session"); // to be worked in init
@@ -64,5 +68,14 @@ public class Session implements Initializable, Serializable{
     public String toString(){
         return day +" "+ id;
     }
+
+    public ObservableList<Workouts> getObservableWorkoutsList() {
+        for (Workouts workout : workoutList) {
+            if(!observableWorkForSessionList.contains(workout))
+                observableWorkForSessionList.add(workout);     
+        }
+        return observableWorkForSessionList;
+    }
+
 
 }

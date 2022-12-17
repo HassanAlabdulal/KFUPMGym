@@ -33,7 +33,7 @@ public  class Workouts {
         this.steps = steps;
         this.setsTarget =setsTarget;
         this.repititionTarget = repititionTarget;
-
+        saveworkout(workoutName, targetedMucles, setsTarget, repititionTarget, steps);
     }
 
     public Workouts(int workoutId){
@@ -43,7 +43,7 @@ public  class Workouts {
         targetedMuscles = reader.fetch(workoutId+"", "\\!\\p{Alpha}*").replaceAll("!", "");
         setsTarget = Integer.valueOf(reader.fetch(workoutId+"", "\\#\\p{Digit}*").replaceAll("#", ""));
         repititionTarget = Integer.valueOf(reader.fetch(workoutId+"", "\\*\\p{Digit}*").replaceAll("\\*", ""));
-        steps = reader.fetch(workoutId+"", "\\1\\p{ASCII}*$");
+        steps = reader.fetch(workoutId+"", "\\[\\p{ASCII}*\\]");
     }
     
 
@@ -57,7 +57,14 @@ public  class Workouts {
         return targetedMuscles;
     }
     public String getSteps() {
-        return steps;
+        String[] tmp = steps.replaceAll("\\[|\\]", "").split("\\p{Digit}\\?");
+        String tmp2 = "";
+        for (int i = 0; i < tmp.length; i++) {
+            if(!tmp[i].equals(""))
+                tmp2 += i + ": " + tmp[i] + "\n\n";
+        }
+        // return tmp.replaceAll("\\[|\\]", "");
+        return tmp2;
     }
     public int getSetsTarget() {
         return setsTarget;
@@ -97,7 +104,7 @@ public  class Workouts {
     }
     public void saveworkout(String workoutName, String targetedMuscles,int setsTarget, int repititionTarget, String steps) {
         WriteFiles writer = new WriteFiles("Workouts.txt", true);
-        String meow = this.id + " $" + workoutName.replaceAll(" ", "-") +  " !" + targetedMuscles  +" #"+ setsTarget +" *"+ repititionTarget+" "+ steps;
+        String meow = this.id + " $" + workoutName.replaceAll(" ", "-") +  " !" + targetedMuscles  +" #"+ setsTarget +" *"+ repititionTarget+" [" + steps + "]";
         try {
                 writer.writeToFile(meow);
             }

@@ -50,7 +50,7 @@ public class SessionPage implements Initializable{
     private TableColumn<Workouts, Integer> setsTarget;
 
     @FXML
-    private Workouts workouts = new Workouts();
+    private Trainee trainee = (Trainee) LoginFormController.user;
 
     protected static Workouts workout;
 
@@ -64,7 +64,7 @@ public class SessionPage implements Initializable{
         repititionTarget.setCellValueFactory(new PropertyValueFactory<Workouts, Integer>("repititionTarget"));
         setsTarget.setCellValueFactory(new PropertyValueFactory<Workouts, Integer>("setsTarget"));
        
-        sessionsTable.setItems(workouts.getWorkoutsList());
+        sessionsTable.setItems(trainee.getObservableWorkoutsList());
 
         messageIcon.setVisible(false);
         message.setVisible(false);
