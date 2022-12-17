@@ -1,7 +1,7 @@
 UserName   | Name  |                info       |     assigned trainer if exists (for trainees only)      |   traineesList if trainer   |     status  (all of them without the special characters like $ or !)
 @admin !active
 @trainee#03882 trainee#0 100.4 50.6 (defaultPic.png) *20221594 ?Ahmed8286 !active
-@trainee#17802 trainee#1 101.0 51.0 (defaultPic.png) *20221594 ?trainer#17484 !active
+@trainee#17802 trainee#1 101.0 51.0 (defaultPic.png) *20229745 ?trainer#17484 !active
 @trainee#24382 trainee#2 102.0 52.0 (defaultPic.png) *0 ?trainer#17484 !not-active
 @trainee#32855 trainee#3 103.0 53.0 (defaultPic.png) *0 ?trainer#17484 !active
 @trainer#17484 trainer#1 170.0 60.0 (defaultPic.png) eating [trainee#17802,trainee#24382,trainee#32855,ahmedabdulaal3331,Ali4583] !active

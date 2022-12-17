@@ -77,6 +77,9 @@ public class PlanPageController implements Initializable {
 
     @FXML
     private Label planTitle;
+
+    @FXML
+    public static String day = "";
     
     
     private Trainee trainee = (Trainee) LoginFormController.user;
@@ -387,13 +390,20 @@ public class PlanPageController implements Initializable {
 
     @FXML
     void sundayDetailsIconOnClicked(MouseEvent event) throws IOException {
+        day = "Sunday";
+        try {        
         Parent fxml = FXMLLoader.load(getClass().getResource("SessionsPage.fxml"));
         contentArea.getChildren().removeAll();
-        contentArea.getChildren().setAll(fxml);  
+        contentArea.getChildren().setAll(fxml); 
+        } catch (Exception e) {
+            System.out.println("IM IN SUNDAY THIS IS AN ERROR MESSAGE\n\n\n\n");
+        }
+         
     }
 
     @FXML
     void mondayDetailsIconOnClicked(MouseEvent event) throws IOException {
+        day = "Monday";
         Parent fxml = FXMLLoader.load(getClass().getResource("SessionsPage.fxml"));
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);  
@@ -401,6 +411,7 @@ public class PlanPageController implements Initializable {
 
     @FXML
     void tuesdayDetailsIconOnClicked(MouseEvent event) throws IOException {
+        day = "Tuesday";
         Parent fxml = FXMLLoader.load(getClass().getResource("SessionsPage.fxml"));
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);  
@@ -408,6 +419,7 @@ public class PlanPageController implements Initializable {
 
     @FXML
     void wednesdayDetailsIconOnClicked(MouseEvent event) throws IOException {
+        day = "Wednesday";
         Parent fxml = FXMLLoader.load(getClass().getResource("SessionsPage.fxml"));
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);  
@@ -416,6 +428,7 @@ public class PlanPageController implements Initializable {
     
     @FXML
     void thursdayDetailsIconOnClicked(MouseEvent event) throws IOException {
+        day = "Thursday";
         Parent fxml = FXMLLoader.load(getClass().getResource("SessionsPage.fxml"));
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);  
@@ -423,6 +436,7 @@ public class PlanPageController implements Initializable {
 
     @FXML
     void saturdayDetailsIconOnClicked(MouseEvent event) throws IOException {
+        day = "Saturday";
         Parent fxml = FXMLLoader.load(getClass().getResource("SessionsPage.fxml"));
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);  
