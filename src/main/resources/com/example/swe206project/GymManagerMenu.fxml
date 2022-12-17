@@ -58,7 +58,7 @@
                      <graphic>
                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@assets/images/sessionIcon.png" />
+                              <Image url="@assets/images/creatProfileIcon.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -70,7 +70,7 @@
                      <graphic>
                         <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@assets/images/planIcon.png" />
+                              <Image url="@assets/images/setStatusIcon.png" />
                            </image>
                         </ImageView>
                      </graphic>
