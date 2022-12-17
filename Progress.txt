@@ -1,5 +1,5 @@
-trainee#03882 Monday 0 0 0
-brdga1050 Sunday 0 0 0
-brdga1050 Monday 0 0 0
-trainee#17802 Sunday 0 0 0
-trainee#17802 Monday 0 0 0
+trainee#03882 Monday !0 ?0 *0
+brdga1050 Sunday !1 ?1 *1
+brdga1050 Monday !0 ?0 *0
+trainee#17802 Sunday !0 ?0 *0
+trainee#17802 Monday !0 ?0 *0
