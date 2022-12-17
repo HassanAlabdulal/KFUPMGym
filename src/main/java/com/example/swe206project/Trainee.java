@@ -17,6 +17,7 @@ public class Trainee extends User implements Initializable{
     protected ObservableList<Trainee> observableTraineesList = FXCollections.observableArrayList();
     protected ObservableList<Workouts> observableWorkoutsList = FXCollections.observableArrayList(); 
     protected ObservableList<Session> observableSessionsList = FXCollections.observableArrayList();
+    
     //protected static ArrayList<String> info = pullInfo(userName);
     protected Trainee(){
         super();
@@ -89,7 +90,7 @@ public class Trainee extends User implements Initializable{
         ReadFiles r = new ReadFiles<>("Plans.txt");
         int line = r.getLine(this.plan.id+"");
         WriteFiles w = new WriteFiles<>("UserInfo.txt");
-        w.modifyLine(line, plan.id+"", "\\d{7,8}");
+        w.modifyLine(line, plan.id+"", "\\*\\d{1,8}");
         this.plan = plan;
     }
 
@@ -97,7 +98,7 @@ public class Trainee extends User implements Initializable{
         ReadFiles r = new ReadFiles<>("Plans.txt");
         int line = r.getLine(plan.id+"");
         WriteFiles w = new WriteFiles<>("UserInfo.txt");
-        w.modifyLine(line, plan.id+"", "\\d{7,8}");
+        w.modifyLine(line, plan.id+"", "\\*\\d{1,8}");
         plan = new Plan(planId);
     }
 
@@ -106,7 +107,7 @@ public class Trainee extends User implements Initializable{
         ReadFiles r = new ReadFiles<>("Plans.txt");
         int line = r.getLine(t.plan.id+"");
         WriteFiles w = new WriteFiles<>("UserInfo.txt");
-        w.modifyLine(line, plan.id+"", "\\d{7,8}");
+        w.modifyLine(line, plan.id+"", "\\*\\d{1,8}");
         t.setPlan(planId);
     }
 
@@ -205,8 +206,10 @@ public class Trainee extends User implements Initializable{
         }
         return observableSessionsList;
     }
+ 
 
 
+    
 
    
 
