@@ -69,17 +69,6 @@ public class MenuController implements Initializable {
     @FXML
     private Label logoutLabel;
 
-    // Profile page variables
-    
-
-    // Session page variables
-
-
-    // Plan page variables
-
-
-    // View Trainees page variables
-
     private boolean myPlanIsClicked = false;
     private boolean myProfileIsClicked = false;
     private boolean viewTraineesIsClicked = false;
@@ -352,6 +341,8 @@ public class MenuController implements Initializable {
         if (user instanceof Trainer) {
             viewTrainees.setVisible(true);
             viewTrainees.setDisable(false);
+            myPlan.setVisible(false);
+            myPlan.setDisable(true);
         }
 
         slider.setTranslateX(-225);
