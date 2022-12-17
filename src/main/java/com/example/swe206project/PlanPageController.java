@@ -386,7 +386,43 @@ public class PlanPageController implements Initializable {
 
 
     @FXML
-    void switchToSessionPage(MouseEvent event) throws IOException {
+    void sundayDetailsIconOnClicked(MouseEvent event) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("SessionsPage.fxml"));
+        contentArea.getChildren().removeAll();
+        contentArea.getChildren().setAll(fxml);  
+    }
+
+    @FXML
+    void mondayDetailsIconOnClicked(MouseEvent event) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("SessionsPage.fxml"));
+        contentArea.getChildren().removeAll();
+        contentArea.getChildren().setAll(fxml);  
+    }
+
+    @FXML
+    void tuesdayDetailsIconOnClicked(MouseEvent event) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("SessionsPage.fxml"));
+        contentArea.getChildren().removeAll();
+        contentArea.getChildren().setAll(fxml);  
+    }
+
+    @FXML
+    void wednesdayDetailsIconOnClicked(MouseEvent event) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("SessionsPage.fxml"));
+        contentArea.getChildren().removeAll();
+        contentArea.getChildren().setAll(fxml);  
+    }
+
+    
+    @FXML
+    void thursdayDetailsIconOnClicked(MouseEvent event) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("SessionsPage.fxml"));
+        contentArea.getChildren().removeAll();
+        contentArea.getChildren().setAll(fxml);  
+    }
+
+    @FXML
+    void saturdayDetailsIconOnClicked(MouseEvent event) throws IOException {
         Parent fxml = FXMLLoader.load(getClass().getResource("SessionsPage.fxml"));
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);  
