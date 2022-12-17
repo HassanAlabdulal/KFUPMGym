@@ -466,8 +466,13 @@ public class CreateProfileController {
                     int test1, test2;
                     test1 = Integer.parseInt(height.getText());
                     test2 = Integer.parseInt(weight.getText());
-                    boolean allLettersName = name.getText().chars().allMatch(Character::isLetter);
-                    boolean allLettersSpeciality = speciality.getText().chars().allMatch(Character::isLetter);
+                    //boolean allLettersName = name.getText().chars().allMatch(Character::isLetter);
+                    //boolean allLettersSpeciality = speciality.getText().chars().allMatch(Character::isLetter);
+                    Pattern pattern = Pattern.compile("\\p{Digit}|\\p{Punct}|\\p{Sc}");
+                    Matcher match = pattern.matcher(name.getText());
+                    Matcher match2 = pattern.matcher(speciality.getText());
+                    boolean allLettersName = !match.find();
+                    boolean allLettersSpeciality = !match2.find();
                     if(allLettersName && allLettersSpeciality){
                         GymManager.createProfile(name.getText(),  Double.parseDouble(height.getText()),Double.parseDouble(weight.getText()), speciality.getText());
                         errorMessage.setText("A trainer profile has been created!");

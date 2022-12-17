@@ -1,19 +1,25 @@
 package com.example.swe206project;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.Glow;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 public class ProfilePageController implements Initializable {
 
     private User user = LoginFormController.user;
+    
 
     @FXML
     private Button cancel;
@@ -75,8 +81,34 @@ public class ProfilePageController implements Initializable {
     @FXML
     private Button yesButton;
 
+    @FXML
+    private TextField newImagePath;
+
 
     private boolean editProfileIsClicked = false;
+
+    private Image image;
+
+    @FXML
+    public void changeProfileIcon(MouseEvent event){
+        newImagePath.setVisible(true);
+    }
+
+    @FXML
+    void newImagePathInHover(MouseEvent event) {
+            newImagePath.setStyle(
+                "-fx-cursor: text; -fx-border-color: #43896B; -fx-border-width:    0px 0px 1px 0px; -fx-background-color: #3A4141; -fx-background-radius:  5px 5px 0px 0px; -fx-text-fill: #F4F9F1; fx-border-radius: 5px 5px 0px 0px;"
+            );
+            newImagePath.setEditable(true);
+    }
+
+    @FXML
+    void newImagePathOutHover(MouseEvent event) {
+            newImagePath.setStyle(
+                "-fx-border-color: #43896B; -fx-border-width:    0px 0px 1px 0px; -fx-background-color: #313131; -fx-background-radius:  5px 5px 0px 0px; -fx-text-fill: #F4F9F1; fx-border-radius:  5px 5px 0px 0px;"
+            );
+            newImagePath.setEditable(true);
+    }
 
 
     @FXML
@@ -84,6 +116,14 @@ public class ProfilePageController implements Initializable {
         name.setText(user.getName());
         height.setText(user.getHeight() + " cm");
         weight.setText(user.getWeight() + " kg");
+        System.out.println("LOADING PHOTO: " + user.photo + "\n\n\n");
+        String currentDirectory = System.getProperty("user.dir");
+        if(user.photo.equals("defaultPic.png"))
+            image = new Image(currentDirectory + "\\" + user.photo);
+        else
+            image = new Image(user.photo);
+        profilePhoto.setImage(image);
+        profilePhoto.setStyle("-fx-border-radius: 50%");
 
         if (user instanceof Trainee) {
             Trainee trainee = (Trainee) user;
@@ -189,6 +229,13 @@ public class ProfilePageController implements Initializable {
             w.modifyLine(line, newHeight+"", user.height+"");
             user.setHeight(newHeight);
 
+            image = new Image(newImagePath.getText());
+            profilePhoto.setImage(image);
+            profilePhoto.setStyle("-fx-border-radius: 50%");
+
+            newImagePath.setVisible(false);
+            newImagePath.clear();
+
             editProfileIsClicked = false;
 
             subscriptionActiveButton.setVisible(true);
@@ -208,6 +255,8 @@ public class ProfilePageController implements Initializable {
 
             wrongInputIcon.setVisible(false);
             wrongInputMessage.setVisible(false);
+
+
 
             weight.setStyle(
                 "-fx-border-color: #43896B; -fx-border-width: 1px 0px 0px 0px; -fx-background-color: #212121; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1"
@@ -276,8 +325,14 @@ public class ProfilePageController implements Initializable {
         cancel.setVisible(false);
         cancel.setDisable(true);
 
+        newImagePath.setVisible(false);
+        newImagePath.clear();
+
         editPhotoIcon.setVisible(false);
         profilePhoto.setOpacity(1);
+
+        wrongInputIcon.setVisible(false);
+        wrongInputMessage.setVisible(false);
 
         weight.setStyle(
             "-fx-border-color: #43896B; -fx-border-width: 1px 0px 0px 0px; -fx-background-color: #212121; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1"

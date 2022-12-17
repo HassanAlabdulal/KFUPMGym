@@ -19,6 +19,13 @@ public  class Workouts {
     private int weightUsed;
     private int actualSets;
     private int actualRepitions;
+    private int weightTarget;
+    private int volumeTarget;
+    private int volume;
+
+    protected String weightProgress = "";
+    protected String setsProgress = "";
+    protected String repitionsProgress = "";
 
     protected ObservableList<Workouts> observableWorkoutList = FXCollections.observableArrayList();
 
@@ -26,14 +33,15 @@ public  class Workouts {
 
     }
 
-    public Workouts(String workoutName, String targetedMucles,int setsTarget, int repititionTarget, String steps){
+    public Workouts(String workoutName, String targetedMucles,int setsTarget, int repititionTarget, int weightTarget, String steps){
         this.id=IDGenerator.generate("Workouts.txt");
         this.workoutName = workoutName;
         this.targetedMuscles = targetedMucles;
         this.steps = steps;
         this.setsTarget =setsTarget;
         this.repititionTarget = repititionTarget;
-        saveworkout(workoutName, targetedMucles, setsTarget, repititionTarget, steps);
+        this.weightTarget = weightTarget;
+        saveworkout(workoutName, targetedMucles, setsTarget, repititionTarget, weightTarget, steps);
     }
 
     public Workouts(int workoutId){
@@ -44,6 +52,7 @@ public  class Workouts {
         setsTarget = Integer.valueOf(reader.fetch(workoutId+"", "\\#\\p{Digit}*").replaceAll("#", ""));
         repititionTarget = Integer.valueOf(reader.fetch(workoutId+"", "\\*\\p{Digit}*").replaceAll("\\*", ""));
         steps = reader.fetch(workoutId+"", "\\[\\p{ASCII}*\\]");
+        weightTarget = Integer.valueOf(reader.fetch(workoutId+"", "\\?\\p{Digit}*").replaceAll("\\?", ""));
     }
     
 
@@ -76,22 +85,41 @@ public  class Workouts {
         return videoURL;
     }
     public int getWeightUsed() {
-        return weightUsed;
+        Trainee trainee = (Trainee) LoginFormController.user;
+        ReadFiles r = new ReadFiles<>("Progress.txt");
+        String weight = r.fetch(trainee.userName + " " + PlanPageController.day, "\\*\\p{Digit}").replaceAll("\\*", "");
+        return Integer.valueOf(weight);
     }
     public int getActualSets() {
-        return actualSets;
+        Trainee trainee = (Trainee) LoginFormController.user;
+        ReadFiles r = new ReadFiles<>("Progress.txt");
+        String sets = r.fetch(trainee.userName + " " + PlanPageController.day, "\\!\\p{Digit}").replaceAll("\\!", "");
+        return Integer.valueOf(sets);
     }
 
     public String getSetsProgress(){
-        return actualSets + "/" + setsTarget;
+        return getActualSets() + "/" + setsTarget;
     }
 
     public String getRepitionsProgress(){
-        return actualRepitions + "/" + repititionTarget;
+        return getActualRepitions() + "/" + repititionTarget;
+    }
+
+    public String getWeightProgress() {
+        return getWeightUsed() + "/" + weightTarget;
+    }
+
+    public String getVolumeProgress() {
+        volume = getWeightUsed() * getActualRepitions() * getActualSets();
+        volumeTarget = setsTarget * repititionTarget * weightTarget;
+        return volume + "/" + volumeTarget;
     }
 
     public int getActualRepitions() {
-        return actualRepitions;
+        Trainee trainee = (Trainee) LoginFormController.user;
+        ReadFiles r = new ReadFiles<>("Progress.txt");
+        String rep = r.fetch(trainee.userName + " " + PlanPageController.day, "\\?\\p{Digit}").replaceAll("\\?", "");
+        return Integer.valueOf(rep);
     }
     public void setActualRepitions(int actualRepitions) {
         this.actualRepitions = actualRepitions;
@@ -102,9 +130,9 @@ public  class Workouts {
     public void setweightUsed(int weightUsed) {
         this.weightUsed = weightUsed;
     }
-    public void saveworkout(String workoutName, String targetedMuscles,int setsTarget, int repititionTarget, String steps) {
+    public void saveworkout(String workoutName, String targetedMuscles,int setsTarget, int repititionTarget, int weightTarget, String steps) {
         WriteFiles writer = new WriteFiles("Workouts.txt", true);
-        String meow = this.id + " $" + workoutName.replaceAll(" ", "-") +  " !" + targetedMuscles  +" #"+ setsTarget +" *"+ repititionTarget+" [" + steps + "]";
+        String meow = this.id + " $" + workoutName.replaceAll(" ", "-") +  " !" + targetedMuscles  +" #"+ setsTarget +" *"+ repititionTarget + "?" + weightTarget + " [" + steps + "]";
         try {
                 writer.writeToFile(meow);
             }
@@ -136,8 +164,6 @@ public  class Workouts {
         return observableWorkoutList;
     };
     
-    
-
 
 
 

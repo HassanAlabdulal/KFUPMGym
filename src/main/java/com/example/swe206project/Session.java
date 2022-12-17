@@ -29,6 +29,7 @@ public class Session implements Initializable, Serializable{
         this.id = id;
         this.day = getDay(id);
         this.workoutList = getWorkoutList(id);
+       
     }
 
     public void save(int id, String day, ArrayList<Workouts> workoutsList){

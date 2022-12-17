@@ -52,9 +52,19 @@ public class SessionPage implements Initializable{
     @FXML
     private Trainee trainee = (Trainee) LoginFormController.user;
 
+    public static Session dSession;
+
     protected static Workouts workout;
 
-    
+    protected String day = PlanPageController.day;
+
+    public Session desiredSession(){
+        for (Session session : trainee.getObservableSessionsList()) {
+            if(session.day.equals(day))
+                return session;
+        }
+        return new Session(-1);
+    }
 
     @FXML
     public void initialize() {
@@ -63,8 +73,12 @@ public class SessionPage implements Initializable{
         targetedMuscles.setCellValueFactory(new PropertyValueFactory<Workouts, String>("targetedMuscles"));
         repititionTarget.setCellValueFactory(new PropertyValueFactory<Workouts, Integer>("repititionTarget"));
         setsTarget.setCellValueFactory(new PropertyValueFactory<Workouts, Integer>("setsTarget"));
+
+        
        
-        sessionsTable.setItems(trainee.getObservableWorkoutsList());
+        // sessionsTable.setItems(trainee.getObservableWorkoutsList());
+        dSession = desiredSession();
+        sessionsTable.setItems(desiredSession().getObservableWorkoutsList());
 
         messageIcon.setVisible(false);
         message.setVisible(false);

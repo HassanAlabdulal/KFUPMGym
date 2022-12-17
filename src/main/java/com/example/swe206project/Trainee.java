@@ -53,7 +53,7 @@ public class Trainee extends User implements Initializable{
 
     public void save(String name, double height, double weight, String photo, int plan, String trainer, String status) {
         WriteFiles writer = new WriteFiles("UserInfo.txt", true);
-        String data = "@" + userName + " " + name + " " +  height + " " + weight + " " + photo + " *" + plan + " ?" + trainer + " !" + status;
+        String data = "@" + userName + " " + name + " " +  height + " " + weight + " (" + photo + ") *" + plan + " ?" + trainer + " !" + status;
         try {
             writer.writeToFile(data);
         } catch (IOException e) {
@@ -62,10 +62,10 @@ public class Trainee extends User implements Initializable{
         }
     }
 
-    public void saveToBinary(String name, double height, double weight, String photo, String status){
-        WriteFiles writer = new WriteFiles("UserInfo.txt", true);
-        String data = userName + "! " + name + " " +  height + " " + weight + " " + photo + " !" + status;
-    }
+    // public void saveToBinary(String name, double height, double weight, String photo, String status){
+    //     WriteFiles writer = new WriteFiles("UserInfo.txt", true);
+    //     String data = userName + "! " + name + " " +  height + " " + weight + " " + photo + " !" + status;
+    // }
 
     public Trainee(String name, double height, double weight){
         this(name, height, weight, "defaultPic.png");
@@ -91,6 +91,24 @@ public class Trainee extends User implements Initializable{
         int line = r.getLine("@"+userName);
         WriteFiles w = new WriteFiles<>("UserInfo.txt");
         w.modifyLine(line, "*"+plan.id, "\\*\\d{1,8}");
+
+        ReadFiles readProgress = new ReadFiles<>("Progress.txt");
+        WriteFiles writeProgress = new WriteFiles<>("Progress.txt", true);
+        for (Session session : plan.sessionsList) {
+            String data = userName + " " + session.day + " " + 0 + " " + 0 + " " + 0;
+            if(this.plan.id != 0){
+                int line2 = readProgress.getLine(userName + " " + session.day);
+                writeProgress.modifyLine(line2, data);
+            }
+            else{
+             try {
+                writeProgress.writeToFile(data);
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }   
+            }
+        }
         this.plan = plan;
     }
 
@@ -119,7 +137,7 @@ public class Trainee extends User implements Initializable{
         this.trainer = trainer;
         ReadFiles r = new ReadFiles<>("UserInfo.txt");
         WriteFiles w = new WriteFiles<>("UserInfo.txt");
-        int line = r.getLine(userName);
+        int line = r.getLine("@"+userName);
         w.modifyLine(line, "?"+trainer, "\\?\\p{Graph}*|\\?\\s");
     }
 
@@ -205,6 +223,15 @@ public class Trainee extends User implements Initializable{
             
         }
         return observableSessionsList;
+    }
+
+    @Override
+    public void setPhoto(String photo) {
+        ReadFiles r = new ReadFiles<>("UserInfo.txt");
+        WriteFiles w = new WriteFiles<>("UserInfo.txt");
+        int line = r.getLine("@"+userName);
+        w.modifyLine(line, photo, this.photo);
+        this.photo = photo;
     }
  
 

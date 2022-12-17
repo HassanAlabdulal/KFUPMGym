@@ -20,6 +20,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+
+
 public class WorkoutPage implements Initializable{
   
     @FXML
@@ -82,7 +84,7 @@ public class WorkoutPage implements Initializable{
     @FXML
     private Workouts workout = SessionPage.workout;
 
-   
+    protected Trainee trainee = (Trainee) LoginFormController.user;
 
     @FXML
     public void initialize() {
@@ -150,14 +152,15 @@ public class WorkoutPage implements Initializable{
 
         }
     }else{
+            errorMessageOne.setVisible(false);
+            failIconOne.setVisible(false);
             try{ 
-                // int test1, test2, test3;
-                // test1 = Integer.parseInt(actualRepetitions.getText());
-                // test2 = Integer.parseInt(actualSets.getText());
-                // test3 = Integer.parseInt(weightUsed.getText());
+                //saveProgress(Integer.parseInt(actualSets.getText()), Integer.parseInt(weightUsed.getText()), Integer.parseInt(weightUsed.getText()));
                 workout.setActualRepitions(Integer.parseInt(actualRepetitions.getText()));
                 workout.setActualSets(Integer.parseInt(actualSets.getText()));
                 workout.setweightUsed(Integer.parseInt(weightUsed.getText()));
+
+
                 successfullMessage.setVisible(true);
                 errorMessageOne.setVisible(false);
                 failIconOne.setVisible(false);
@@ -168,11 +171,13 @@ public class WorkoutPage implements Initializable{
                 weightUsed.clear();
                 
             }catch(Exception e){
+                e.printStackTrace();
                 errorMessageTwo.setVisible(true);
                 failIconTwo.setVisible(true);
                 successfullMessage.setVisible(false);
                 
             }
+
         }
 
         
@@ -253,7 +258,6 @@ public class WorkoutPage implements Initializable{
 
     @FXML
     void videoButtonOnClicked(MouseEvent event) throws IOException {
-      
     }
 
 
@@ -277,6 +281,14 @@ public class WorkoutPage implements Initializable{
     @FXML
     void videoButtonOutHover(MouseEvent event) {
         videoButton.setStyle("-fx-background-color: #43896B; -fx-background-radius: 15");
+    }
+
+    public void saveProgress(int sets, int repition, int weight){
+        ReadFiles r = new ReadFiles<>("Progress.txt");
+        WriteFiles w = new WriteFiles<>("Progress.txt");
+        int line = r.getLine(trainee.userName + " " + PlanPageController.day);
+        String data = trainee.userName + " " + PlanPageController.day + " " + sets + " " + repition + " " + weight;
+        w.modifyLine(line, data);
     }
 }
 

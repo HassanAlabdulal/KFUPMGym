@@ -28,7 +28,7 @@
             <DropShadow height="30.0" radius="14.5" width="30.0" />
          </effect>
       </ImageView>
-      <ImageView fx:id="editPhotoIcon" fitHeight="50.0" fitWidth="50.0" layoutX="463.0" layoutY="286.0" onMouseEntered="#editPhotoInHover" pickOnBounds="true" preserveRatio="true" visible="false" AnchorPane.rightAnchor="462.0">
+      <ImageView fx:id="editPhotoIcon" fitHeight="50.0" fitWidth="50.0" layoutX="463.0" layoutY="286.0" onMouseClicked="#changeProfileIcon" onMouseEntered="#editPhotoInHover" pickOnBounds="true" preserveRatio="true" visible="false" AnchorPane.rightAnchor="462.0">
          <image>
             <Image url="@assets/images/editImageIcon.png" />
          </image>
@@ -123,12 +123,12 @@
             <Font name="Arial Bold" size="22.0" />
          </font>
       </Button>
-      <Label fx:id="wrongInputMessage" layoutX="301.0" layoutY="536.0" text="Please make sure that you have entered a valid input" textFill="#d53a0b" visible="false">
+      <Label fx:id="wrongInputMessage" layoutX="301.0" layoutY="546.0" text="Please make sure that you have entered a valid input" textFill="#d53a0b" visible="false">
          <font>
             <Font name="Tahoma Bold" size="14.0" />
          </font>
       </Label>
-      <ImageView fx:id="wrongInputIcon" fitHeight="35.0" fitWidth="35.0" layoutX="470.0" layoutY="495.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="wrongInputIcon" fitHeight="35.0" fitWidth="35.0" layoutX="471.0" layoutY="511.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@assets/images/loginFailIcon.png" />
          </image>
@@ -143,5 +143,13 @@
             <Font name="Tahoma Bold" size="16.0" />
          </font>
       </Label>
+      <TextField fx:id="newImagePath" alignment="CENTER" editable="false" layoutX="366.0" layoutY="457.0" onMouseEntered="#newImagePathInHover" onMouseExited="#newImagePathOutHover" prefHeight="42.0" prefWidth="244.0" promptText="Enter the  path" style="-fx-border-width: 0px 0px 1px 0px; -fx-border-color: #43896B; -fx-background-color: #313131; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1; -fx-border-radius: 5px;" visible="false">
+         <font>
+            <Font name="Tahoma" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
    </children>
 </AnchorPane>

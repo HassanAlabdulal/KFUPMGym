@@ -56,11 +56,11 @@ public class Trainer<T> extends User implements Initializable{
             if(trainer.getUsername().equals(this.userName))
                 this.traineesList = trainer.traineesList;
         }
-        save(name, height, weight, photo, "active");
+        save(name.replaceAll("\\s", "-"), height, weight, photo, "active");
     }
 
     public Trainer(String name, double height, double weight, String speciality){
-        this(name, height, weight, "defaultPic.txt", speciality);
+        this(name, height, weight, "defaultPic.png", speciality);
     }
 
     public void save(String name, double height, double weight, String photo, String status) {
@@ -163,6 +163,16 @@ public class Trainer<T> extends User implements Initializable{
                 observableTraineesList.add(object);
         }
         return observableTraineesList;
+    }
+
+    @Override
+    public void setPhoto(String photo) {
+        ReadFiles r = new ReadFiles<>("UserInfo.txt");
+        WriteFiles w = new WriteFiles<>("UserInfo.txt");
+        int line = r.getLine("@"+userName);
+        w.modifyLine(line, photo, this.photo);
+        this.photo = photo;
+        
     }
     
 }
