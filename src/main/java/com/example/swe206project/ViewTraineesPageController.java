@@ -65,7 +65,6 @@ public class ViewTraineesPageController implements Initializable {
 
     @FXML
     public void initialize() {
-
         
         name.setCellValueFactory(new PropertyValueFactory<Trainee, String>("name"));
         height.setCellValueFactory(new PropertyValueFactory<Trainee, Double>("height"));
@@ -155,7 +154,7 @@ public class ViewTraineesPageController implements Initializable {
         trainee = viewTraineesTable.getSelectionModel().getSelectedItem();
 
         try {
-            if(!(trainee == null)) {
+            if(!(trainee == null) && !(trainee.getPlan() == null)) {
                 AnchorPane progress = FXMLLoader.load(getClass().getResource("ProgressPage.fxml"));
                 rootPane.getChildren().removeAll();
                 rootPane.getChildren().setAll(progress);
@@ -164,7 +163,7 @@ public class ViewTraineesPageController implements Initializable {
             }
         } catch (NullPointerException e) {
                 messageIcon.setVisible(true);
-                message.setText("Please select a trainee from the table to proceed.");
+                message.setText("Please select a trainee that has a plan from the table to proceed.");
                 message.setStyle("-fx-text-fill: #D53A0B");
                 message.setVisible(true);
         }

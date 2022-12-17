@@ -69,7 +69,7 @@ public class Session implements Initializable, Serializable{
         return day +" "+ id;
     }
 
-    public ObservableList<Workouts> getObservableSessionsList() {
+    public ObservableList<Workouts> getObservableWorkoutsList() {
         for (Workouts workout : workoutList) {
             if(!observableWorkForSessionList.contains(workout))
                 observableWorkForSessionList.add(workout);     

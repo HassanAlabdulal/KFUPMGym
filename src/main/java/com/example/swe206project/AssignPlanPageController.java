@@ -74,11 +74,11 @@ public class AssignPlanPageController implements Initializable {
         predefinedPlans.setConverter(new StringConverter<Plan>() {
             @Override
             public String toString(Plan plan) {
-              if (plan == null){
-                return null;
-              } else {
-                return plan.getPlanName();
-              }
+                if (plan == null){
+                    return null;
+                } else {
+                    return plan.getPlanName();
+                }
             }
 
             @Override
@@ -86,7 +86,7 @@ public class AssignPlanPageController implements Initializable {
                 // TODO Auto-generated method stub
                 return new Plan(Integer.valueOf(arg0));
             }
-      });
+        });
     }
 
     // Assign plan button design

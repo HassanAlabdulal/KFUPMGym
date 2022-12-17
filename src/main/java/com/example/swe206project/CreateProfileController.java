@@ -386,17 +386,37 @@ public class CreateProfileController {
 
                 }
             }else{
-                GymManager.createProfile(name.getText(), Double.parseDouble(height.getText()),Double.parseDouble(weight.getText()));
-                errorMessage.setText("A trainee profile has been created!");
-                errorMessage.setStyle("-fx-text-fill: #43896B");
-                errorMessage.setVisible(true);
-                name.clear();
-                height.clear();
-                weight.clear();
-                
-            }
 
+                try{ 
+                    int test1, test2;
+                    test1 = Integer.parseInt(height.getText());
+                    test2 = Integer.parseInt(weight.getText());
+                    boolean allLettersName = name.getText().chars().allMatch(Character::isLetter);
+                    if(allLettersName){
+                        GymManager.createProfile(name.getText(),  Double.parseDouble(height.getText()),Double.parseDouble(weight.getText()));
+                        errorMessage.setText("A trainer profile has been created!");
+                        errorMessage.setStyle("-fx-text-fill: #43896B");
+                        errorMessage.setVisible(true);
+                        failIcon.setVisible(false); 
+                        name.clear();
+                        height.clear();
+                        weight.clear();
+                        speciality.clear();
+                    }else{
+                        errorMessage.setText("Please enter only letters!");
+                        errorMessage.setStyle("-fx-text-fill: #D53A0B");
+                        errorMessage.setVisible(true);
+                        failIcon.setVisible(true); 
+                        name.setStyle("-fx-border-color: #D53A0B; -fx-border-width: 1px 1px 1px 1px; -fx-background-color: #3A4141; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1");
+                    }
+                }catch(Exception e){
+                    errorMessage.setText("Please enter correct information!");
+                    errorMessage.setStyle("-fx-text-fill: #D53A0B");
+                    errorMessage.setVisible(true);
+                    failIcon.setVisible(true); 
+                }
             }
+        }
 
         if(trainerCreateProfileIsClicked){
             if(name.getText().isEmpty() || height.getText().isEmpty() || weight.getText().isEmpty() || speciality.getText().isEmpty()){
@@ -435,14 +455,40 @@ public class CreateProfileController {
                     failIcon.setVisible(true);
                 }
             }else{
-                GymManager.createProfile(name.getText(),  Double.parseDouble(height.getText()),Double.parseDouble(weight.getText()), speciality.getText());
-                errorMessage.setText("A trainer profile has been created!");
-                errorMessage.setStyle("-fx-text-fill: #43896B");
-                errorMessage.setVisible(true);
-                name.clear();
-                height.clear();
-                weight.clear();
-                speciality.clear();
+
+                try{ 
+                    int test1, test2;
+                    test1 = Integer.parseInt(height.getText());
+                    test2 = Integer.parseInt(weight.getText());
+                    boolean allLettersName = name.getText().chars().allMatch(Character::isLetter);
+                    boolean allLettersSpeciality = speciality.getText().chars().allMatch(Character::isLetter);
+                    if(allLettersName && allLettersSpeciality){
+                        GymManager.createProfile(name.getText(),  Double.parseDouble(height.getText()),Double.parseDouble(weight.getText()), speciality.getText());
+                        errorMessage.setText("A trainer profile has been created!");
+                        errorMessage.setStyle("-fx-text-fill: #43896B");
+                        errorMessage.setVisible(true);
+                        failIcon.setVisible(false); 
+                        name.clear();
+                        height.clear();
+                        weight.clear();
+                        speciality.clear();
+                    }else{
+                        errorMessage.setText("Please enter only letters!");
+                        errorMessage.setStyle("-fx-text-fill: #D53A0B");
+                        errorMessage.setVisible(true);
+                        failIcon.setVisible(true); 
+                        speciality.setStyle("-fx-border-color: #D53A0B; -fx-border-width: 1px 1px 1px 1px; -fx-background-color: #3A4141; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1");
+                        name.setStyle("-fx-border-color: #D53A0B; -fx-border-width: 1px 1px 1px 1px; -fx-background-color: #3A4141; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1");
+
+                    }
+                }catch(Exception e){
+                    errorMessage.setText("Please enter correct information!");
+                    errorMessage.setStyle("-fx-text-fill: #D53A0B");
+                    errorMessage.setVisible(true);
+                    failIcon.setVisible(true); 
+                }
+                
+                
             }
         }
     }

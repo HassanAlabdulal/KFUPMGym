@@ -121,12 +121,12 @@
             <Image url="@assets/images/closeIcon.png" />
          </image>
       </ImageView>
-      <Label fx:id="errorMessage" layoutX="411.0" layoutY="521.0" prefHeight="24.0" prefWidth="413.0" text="Please enter all required credentials!" textFill="#43896b" visible="false">
+      <Label fx:id="errorMessage" alignment="CENTER" layoutX="360.0" layoutY="86.0" prefHeight="24.0" prefWidth="441.0" text="Please enter all required credentials!" textFill="#43896b" visible="false">
          <font>
             <Font name="Tahoma Bold" size="19.0" />
          </font>
       </Label>
-      <ImageView fx:id="failIcon" fitHeight="46.0" fitWidth="36.0" layoutX="371.0" layoutY="515.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="failIcon" fitHeight="46.0" fitWidth="36.0" layoutX="562.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@assets/images/loginFailIcon.png" />
          </image>

@@ -108,7 +108,7 @@ public class LoginFormController {
             e.printStackTrace();
         }
 
-        if (autherized){
+        if (autherized && User.isActive(username.getText())){
             switch (User.getType(username.getText())) {
                 case "trainee":
                     user = (Trainee) new Trainee(username.getText());
