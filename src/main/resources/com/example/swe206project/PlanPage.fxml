@@ -26,7 +26,7 @@
                   </Label>
                </children>
             </HBox>
-            <ImageView fx:id="mondayDetailsIcon" fitHeight="71.0" fitWidth="74.0" layoutX="85.0" layoutY="88.0" onMouseClicked="#mondayDetailsIconOnClicked" onMouseEntered="#mondayDetailsIconInHover" onMouseExited="#mondayDetailsIconOutHover" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="mondayDetailsIcon" fitHeight="71.0" fitWidth="74.0" layoutX="85.0" layoutY="88.0" onMouseClicked="#mondayDetailsIconOnClicked" onMouseEntered="#mondayDetailsIconInHover" onMouseExited="#mondayDetailsIconOutHover" onMousePressed="#mondayDetailsIconOnPressed" onMouseReleased="#mondayDetailsIconOnReleased" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/images/detalisIcon.gif" />
                </image>
@@ -38,7 +38,7 @@
       </AnchorPane>
       <AnchorPane fx:id="sundayCard" layoutX="85.0" layoutY="148.0" maxHeight="-Infinity" maxWidth="-Infinity" onMouseEntered="#sundayCardInHover" onMouseExited="#sundayCardOutHover" prefHeight="175.0" prefWidth="240.0" style="-fx-background-color: #f4f9f1; -fx-background-radius: 10px; " AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="160.0">
          <children>
-            <HBox fx:id="sundayCardHeader" onMouseEntered="#sundayCardInHover" onMouseExited="#sundayCardOutHover" prefHeight="75.0" prefWidth="240.0" style="-fx-background-color: #43896b; -fx-background-radius: 10px 10px 0 0;" AnchorPane.rightAnchor="0.0">
+            <HBox fx:id="sundayCardHeader" prefHeight="75.0" prefWidth="240.0" style="-fx-background-color: #43896b; -fx-background-radius: 10px 10px 0 0;" AnchorPane.rightAnchor="0.0">
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="0.0" prefWidth="140.0" text="Sunday" textAlignment="CENTER">
                      <HBox.margin>
@@ -50,7 +50,7 @@
                   </Label>
                </children>
             </HBox>
-            <ImageView fx:id="sundayDetailsIcon" fitHeight="71.0" fitWidth="74.0" layoutX="85.0" layoutY="88.0" onMouseClicked="#sundayDetailsIconOnClicked" onMouseEntered="#sundayDetailsIconInHover" onMouseExited="#sundayDetailsIconOutHover" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="sundayDetailsIcon" fitHeight="71.0" fitWidth="74.0" layoutX="85.0" layoutY="88.0" onMouseClicked="#sundayDetailsIconOnClicked" onMouseEntered="#sundayDetailsIconInHover" onMouseExited="#sundayDetailsIconOutHover" onMousePressed="#sundayDetailsIconOnPressed" onMouseReleased="#sundayDetailsIconOnReleased" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/images/detalisIcon.gif" />
                </image>
@@ -74,7 +74,7 @@
                   </Label>
                </children>
             </HBox>
-            <ImageView fx:id="tuesdayDetailsIcon" fitHeight="71.0" fitWidth="74.0" layoutX="85.0" layoutY="88.0" onMouseClicked="#tuesdayDetailsIconOnClicked" onMouseEntered="#tuesdayDetailsIconInHover" onMouseExited="#tuesdayDetailsIconOutHover" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="tuesdayDetailsIcon" fitHeight="71.0" fitWidth="74.0" layoutX="85.0" layoutY="88.0" onMouseClicked="#tuesdayDetailsIconOnClicked" onMouseEntered="#tuesdayDetailsIconInHover" onMouseExited="#tuesdayDetailsIconOutHover" onMousePressed="#tuesdayDetailsIconOnPressed" onMouseReleased="#tuesdayDetailsIconOnReleased" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/images/detalisIcon.gif" />
                </image>
@@ -98,7 +98,7 @@
                   </Label>
                </children>
             </HBox>
-            <ImageView fx:id="wednesdayDetailsIcon" fitHeight="71.0" fitWidth="74.0" layoutX="85.0" layoutY="88.0" onMouseClicked="#wednesdayDetailsIconOnClicked" onMouseEntered="#wednesdayDetailsIconInHover" onMouseExited="#wednesdayDetailsIconOutHover" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="wednesdayDetailsIcon" fitHeight="71.0" fitWidth="74.0" layoutX="85.0" layoutY="88.0" onMouseClicked="#wednesdayDetailsIconOnClicked" onMouseEntered="#wednesdayDetailsIconInHover" onMouseExited="#wednesdayDetailsIconOutHover" onMousePressed="#wednesdayDetailsIconOnPressed" onMouseReleased="#wednesdayDetailsIconOnReleased" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/images/detalisIcon.gif" />
                </image>
@@ -122,7 +122,7 @@
                   </Label>
                </children>
             </HBox>
-            <ImageView fx:id="thursdayDetailsIcon" fitHeight="71.0" fitWidth="74.0" layoutX="85.0" layoutY="88.0" onMouseClicked="#thursdayDetailsIconOnClicked" onMouseEntered="#thursdayDetailsIconInHover" onMouseExited="#thursdayDetailsIconOutHover" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="thursdayDetailsIcon" fitHeight="71.0" fitWidth="74.0" layoutX="85.0" layoutY="88.0" onMouseClicked="#thursdayDetailsIconOnClicked" onMouseEntered="#thursdayDetailsIconInHover" onMouseExited="#thursdayDetailsIconOutHover" onMousePressed="#thursdayDetailsIconOnPressed" onMouseReleased="#thursdayDetailsIconOnReleased" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/images/detalisIcon.gif" />
                </image>
@@ -146,7 +146,7 @@
                   </Label>
                </children>
             </HBox>
-            <ImageView fx:id="saturdayDetailsIcon" fitHeight="71.0" fitWidth="74.0" layoutX="85.0" layoutY="88.0" onMouseClicked="#saturdayDetailsIconOnClicked" onMouseEntered="#saturdayDetailsIconInHover" onMouseExited="#saturdayDetailsIconOutHover" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="saturdayDetailsIcon" fitHeight="71.0" fitWidth="74.0" layoutX="85.0" layoutY="88.0" onMouseClicked="#saturdayDetailsIconOnClicked" onMouseEntered="#saturdayDetailsIconInHover" onMouseExited="#saturdayDetailsIconOutHover" onMousePressed="#saturdayDetailsIconOnPressed" onMouseReleased="#saturdayDetailsIconOnReleased" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@assets/images/detalisIcon.gif" />
                </image>
@@ -161,10 +161,20 @@
             <Font name="Arial Bold" size="28.0" />
          </font>
       </Button>
-      <Label fx:id="planTitle" layoutX="437.0" layoutY="30.0" text="Title" textFill="#f4f9f1" AnchorPane.topAnchor="50.0">
+      <Label fx:id="planTitle" alignment="CENTER" layoutX="185.0" layoutY="49.0" prefHeight="50.0" prefWidth="606.0" text="Title" textFill="#f4f9f1" AnchorPane.topAnchor="50.0">
          <font>
             <Font name="Georgia Bold" size="43.0" />
          </font>
       </Label>
+      <Label fx:id="errorMessage" layoutX="337.0" layoutY="582.0" text="You do not have a session in this day!" textFill="#d53a0b" visible="false">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="failIcon" fitHeight="38.0" fitWidth="51.0" layoutX="299.0" layoutY="575.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@assets/images/loginFailIcon.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

@@ -22,6 +22,12 @@ public class PlanPageController implements Initializable {
     private Button progressButton;
 
     @FXML
+    private Label errorMessage;
+
+    @FXML
+    private ImageView failIcon;
+
+    @FXML
     private AnchorPane contentArea;
 
     @FXML
@@ -89,71 +95,84 @@ public class PlanPageController implements Initializable {
 
     
     @FXML
-    public void initialize() {
-        planTitle.setText(plan.getPlanName());
+    public void initialize() throws NullPointerException {
+        try {
+            if(plan != null){
+                planTitle.setText(plan.getPlanName());
+            }else{
+                throw new NullPointerException();
+            }
+        } catch (NullPointerException e) {
+            planTitle.setText("You do not have a plan");
+
+        }
     }
 
 
 
   @FXML
   void sundayCardInHover(MouseEvent event) {
-      sundayDetailsIcon.setVisible(true);
-      sundayDetailsIcon.setOpacity(0.80);
-      sundayCardHeader.setOpacity(0.30);
-      sundayCard.setOpacity(0.30);
-  
+      sundayCardHeader.setEffect(new Glow(0.0));
+      sundayCard.setEffect(new Glow(0.0));
+      sundayCardHeader.setStyle("-fx-background-color: #366d55; -fx-background-radius:  10px 10px 0px 0px");
     }
 
     @FXML
     void sundayCardOutHover(MouseEvent event) {
-        sundayDetailsIcon.setVisible(false);
-        sundayCardHeader.setOpacity(1);
-        sundayCard.setOpacity(1);
+        sundayCardHeader.setEffect(new Glow(0.0));
+        sundayCard.setEffect(new Glow(0.0));
         sundayCard.setStyle("-fx-background-color: #f4f9f1; -fx-background-radius: 10px");
-
-
+        sundayCardHeader.setStyle("-fx-background-color: #43896b; -fx-background-radius:  10px 10px 0px 0px");
     }
 
     @FXML
     void sundayDetailsIconInHover(MouseEvent event) {
         sundayDetailsIcon.setStyle("-fx-cursor: hand");
-        sundayDetailsIcon.setOpacity(1);
-        sundayCard.setStyle("-fx-cursor: hand");
-        sundayCard.setOpacity(0.50);
+        sundayCardHeader.setEffect(new Glow(0.1));
+        sundayCard.setEffect(new Glow(0.1));
         sundayCard.setStyle("-fx-background-color: #f4f9f1; -fx-background-radius: 10px");
-        sundayCardHeader.setStyle("-fx-background-color: #43896b; -fx-background-radius:  10px 10px 0px 0px");
+        sundayCardHeader.setStyle("-fx-background-color: #366d55; -fx-background-radius:  10px 10px 0px 0px");
         }
     
 
     @FXML
     void sundayDetailsIconOutHover(MouseEvent event) {
         sundayDetailsIcon.setStyle("-fx-cursor: default");
-        sundayDetailsIcon.setOpacity(0.80);
-        sundayCard.setStyle("-fx-cursor: default");
-        sundayCard.setOpacity(0.30);
-        sundayCardHeader.setOpacity(0.30);
+        sundayCardHeader.setEffect(new Glow(0.0));
+        sundayCard.setEffect(new Glow(0.0));
         sundayCard.setStyle("-fx-background-color: #f4f9f1; -fx-background-radius: 10px");
-        sundayCardHeader.setStyle("-fx-background-color: #43896b; -fx-background-radius:  10px 10px 0px 0px");
+        sundayCardHeader.setStyle("-fx-background-color: #366d55; -fx-background-radius:  10px 10px 0px 0px");
 
+    }
+
+    @FXML
+    void sundayDetailsIconOnPressed(MouseEvent event) {
+        sundayCardHeader.setEffect(new Glow(0.3));
+        sundayCard.setEffect(new Glow(0.3));
+    }
+
+    @FXML
+    void sundayDetailsIconOnReleased(MouseEvent event) {
+        sundayCardHeader.setEffect(new Glow(0.0));
+        sundayCard.setEffect(new Glow(0.0));
     }
 
 
 
     @FXML
     void mondayCardInHover(MouseEvent event) {
-        mondayDetailsIcon.setVisible(true);
-        mondayDetailsIcon.setOpacity(0.80);
-        mondayCardHeader.setOpacity(0.30);
-        mondayCard.setOpacity(0.30);
+        mondayCardHeader.setEffect(new Glow(0.0));
+        mondayCard.setEffect(new Glow(0.0));
+        mondayCardHeader.setStyle("-fx-background-color: #366d55; -fx-background-radius:  10px 10px 0px 0px");
   
     }
 
     @FXML
     void mondayCardOutHover(MouseEvent event) {
-        mondayDetailsIcon.setVisible(false);
-        mondayCardHeader.setOpacity(1);
-        mondayCard.setOpacity(1);
+        mondayCardHeader.setEffect(new Glow(0.0));
+        mondayCard.setEffect(new Glow(0.0));
         mondayCard.setStyle("-fx-background-color: #f4f9f1; -fx-background-radius: 10px");
+        mondayCardHeader.setStyle("-fx-background-color: #43896b; -fx-background-radius:  10px 10px 0px 0px");
 
 
     }
@@ -161,172 +180,200 @@ public class PlanPageController implements Initializable {
     @FXML
     void mondayDetailsIconInHover(MouseEvent event) {
         mondayDetailsIcon.setStyle("-fx-cursor: hand");
-        mondayDetailsIcon.setOpacity(1);
-        mondayCard.setStyle("-fx-cursor: hand");
-        mondayCard.setOpacity(0.50);
+        mondayCardHeader.setEffect(new Glow(0.1));
+        mondayCard.setEffect(new Glow(0.1));
         mondayCard.setStyle("-fx-background-color: #f4f9f1; -fx-background-radius: 10px");
-        mondayCardHeader.setStyle("-fx-background-color: #43896b; -fx-background-radius:  10px 10px 0px 0px");
+        mondayCardHeader.setStyle("-fx-background-color: #366d55; -fx-background-radius:  10px 10px 0px 0px");
         }
     
 
     @FXML
     void mondayDetailsIconOutHover(MouseEvent event) {
         mondayDetailsIcon.setStyle("-fx-cursor: default");
-        mondayDetailsIcon.setOpacity(0.80);
-        mondayCard.setStyle("-fx-cursor: default");
-        mondayCard.setOpacity(0.30);
-        mondayCardHeader.setOpacity(0.30);
+        mondayCardHeader.setEffect(new Glow(0.0));
+        mondayCard.setEffect(new Glow(0.0));
         mondayCard.setStyle("-fx-background-color: #f4f9f1; -fx-background-radius: 10px");
-        mondayCardHeader.setStyle("-fx-background-color: #43896b; -fx-background-radius:  10px 10px 0px 0px");
+        mondayCardHeader.setStyle("-fx-background-color: #366d55; -fx-background-radius:  10px 10px 0px 0px");
 
+    }
+
+    @FXML
+    void mondayDetailsIconOnPressed(MouseEvent event) {
+        mondayCardHeader.setEffect(new Glow(0.3));
+        mondayCard.setEffect(new Glow(0.3));
+    }
+
+    @FXML
+    void mondayDetailsIconOnReleased(MouseEvent event) {
+        mondayCardHeader.setEffect(new Glow(0.0));
+        mondayCard.setEffect(new Glow(0.0));
     }
 
 
     @FXML
     void tuesdayCardInHover(MouseEvent event) {
-        tuesdayDetailsIcon.setVisible(true);
-        tuesdayDetailsIcon.setOpacity(0.80);
-        tuesdayCardHeader.setOpacity(0.30);
-        tuesdayCard.setOpacity(0.30);
+        tuesdayCardHeader.setEffect(new Glow(0.0));
+        tuesdayCard.setEffect(new Glow(0.0));
+        tuesdayCardHeader.setStyle("-fx-background-color: #366d55; -fx-background-radius:  10px 10px 0px 0px");
   
     }
 
     @FXML
     void tuesdayCardOutHover(MouseEvent event) {
-        tuesdayDetailsIcon.setVisible(false);
-        tuesdayCardHeader.setOpacity(1);
-        tuesdayCard.setOpacity(1);
+        tuesdayCardHeader.setEffect(new Glow(0.0));
+        tuesdayCard.setEffect(new Glow(0.0));
         tuesdayCard.setStyle("-fx-background-color: #f4f9f1; -fx-background-radius: 10px");
+        tuesdayCardHeader.setStyle("-fx-background-color: #43896b; -fx-background-radius:  10px 10px 0px 0px");
     }
 
     @FXML
     void tuesdayDetailsIconInHover(MouseEvent event) {
         tuesdayDetailsIcon.setStyle("-fx-cursor: hand");
-        tuesdayDetailsIcon.setOpacity(1);
-        tuesdayCard.setStyle("-fx-cursor: hand");
-        tuesdayCard.setOpacity(0.50);
+        tuesdayCardHeader.setEffect(new Glow(0.1));
+        tuesdayCard.setEffect(new Glow(0.1));
         tuesdayCard.setStyle("-fx-background-color: #f4f9f1; -fx-background-radius: 10px");
-        tuesdayCardHeader.setStyle("-fx-background-color: #43896b; -fx-background-radius:  10px 10px 0px 0px");
+        tuesdayCardHeader.setStyle("-fx-background-color: #366d55; -fx-background-radius:  10px 10px 0px 0px");
         }
     
 
     @FXML
     void tuesdayDetailsIconOutHover(MouseEvent event) {
         tuesdayDetailsIcon.setStyle("-fx-cursor: default");
-        tuesdayDetailsIcon.setOpacity(0.80);
-        tuesdayCard.setStyle("-fx-cursor: default");
-        tuesdayCard.setOpacity(0.30);
-        tuesdayCardHeader.setOpacity(0.30);
+        tuesdayCardHeader.setEffect(new Glow(0.0));
+        tuesdayCard.setEffect(new Glow(0.0));
         tuesdayCard.setStyle("-fx-background-color: #f4f9f1; -fx-background-radius: 10px");
-        tuesdayCardHeader.setStyle("-fx-background-color: #43896b; -fx-background-radius:  10px 10px 0px 0px");
+        tuesdayCardHeader.setStyle("-fx-background-color: #366d55; -fx-background-radius:  10px 10px 0px 0px");
 
     }
 
     @FXML
+    void tuesdayDetailsIconOnPressed(MouseEvent event) {
+        tuesdayCardHeader.setEffect(new Glow(0.3));
+        tuesdayCard.setEffect(new Glow(0.3));
+    }
+
+    @FXML
+    void tuesdayDetailsIconOnReleased(MouseEvent event) {
+        tuesdayCardHeader.setEffect(new Glow(0.0));
+        tuesdayCard.setEffect(new Glow(0.0));
+    }
+
+    @FXML
     void wednesdayCardInHover(MouseEvent event) {
-        wednesdayDetailsIcon.setVisible(true);
-        wednesdayDetailsIcon.setOpacity(0.80);
-        wednesdayCardHeader.setOpacity(0.30);
-        wednesdayCard.setOpacity(0.30);
+        wednesdayCardHeader.setEffect(new Glow(0.0));
+        wednesdayCard.setEffect(new Glow(0.0));
+        wednesdayCardHeader.setStyle("-fx-background-color: #366d55; -fx-background-radius:  10px 10px 0px 0px");
   
     }
 
     @FXML
     void wednesdayCardOutHover(MouseEvent event) {
-        wednesdayDetailsIcon.setVisible(false);
-        wednesdayCardHeader.setOpacity(1);
-        wednesdayCard.setOpacity(1);
+        wednesdayCardHeader.setEffect(new Glow(0.0));
+        wednesdayCard.setEffect(new Glow(0.0));
         wednesdayCard.setStyle("-fx-background-color: #f4f9f1; -fx-background-radius: 10px");
+        wednesdayCardHeader.setStyle("-fx-background-color: #43896b; -fx-background-radius:  10px 10px 0px 0px");
 
 
     }
 
     @FXML
     void wednesdayDetailsIconInHover(MouseEvent event) {
-        
         wednesdayDetailsIcon.setStyle("-fx-cursor: hand");
-        wednesdayDetailsIcon.setOpacity(1);
-        wednesdayCard.setStyle("-fx-cursor: hand");
-        wednesdayCard.setOpacity(0.50);
+        wednesdayCardHeader.setEffect(new Glow(0.1));
+        wednesdayCard.setEffect(new Glow(0.1));
         wednesdayCard.setStyle("-fx-background-color: #f4f9f1; -fx-background-radius: 10px");
-        wednesdayCardHeader.setStyle("-fx-background-color: #43896b; -fx-background-radius:  10px 10px 0px 0px");
+        wednesdayCardHeader.setStyle("-fx-background-color: #366d55; -fx-background-radius:  10px 10px 0px 0px");
         }
     
 
     @FXML
     void wednesdayDetailsIconOutHover(MouseEvent event) {
-        
         wednesdayDetailsIcon.setStyle("-fx-cursor: default");
-        wednesdayDetailsIcon.setOpacity(0.80);
-        wednesdayCard.setStyle("-fx-cursor: default");
-        wednesdayCard.setOpacity(0.30);
-        wednesdayCardHeader.setOpacity(0.30);
+        wednesdayCardHeader.setEffect(new Glow(0.0));
+        wednesdayCard.setEffect(new Glow(0.0));
         wednesdayCard.setStyle("-fx-background-color: #f4f9f1; -fx-background-radius: 10px");
-        wednesdayCardHeader.setStyle("-fx-background-color: #43896b; -fx-background-radius:  10px 10px 0px 0px");
+        wednesdayCardHeader.setStyle("-fx-background-color: #366d55; -fx-background-radius:  10px 10px 0px 0px");
 
+    }
+
+    @FXML
+    void wednesdayDetailsIconOnPressed(MouseEvent event) {
+        wednesdayCardHeader.setEffect(new Glow(0.3));
+        wednesdayCard.setEffect(new Glow(0.3));
+    }
+
+    @FXML
+    void wednesdayDetailsIconOnReleased(MouseEvent event) {
+        wednesdayCardHeader.setEffect(new Glow(0.0));
+        wednesdayCard.setEffect(new Glow(0.0));
     }
 
 
     @FXML
     void thursdayCardInHover(MouseEvent event) {
-        thursdayDetailsIcon.setVisible(true);
-        thursdayDetailsIcon.setOpacity(0.80);
-        thursdayCardHeader.setOpacity(0.30);
-        thursdayCard.setOpacity(0.30);
+        thursdayCardHeader.setEffect(new Glow(0.0));
+        thursdayCard.setEffect(new Glow(0.0));
+        thursdayCardHeader.setStyle("-fx-background-color: #366d55; -fx-background-radius:  10px 10px 0px 0px");
   
     }
 
     @FXML
     void thursdayCardOutHover(MouseEvent event) {
-        thursdayDetailsIcon.setVisible(false);
-        thursdayCardHeader.setOpacity(1);
-        thursdayCard.setOpacity(1);
+        thursdayCardHeader.setEffect(new Glow(0.0));
+        thursdayCard.setEffect(new Glow(0.0));
         thursdayCard.setStyle("-fx-background-color: #f4f9f1; -fx-background-radius: 10px");
+        thursdayCardHeader.setStyle("-fx-background-color: #43896b; -fx-background-radius:  10px 10px 0px 0px");
 
 
     }
 
     @FXML
     void thursdayDetailsIconInHover(MouseEvent event) {
-        
         thursdayDetailsIcon.setStyle("-fx-cursor: hand");
-        thursdayDetailsIcon.setOpacity(1);
-        thursdayCard.setStyle("-fx-cursor: hand");
-        thursdayCard.setOpacity(0.50);
+        thursdayCardHeader.setEffect(new Glow(0.1));
+        thursdayCard.setEffect(new Glow(0.1));
         thursdayCard.setStyle("-fx-background-color: #f4f9f1; -fx-background-radius: 10px");
-        thursdayCardHeader.setStyle("-fx-background-color: #43896b; -fx-background-radius:  10px 10px 0px 0px");
+        thursdayCardHeader.setStyle("-fx-background-color: #366d55; -fx-background-radius:  10px 10px 0px 0px");
         }
     
 
     @FXML
     void thursdayDetailsIconOutHover(MouseEvent event) {
-        
         thursdayDetailsIcon.setStyle("-fx-cursor: default");
-        thursdayDetailsIcon.setOpacity(0.80);
-        thursdayCard.setStyle("-fx-cursor: default");
-        thursdayCard.setOpacity(0.30);
-        thursdayCardHeader.setOpacity(0.30);
+        thursdayCardHeader.setEffect(new Glow(0.0));
+        thursdayCard.setEffect(new Glow(0.0));
         thursdayCard.setStyle("-fx-background-color: #f4f9f1; -fx-background-radius: 10px");
-        thursdayCardHeader.setStyle("-fx-background-color: #43896b; -fx-background-radius:  10px 10px 0px 0px");
+        thursdayCardHeader.setStyle("-fx-background-color: #366d55; -fx-background-radius:  10px 10px 0px 0px");
 
+    }
+
+    @FXML
+    void thursdayDetailsIconOnPressed(MouseEvent event) {
+        thursdayCardHeader.setEffect(new Glow(0.3));
+        thursdayCard.setEffect(new Glow(0.3));
+    }
+
+    @FXML
+    void thursdayDetailsIconOnReleased(MouseEvent event) {
+        thursdayCardHeader.setEffect(new Glow(0.0));
+        thursdayCard.setEffect(new Glow(0.0));
     }
 
 
     @FXML
     void saturdayCardInHover(MouseEvent event) {
-        saturdayDetailsIcon.setVisible(true);
-        saturdayDetailsIcon.setOpacity(0.80);
-        saturdayCardHeader.setOpacity(0.30);
-        saturdayCard.setOpacity(0.30);
+        saturdayCardHeader.setEffect(new Glow(0.0));
+        saturdayCard.setEffect(new Glow(0.0));
+        saturdayCardHeader.setStyle("-fx-background-color: #366d55; -fx-background-radius:  10px 10px 0px 0px");
   
     }
 
     @FXML
     void saturdayCardOutHover(MouseEvent event) {
-        saturdayDetailsIcon.setVisible(false);
-        saturdayCardHeader.setOpacity(1);
-        saturdayCard.setOpacity(1);
+        saturdayCardHeader.setEffect(new Glow(0.0));
+        saturdayCard.setEffect(new Glow(0.0));
         saturdayCard.setStyle("-fx-background-color: #f4f9f1; -fx-background-radius: 10px");
+        saturdayCardHeader.setStyle("-fx-background-color: #43896b; -fx-background-radius:  10px 10px 0px 0px");
 
 
     }
@@ -335,11 +382,10 @@ public class PlanPageController implements Initializable {
     void saturdayDetailsIconInHover(MouseEvent event) {
         
         saturdayDetailsIcon.setStyle("-fx-cursor: hand");
-        saturdayDetailsIcon.setOpacity(1);
-        saturdayCard.setStyle("-fx-cursor: hand");
-        saturdayCard.setOpacity(0.50);
+        saturdayCardHeader.setEffect(new Glow(0.1));
+        saturdayCard.setEffect(new Glow(0.1));
         saturdayCard.setStyle("-fx-background-color: #f4f9f1; -fx-background-radius: 10px");
-        saturdayCardHeader.setStyle("-fx-background-color: #43896b; -fx-background-radius:  10px 10px 0px 0px");
+        saturdayCardHeader.setStyle("-fx-background-color: #366d55; -fx-background-radius:  10px 10px 0px 0px");
         }
     
 
@@ -347,25 +393,23 @@ public class PlanPageController implements Initializable {
     void saturdayDetailsIconOutHover(MouseEvent event) {
         
         saturdayDetailsIcon.setStyle("-fx-cursor: default");
-        saturdayDetailsIcon.setOpacity(0.80);
-        saturdayCard.setStyle("-fx-cursor: default");
-        saturdayCard.setOpacity(0.30);
-        saturdayCardHeader.setOpacity(0.30);
+        saturdayCardHeader.setEffect(new Glow(0.0));
+        saturdayCard.setEffect(new Glow(0.0));
         saturdayCard.setStyle("-fx-background-color: #f4f9f1; -fx-background-radius: 10px");
-        saturdayCardHeader.setStyle("-fx-background-color: #43896b; -fx-background-radius:  10px 10px 0px 0px");
+        saturdayCardHeader.setStyle("-fx-background-color: #366d55; -fx-background-radius:  10px 10px 0px 0px");
 
     }
 
     @FXML
-    void progressButtonOnPressed(MouseEvent event) {
-        progressButton.setStyle("-fx-background-color: #366D55; -fx-background-radius: 15; -fx-cursor: hand");
-        progressButton.setEffect(new Glow(0.3));
+    void saturdayDetailsIconOnPressed(MouseEvent event) {
+        saturdayCardHeader.setEffect(new Glow(0.3));
+        saturdayCard.setEffect(new Glow(0.3));
     }
 
     @FXML
-    void progressButtonOnReleased(MouseEvent event) {
-        progressButton.setStyle("-fx-background-color: #43896B; -fx-background-radius: 15; -fx-cursor: hand");
-        progressButton.setEffect(new Glow(0.0));
+    void saturdayDetailsIconOnReleased(MouseEvent event) {
+        saturdayCardHeader.setEffect(new Glow(0.0));
+        saturdayCard.setEffect(new Glow(0.0));
     }
 
     @FXML
@@ -384,6 +428,18 @@ public class PlanPageController implements Initializable {
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);  
     }
+
+    @FXML
+    void progressButtonOnPressed(MouseEvent event) {
+        progressButton.setStyle("-fx-background-color: #366D55; -fx-background-radius: 15; -fx-cursor: hand");
+        progressButton.setEffect(new Glow(0.3));
+    }
+
+    @FXML
+    void progressButtonOnReleased(MouseEvent event) {
+        progressButton.setStyle("-fx-background-color: #43896B; -fx-background-radius: 15; -fx-cursor: hand");
+        progressButton.setEffect(new Glow(0.0));
+    }
     
 
 
@@ -396,7 +452,8 @@ public class PlanPageController implements Initializable {
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml); 
         } catch (Exception e) {
-            System.out.println("IM IN SUNDAY THIS IS AN ERROR MESSAGE\n\n\n\n");
+            errorMessage.setVisible(true);
+            failIcon.setVisible(true);
         }
          
     }
@@ -404,42 +461,67 @@ public class PlanPageController implements Initializable {
     @FXML
     void mondayDetailsIconOnClicked(MouseEvent event) throws IOException {
         day = "Monday";
-        Parent fxml = FXMLLoader.load(getClass().getResource("SessionsPage.fxml"));
-        contentArea.getChildren().removeAll();
-        contentArea.getChildren().setAll(fxml);  
+        try {        
+            Parent fxml = FXMLLoader.load(getClass().getResource("SessionsPage.fxml"));
+            contentArea.getChildren().removeAll();
+            contentArea.getChildren().setAll(fxml); 
+            } catch (Exception e) {
+                errorMessage.setVisible(true);
+                failIcon.setVisible(true);
+            } 
     }
 
     @FXML
     void tuesdayDetailsIconOnClicked(MouseEvent event) throws IOException {
         day = "Tuesday";
-        Parent fxml = FXMLLoader.load(getClass().getResource("SessionsPage.fxml"));
-        contentArea.getChildren().removeAll();
-        contentArea.getChildren().setAll(fxml);  
+        try {        
+            Parent fxml = FXMLLoader.load(getClass().getResource("SessionsPage.fxml"));
+            contentArea.getChildren().removeAll();
+            contentArea.getChildren().setAll(fxml); 
+            } catch (Exception e) {
+                errorMessage.setVisible(true);
+                failIcon.setVisible(true);
+            } 
     }
 
     @FXML
     void wednesdayDetailsIconOnClicked(MouseEvent event) throws IOException {
         day = "Wednesday";
-        Parent fxml = FXMLLoader.load(getClass().getResource("SessionsPage.fxml"));
-        contentArea.getChildren().removeAll();
-        contentArea.getChildren().setAll(fxml);  
+        try {        
+            Parent fxml = FXMLLoader.load(getClass().getResource("SessionsPage.fxml"));
+            contentArea.getChildren().removeAll();
+            contentArea.getChildren().setAll(fxml); 
+            } catch (Exception e) {
+                errorMessage.setVisible(true);
+                failIcon.setVisible(true);
+            } 
     }
 
     
     @FXML
     void thursdayDetailsIconOnClicked(MouseEvent event) throws IOException {
         day = "Thursday";
-        Parent fxml = FXMLLoader.load(getClass().getResource("SessionsPage.fxml"));
-        contentArea.getChildren().removeAll();
-        contentArea.getChildren().setAll(fxml);  
+        try {        
+            Parent fxml = FXMLLoader.load(getClass().getResource("SessionsPage.fxml"));
+            contentArea.getChildren().removeAll();
+            contentArea.getChildren().setAll(fxml); 
+            } catch (Exception e) {
+                errorMessage.setVisible(true);
+                failIcon.setVisible(true);
+            } 
     }
 
     @FXML
     void saturdayDetailsIconOnClicked(MouseEvent event) throws IOException {
         day = "Saturday";
-        Parent fxml = FXMLLoader.load(getClass().getResource("SessionsPage.fxml"));
-        contentArea.getChildren().removeAll();
-        contentArea.getChildren().setAll(fxml);  
+        try {        
+            Parent fxml = FXMLLoader.load(getClass().getResource("SessionsPage.fxml"));
+            contentArea.getChildren().removeAll();
+            contentArea.getChildren().setAll(fxml); 
+            } catch (Exception e) {
+                errorMessage.setVisible(true);
+                failIcon.setVisible(true);
+            }  
     }
 
     
