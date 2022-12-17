@@ -52,6 +52,8 @@ public class SessionPage implements Initializable{
     @FXML
     private Trainee trainee = (Trainee) LoginFormController.user;
 
+    public static Session dSession;
+
     protected static Workouts workout;
 
     protected String day = PlanPageController.day;
@@ -75,6 +77,7 @@ public class SessionPage implements Initializable{
         
        
         // sessionsTable.setItems(trainee.getObservableWorkoutsList());
+        dSession = desiredSession();
         sessionsTable.setItems(desiredSession().getObservableWorkoutsList());
 
         messageIcon.setVisible(false);

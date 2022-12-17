@@ -91,6 +91,24 @@ public class Trainee extends User implements Initializable{
         int line = r.getLine("@"+userName);
         WriteFiles w = new WriteFiles<>("UserInfo.txt");
         w.modifyLine(line, "*"+plan.id, "\\*\\d{1,8}");
+
+        ReadFiles readProgress = new ReadFiles<>("Progress.txt");
+        WriteFiles writeProgress = new WriteFiles<>("Progress.txt", true);
+        for (Session session : plan.sessionsList) {
+            String data = userName + " " + session.day + " " + 0 + " " + 0 + " " + 0;
+            if(this.plan.id != 0){
+                int line2 = readProgress.getLine(userName + " " + session.day);
+                writeProgress.modifyLine(line2, data);
+            }
+            else{
+             try {
+                writeProgress.writeToFile(data);
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }   
+            }
+        }
         this.plan = plan;
     }
 
