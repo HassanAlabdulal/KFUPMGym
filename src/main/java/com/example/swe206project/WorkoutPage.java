@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.Glow;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -25,31 +26,37 @@ public class WorkoutPage implements Initializable{
     private TextField actualRepetitions;
 
     @FXML
-    private Label errorMessage;
-
-    @FXML
-    private ImageView failIcon;
-
-    @FXML
-    private AnchorPane contentArea;
-
-    @FXML
     private TextField actualSets;
 
     @FXML
     private ImageView backArrow;
 
     @FXML
+    private AnchorPane contentArea;
+
+    @FXML
+    private Label errorMessageOne;
+
+    @FXML
+    private Label errorMessageTwo;
+
+    @FXML
+    private ImageView failIconOne;
+
+    @FXML
+    private ImageView failIconTwo;
+
+    @FXML
     private Button submitButton;
+
+    @FXML
+    private Label successfullMessage;
 
     @FXML
     private TextField targetedMuscles;
 
     @FXML
     private Label targetedMusclesLabel;
-
-    @FXML
-    private Label successfullMessage;
 
     @FXML
     private TextField targetedRepetitions;
@@ -75,21 +82,17 @@ public class WorkoutPage implements Initializable{
     @FXML
     private Workouts workout = SessionPage.workout;
 
+   
+
     @FXML
     public void initialize() {
 
             targetedSets.setText(workout.getSetsTarget() + "");
             targetedRepetitions.setText(workout.getRepititionTarget() + "");
             targetedMuscles.setText(workout.getTargetedMuscles());
-            workoutDescription.setText(workout.getSteps());
-            //workoutDescription.setStyle("-fx--fx-background-color: orange");
-            String tmp = workout.getSteps();
-            System.out.println(tmp);
-
-            
+            workoutDescription.setText(workout.getSteps()); 
     }
 
-    
 
     @FXML
     void backArrowOnClicked(MouseEvent event) throws IOException {
@@ -115,9 +118,11 @@ public class WorkoutPage implements Initializable{
       if(actualRepetitions.getText().isEmpty() || actualSets.getText().isEmpty() || weightUsed.getText().isEmpty()){
         if(actualRepetitions.getText().isEmpty()){
             actualRepetitions.setStyle("-fx-border-color: #D53A0B; -fx-border-width: 1px 1px 1px 1px; -fx-background-color: #3A4141; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1");
-            errorMessage.setVisible(true);
-            failIcon.setVisible(true);
+            errorMessageOne.setVisible(true);
+            failIconOne.setVisible(true);
             successfullMessage.setVisible(false);
+            errorMessageTwo.setVisible(false);
+            failIconTwo.setVisible(false);
             
 
 
@@ -125,33 +130,54 @@ public class WorkoutPage implements Initializable{
 
         if(actualSets.getText().isEmpty()){
             actualSets.setStyle("-fx-border-color: #D53A0B; -fx-border-width: 1px 1px 1px 1px; -fx-background-color: #3A4141; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1");
-            errorMessage.setVisible(true);
-            failIcon.setVisible(true);
+            errorMessageOne.setVisible(true);
+            failIconOne.setVisible(true);
             successfullMessage.setVisible(false);
+            errorMessageTwo.setVisible(false);
+            failIconTwo.setVisible(false);
 
 
         }
 
         if(weightUsed.getText().isEmpty()){
             weightUsed.setStyle("-fx-border-color: #D53A0B; -fx-border-width: 1px 1px 1px 1px; -fx-background-color: #3A4141; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1");
-            errorMessage.setVisible(true);
-            failIcon.setVisible(true);
+            errorMessageOne.setVisible(true);
+            failIconOne.setVisible(true);
             successfullMessage.setVisible(false);
+            errorMessageTwo.setVisible(false);
+            failIconTwo.setVisible(false);
 
 
         }
     }else{
-        successfullMessage.setVisible(true);
-        errorMessage.setVisible(false);
-        failIcon.setVisible(false);
-        actualRepetitions.clear();
-        actualSets.clear();
-        weightUsed.clear();
-        
+            try{ 
+                // int test1, test2, test3;
+                // test1 = Integer.parseInt(actualRepetitions.getText());
+                // test2 = Integer.parseInt(actualSets.getText());
+                // test3 = Integer.parseInt(weightUsed.getText());
+                workout.setActualRepitions(Integer.parseInt(actualRepetitions.getText()));
+                workout.setActualSets(Integer.parseInt(actualSets.getText()));
+                workout.setweightUsed(Integer.parseInt(weightUsed.getText()));
+                successfullMessage.setVisible(true);
+                errorMessageOne.setVisible(false);
+                failIconOne.setVisible(false);
+                errorMessageTwo.setVisible(false);
+                failIconTwo.setVisible(false);
+                actualRepetitions.clear();
+                actualSets.clear();
+                weightUsed.clear();
+                
+            }catch(Exception e){
+                errorMessageTwo.setVisible(true);
+                failIconTwo.setVisible(true);
+                successfullMessage.setVisible(false);
+                
+            }
+        }
+
         
     }
-  }
- 
+
     @FXML
     void submitButtonOnPressed(MouseEvent event) {
         submitButton.setStyle("-fx-background-color: #366D55; -fx-background-radius: 15; -fx-cursor: hand");
@@ -227,9 +253,6 @@ public class WorkoutPage implements Initializable{
 
     @FXML
     void videoButtonOnClicked(MouseEvent event) throws IOException {
-      
-      
-      
       
     }
 
