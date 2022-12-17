@@ -87,10 +87,6 @@ public class ProfilePageController implements Initializable {
 
     private boolean editProfileIsClicked = false;
 
-     
-
-    private FileChooser fileChooser;
-    private File filePath;
     private Image image;
 
     @FXML
@@ -329,8 +325,14 @@ public class ProfilePageController implements Initializable {
         cancel.setVisible(false);
         cancel.setDisable(true);
 
+        newImagePath.setVisible(false);
+        newImagePath.clear();
+
         editPhotoIcon.setVisible(false);
         profilePhoto.setOpacity(1);
+
+        wrongInputIcon.setVisible(false);
+        wrongInputMessage.setVisible(false);
 
         weight.setStyle(
             "-fx-border-color: #43896B; -fx-border-width: 1px 0px 0px 0px; -fx-background-color: #212121; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1"

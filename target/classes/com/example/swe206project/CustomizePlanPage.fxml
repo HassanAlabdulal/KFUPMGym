@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="975.0" style="-fx-background-color: #212121;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.swe206project.CustomizePlanPageController">
+   <children>
+      <Button fx:id="addSession" layoutX="375.0" layoutY="574.0" mnemonicParsing="false" onMouseClicked="#addSessionOnClicked" onMouseEntered="#addSessionInHover" onMouseExited="#addSessionOutHover" onMousePressed="#addSessionOnPressed" onMouseReleased="#addSessionOnReleased" prefHeight="40.0" prefWidth="225.0" style="-fx-background-color: #43896B; -fx-background-radius: 15px;" text="Add Session Day" textAlignment="CENTER" textFill="#f4f9f1" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="240.0">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Button>
+      <ComboBox fx:id="sessionDays" layoutX="325.0" layoutY="300.0" prefHeight="40.0" prefWidth="250.0" promptText="Session Days" style="-fx-selection-bar: #366D55; -fx-font-size: 16px;" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="240.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ComboBox>
+      <Label alignment="CENTER" layoutX="125.0" layoutY="148.0" prefHeight="30.0" prefWidth="725.0" text="Select a session's day to add to the plan" textFill="#f4f9f1" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="125.0" AnchorPane.topAnchor="180.0">
+         <font>
+            <Font name="Tahoma Bold" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="back" fitHeight="50.0" fitWidth="50.0" layoutX="40.0" layoutY="30.0" onMouseClicked="#backToAssignPlanPage" onMouseEntered="#backInHover" onMousePressed="#backOnPressed" onMouseReleased="#backOnReleased" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+         <image>
+            <Image url="@assets/images/backArrow.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="addWorkout" layoutX="525.0" layoutY="584.0" mnemonicParsing="false" onMouseClicked="#addWorkoutOnClicked" onMouseEntered="#addWorkoutInHover" onMouseExited="#addWorkoutOutHover" onMousePressed="#addWorkoutOnPressed" onMouseReleased="#addWorkoutOnReleased" prefHeight="40.0" prefWidth="225.0" style="-fx-background-color: #43896B; -fx-background-radius: 15px;" text="Add Workout" textAlignment="CENTER" textFill="#f4f9f1" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="400.0">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Button>
+      <Label fx:id="message" alignment="CENTER" layoutX="50.0" layoutY="525.0" prefHeight="20.0" prefWidth="875.0" textFill="#f4f9f1" AnchorPane.bottomAnchor="175.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+         <font>
+            <Font name="Tahoma Bold" size="16.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="confirmIcon" fitHeight="35.0" fitWidth="35.0" layoutX="490.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" visible="false" AnchorPane.bottomAnchor="205.0" AnchorPane.leftAnchor="470.0" AnchorPane.rightAnchor="470.0">
+         <image>
+            <Image url="@assets/images/cnfirmedIcon.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="errorIcon" fitHeight="35.0" fitWidth="35.0" layoutX="490.0" layoutY="525.0" pickOnBounds="true" preserveRatio="true" visible="false" AnchorPane.bottomAnchor="205.0" AnchorPane.leftAnchor="470.0" AnchorPane.rightAnchor="470.0">
+         <image>
+            <Image url="@assets/images/loginFailIcon.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="135.0" layoutY="135.0" prefHeight="30.0" prefWidth="725.0" text="Select a workout to add to the chosen session" textFill="#f4f9f1" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="125.0" AnchorPane.topAnchor="310.0">
+         <font>
+            <Font name="Tahoma Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="135.0" layoutY="310.0" prefHeight="30.0" prefWidth="725.0" text="(You could add multiple workouts)" textFill="#f4f9f1" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="125.0" AnchorPane.topAnchor="340.0">
+         <font>
+            <Font name="Tahoma Bold" size="14.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="workouts" layoutX="335.0" layoutY="310.0" prefHeight="40.0" prefWidth="250.0" promptText="Workouts" style="-fx-selection-bar: #366D55; -fx-font-size: 16px;" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="400.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ComboBox>
+      <Button fx:id="assignPlan" layoutX="325.0" layoutY="576.0" mnemonicParsing="false" onMouseClicked="#assignPlanOnClicked" onMouseEntered="#assignPlanInHover" onMouseExited="#assignPlanOutHover" onMousePressed="#assignPlanOnPressed" onMouseReleased="#assignPlanOnReleased" prefHeight="45.0" prefWidth="325.0" style="-fx-background-color: #43896B; -fx-background-radius: 15px;" text="Assign Customized Plan" textAlignment="CENTER" textFill="#f4f9f1" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="325.0" AnchorPane.rightAnchor="325.0">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Button>
+      <TextField fx:id="planName" layoutX="350.0" layoutY="110.0" onMouseEntered="#planNameInHover" onMouseExited="#planNameOutHover" prefHeight="42.0" prefWidth="275.0" promptText="Enter plan's name" style="-fx-border-width: 0px 0px 1px 0px; -fx-border-color: #43896B; -fx-background-color: #303030; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1;" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="100.0">
+         <font>
+            <Font name="Tahoma" size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </TextField>
+      <Label alignment="CENTER_RIGHT" layoutX="143.0" layoutY="94.0" prefHeight="42.0" prefWidth="275.0" text="Plan's Name" textFill="#f4f9f1" AnchorPane.leftAnchor="125.0" AnchorPane.topAnchor="100.0">
+         <font>
+            <Font name="Tahoma Bold" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
