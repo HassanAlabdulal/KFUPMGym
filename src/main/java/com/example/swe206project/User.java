@@ -41,7 +41,7 @@ public abstract class User implements Serializable{
         this.height = Double.valueOf(info.get(1));
         this.weight = Double.valueOf(info.get(2));
         ReadFiles r = new ReadFiles<>("UserInfo.txt");
-        this.photo = r.fetch(userName, "\\(\\p{ASCII}*\\)").replaceAll("\\(|\\)", "");
+        this.photo = r.fetch("@"+userName, "\\(\\p{ASCII}*\\)").replaceAll("\\(|\\)", "");
     
         if(isActive(userName))
             status = "active";
