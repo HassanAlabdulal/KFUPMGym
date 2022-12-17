@@ -30,7 +30,7 @@
             <Image url="@assets/images/backArrow.png" />
          </image>
       </ImageView>
-      <Button fx:id="customizePlan" layoutX="525.0" layoutY="584.0" mnemonicParsing="false" onMouseEntered="#customizePlanInHover" onMouseExited="#customizePlanOutHover" onMousePressed="#customizePlanOnPressed" onMouseReleased="#customizePlanOnReleased" prefHeight="45.0" prefWidth="225.0" style="-fx-background-color: #43896B; -fx-background-radius: 15px;" text="Customize Plan" textAlignment="CENTER" textFill="#f4f9f1" AnchorPane.bottomAnchor="175.0" AnchorPane.leftAnchor="525.0" AnchorPane.rightAnchor="225.0">
+      <Button fx:id="customizePlan" layoutX="525.0" layoutY="584.0" mnemonicParsing="false" onMouseClicked="#customizePlanOnClicked" onMouseEntered="#customizePlanInHover" onMouseExited="#customizePlanOutHover" onMousePressed="#customizePlanOnPressed" onMouseReleased="#customizePlanOnReleased" prefHeight="45.0" prefWidth="225.0" style="-fx-background-color: #43896B; -fx-background-radius: 15px;" text="Customize Plan" textAlignment="CENTER" textFill="#f4f9f1" AnchorPane.bottomAnchor="175.0" AnchorPane.leftAnchor="525.0" AnchorPane.rightAnchor="225.0">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font>

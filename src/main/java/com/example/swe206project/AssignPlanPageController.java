@@ -136,6 +136,13 @@ public class AssignPlanPageController implements Initializable {
 
     // Customize plan button design
     @FXML
+    void customizePlanOnClicked(MouseEvent event) throws IOException {
+        AnchorPane customizePlanPage = FXMLLoader.load(getClass().getResource("CustomizePlanPage.fxml"));
+        rootPane.getChildren().removeAll();
+        rootPane.getChildren().setAll(customizePlanPage);
+    }
+
+    @FXML
     void customizePlanOnPressed(MouseEvent event) {
         customizePlan.setStyle("-fx-background-color: #366D55; -fx-background-radius: 15; -fx-cursor: hand");
         customizePlan.setEffect(new Glow(0.3));
