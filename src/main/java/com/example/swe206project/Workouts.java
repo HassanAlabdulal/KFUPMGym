@@ -106,13 +106,12 @@ public  class Workouts {
     }
 
     public String getWeightProgress() {
-        return getWeightUsed() + "/" + weightTarget;
+        return getWeightUsed() + "";
     }
 
     public String getVolumeProgress() {
         volume = getWeightUsed() * getActualRepitions() * getActualSets();
-        volumeTarget = setsTarget * repititionTarget * weightTarget;
-        return volume + "/" + volumeTarget;
+        return volume + "";
     }
 
     public int getActualRepitions() {

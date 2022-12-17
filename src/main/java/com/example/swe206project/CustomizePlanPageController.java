@@ -433,7 +433,7 @@ public class CustomizePlanPageController implements Initializable {
         } else {
             confirmIcon.setVisible(false);
             errorIcon.setVisible(true);
-            message.setText("Plan name is incorrect.");
+            message.setText("Plan name is incorrect or you did not add sessions or workouts.");
             message.setStyle("-fx-text-fill: #D53A0B");
             message.setVisible(true);
         }
