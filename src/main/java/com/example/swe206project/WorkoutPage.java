@@ -157,10 +157,11 @@ public class WorkoutPage implements Initializable{
                 // test1 = Integer.parseInt(actualRepetitions.getText());
                 // test2 = Integer.parseInt(actualSets.getText());
                 // test3 = Integer.parseInt(weightUsed.getText());
-                saveProgress(Integer.parseInt(actualSets.getText()), Integer.parseInt(weightUsed.getText()), Integer.parseInt(weightUsed.getText()));
                 workout.setActualRepitions(Integer.parseInt(actualRepetitions.getText()));
                 workout.setActualSets(Integer.parseInt(actualSets.getText()));
                 workout.setweightUsed(Integer.parseInt(weightUsed.getText()));
+                saveProgress(Integer.parseInt(actualSets.getText()), Integer.parseInt(weightUsed.getText()), Integer.parseInt(weightUsed.getText()));
+                
 
 
                 successfullMessage.setVisible(true);
@@ -288,8 +289,8 @@ public class WorkoutPage implements Initializable{
     public void saveProgress(int sets, int repition, int weight){
         ReadFiles r = new ReadFiles<>("Progress.txt");
         WriteFiles w = new WriteFiles<>("Progress.txt");
-        int line = r.getLine(trainee.userName + " " + PlanPageController.day);
-        String data = trainee.userName + " " + PlanPageController.day + " " + sets + " " + repition + " " + weight;
+        int line = r.getLine(trainee.userName + " " + PlanPageController.day + " " + workout.getWorkoutName());
+        String data = trainee.userName + " " + PlanPageController.day + " !" + sets + " ?" + repition + " *" + weight;
         w.modifyLine(line, data);
     }
 }

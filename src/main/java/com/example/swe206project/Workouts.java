@@ -52,7 +52,7 @@ public  class Workouts {
         setsTarget = Integer.valueOf(reader.fetch(workoutId+"", "\\#\\p{Digit}*").replaceAll("#", ""));
         repititionTarget = Integer.valueOf(reader.fetch(workoutId+"", "\\*\\p{Digit}*").replaceAll("\\*", ""));
         steps = reader.fetch(workoutId+"", "\\[\\p{ASCII}*\\]");
-        weightTarget = Integer.valueOf(reader.fetch(workoutId+"", "\\?\\p{Digit}*").replaceAll("?", ""));
+        weightTarget = Integer.valueOf(reader.fetch(workoutId+"", "\\?\\p{Digit}*").replaceAll("\\?", ""));
     }
     
 
@@ -85,15 +85,15 @@ public  class Workouts {
         return videoURL;
     }
     public int getWeightUsed() {
-        Trainee trainee = (Trainee) LoginFormController.user;
+        Trainee trainee = (Trainee) ViewTraineesPageController.trainee;
         ReadFiles r = new ReadFiles<>("Progress.txt");
-        String weight = r.fetch(trainee.userName + " " + PlanPageController.day, "\\*\\p{Digit}").replaceAll("\\*", "");
+        String weight = r.fetch(trainee.userName + " " + PlanPageController.day, workoutName, "\\*\\p{Digit}").replaceAll("\\*", "");
         return Integer.valueOf(weight);
     }
     public int getActualSets() {
-        Trainee trainee = (Trainee) LoginFormController.user;
+        Trainee trainee = (Trainee) ViewTraineesPageController.trainee;
         ReadFiles r = new ReadFiles<>("Progress.txt");
-        String sets = r.fetch(trainee.userName + " " + PlanPageController.day, "\\!\\p{Digit}").replaceAll("\\!", "");
+        String sets = r.fetch(trainee.userName + " " + PlanPageController.day, workoutName, "\\!\\p{Digit}").replaceAll("\\!", "");
         return Integer.valueOf(sets);
     }
 
@@ -143,7 +143,7 @@ public  class Workouts {
     }
 
     public String toString(){
-        return workoutName + " " + id;
+        return workoutName + " !" + getActualSets() + " ?" + getActualRepitions() + " *" + getWeightUsed();
     }
 
 

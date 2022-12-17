@@ -61,7 +61,7 @@ public class ViewTraineesPageController implements Initializable {
     private Trainer trainer = (Trainer) LoginFormController.user;
    
 
-    protected static Trainee trainee;
+    protected static Trainee trainee = new Trainee();
 
     @FXML
     public void initialize() {

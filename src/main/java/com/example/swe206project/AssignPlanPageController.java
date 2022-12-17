@@ -105,6 +105,7 @@ public class AssignPlanPageController implements Initializable {
                 throw new NullPointerException();
             }
         } catch (NullPointerException e) {
+                e.printStackTrace();
                 errorIcon.setVisible(true);
                 message.setText("Please select a plan to proceed.");
                 message.setStyle("-fx-text-fill: #D53A0B");

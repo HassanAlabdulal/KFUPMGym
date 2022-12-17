@@ -12,6 +12,8 @@ public class Session implements Initializable, Serializable{
     protected String day;
     protected ArrayList<Workouts> workoutList = new ArrayList<>();
     private ArrayList<Session> sessionsList = new ArrayList<>();
+    
+
     protected ObservableList<Workouts> observableWorkForSessionList = FXCollections.observableArrayList();
 
     public Session(){
