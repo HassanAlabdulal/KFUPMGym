@@ -60,7 +60,7 @@ public class Trainer<T> extends User implements Initializable{
     }
 
     public Trainer(String name, double height, double weight, String speciality){
-        this(name, height, weight, "defaultPic.txt", speciality);
+        this(name, height, weight, "defaultPic.png", speciality);
     }
 
     public void save(String name, double height, double weight, String photo, String status) {

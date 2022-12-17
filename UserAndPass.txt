@@ -1,3 +1,4 @@
+UserName | password | type (all of them without the special characters like $ or !)
 admin admin$ !GymManager
 Admin 1234$ 2032034 !trainer 
 ahm321 123$ 1201105 !trainee 
