@@ -154,7 +154,7 @@ public class ViewTraineesPageController implements Initializable {
         trainee = viewTraineesTable.getSelectionModel().getSelectedItem();
 
         try {
-            if(!(trainee == null) && !(trainee.getPlan() == null)) {
+            if(!(trainee == null) && !(trainee.getPlan().id == 0)) {
                 AnchorPane progress = FXMLLoader.load(getClass().getResource("ProgressPage.fxml"));
                 rootPane.getChildren().removeAll();
                 rootPane.getChildren().setAll(progress);

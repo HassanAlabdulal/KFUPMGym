@@ -87,28 +87,28 @@ public class Trainee extends User implements Initializable{
     }
 
     public void setPlan(Plan plan){
-        ReadFiles r = new ReadFiles<>("Plans.txt");
-        int line = r.getLine(this.plan.id+"");
+        ReadFiles r = new ReadFiles<>("UserInfo.txt");
+        int line = r.getLine("@"+userName);
         WriteFiles w = new WriteFiles<>("UserInfo.txt");
-        w.modifyLine(line, plan.id+"", "\\*\\d{1,8}");
+        w.modifyLine(line, "*"+plan.id, "\\*\\d{1,8}");
         this.plan = plan;
     }
 
     public void setPlan(int planId){
-        ReadFiles r = new ReadFiles<>("Plans.txt");
-        int line = r.getLine(plan.id+"");
+        ReadFiles r = new ReadFiles<>("UserInfo.txt");
+        int line = r.getLine("@"+userName);
         WriteFiles w = new WriteFiles<>("UserInfo.txt");
-        w.modifyLine(line, plan.id+"", "\\*\\d{1,8}");
+        w.modifyLine(line, "*"+planId, "\\*\\d{1,8}");
         plan = new Plan(planId);
     }
 
     public void setPlan(String userName, int planId){
-        Trainee t = new Trainee(userName);
-        ReadFiles r = new ReadFiles<>("Plans.txt");
-        int line = r.getLine(t.plan.id+"");
+        // Trainee t = new Trainee(userName);
+        ReadFiles r = new ReadFiles<>("UserInfo.txt");
+        int line = r.getLine("@"+userName);
         WriteFiles w = new WriteFiles<>("UserInfo.txt");
-        w.modifyLine(line, plan.id+"", "\\*\\d{1,8}");
-        t.setPlan(planId);
+        w.modifyLine(line, "*"+planId, "\\*\\d{1,8}");
+        // t.setPlan(planId);
     }
 
     public String getTrainer(){
