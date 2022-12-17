@@ -77,16 +77,18 @@ public class PlanPageController implements Initializable {
 
     @FXML
     private Label planTitle;
-
-    @FXML
-    private Plan plan ;
-
+    
+    
+    private Trainee trainee = (Trainee) LoginFormController.user;
 
     
-    // @FXML
-    // public void initialize() {
-    //     planTitle.setText(plan.getPlanName());
-    // }
+    private Plan plan = trainee.getPlan();
+
+    
+    @FXML
+    public void initialize() {
+        planTitle.setText(plan.getPlanName());
+    }
 
 
 
