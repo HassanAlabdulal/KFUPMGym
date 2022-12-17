@@ -56,7 +56,7 @@ public class Trainer<T> extends User implements Initializable{
             if(trainer.getUsername().equals(this.userName))
                 this.traineesList = trainer.traineesList;
         }
-        save(name, height, weight, photo, "active");
+        save(name.replaceAll("\\s", "-"), height, weight, photo, "active");
     }
 
     public Trainer(String name, double height, double weight, String speciality){
