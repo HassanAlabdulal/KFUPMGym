@@ -1,6 +1,8 @@
 package com.example.swe206project;
 
 import java.util.HexFormat;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -391,7 +393,10 @@ public class CreateProfileController {
                     int test1, test2;
                     test1 = Integer.parseInt(height.getText());
                     test2 = Integer.parseInt(weight.getText());
-                    boolean allLettersName = name.getText().chars().allMatch(Character::isLetter);
+                    // boolean allLettersName = name.getText().chars().allMatch(Character::isLetter);
+                    Pattern pattern = Pattern.compile("\\p{Digit}|\\p{Punct}|\\p{Sc}");
+                    Matcher match = pattern.matcher(name.getText());
+                    boolean allLettersName = !match.find();
                     if(allLettersName){
                         GymManager.createProfile(name.getText(),  Double.parseDouble(height.getText()),Double.parseDouble(weight.getText()));
                         errorMessage.setText("A trainer profile has been created!");
@@ -410,6 +415,7 @@ public class CreateProfileController {
                         name.setStyle("-fx-border-color: #D53A0B; -fx-border-width: 1px 1px 1px 1px; -fx-background-color: #3A4141; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1");
                     }
                 }catch(Exception e){
+                    e.printStackTrace();
                     errorMessage.setText("Please enter correct information!");
                     errorMessage.setStyle("-fx-text-fill: #D53A0B");
                     errorMessage.setVisible(true);

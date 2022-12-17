@@ -9,7 +9,6 @@ import javafx.css.Size;
 public class GymManager implements Initializable, Serializable{
     private String userName = "admin";
     private String password = "admin";
-    private ReadFiles fr = new ReadFiles<>("UserInfo.dat");
 
     protected static ArrayList<User> usersList = new ArrayList<>();
 
@@ -31,9 +30,14 @@ public class GymManager implements Initializable, Serializable{
     
 
     protected static void createProfile(String name, double height, double weight){
-        WriteFiles writer = new WriteFiles<>("UserInfo.dat", true);
+        WriteFiles writer = new WriteFiles<>("UserInfo.txt", true);
         usersList.add(new Trainee(name, height, weight));
-        writer.writeToBinaryFile(usersList.get(usersList.size()-1));
+        //try {
+        //    writer.writeToFile(usersList.get(usersList.size()-1).toString());
+        //} catch (IOException e) {
+        //    // TODO Auto-generated catch block
+        //    e.printStackTrace();
+        //}
     }
 
     protected static void createProfile(String name, double height, double weight, String speciality){
