@@ -3,6 +3,9 @@ package com.example.swe206project;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.awt.Desktop;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,7 +32,7 @@ public class WorkoutPage implements Initializable{
 
     @FXML
     private TextField actualSets;
-
+    
     @FXML
     private ImageView backArrow;
 
@@ -261,6 +264,14 @@ public class WorkoutPage implements Initializable{
 
     @FXML
     void videoButtonOnClicked(MouseEvent event) throws IOException {
+        if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+            try {
+                Desktop.getDesktop().browse(new URI("http://www.example.com"));
+            } catch (URISyntaxException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
     }
 
 
