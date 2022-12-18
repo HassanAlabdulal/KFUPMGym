@@ -50,7 +50,8 @@ public class ProgressPageController implements Initializable {
     @FXML
     private Trainee trainee = ViewTraineesPageController.trainee;
 
-    private Session session;
+    protected Session session;
+    protected static Session desiredSession;
 
     @FXML
     public void initialize() {
@@ -95,7 +96,8 @@ public class ProgressPageController implements Initializable {
     @FXML
     void setSessionWorkouts(ActionEvent event) {
         session = sessionDays.getValue();
-
+        desiredSession = session;
+        
         workoutName.setCellValueFactory(new PropertyValueFactory<Workouts, String>("workoutName"));
         weightProgress.setCellValueFactory(new PropertyValueFactory<Workouts, String>("weightProgress"));
         setsProgress.setCellValueFactory(new PropertyValueFactory<Workouts, String>("setsProgress"));

@@ -5,6 +5,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import javafx.css.Size;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 public class GymManager implements Initializable, Serializable{
     private String userName = "admin";
@@ -30,8 +32,17 @@ public class GymManager implements Initializable, Serializable{
     
 
     protected static void createProfile(String name, double height, double weight){
-        WriteFiles writer = new WriteFiles<>("UserInfo.txt", true);
-        usersList.add(new Trainee(name, height, weight));
+        ReadFiles r = new ReadFiles<>("UserAndPass.txt");
+        Trainee trainee = new Trainee(name, height, weight);
+        usersList.add(trainee);
+
+        Alert alert = new Alert(AlertType.INFORMATION);
+        String[] creds = r.fetch(trainee.userName, "\\p{ASCII}*\\$").split(" ");
+
+        alert.setTitle("Sucess!");
+        alert.setHeaderText("Hello " + name + "! see below your credentials");
+        alert.setContentText("Username: " + creds[0] + ", Password: " + creds[1].replaceAll("\\$", ""));
+        alert.show();
         //try {
         //    writer.writeToFile(usersList.get(usersList.size()-1).toString());
         //} catch (IOException e) {
@@ -41,7 +52,17 @@ public class GymManager implements Initializable, Serializable{
     }
 
     protected static void createProfile(String name, double height, double weight, String speciality){
-        usersList.add(new Trainer(name, height, weight, speciality));
+        ReadFiles r = new ReadFiles<>("UserAndPass.txt");
+        Trainer trainer = new Trainer(name, height, weight, speciality);
+        usersList.add(trainer);
+
+        Alert alert = new Alert(AlertType.INFORMATION);
+        String[] creds = r.fetch(trainer.userName, "\\p{ASCII}*\\$").split(" ");
+
+        alert.setTitle("Sucess!");
+        alert.setHeaderText("Hello " + name + "! see below your credentials");
+        alert.setContentText("Username: " + creds[0] + ", Password: " + creds[1].replaceAll("\\$", ""));
+        alert.show();
     }
 
     public ArrayList<User> getUsersList() {

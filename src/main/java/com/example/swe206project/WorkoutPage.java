@@ -159,7 +159,8 @@ public class WorkoutPage implements Initializable{
                 workout.setActualRepitions(Integer.parseInt(actualRepetitions.getText()));
                 workout.setActualSets(Integer.parseInt(actualSets.getText()));
                 workout.setweightUsed(Integer.parseInt(weightUsed.getText()));
-                saveProgress(Integer.valueOf(actualSets.getText()), Integer.valueOf(weightUsed.getText()), Integer.valueOf(weightUsed.getText()));
+                // saveProgress(Integer.valueOf(actualSets.getText()), Integer.valueOf(weightUsed.getText()), Integer.valueOf(weightUsed.getText()));
+                saveProgress();
                 
 
 
@@ -285,12 +286,12 @@ public class WorkoutPage implements Initializable{
         videoButton.setStyle("-fx-background-color: #43896B; -fx-background-radius: 15");
     }
 
-    public void saveProgress(int sets, int repition, int weight){
+    public void saveProgress(){
         ReadFiles r = new ReadFiles<>("Progress.txt");
         WriteFiles w = new WriteFiles<>("Progress.txt");
         Session session = SessionPage.dSession;
         int line = r.getLine(trainee.userName + " " + session);
-        String data = workout.id + " !" + sets + " ?" + repition + " *" + weight;
+        String data = workout.id + " !" + workout.actualSets + " ?" + workout.actualRepitions + " *" + workout.weightUsed;
         w.modifyLine(line, data+",", workout.getId()+"\\p{ASCII}*\\,");
     }
 }

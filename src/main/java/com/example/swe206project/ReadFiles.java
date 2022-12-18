@@ -115,32 +115,32 @@ public class ReadFiles<T> {
         
     }
 
-    public String fetch(String identifier, String identifier2, String patternToFetch){
+    // public String fetch(String identifier, String identifier2, String patternToFetch){
 
-        ReadFiles reader = new ReadFiles(path);
-        Pattern pattern = Pattern.compile(patternToFetch);
-        Matcher match = null;
+    //     ReadFiles reader = new ReadFiles(path);
+    //     Pattern pattern = Pattern.compile(patternToFetch);
+    //     Matcher match = null;
         
-        try {
-            for(String line : reader.openFile()){
-                if(line.contains(identifier) && line.contains(identifier2)){
-                    match = pattern.matcher(line);
-                    if(match.find()){
-                        return match.group();
-                    }
-                }
+    //     try {
+    //         for(String line : reader.openFile()){
+    //             if(line.contains(identifier) && line.contains(identifier2)){
+    //                 match = pattern.matcher(line);
+    //                 if(match.find()){
+    //                     return match.group();
+    //                 }
+    //             }
             
-            }
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+    //         }
+    //     } catch (IOException e) {
+    //         // TODO Auto-generated catch block
+    //         e.printStackTrace();
+    //     }
 
-        return null;
+    //     return null;
         
         
         
-    }
+    // }
 
     public ArrayList<T> openBinaryFile(){
         ObjectInputStream dataInput;

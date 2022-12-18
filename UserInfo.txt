@@ -13,4 +13,4 @@ UserName   | Name  |                info       |     assigned trainer if exists 
 @brbga1767 brbga 23.0 324.0 (defaultPic.png) *0 ? !active
 @awe8140 awe 23.0 324.0 (defaultPic.png) *0 ? !not-active
 @testspace302 test-space 43.0 43.0 (defaultPic.png) *0 ? !active
-
+@tastyburger3581 tasty-burger 3.0 4.0 (defaultPic.png) *0 ? !active

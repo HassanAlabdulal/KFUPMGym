@@ -28,6 +28,9 @@ public  class Workouts {
     protected String setsProgress = "";
     protected String repitionsProgress = "";
 
+    protected Trainee trainee;
+    protected Session session;
+
     protected ObservableList<Workouts> observableWorkoutList = FXCollections.observableArrayList();
 
     public Workouts(){
@@ -86,9 +89,13 @@ public  class Workouts {
         return videoURL;
     }
     public int getWeightUsed() {
-        Trainee trainee = (Trainee) LoginFormController.user;
+        if(this.trainee == null)
+            trainee = (Trainee) LoginFormController.user;
+        if(this.session == null)
+            session = SessionPage.dSession;
+        
         ReadFiles r = new ReadFiles<>("Progress.txt");
-        String[] workouts = r.fetch(trainee.userName + " " + SessionPage.dSession, "\\[\\p{ASCII}*\\]").split(",");
+        String[] workouts = r.fetch(trainee.userName + " " + session, "\\[\\p{ASCII}*\\]").split(",");
         // ArrayList<Workouts> workoutsList = new ArrayList<>();
         for (String workoutInfo : workouts) {
             if(workoutInfo.contains(id+"")){
@@ -102,9 +109,13 @@ public  class Workouts {
         return -1;
     }
     public int getActualSets() {
-        Trainee trainee = (Trainee) LoginFormController.user;
+        if(this.trainee == null)
+            trainee = (Trainee) LoginFormController.user;
+        if(this.session == null)
+            session = SessionPage.dSession;
+            
         ReadFiles r = new ReadFiles<>("Progress.txt");
-        String[] workouts = r.fetch(trainee.userName + " " + SessionPage.dSession, "\\[\\p{ASCII}*\\]").split(",");
+        String[] workouts = r.fetch(trainee.userName + " " + session, "\\[\\p{ASCII}*\\]").split(",");
         // ArrayList<Workouts> workoutsList = new ArrayList<>();
         for (String workoutInfo : workouts) {
             if(workoutInfo.contains(id+"")){
@@ -119,9 +130,13 @@ public  class Workouts {
     }
 
     public int getActualRepitions() {
-        Trainee trainee = (Trainee) LoginFormController.user;
+        if(this.trainee == null)
+            trainee = (Trainee) LoginFormController.user;
+        if(this.session == null)
+            session = SessionPage.dSession;
+
         ReadFiles r = new ReadFiles<>("Progress.txt");
-        String[] workouts = r.fetch(trainee.userName + " " + SessionPage.dSession, "\\[\\p{ASCII}*\\]").split(",");
+        String[] workouts = r.fetch(trainee.userName + " " + session, "\\[\\p{ASCII}*\\]").split(",");
         // ArrayList<Workouts> workoutsList = new ArrayList<>();
         for (String workoutInfo : workouts) {
             if(workoutInfo.contains(id+"")){
@@ -136,21 +151,29 @@ public  class Workouts {
     }
 
     public String getSetsProgress(){
+        trainee = ViewTraineesPageController.trainee;
+        session = ProgressPageController.desiredSession;
         return getActualSets() + "/" + setsTarget;
     }
 
     public String getRepitionsProgress(){
+        trainee = ViewTraineesPageController.trainee;
+        session = ProgressPageController.desiredSession;
         return getActualRepitions() + "/" + repititionTarget;
     }
 
     public String getWeightProgress() {
-        return getWeightUsed() + "";
+        trainee = ViewTraineesPageController.trainee;
+        session = ProgressPageController.desiredSession;
+        return getWeightUsed() + "/" + weightTarget;
     }
 
     public String getVolumeProgress() {
+        trainee = ViewTraineesPageController.trainee;
+        session = ProgressPageController.desiredSession;
         volume = getWeightUsed() * getActualRepitions() * getActualSets();
         volumeTarget = weightTarget * repititionTarget * setsTarget;
-        return volume/volumeTarget * 100 + "%";
+        return String.format("%.2f", (double) volume/volumeTarget * 100) + "%";
     }
 
     
