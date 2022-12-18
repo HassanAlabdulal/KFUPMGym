@@ -96,7 +96,12 @@ public class AssignPlanPageController implements Initializable {
 
         try {
             if(!(plan == null)) {
-                trainee.setPlan(plan);
+                if(trainee.plan.id == 0)
+                    trainee.setPlan(plan);
+                else{
+                    trainee.deletePlan();
+                    trainee.setPlan(plan);
+                }
                 confirmIcon.setVisible(true);
                 message.setText(plan.getPlanName() + " has been assigned to " + trainee.getName() + ".");
                 message.setStyle("-fx-text-fill: #43896B");

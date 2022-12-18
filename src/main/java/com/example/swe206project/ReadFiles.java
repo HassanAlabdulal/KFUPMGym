@@ -38,7 +38,7 @@ public class ReadFiles<T> {
     public int getLine(String pattern){
         try {
             int line = 1;
-            Pattern p = Pattern.compile(pattern, Pattern.LITERAL);
+            Pattern p = Pattern.compile(pattern);
             Matcher match = null;
             for (String data : openFile()) {
                 match = p.matcher(data);

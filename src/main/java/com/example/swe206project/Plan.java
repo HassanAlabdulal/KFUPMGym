@@ -26,8 +26,14 @@ public class Plan implements Initializable, Serializable{
 
     public Plan(int id){ 
         this.id = id;
+        if(id == 0){
+            planName = null;
+            sessionsList = null;
+        }
+        else{
         this.planName = getPlanName(id);
         this.sessionsList = getSessionsList(id);
+        }
     }
 
     public void save(int id, String planName, ArrayList<Session> sessionsList){

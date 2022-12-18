@@ -68,7 +68,7 @@ public class CustomizePlanPageController implements Initializable {
 
     private Plan plan;
 
-    private boolean[] reservedDays = {false, false, false, false, false, false};
+    private boolean[] reservedDays = new boolean[6];
 
     private ArrayList<Session> sessionsList = new ArrayList<>();
 

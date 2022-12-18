@@ -99,7 +99,7 @@ public  class Workouts {
         // ArrayList<Workouts> workoutsList = new ArrayList<>();
         for (String workoutInfo : workouts) {
             if(workoutInfo.contains(id+"")){
-                Pattern pattern = Pattern.compile("\\*\\p{Digit}");
+                Pattern pattern = Pattern.compile("\\*\\p{Digit}*");
                 Matcher match = pattern.matcher(workoutInfo);
                 return match.find() ? Integer.valueOf(match.group().replaceAll("\\*", "")) : -1;
             }
@@ -119,7 +119,7 @@ public  class Workouts {
         // ArrayList<Workouts> workoutsList = new ArrayList<>();
         for (String workoutInfo : workouts) {
             if(workoutInfo.contains(id+"")){
-                Pattern pattern = Pattern.compile("\\!\\p{Digit}");
+                Pattern pattern = Pattern.compile("\\!\\p{Digit}*");
                 Matcher match = pattern.matcher(workoutInfo);
                 return match.find() ? Integer.valueOf(match.group().replaceAll("\\!", "")) : -1;
             }
@@ -140,7 +140,7 @@ public  class Workouts {
         // ArrayList<Workouts> workoutsList = new ArrayList<>();
         for (String workoutInfo : workouts) {
             if(workoutInfo.contains(id+"")){
-                Pattern pattern = Pattern.compile("\\?\\p{Digit}");
+                Pattern pattern = Pattern.compile("\\?\\p{Digit}*");
                 Matcher match = pattern.matcher(workoutInfo);
                 return match.find() ? Integer.valueOf(match.group().replaceAll("\\?", "")) : -1;
             }
@@ -199,7 +199,7 @@ public  class Workouts {
     }
 
     public String toString(){
-        return id + " !" + getActualSets() + " ?" + getActualRepitions() + " *" + getWeightUsed();
+        return id + " !" + actualSets + " ?" + actualRepitions + " *" + weightUsed;
     }
 
 

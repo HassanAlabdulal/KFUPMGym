@@ -118,10 +118,14 @@ public class ProfilePageController implements Initializable {
         weight.setText(user.getWeight() + " kg");
         System.out.println("LOADING PHOTO: " + user.photo + "\n\n\n");
         String currentDirectory = System.getProperty("user.dir");
-        if(user.photo.equals("defaultPic.png"))
-            image = new Image(currentDirectory + "\\" + user.photo);
-        else
-            image = new Image(user.photo);
+        if(user.photo.equals("defaultPic.png")){
+            newImagePath.setText(currentDirectory + "\\" + user.photo);
+            image = new Image(newImagePath.getText());
+        }
+        else{
+            newImagePath.setText(user.photo);
+            image = new Image(newImagePath.getText());
+        }
         profilePhoto.setImage(image);
         profilePhoto.setStyle("-fx-border-radius: 50%");
 
@@ -219,7 +223,7 @@ public class ProfilePageController implements Initializable {
                 throw new Exception();
             }
             ReadFiles r = new ReadFiles<>("UserInfo.txt");
-            int line = r.getLine(user.getUsername());
+            int line = r.getLine("@"+user.getUsername());
             WriteFiles w = new WriteFiles<>("UserInfo.txt");
 
             
@@ -271,6 +275,7 @@ public class ProfilePageController implements Initializable {
             height.setText(newHeight + " cm");
 
         } catch (Exception e) {
+            e.printStackTrace();
             wrongInputIcon.setVisible(true);
             wrongInputMessage.setVisible(true);
             weight.setStyle("-fx-border-color: #D53A0B; -fx-border-width: 0px 0px 1px 0px; -fx-background-color: #3A4141; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1");

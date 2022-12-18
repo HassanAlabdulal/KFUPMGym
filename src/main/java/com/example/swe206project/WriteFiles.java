@@ -58,9 +58,19 @@ public class WriteFiles<T> {
             List<String> lines = Files.readAllLines(path, StandardCharsets.UTF_8);
             lines.set(desiredLine-1, data);
             Files.write(path, lines, StandardCharsets.UTF_8);
-        } catch (IOException e) {
+        } 
+        catch(IndexOutOfBoundsException e){
+            try {
+                writeToFile(data);
+            } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
+        }        
+        catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
     public void modifyLine(int desiredLine, String data, String pattern){ // replaces the matching pattern in the desired line with the new data

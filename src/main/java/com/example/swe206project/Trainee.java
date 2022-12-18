@@ -101,11 +101,11 @@ public class Trainee extends User implements Initializable{
             String data = userName + " " + session;
                 if(this.plan.id != 0){
                     int line2 = readProgress.getLine(userName + " " + session);
-                    writeProgress.modifyLine(line2, data + " " + session.getObservableWorkoutsList());
+                    writeProgress.modifyLine(line2, data + " " + session.getObservableWorkoutsList() + ", ");
                 }
                 else{
                  try {
-                    deletePlan();
+                    this.plan = plan;
                     data += " [";
                     for (Workouts workout : session.getObservableWorkoutsList()) {
                         data += workout.getId() + " !" + 0 + " ?" + 0 + " *" + 0 + ", ";
@@ -128,8 +128,10 @@ public class Trainee extends User implements Initializable{
         ReadFiles readProgress = new ReadFiles<>("Progress.txt");
         WriteFiles writeProgress = new WriteFiles<>("Progress.txt", true);
         for (Session session : plan.sessionsList) {
-            int line = readProgress.getLine(userName + " " + session);
-            writeProgress.modifyLine(line, "");
+            if(!(readProgress.fetchLine(userName) == null)){
+                int line = readProgress.getLine(userName + " " + session);
+                writeProgress.modifyLine(line, "");
+            }
         }
 
         ReadFiles r = new ReadFiles<>("UserInfo.txt");
