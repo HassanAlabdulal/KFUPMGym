@@ -101,7 +101,7 @@ public class Trainee extends User implements Initializable{
             String data = userName + " " + session;
                 if(this.plan.id != 0){
                     int line2 = readProgress.getLine(userName + " " + session);
-                    writeProgress.modifyLine(line2, data + " " + session.getObservableWorkoutsList() + ", ");
+                    writeProgress.modifyLine(line2, data + " " + session.getObservableWorkoutsList());
                 }
                 else{
                  try {
