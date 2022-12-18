@@ -106,7 +106,7 @@ public class Trainee extends User implements Initializable{
                 else{
                  try {
                     this.plan = plan;
-                    data += " [";
+                    data += " [ ";
                     for (Workouts workout : session.getObservableWorkoutsList()) {
                         data += workout.getId() + " !" + 0 + " ?" + 0 + " *" + 0 + ", ";
                     }

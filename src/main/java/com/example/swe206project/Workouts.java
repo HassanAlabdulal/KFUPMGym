@@ -222,6 +222,24 @@ public  class Workouts {
         }
         return observableWorkoutList;
     };
+
+
+    public static void resetProgress() {
+        ReadFiles readProgress = new ReadFiles<>("Progress.txt");
+        WriteFiles writeProgress = new WriteFiles<>("Progress.txt");
+        try {
+            for (String progress : readProgress.openFile()) {
+                String toBeResetWorkout = readProgress.fetch(progress, "\\[\\p{ASCII}*\\]");
+                String workoutsAfterReset = toBeResetWorkout.replaceAll("\\p{Punct}\\d{1,3}\\s\\p{Punct}\\d{1,3}\\s\\p{Punct}\\d{1,3}\\,", "!0 ?0 *0,");
+
+                int line = readProgress.getLine(progress);
+                writeProgress.modifyLine(line, workoutsAfterReset, "\\[\\p{ASCII}*\\]");
+            }
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
     
 
 

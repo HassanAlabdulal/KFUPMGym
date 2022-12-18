@@ -84,10 +84,10 @@ public class LoginFormController {
 
     @FXML
     void checkCredintials(MouseEvent event) throws IOException {
+
         String credentials = username.getText() + " " + password.getText();
         ReadFiles credentialsFile = new ReadFiles("UserAndPass.txt");
         Boolean autherized = false;
-
         
         try {
             String types = "trainee , trainer , GymManager";

@@ -42,7 +42,7 @@ public class ReadFiles<T> {
             Matcher match = null;
             for (String data : openFile()) {
                 match = p.matcher(data);
-                if(match.find())
+                if(match.find() || pattern.equals(data))
                     break;
                 else
                     line++;
