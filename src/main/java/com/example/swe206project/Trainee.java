@@ -98,16 +98,17 @@ public class Trainee extends User implements Initializable{
             //String workoutData = "";
             //String tmp = session.workoutList+"";
 
-            String data = userName + " " + session.day;
+            String data = userName + " " + session;
                 if(this.plan.id != 0){
-                    int line2 = readProgress.getLine(userName + " " + session.day);
+                    int line2 = readProgress.getLine(userName + " " + session);
                     writeProgress.modifyLine(line2, data + " " + session.getObservableWorkoutsList());
                 }
                 else{
                  try {
+                    deletePlan();
                     data += " [";
                     for (Workouts workout : session.getObservableWorkoutsList()) {
-                        data += workout.getWorkoutName() + " !" + 0 + " ?" + 0 + " *" + 0 + ", ";
+                        data += workout.getId() + " !" + 0 + " ?" + 0 + " *" + 0 + ", ";
                     }
                     data += "]";
                     writeProgress.writeToFile(data);
@@ -121,6 +122,21 @@ public class Trainee extends User implements Initializable{
             
         }
         this.plan = plan;
+    }
+
+    public void deletePlan(){
+        ReadFiles readProgress = new ReadFiles<>("Progress.txt");
+        WriteFiles writeProgress = new WriteFiles<>("Progress.txt", true);
+        for (Session session : plan.sessionsList) {
+            int line = readProgress.getLine(userName + " " + session);
+            writeProgress.modifyLine(line, "");
+        }
+
+        ReadFiles r = new ReadFiles<>("UserInfo.txt");
+        int line = r.getLine("@"+userName);
+        WriteFiles w = new WriteFiles<>("UserInfo.txt");
+        w.modifyLine(line, "*"+0, "\\*\\d{1,8}");
+
     }
 
     public void setPlan(int planId){

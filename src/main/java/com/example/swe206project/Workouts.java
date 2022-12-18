@@ -2,6 +2,7 @@ package com.example.swe206project;
 
 import java.io.IOException;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -9,19 +10,19 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public  class Workouts {
-    private int id;
-    private String workoutName;
-    private String targetedMuscles; 
-    private String steps;
-    private int setsTarget;
-    private int repititionTarget;
-    private String videoURL;
-    private int weightUsed;
-    private int actualSets;
-    private int actualRepitions;
-    private int weightTarget;
-    private int volumeTarget;
-    private int volume;
+    protected int id;
+    protected String workoutName;
+    protected String targetedMuscles; 
+    protected String steps;
+    protected int setsTarget;
+    protected int repititionTarget;
+    protected String videoURL;
+    protected int weightUsed;
+    protected int actualSets;
+    protected int actualRepitions;
+    protected int weightTarget;
+    protected int volumeTarget;
+    protected int volume;
 
     protected String weightProgress = "";
     protected String setsProgress = "";
@@ -85,16 +86,53 @@ public  class Workouts {
         return videoURL;
     }
     public int getWeightUsed() {
-        Trainee trainee = (Trainee) ViewTraineesPageController.trainee;
+        Trainee trainee = (Trainee) LoginFormController.user;
         ReadFiles r = new ReadFiles<>("Progress.txt");
-        String weight = r.fetch(trainee.userName + " " + PlanPageController.day, workoutName, "\\*\\p{Digit}").replaceAll("\\*", "");
-        return Integer.valueOf(weight);
+        String[] workouts = r.fetch(trainee.userName + " " + SessionPage.dSession, "\\[\\p{ASCII}*\\]").split(",");
+        // ArrayList<Workouts> workoutsList = new ArrayList<>();
+        for (String workoutInfo : workouts) {
+            if(workoutInfo.contains(id+"")){
+                Pattern pattern = Pattern.compile("\\*\\p{Digit}");
+                Matcher match = pattern.matcher(workoutInfo);
+                return match.find() ? Integer.valueOf(match.group().replaceAll("\\*", "")) : -1;
+            }
+        }
+        //String sets = r.fetch(trainee.userName + " " + PlanPageController.day, workoutName, "\\!\\p{Digit}").replaceAll("\\!", "");
+        // return Integer.valueOf(sets);
+        return -1;
     }
     public int getActualSets() {
-        Trainee trainee = (Trainee) ViewTraineesPageController.trainee;
+        Trainee trainee = (Trainee) LoginFormController.user;
         ReadFiles r = new ReadFiles<>("Progress.txt");
-        String sets = r.fetch(trainee.userName + " " + PlanPageController.day, workoutName, "\\!\\p{Digit}").replaceAll("\\!", "");
-        return Integer.valueOf(sets);
+        String[] workouts = r.fetch(trainee.userName + " " + SessionPage.dSession, "\\[\\p{ASCII}*\\]").split(",");
+        // ArrayList<Workouts> workoutsList = new ArrayList<>();
+        for (String workoutInfo : workouts) {
+            if(workoutInfo.contains(id+"")){
+                Pattern pattern = Pattern.compile("\\!\\p{Digit}");
+                Matcher match = pattern.matcher(workoutInfo);
+                return match.find() ? Integer.valueOf(match.group().replaceAll("\\!", "")) : -1;
+            }
+        }
+        //String sets = r.fetch(trainee.userName + " " + PlanPageController.day, workoutName, "\\!\\p{Digit}").replaceAll("\\!", "");
+        // return Integer.valueOf(sets);
+        return -1;
+    }
+
+    public int getActualRepitions() {
+        Trainee trainee = (Trainee) LoginFormController.user;
+        ReadFiles r = new ReadFiles<>("Progress.txt");
+        String[] workouts = r.fetch(trainee.userName + " " + SessionPage.dSession, "\\[\\p{ASCII}*\\]").split(",");
+        // ArrayList<Workouts> workoutsList = new ArrayList<>();
+        for (String workoutInfo : workouts) {
+            if(workoutInfo.contains(id+"")){
+                Pattern pattern = Pattern.compile("\\?\\p{Digit}");
+                Matcher match = pattern.matcher(workoutInfo);
+                return match.find() ? Integer.valueOf(match.group().replaceAll("\\?", "")) : -1;
+            }
+        }
+        //String sets = r.fetch(trainee.userName + " " + PlanPageController.day, workoutName, "\\!\\p{Digit}").replaceAll("\\!", "");
+        // return Integer.valueOf(sets);
+        return -1;
     }
 
     public String getSetsProgress(){
@@ -111,15 +149,11 @@ public  class Workouts {
 
     public String getVolumeProgress() {
         volume = getWeightUsed() * getActualRepitions() * getActualSets();
-        return volume + "";
+        volumeTarget = weightTarget * repititionTarget * setsTarget;
+        return volume/volumeTarget * 100 + "%";
     }
 
-    public int getActualRepitions() {
-        Trainee trainee = (Trainee) LoginFormController.user;
-        ReadFiles r = new ReadFiles<>("Progress.txt");
-        String rep = r.fetch(trainee.userName + " " + PlanPageController.day, "\\?\\p{Digit}").replaceAll("\\?", "");
-        return Integer.valueOf(rep);
-    }
+    
     public void setActualRepitions(int actualRepitions) {
         this.actualRepitions = actualRepitions;
     }
@@ -142,7 +176,7 @@ public  class Workouts {
     }
 
     public String toString(){
-        return workoutName + " !" + getActualSets() + " ?" + getActualRepitions() + " *" + getWeightUsed();
+        return id + " !" + getActualSets() + " ?" + getActualRepitions() + " *" + getWeightUsed();
     }
 
 

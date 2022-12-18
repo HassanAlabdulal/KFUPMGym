@@ -1,5 +1,4 @@
-trainee#03882 Sunday [push-up !0 ?0 *0, pull-up !0 ?0 *0, bench-press !0 ?0 *0, ]
-trainee#03882 Monday [pull-up !0 ?0 *0, bench-press !0 ?0 *0, ]
-trainee#17802 Sunday [push-up !0 ?0 *0, pull-up !0 ?0 *0, bench-press !0 ?0 *0, ]
-trainee#17802 Monday [pull-up !0 ?0 *0, bench-press !0 ?0 *0, ]
-trainee#24382 Monday [pull-up !0 ?0 *0, bench-press !0 ?0 *0, ]
+a
+trainee#03882 Sunday 20229747 [20225580 !0 ?0 *0, 20229078 !0 ?0 *0, 20226306 !0 ?0 *0, ]
+trainee#03882 Monday 20222382 [20229078 !0 ?0 *0, 20226306 !0 ?0 *0, ]
+brdga1050 Monday 20222382 [20229078 !3 ?1 *1, 20226306 !0 ?0 *0]

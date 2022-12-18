@@ -159,7 +159,7 @@ public class WorkoutPage implements Initializable{
                 workout.setActualRepitions(Integer.parseInt(actualRepetitions.getText()));
                 workout.setActualSets(Integer.parseInt(actualSets.getText()));
                 workout.setweightUsed(Integer.parseInt(weightUsed.getText()));
-                saveProgress(Integer.parseInt(actualSets.getText()), Integer.parseInt(weightUsed.getText()), Integer.parseInt(weightUsed.getText()));
+                saveProgress(Integer.valueOf(actualSets.getText()), Integer.valueOf(weightUsed.getText()), Integer.valueOf(weightUsed.getText()));
                 
 
 
@@ -288,9 +288,10 @@ public class WorkoutPage implements Initializable{
     public void saveProgress(int sets, int repition, int weight){
         ReadFiles r = new ReadFiles<>("Progress.txt");
         WriteFiles w = new WriteFiles<>("Progress.txt");
-        int line = r.getLine(trainee.userName + " " + PlanPageController.day + " " + workout.getWorkoutName());
-        String data = trainee.userName + " " + PlanPageController.day + " !" + sets + " ?" + repition + " *" + weight;
-        w.modifyLine(line, data);
+        Session session = SessionPage.dSession;
+        int line = r.getLine(trainee.userName + " " + session);
+        String data = workout.id + " !" + sets + " ?" + repition + " *" + weight;
+        w.modifyLine(line, data+",", workout.getId()+"\\p{ASCII}*\\,");
     }
 }
 

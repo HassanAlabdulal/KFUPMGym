@@ -99,7 +99,7 @@ public class ProgressPageController implements Initializable {
         workoutName.setCellValueFactory(new PropertyValueFactory<Workouts, String>("workoutName"));
         weightProgress.setCellValueFactory(new PropertyValueFactory<Workouts, String>("weightProgress"));
         setsProgress.setCellValueFactory(new PropertyValueFactory<Workouts, String>("setsProgress"));
-        weightProgress.setCellValueFactory(new PropertyValueFactory<Workouts, String>("repitionsProgress"));
+        repititionProgress.setCellValueFactory(new PropertyValueFactory<Workouts, String>("repitionsProgress"));
         volumeProgress.setCellValueFactory(new PropertyValueFactory<Workouts, String>("volumeProgress"));
 
         progressTable.setItems(session.getObservableWorkoutsList());
