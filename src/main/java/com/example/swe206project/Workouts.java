@@ -37,7 +37,7 @@ public  class Workouts {
 
     }
 
-    public Workouts(String workoutName, String targetedMucles,int setsTarget, int repititionTarget, int weightTarget, String steps){
+    public Workouts(String workoutName, String targetedMucles,int setsTarget, int repititionTarget, int weightTarget, String steps, String videoURL){
         this.id=IDGenerator.generate("Workouts.txt");
         this.workoutName = workoutName;
         this.targetedMuscles = targetedMucles;
@@ -45,7 +45,8 @@ public  class Workouts {
         this.setsTarget =setsTarget;
         this.repititionTarget = repititionTarget;
         this.weightTarget = weightTarget;
-        saveworkout(workoutName, targetedMucles, setsTarget, repititionTarget, weightTarget, steps);
+        this.videoURL = videoURL;
+        saveworkout(workoutName, targetedMucles, setsTarget, repititionTarget, weightTarget, steps, videoURL);
     }
 
     public Workouts(int workoutId){
@@ -57,6 +58,7 @@ public  class Workouts {
         repititionTarget = Integer.valueOf(reader.fetch(workoutId+"", "\\*\\p{Digit}*").replaceAll("\\*", ""));
         steps = reader.fetch(workoutId+"", "\\[\\p{ASCII}*\\]");
         weightTarget = Integer.valueOf(reader.fetch(workoutId+"", "\\?\\p{Digit}*").replaceAll("\\?", ""));
+        videoURL = reader.fetch(workoutId+"", "\\(\\p{ASCII}*\\)").replaceAll("\\(|\\)", ""); 
     }
     
 
@@ -186,9 +188,10 @@ public  class Workouts {
     public void setweightUsed(int weightUsed) {
         this.weightUsed = weightUsed;
     }
-    public void saveworkout(String workoutName, String targetedMuscles,int setsTarget, int repititionTarget, int weightTarget, String steps) {
+
+    public void saveworkout(String workoutName, String targetedMuscles,int setsTarget, int repititionTarget, int weightTarget, String steps, String videoURL) {
         WriteFiles writer = new WriteFiles("Workouts.txt", true);
-        String meow = this.id + " $" + workoutName.replaceAll(" ", "-") +  " !" + targetedMuscles  +" #"+ setsTarget +" *"+ repititionTarget + "?" + weightTarget + " [" + steps + "]";
+        String meow = this.id + " $" + workoutName.replaceAll(" ", "-") +  " !" + targetedMuscles  +" #"+ setsTarget +" *"+ repititionTarget + "?" + weightTarget + " [" + steps + "]" + " (" + videoURL + ")";
         try {
                 writer.writeToFile(meow);
             }

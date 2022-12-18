@@ -266,7 +266,7 @@ public class WorkoutPage implements Initializable{
     void videoButtonOnClicked(MouseEvent event) throws IOException {
         if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
             try {
-                Desktop.getDesktop().browse(new URI("http://www.example.com"));
+                Desktop.getDesktop().browse(new URI(workout.videoURL));
             } catch (URISyntaxException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
