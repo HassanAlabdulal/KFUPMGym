@@ -94,7 +94,7 @@ public abstract class User implements Serializable{
         ReadFiles fileReader = new ReadFiles("UserInfo.txt");
         try {
             for (String element : fileReader.openFile()) {
-                if(element.contains(userName)){
+                if(element.contains("@"+userName)){
                     Pattern pattern = Pattern.compile("not-active");
                     Matcher match = pattern.matcher(element);
                     return !match.find();
