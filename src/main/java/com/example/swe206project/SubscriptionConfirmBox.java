@@ -36,6 +36,7 @@ public class SubscriptionConfirmBox {
       yesButton.setOnAction(e -> {
           answer = true;
           window.close();
+          GymManager.setActivationStatus(LoginFormController.user.getUsername(), false);
       });
 
       noButton.setOnAction(e -> {

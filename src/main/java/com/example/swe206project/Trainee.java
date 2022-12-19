@@ -98,9 +98,9 @@ public class Trainee extends User implements Initializable{
             //String workoutData = "";
             //String tmp = session.workoutList+"";
 
-            String data = userName + " " + session;
+            String data = userName + " " + session.day + " " + session.id;
                 if(this.plan.id != 0){
-                    int line2 = readProgress.getLine(userName + " " + session);
+                    int line2 = readProgress.getLine(userName + " " + session.day + " " + session.id);
                     writeProgress.modifyLine(line2, data + " " + session.getObservableWorkoutsList());
                 }
                 else{

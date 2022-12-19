@@ -18,10 +18,10 @@ public class Plan implements Initializable, Serializable{
     }
 
     public Plan(String planName, ArrayList<Session> sessionsList){
-        this.planName = planName;
+        this.planName = planName.replaceAll(" ", "-");
         this.sessionsList = sessionsList;
         id = IDGenerator.generate("Plans.txt");
-        save(id, planName, sessionsList);
+        save(id, this.planName, sessionsList);
     }
 
     public Plan(int id){ 
@@ -59,7 +59,7 @@ public class Plan implements Initializable, Serializable{
 
     public static String getPlanName(int id){
         ReadFiles read = new ReadFiles<>("Plans.txt");
-        return read.fetch(String.valueOf(id), "\\p{Graph}*\\$").replaceAll("\\$", "");
+        return read.fetch(String.valueOf(id), "\\p{Graph}*\\$").replaceAll("\\$", "").replaceAll("-", " ");
     }
 
     public ArrayList<Session> getSessionsList(){

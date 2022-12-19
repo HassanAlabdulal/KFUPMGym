@@ -457,29 +457,36 @@ public class CustomizePlanPageController implements Initializable {
     // Asign customized plan button design
     @FXML
     void assignPlanOnClicked(MouseEvent event) {
-        Pattern pattern = Pattern.compile("\\p{Digit}|\\p{Punct}|\\p{Sc}");
+        Pattern pattern = Pattern.compile("\\p{Punct}|\\p{Sc}");
         Matcher match = pattern.matcher(planName.getText());
         boolean allLettersName = !match.find();
+        boolean flag = false;
 
         if (reservedDays[0] && saturdayWorkouts.size() > 0) {
             saturdaySession = new Session("Saturday", saturdayWorkouts);
             sessionsList.add(saturdaySession);
-        } else if (reservedDays[1] && sundayWorkouts.size() > 0) {
+            flag = true;
+        }  if (reservedDays[1] && sundayWorkouts.size() > 0) {
             sundaySession = new Session("Sunday", sundayWorkouts);
             sessionsList.add(sundaySession);
-        } else if (reservedDays[2] && mondayWorkouts.size() > 0) {
+            flag = true;
+        }  if (reservedDays[2] && mondayWorkouts.size() > 0) {
             mondaySession = new Session("Monday", mondayWorkouts);
             sessionsList.add(mondaySession);
-        } else if (reservedDays[3] && tuesdayWorkouts.size() > 0) {
+            flag = true;
+        }  if (reservedDays[3] && tuesdayWorkouts.size() > 0) {
             tuesdaySession = new Session("Tuesday", tuesdayWorkouts);
             sessionsList.add(tuesdaySession);
-        } else if (reservedDays[4] && wednesdayWorkouts.size() > 0) {
+            flag = true;
+        }  if (reservedDays[4] && wednesdayWorkouts.size() > 0) {
             wednesdaySession = new Session("Wednesday", wednesdayWorkouts);
             sessionsList.add(wednesdaySession);
-        } else if (reservedDays[5] && thursdayWorkouts.size() > 0) {
+            flag = true;
+        }  if (reservedDays[5] && thursdayWorkouts.size() > 0) {
             thursdaySession = new Session("Thursday", thursdayWorkouts);
             sessionsList.add(thursdaySession);
-        } else {
+            flag = true;
+        }  if(!flag){
             confirmIcon.setVisible(false);
             errorIcon.setVisible(true);
             message.setText("You did not add a session's day or did not add workouts to any session.");

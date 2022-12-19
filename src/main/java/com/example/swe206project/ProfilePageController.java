@@ -6,9 +6,11 @@ import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.effect.Glow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -153,33 +155,42 @@ public class ProfilePageController implements Initializable {
     // Edit profile button design
     @FXML
     void editProfileOnClicked(MouseEvent event) {
-        editProfileIsClicked = true;
+        Alert alert = new Alert(AlertType.WARNING);
+        alert.setTitle("Failed!");
+        alert.setHeaderText("Failed to edit profile.");
+        alert.setContentText("you cannot edit your profile because your account is not active.");
+        if(User.isActive(LoginFormController.user.getUsername())){
+            editProfileIsClicked = true;
+            subscriptionActiveButton.setVisible(false);
+            notActiveButton.setVisible(false);
+            
+            editProfile.setVisible(false);
+            editProfile.setDisable(true);
+            
+            save.setVisible(true);
+            save.setDisable(false);
+            
+            cancel.setVisible(true);
+            cancel.setDisable(false);
+            
+            editPhotoIcon.setVisible(true);
+            editPhotoIcon.setOpacity(0.75);
+            profilePhoto.setOpacity(0.25);
+            
+            weight.setStyle(
+                "-fx-border-color: #43896B; -fx-border-width: 0px 0px 1px 0px; -fx-background-color: #313131; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1"
+            );
+            weight.setEditable(true);
+            
+            height.setStyle(
+                "-fx-border-color: #43896B; -fx-border-width: 0px 0px 1px 0px; -fx-background-color: #313131; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1"
+            );
+            height.setEditable(true);
+        }
+        else
+            alert.show();
 
-        subscriptionActiveButton.setVisible(false);
-        notActiveButton.setVisible(false);
-
-        editProfile.setVisible(false);
-        editProfile.setDisable(true);
-
-        save.setVisible(true);
-        save.setDisable(false);
-
-        cancel.setVisible(true);
-        cancel.setDisable(false);
-
-        editPhotoIcon.setVisible(true);
-        editPhotoIcon.setOpacity(0.75);
-        profilePhoto.setOpacity(0.25);
-
-        weight.setStyle(
-            "-fx-border-color: #43896B; -fx-border-width: 0px 0px 1px 0px; -fx-background-color: #313131; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1"
-        );
-        weight.setEditable(true);
-
-        height.setStyle(
-            "-fx-border-color: #43896B; -fx-border-width: 0px 0px 1px 0px; -fx-background-color: #313131; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1"
-        );
-        height.setEditable(true);
+        
     }
 
     @FXML

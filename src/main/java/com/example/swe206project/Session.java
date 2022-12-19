@@ -36,7 +36,7 @@ public class Session implements Initializable, Serializable{
 
     public void save(int id, String day, ArrayList<Workouts> workoutsList){
         WriteFiles writer = new WriteFiles("Sessions.txt", true);
-        String data = id + " " + day + "$ " + workoutsList;
+        String data = id + " " + day + "$ " + workoutsList.toString().replaceAll("\\s\\p{Punct}\\d{1,3}\\s\\p{Punct}\\d{1,3}\\s\\p{Punct}\\d{1,3}", "");
         try {
             writer.writeToFile(data);
         } catch (IOException e) {
