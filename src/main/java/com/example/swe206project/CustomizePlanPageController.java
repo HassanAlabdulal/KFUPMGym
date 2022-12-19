@@ -146,6 +146,11 @@ public class CustomizePlanPageController implements Initializable {
                 case "Saturday":
                     if (!reservedDays[0]) {
                         reservedDays[0] = true;
+                        confirmIcon.setVisible(true);
+                        errorIcon.setVisible(false);
+                        message.setText("A session on " + sessionDays.getValue() + " has been added successfully, you can now add workouts.");
+                        message.setStyle("-fx-text-fill: #43896B");
+                        message.setVisible(true);
                     } else {
                         confirmIcon.setVisible(false);
                         errorIcon.setVisible(true);
@@ -156,6 +161,11 @@ public class CustomizePlanPageController implements Initializable {
                 case "Sunday":
                     if (!reservedDays[1]) {
                         reservedDays[1] = true;
+                        confirmIcon.setVisible(true);
+                        errorIcon.setVisible(false);
+                        message.setText("A session on " + sessionDays.getValue() + " has been added successfully, you can now add workouts.");
+                        message.setStyle("-fx-text-fill: #43896B");
+                        message.setVisible(true);
                     } else {
                         confirmIcon.setVisible(false);
                         errorIcon.setVisible(true);
@@ -166,6 +176,11 @@ public class CustomizePlanPageController implements Initializable {
                 case "Monday":
                     if (!reservedDays[2]) {
                         reservedDays[2] = true;
+                        confirmIcon.setVisible(true);
+                        errorIcon.setVisible(false);
+                        message.setText("A session on " + sessionDays.getValue() + " has been added successfully, you can now add workouts.");
+                        message.setStyle("-fx-text-fill: #43896B");
+                        message.setVisible(true);
                     } else {
                         confirmIcon.setVisible(false);
                         errorIcon.setVisible(true);
@@ -176,6 +191,11 @@ public class CustomizePlanPageController implements Initializable {
                 case "Tuesday":
                     if (!reservedDays[3]) {
                         reservedDays[3] = true;
+                        confirmIcon.setVisible(true);
+                        errorIcon.setVisible(false);
+                        message.setText("A session on " + sessionDays.getValue() + " has been added successfully, you can now add workouts.");
+                        message.setStyle("-fx-text-fill: #43896B");
+                        message.setVisible(true);
                     } else {
                         confirmIcon.setVisible(false);
                         errorIcon.setVisible(true);
@@ -186,6 +206,11 @@ public class CustomizePlanPageController implements Initializable {
                 case "Wednesday":
                     if (!reservedDays[4]) {
                         reservedDays[4] = true;
+                        confirmIcon.setVisible(true);
+                        errorIcon.setVisible(false);
+                        message.setText("A session on " + sessionDays.getValue() + " has been added successfully, you can now add workouts.");
+                        message.setStyle("-fx-text-fill: #43896B");
+                        message.setVisible(true);
                     } else {
                         confirmIcon.setVisible(false);
                         errorIcon.setVisible(true);
@@ -196,6 +221,11 @@ public class CustomizePlanPageController implements Initializable {
                 case "Thursday":
                     if (!reservedDays[5]) {
                         reservedDays[5] = true;
+                        confirmIcon.setVisible(true);
+                        errorIcon.setVisible(false);
+                        message.setText("A session on " + sessionDays.getValue() + " has been added successfully, you can now add workouts.");
+                        message.setStyle("-fx-text-fill: #43896B");
+                        message.setVisible(true);
                     } else {
                         confirmIcon.setVisible(false);
                         errorIcon.setVisible(true);
@@ -245,6 +275,12 @@ public class CustomizePlanPageController implements Initializable {
                         if (reservedDays[0]) {
                             if (!(saturdayWorkouts.contains(workouts.getValue()))) {
                                 saturdayWorkouts.add(workouts.getValue());
+                                workouts.setPromptText("Workouts");
+                                confirmIcon.setVisible(true);
+                                errorIcon.setVisible(false);
+                                message.setText(workouts.getValue().getWorkoutName() + " has been added to " + sessionDays.getValue() + "'s session.");
+                                message.setStyle("-fx-text-fill: #43896B");
+                                message.setVisible(true);
                             } else {
                                 confirmIcon.setVisible(false);
                                 errorIcon.setVisible(true);
@@ -263,6 +299,12 @@ public class CustomizePlanPageController implements Initializable {
                         if (reservedDays[1]) {
                             if (!(sundayWorkouts.contains(workouts.getValue()))) {
                                 sundayWorkouts.add(workouts.getValue());
+                                workouts.setPromptText("Workouts");
+                                confirmIcon.setVisible(true);
+                                errorIcon.setVisible(false);
+                                message.setText(workouts.getValue().getWorkoutName() + " has been added to " + sessionDays.getValue() + "'s session.");
+                                message.setStyle("-fx-text-fill: #43896B");
+                                message.setVisible(true);
                             } else {
                                 confirmIcon.setVisible(false);
                                 errorIcon.setVisible(true);
@@ -281,6 +323,12 @@ public class CustomizePlanPageController implements Initializable {
                         if (reservedDays[2]) {
                             if (!(mondayWorkouts.contains(workouts.getValue()))) {
                                 mondayWorkouts.add(workouts.getValue());
+                                workouts.setPromptText("Workouts");
+                                confirmIcon.setVisible(true);
+                                errorIcon.setVisible(false);
+                                message.setText(workouts.getValue().getWorkoutName() + " has been added to " + sessionDays.getValue() + "'s session.");
+                                message.setStyle("-fx-text-fill: #43896B");
+                                message.setVisible(true);
                             } else {
                                 confirmIcon.setVisible(false);
                                 errorIcon.setVisible(true);
@@ -299,6 +347,12 @@ public class CustomizePlanPageController implements Initializable {
                         if (reservedDays[3]) {
                             if (!(tuesdayWorkouts.contains(workouts.getValue()))) {
                                 tuesdayWorkouts.add(workouts.getValue());
+                                workouts.setPromptText("Workouts");
+                                confirmIcon.setVisible(true);
+                                errorIcon.setVisible(false);
+                                message.setText(workouts.getValue().getWorkoutName() + " has been added to " + sessionDays.getValue() + "'s session.");
+                                message.setStyle("-fx-text-fill: #43896B");
+                                message.setVisible(true);
                             } else {
                                 confirmIcon.setVisible(false);
                                 errorIcon.setVisible(true);
@@ -317,6 +371,12 @@ public class CustomizePlanPageController implements Initializable {
                         if (reservedDays[4]) {
                             if (!(wednesdayWorkouts.contains(workouts.getValue()))) {
                                 wednesdayWorkouts.add(workouts.getValue());
+                                workouts.setPromptText("Workouts");
+                                confirmIcon.setVisible(true);
+                                errorIcon.setVisible(false);
+                                message.setText(workouts.getValue().getWorkoutName() + " has been added to " + sessionDays.getValue() + "'s session.");
+                                message.setStyle("-fx-text-fill: #43896B");
+                                message.setVisible(true);
                             } else {
                                 confirmIcon.setVisible(false);
                                 errorIcon.setVisible(true);
@@ -335,6 +395,12 @@ public class CustomizePlanPageController implements Initializable {
                         if (reservedDays[5]) {
                             if (!(thursdayWorkouts.contains(workouts.getValue()))) {
                                 thursdayWorkouts.add(workouts.getValue());
+                                workouts.setPromptText("Workouts");
+                                confirmIcon.setVisible(true);
+                                errorIcon.setVisible(false);
+                                message.setText(workouts.getValue().getWorkoutName() + " has been added to " + sessionDays.getValue() + "'s session.");
+                                message.setStyle("-fx-text-fill: #43896B");
+                                message.setVisible(true);
                             } else {
                                 confirmIcon.setVisible(false);
                                 errorIcon.setVisible(true);
@@ -425,15 +491,18 @@ public class CustomizePlanPageController implements Initializable {
             plan = new Plan(planName.getText(), sessionsList);
             trainee.setPlan(plan);
 
+            sessionDays.setPromptText("Session Days");
+            workouts.setPromptText("Workouts");
+
             confirmIcon.setVisible(true);
             errorIcon.setVisible(false);
-            message.setText(planName + " has been assigned to " + trainee.getName() + " successfully.");
+            message.setText(planName.getText() + " has been assigned to " + trainee.getName() + " successfully.");
             message.setStyle("-fx-text-fill: #43896B");
             message.setVisible(true);
         } else {
             confirmIcon.setVisible(false);
             errorIcon.setVisible(true);
-            message.setText("Plan name is incorrect or you did not add sessions or workouts.");
+            message.setText("Plan name is incorrect or you did not add sessions nor workouts.");
             message.setStyle("-fx-text-fill: #D53A0B");
             message.setVisible(true);
         }
