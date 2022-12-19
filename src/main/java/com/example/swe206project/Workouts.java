@@ -97,7 +97,7 @@ public  class Workouts {
             session = SessionPage.dSession;
         
         ReadFiles r = new ReadFiles<>("Progress.txt");
-        String[] workouts = r.fetch(trainee.userName + " " + session, "\\[\\p{ASCII}*\\]").split(",");
+        String[] workouts = r.fetch(trainee.userName + " " + session.day + " " + session.id, "\\[\\p{ASCII}*\\]").split(",");
         // ArrayList<Workouts> workoutsList = new ArrayList<>();
         for (String workoutInfo : workouts) {
             if(workoutInfo.contains(id+"")){
@@ -117,7 +117,7 @@ public  class Workouts {
             session = SessionPage.dSession;
             
         ReadFiles r = new ReadFiles<>("Progress.txt");
-        String[] workouts = r.fetch(trainee.userName + " " + session, "\\[\\p{ASCII}*\\]").split(",");
+        String[] workouts = r.fetch(trainee.userName + " " + session.day + " " + session.id, "\\[\\p{ASCII}*\\]").split(",");
         // ArrayList<Workouts> workoutsList = new ArrayList<>();
         for (String workoutInfo : workouts) {
             if(workoutInfo.contains(id+"")){
@@ -138,7 +138,7 @@ public  class Workouts {
             session = SessionPage.dSession;
 
         ReadFiles r = new ReadFiles<>("Progress.txt");
-        String[] workouts = r.fetch(trainee.userName + " " + session, "\\[\\p{ASCII}*\\]").split(",");
+        String[] workouts = r.fetch(trainee.userName + " " + session.day + " " + session.id, "\\[\\p{ASCII}*\\]").split(",");
         // ArrayList<Workouts> workoutsList = new ArrayList<>();
         for (String workoutInfo : workouts) {
             if(workoutInfo.contains(id+"")){

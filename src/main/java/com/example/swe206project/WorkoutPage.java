@@ -304,7 +304,7 @@ public class WorkoutPage implements Initializable{
         ReadFiles r = new ReadFiles<>("Progress.txt");
         WriteFiles w = new WriteFiles<>("Progress.txt");
         Session session = SessionPage.dSession;
-        int line = r.getLine(trainee.userName + " " + session);
+        int line = r.getLine(trainee.userName + " " + session.day + " " + session.id);
         String data = workout.id + " !" + workout.actualSets + " ?" + workout.actualRepitions + " *" + workout.weightUsed;
         w.modifyLine(line, data+",", workout.getId()+"\\p{ASCII}*\\,");
     }

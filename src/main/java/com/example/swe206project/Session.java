@@ -69,7 +69,7 @@ public class Session implements Initializable, Serializable{
     }
 
     public String toString(){
-        return day +" "+ id;
+        return id+"";
     }
 
     public ObservableList<Workouts> getObservableWorkoutsList() {
