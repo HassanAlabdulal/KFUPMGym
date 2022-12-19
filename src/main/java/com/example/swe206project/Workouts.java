@@ -155,19 +155,22 @@ public  class Workouts {
     public String getSetsProgress(){
         trainee = ViewTraineesPageController.trainee;
         session = ProgressPageController.desiredSession;
-        return getActualSets() + "/" + setsTarget;
+        int sets = getActualSets();
+        return sets + "/" + setsTarget + " (" + String.format("%.2f", (double) sets/setsTarget * 100) + "%)";
     }
 
     public String getRepitionsProgress(){
         trainee = ViewTraineesPageController.trainee;
         session = ProgressPageController.desiredSession;
-        return getActualRepitions() + "/" + repititionTarget;
+        int rep = getActualRepitions();
+        return rep + "/" + repititionTarget + " (" + String.format("%.2f", (double) rep/repititionTarget * 100) + "%)";
     }
 
     public String getWeightProgress() {
         trainee = ViewTraineesPageController.trainee;
         session = ProgressPageController.desiredSession;
-        return getWeightUsed() + "/" + weightTarget;
+        int weight = getWeightUsed();
+        return weight + "kg/" + weightTarget + "kg (" + String.format("%.2f", (double) weight/weightTarget * 100) + "%)";
     }
 
     public String getVolumeProgress() {

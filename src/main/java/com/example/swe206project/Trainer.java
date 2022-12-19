@@ -51,7 +51,7 @@ public class Trainer<T> extends User implements Initializable{
         super(name, height, weight, photo);
         UsernamePassGen user = new UsernamePassGen(name, "trainer");
         userName = user.username;
-        this.speciality = speciality;
+        this.speciality = speciality.replaceAll(" ", "-");
         for (Trainer trainer : trainersList) {
             if(trainer.getUsername().equals(this.userName))
                 this.traineesList = trainer.traineesList;
@@ -65,7 +65,7 @@ public class Trainer<T> extends User implements Initializable{
 
     public void save(String name, double height, double weight, String photo, String status) {
         WriteFiles writer = new WriteFiles("UserInfo.txt", true);
-        String data = "@" + userName + " " + name + " " +  height + " " + weight + " " + photo + " " + speciality + " " + traineesList.toString().replaceAll(" ", "") + " !" + status;
+        String data = "@" + userName + " " + name + " " +  height + " " + weight + " (" + photo + ") " + speciality + " " + traineesList.toString().replaceAll(" ", "") + " !" + status;
         try {
             writer.writeToFile(data);
         } catch (IOException e) {
@@ -108,11 +108,11 @@ public class Trainer<T> extends User implements Initializable{
     }
 
     public String getSpeciality() {
-        return speciality;
+        return speciality.replaceAll("-", " ");
     }
 
     public void setSpeciality(String speciality) {
-        this.speciality = speciality;
+        this.speciality = speciality.replaceAll(" ", "-");
     }
 
     public ArrayList<Trainee> getTraineesList() {

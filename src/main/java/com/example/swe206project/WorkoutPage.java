@@ -95,7 +95,9 @@ public class WorkoutPage implements Initializable{
             targetedSets.setText(workout.getSetsTarget() + "");
             targetedRepetitions.setText(workout.getRepititionTarget() + "");
             targetedMuscles.setText(workout.getTargetedMuscles());
-            workoutDescription.setText(workout.getSteps()); 
+            workoutDescription.setText(workout.getSteps());
+            //workoutDescription.setFont(new );
+            //workoutDescription.set 
     }
 
 

@@ -10,7 +10,8 @@ UserName   | Name  |                info       |     assigned trainer if exists 
 @Ali4583 Ali 170.0 75.0 (defaultPic.png) *0 ?trainer#17484 !active
 @ahmedabdulaal3331 ahmed-abdulaal 12.0 342.0 (defaultPic.png) *0 ?trainer#17484 !active
 @brdga1050 brdga 432.0 23.0 (D:\logos\images.jpg) *20229745 ?Ahmed8286 !active
-@brbga1767 brbga 23.0 324.0 (defaultPic.png) *0 ? !active
+@brbga1767 brbga 23.0 324.0 (defaultPic.png) *20221594 ?testspace1643 !active
 @awe8140 awe 23.0 324.0 (defaultPic.png) *20229745 ?Ahmed8286 !not-active
 @testspace302 test-space 43.0 43.0 (defaultPic.png) *0 ?Ahmed8286 !active
 @tastyburger3581 tasty-burger 3.0 4.0 (defaultPic.png) *20221594 ?Ahmed8286 !not-active
+@testspace1643 test-space 43.0 43.0 (defaultPic.png) weight-lifting [,brbga1767] !active
