@@ -7,7 +7,7 @@ UserName   | Name  |                info       |     assigned trainer if exists 
 @trainer#17484 trainer#1 170.0 60.0 (defaultPic.png) eating [trainee#17802,trainee#24382,trainee#32855,ahmedabdulaal3331,Ali4583] !active
 @Hassan8645 Hassan 160.0 80.0 (defaultPic.png) *0 ? !not-active
 @Ahmed8286 Ahmed 179.4 87.3 (defaultPic.png) eating [,trainee#03882,brdga1050,tastyburger3581,testspace302,awe8140] !active
-@Ali4583 Ali 170.0 75.0 (defaultPic.png) *0 ?trainer#17484 !active
+@Ali4583 Ali 170.0 75.0 (defaultPic.png) *20223880 ?trainer#17484 !active
 @ahmedabdulaal3331 ahmed-abdulaal 12.0 342.0 (defaultPic.png) *0 ?trainer#17484 !active
 @brdga1050 brdga 432.0 23.0 (D:\logos\images.jpg) *20229745 ?Ahmed8286 !active
 @brbga1767 brbga 23.0 324.0 (defaultPic.png) *20221594 ?testspace1643 !active
