@@ -338,6 +338,8 @@ public class MenuController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         //myProfile.fire();
 
+        userName.setText(user.getName());
+
         if (user instanceof Trainer) {
             viewTrainees.setVisible(true);
             viewTrainees.setDisable(false);

@@ -15,4 +15,6 @@ UserName   | Name  |                info       |     assigned trainer if exists 
 @testspace302 test-space 43.0 43.0 (defaultPic.png) *20227569 ?Ahmed8286 !active
 @tastyburger3581 tasty-burger 3.0 4.0 (defaultPic.png) *2022883 ?Ahmed8286 !not-active
 @testspace1643 test-space 43.0 43.0 (defaultPic.png) weight-lifting [,brbga1767] !active
+@Ali4086 Ali 180.0 70.0 (defaultPic.png) Fitness [,Jamal5149] !active
+@Jamal5149 Jamal 160.0 90.0 (defaultPic.png) *20221594 ?Ali4086 !active
 @butaki6875 bu-taki 323.0 25.0 (defaultPic.png) *2022883 ?Ahmed8286 !active
