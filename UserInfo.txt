@@ -6,12 +6,13 @@ UserName   | Name  |                info       |     assigned trainer if exists 
 @trainee#32855 trainee#3 103.0 53.0 (defaultPic.png) *0 ?trainer#17484 !active
 @trainer#17484 trainer#1 170.0 60.0 (defaultPic.png) eating [trainee#17802,trainee#24382,trainee#32855,ahmedabdulaal3331,] !active
 @Hassan8645 Hassan 160.0 80.0 (defaultPic.png) *0 ? !not-active
-@Ahmed8286 Ahmed 179.9 87.4 (defaultPic.png) eating [,trainee#03882,brdga1050,tastyburger3581,testspace302,awe8140] !active
+@Ahmed8286 Ahmed 179.9 87.4 (defaultPic.png) eating [,trainee#03882,brdga1050,tastyburger3581,testspace302,awe8140,butaki6875] !active
 @Ali4583 Ali 170.0 75.0 (defaultPic.png) *0 ? !active
 @ahmedabdulaal3331 ahmed-abdulaal 12.0 342.0 (defaultPic.png) *0 ?trainer#17484 !active
-@brdga1050 brdga 432.0 23.0 (D:\logos\images.jpg) *20229745 ?Ahmed8286 !active
+@brdga1050 brdga 432.0 23.0 (D:\logos\images.jpg) *20229745 ?Ahmed8286 !not-active
 @brbga1767 brbga 23.0 324.0 (defaultPic.png) *20221594 ?testspace1643 !active
 @awe8140 awe 23.0 324.0 (defaultPic.png) *20229745 ?Ahmed8286 !not-active
 @testspace302 test-space 43.0 43.0 (defaultPic.png) *20227569 ?Ahmed8286 !active
 @tastyburger3581 tasty-burger 3.0 4.0 (defaultPic.png) *2022883 ?Ahmed8286 !not-active
 @testspace1643 test-space 43.0 43.0 (defaultPic.png) weight-lifting [,brbga1767] !active
+@butaki6875 bu-taki 323.0 25.0 (defaultPic.png) *2022883 ?Ahmed8286 !active
