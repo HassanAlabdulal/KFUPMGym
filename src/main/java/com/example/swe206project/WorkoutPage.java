@@ -124,7 +124,7 @@ public class WorkoutPage implements Initializable{
     void submitButtonOnClicked(MouseEvent event) throws IOException {
       if(actualRepetitions.getText().isEmpty() || actualSets.getText().isEmpty() || weightUsed.getText().isEmpty() || Integer.valueOf(actualRepetitions.getText()) >= 100 || Integer.valueOf(actualSets.getText()) >= 100 || Integer.valueOf(weightUsed.getText()) >= 100 || Integer.valueOf(actualRepetitions.getText()) < 0 || Integer.valueOf(actualSets.getText()) < 0 || Integer.valueOf(weightUsed.getText()) < 0 ){
 
-        if(actualRepetitions.getText().isEmpty() || Integer.valueOf(actualRepetitions.getText()) >= 100){
+        if(actualRepetitions.getText().isEmpty() || Integer.valueOf(actualRepetitions.getText()) >= 100 || Integer.valueOf(actualRepetitions.getText()) < 0 ){
             actualRepetitions.setStyle("-fx-border-color: #D53A0B; -fx-border-width: 1px 1px 1px 1px; -fx-background-color: #3A4141; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1");
             errorMessageOne.setVisible(true);
             failIconOne.setVisible(true);
@@ -136,7 +136,7 @@ public class WorkoutPage implements Initializable{
 
         }
 
-        if(actualSets.getText().isEmpty() || Integer.valueOf(actualSets.getText()) >= 100){
+        if(actualSets.getText().isEmpty() || Integer.valueOf(actualSets.getText()) >= 100 || Integer.valueOf(actualSets.getText()) < 0 ){
             actualSets.setStyle("-fx-border-color: #D53A0B; -fx-border-width: 1px 1px 1px 1px; -fx-background-color: #3A4141; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1");
             errorMessageOne.setVisible(true);
             failIconOne.setVisible(true);
@@ -147,7 +147,7 @@ public class WorkoutPage implements Initializable{
 
         }
 
-        if(weightUsed.getText().isEmpty() || Integer.valueOf(weightUsed.getText()) >= 100){
+        if(weightUsed.getText().isEmpty() || Integer.valueOf(weightUsed.getText()) >= 100 || Integer.valueOf(weightUsed.getText()) < 0 ){
             weightUsed.setStyle("-fx-border-color: #D53A0B; -fx-border-width: 1px 1px 1px 1px; -fx-background-color: #3A4141; -fx-background-radius: 5px 5px 0px 0px; -fx-text-fill: #F4F9F1");
             errorMessageOne.setVisible(true);
             failIconOne.setVisible(true);
